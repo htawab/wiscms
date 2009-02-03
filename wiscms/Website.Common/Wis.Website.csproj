@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5BF11998-5ED7-487C-A8B8-94D911A6DFAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wis.Website</RootNamespace>
+    <AssemblyName>Wis.Website</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractManager.cs" />
+    <Compile Include="AjaxRequests\ArticleHttpHandler.cs" />
+    <Compile Include="AjaxRequests\CommentHttpHandler.cs" />
+    <Compile Include="AjaxRequests\MeetingHttpHandler.cs" />
+    <Compile Include="AjaxRequests\SystemHttpHandler.cs" />
+    <Compile Include="Label\Entity.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="DataManager\Article.cs" />
+    <Compile Include="DataManager\ArticleManager.cs" />
+    <Compile Include="DataManager\ArticleType.cs" />
+    <Compile Include="DataManager\Category.cs" />
+    <Compile Include="DataManager\CategoryField.cs" />
+    <Compile Include="DataManager\CategoryManager.cs" />
+    <Compile Include="DataManager\TemplateType.cs" />
+    <Compile Include="DataManager\Comment.cs" />
+    <Compile Include="DataManager\CommentManager.cs" />
+    <Compile Include="DataManager\DbProviderHelper.cs" />
+    <Compile Include="DataManager\File.cs" />
+    <Compile Include="DataManager\FileManager.cs" />
+    <Compile Include="DataManager\GenericXmlSerializer.cs" />
+    <Compile Include="DataManager\Link.cs" />
+    <Compile Include="DataManager\LinkManager.cs" />
+    <Compile Include="DataManager\Log.cs" />
+    <Compile Include="DataManager\LogManager.cs" />
+    <Compile Include="DataManager\Original.cs" />
+    <Compile Include="DataManager\OriginalManager.cs" />
+    <Compile Include="DataManager\Page.cs" />
+    <Compile Include="DataManager\PageManager.cs" />
+    <Compile Include="DataManager\Release.cs" />
+    <Compile Include="DataManager\ReleaseManager.cs" />
+    <Compile Include="DataManager\Soft.cs" />
+    <Compile Include="DataManager\SoftManager.cs" />
+    <Compile Include="DataManager\SorterMode.cs" />
+    <Compile Include="DataManager\Special.cs" />
+    <Compile Include="DataManager\SpecialManager.cs" />
+    <Compile Include="DataManager\Survey.cs" />
+    <Compile Include="DataManager\SurveyManager.cs" />
+    <Compile Include="DataManager\Tag.cs" />
+    <Compile Include="DataManager\TagManager.cs" />
+    <Compile Include="DataManager\Template.cs" />
+    <Compile Include="DataManager\TemplateLabel.cs" />
+    <Compile Include="DataManager\TemplateLabelManager.cs" />
+    <Compile Include="DataManager\TemplateManager.cs" />
+    <Compile Include="DataManager\Utilities.cs" />
+    <Compile Include="Pager\Entity.cs" />
+    <Compile Include="Pager\Manager.cs" />
+    <Compile Include="Setting.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteHtml.cs" />
+    <Compile Include="Page\Entity.cs" />
+    <Compile Include="Page\Manager.cs" />
+    <Compile Include="Tag\Entity.cs" />
+    <Compile Include="Tag\Manager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wis.Toolkit\Wis.Toolkit.csproj">
+      <Project>{5EC44A43-EAA5-4D59-A208-C1CE3801B982}</Project>
+      <Name>Wis.Toolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
