@@ -1,0 +1,5 @@
+E:\教育局\src\System.Components\obj\Debug\ResolveAssemblyReference.cache
+E:\教育局\src\System.Components\bin\Debug\Wis.Toolkit.dll
+E:\教育局\src\System.Components\bin\Debug\Wis.Toolkit.pdb
+E:\教育局\src\System.Components\obj\Debug\Wis.Toolkit.dll
+E:\教育局\src\System.Components\obj\Debug\Wis.Toolkit.pdb
