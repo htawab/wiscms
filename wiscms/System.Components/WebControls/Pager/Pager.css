@@ -1,0 +1,105 @@
+﻿
+/* Pager Main Tyle */
+.Pager {
+	color: #000000;
+	cursor: default;
+	font-size: 12px;
+	font-family: Tahoma, Verdana;
+	padding: 3px 0px 3px 0px;
+}
+.Pager .count, .Pager .number, .Pager .arrow {
+	color: #000000;
+	font-size: 12px;
+	background-color: #F7F7F7;
+	border: 1px solid #c1dad7;
+}
+/* Page and PageCount Style */
+.Pager .count {
+	border-right: none;
+	padding: 2px 10px 1px 10px;
+}
+/* Mode 0,1,2 Style (Number) */
+.Pager .number {
+	font-family: Verdana, Tahoma;
+	font-weight: normal;
+	padding: 2px 10px 1px 10px !important;
+	padding: 2px 10px 2px 10px;
+}
+.Pager .number a, .Pager .number span {
+	font-family: Verdana, Tahoma;
+	font-size: 12px;
+}
+.Pager .number span {
+	color: #999999;
+	margin: 0px 3px 0px 3px;
+}
+.Pager .number a {
+	color: #000000;
+	text-decoration: none;
+}
+.Pager .number a:hover {
+	color: #0000ff;
+	text-decoration: none;
+}
+/* Mode 3 Style (Arrow) */
+.Pager .arrow {
+	font-weight: normal;
+	padding: 0px 5px 0px 5px;
+}
+.Pager .arrow a, .Pager .arrow span {
+	font-size: 12px;
+	font-family: Webdings;
+}
+.Pager .arrow span {
+	color: #999999;
+	margin: 0px 5px 0px 5px;
+}
+.Pager .arrow a {
+	color: #000000;
+	text-decoration: none;
+}
+.Pager .arrow a:hover {
+	color: #0000ff;
+	text-decoration: none;
+}
+/* Mode 4 Style (Select) */
+.Pager select, .Pager input {
+	color: #000000;
+	font-size: 12px;
+	font-family: Tahoma, Verdana;
+}
+/* Mode 5 Style (Input) */
+.Pager .input input.ititle, .Pager .input input.itext, .Pager .input input.icount {
+	color: #666666;
+	font-weight: bold;
+	background-color: #F7F7F7;
+	border: 1px solid #CCCCCC;
+	padding-bottom: 2px !important;
+}
+.Pager .input input.ititle {
+	width: 70px;
+	text-align: right;
+	border-right: none;
+}
+.Pager .input input.itext {
+	width: 25px;
+	color: #000000;
+	text-align: right;
+	border-left: none;
+	border-right: none;
+}
+.Pager .input input.icount {
+	width: 35px;
+	text-align: left;
+	border-left: none;
+}
+.Pager .input input.ibutton {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-family: Verdana;
+	background-color: #999999;
+	border: 1px solid #666666;
+	padding: 0px;
+	margin-left: 2px;
+	cursor: hand;
+}
