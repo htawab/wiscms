@@ -1,0 +1,40 @@
+	.asbMenu 
+	{
+		border: 1px solid lightsteelblue ;
+		background: #ffffff;
+		position: absolute;
+		padding: 5;
+		white-space: nowrap;
+		z-index: 1000;
+		font-size:11px;
+	    font-family:Verdana;	     
+	}
+	
+	.asbMenuBase
+	{
+		position: absolute;
+		z-index: 1000;
+	}
+	
+					
+	.asbMenuItem
+	{			
+	    font-size:11px;
+	    font-family:Verdana;
+		color: black;
+		background: #ffffff;
+		cursor: hand;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	
+	.asbSelMenuItem
+	{		
+	    font-size:11px;
+	    font-family:Verdana;	
+		background: #007FC4;
+		color:White;		
+		cursor: hand;
+		cursor: pointer;
+		white-space: nowrap;
+	}

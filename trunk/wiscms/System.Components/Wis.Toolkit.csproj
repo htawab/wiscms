@@ -1,0 +1,467 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5EC44A43-EAA5-4D59-A208-C1CE3801B982}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Wis.Toolkit</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Wis.Toolkit</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Name>System.Data.OracleClient</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Messaging">
+      <Name>System.Messaging</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\Cache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\CacheItemExpiredEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\CacheItemFetchEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Caching\Dictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChineseSpell.cs" />
+    <Compile Include="ClientScript\History.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClientScript\MessageBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClientScript\ScriptHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClientScript\Window.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Combinations\CombinationCollection.cs" />
+    <Compile Include="Combinations\ElementSet.cs" />
+    <Compile Include="CookieManager.cs" />
+    <Compile Include="Cryptography\Base64.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\Rijndael.cs" />
+    <Compile Include="DataAccess\AbstractDataAccess.cs" />
+    <Compile Include="DataAccess\DataAccessFactory.cs" />
+    <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\OdbcDataAccess.cs" />
+    <Compile Include="DataAccess\OleDbDataAccess.cs" />
+    <Compile Include="DataAccess\OracleDataAccess.cs" />
+    <Compile Include="DataAccess\SqlServerDataAccess.cs" />
+    <Compile Include="Drawings\TextToImage.cs" />
+    <Compile Include="Formats.cs" />
+    <Compile Include="HttpModules\HttpCompressionModule.cs" />
+    <Compile Include="IO\Directory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\File.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\FileOperate.cs" />
+    <Compile Include="IO\Stream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Kernel\ExceptionAppender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Message\XmlMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\Http.cs" />
+    <Compile Include="Net\Smtp\Attachment.cs" />
+    <Compile Include="Net\Smtp\EmailAddress.cs" />
+    <Compile Include="Net\Smtp\Log.cs" />
+    <Compile Include="Net\Smtp\MailEncoder.cs" />
+    <Compile Include="Net\Smtp\MailHeader.cs" />
+    <Compile Include="Net\Smtp\MailMessage.cs" />
+    <Compile Include="Net\Smtp\MailPriority.cs" />
+    <Compile Include="Net\Smtp\MalformedAddressException.cs" />
+    <Compile Include="Net\Smtp\ParseException.cs" />
+    <Compile Include="Net\Smtp\ReplyConstants.cs" />
+    <Compile Include="Net\Smtp\Smtp.cs" />
+    <Compile Include="Net\Smtp\SmtpConfig.cs" />
+    <Compile Include="Net\Smtp\SmtpException.cs" />
+    <Compile Include="RequestManager.cs" />
+    <Compile Include="Security\Permission.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\PermissionCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Settings\Entry.cs" />
+    <Compile Include="Settings\EntryCollection.cs" />
+    <Compile Include="Settings\GenericPage.cs" />
+    <Compile Include="Settings\GenericPageCollection.cs" />
+    <Compile Include="Settings\Setting.cs" />
+    <Compile Include="DataProvider.cs" />
+    <Compile Include="Templates\Functions\Operators.cs" />
+    <Compile Include="Templates\Functions\Validator.cs" />
+    <Compile Include="Templates\ITagHandler.cs" />
+    <Compile Include="Templates\ITemplateHandler.cs" />
+    <Compile Include="Templates\Parser\Entity\ArrayAccess.cs" />
+    <Compile Include="Templates\Parser\Entity\BinaryExpression.cs" />
+    <Compile Include="Templates\Parser\Entity\DoubleLiteral.cs" />
+    <Compile Include="Templates\Parser\Entity\Element.cs" />
+    <Compile Include="Templates\Parser\Entity\ElementCollection.cs" />
+    <Compile Include="Templates\Parser\Entity\Expression.cs" />
+    <Compile Include="Templates\Parser\Entity\ExpressionCollection.cs" />
+    <Compile Include="Templates\Parser\Entity\FCall.cs" />
+    <Compile Include="Templates\Parser\Entity\FieldAccess.cs" />
+    <Compile Include="Templates\Parser\Entity\IntLiteral.cs" />
+    <Compile Include="Templates\Parser\Entity\MethodCall.cs" />
+    <Compile Include="Templates\Parser\Entity\Name.cs" />
+    <Compile Include="Templates\Parser\Entity\StringExpression.cs" />
+    <Compile Include="Templates\Parser\Entity\StringLiteral.cs" />
+    <Compile Include="Templates\Parser\Entity\Tag.cs" />
+    <Compile Include="Templates\Parser\Entity\TagAttribute.cs" />
+    <Compile Include="Templates\Parser\Entity\TagAttributeCollection.cs" />
+    <Compile Include="Templates\Parser\Entity\TagClose.cs" />
+    <Compile Include="Templates\Parser\Entity\TagIf.cs" />
+    <Compile Include="Templates\Parser\Entity\Text.cs" />
+    <Compile Include="Templates\Parser\ParseException.cs" />
+    <Compile Include="Templates\Parser\TagParser.cs" />
+    <Compile Include="Templates\Parser\TemplateLexer.cs" />
+    <Compile Include="Templates\Parser\TemplateParser.cs" />
+    <Compile Include="Templates\Parser\Token.cs" />
+    <Compile Include="Templates\Settings\Module.cs" />
+    <Compile Include="Templates\Settings\ModuleCollection.cs" />
+    <Compile Include="Templates\Settings\Page.cs" />
+    <Compile Include="Templates\Settings\PageCollection.cs" />
+    <Compile Include="Templates\Settings\Setting.cs" />
+    <Compile Include="Templates\StaticTypeReference.cs" />
+    <Compile Include="Templates\TemplateEntity.cs" />
+    <Compile Include="Templates\TemplateFactory.cs" />
+    <Compile Include="Templates\TemplateManager.cs" />
+    <Compile Include="Templates\TemplatePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\TemplateRuntimeException.cs" />
+    <Compile Include="Templates\Util.cs" />
+    <Compile Include="Templates\VariableScope.cs" />
+    <Compile Include="TraditionalToSimplified.cs" />
+    <Compile Include="Utility\StringUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Validator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\Anthem\AdRotator.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestBox.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestEventArgs.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestItem.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestItemEventArgs.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestItemType.cs" />
+    <Compile Include="WebControls\Anthem\AutoSuggestBox\AutoSuggestMenuItem.cs" />
+    <Compile Include="WebControls\Anthem\BulletedList.cs" />
+    <Compile Include="WebControls\Anthem\Button.cs" />
+    <Compile Include="WebControls\Anthem\Calendar.cs" />
+    <Compile Include="WebControls\Anthem\CheckBox.cs" />
+    <Compile Include="WebControls\Anthem\CheckBoxList.cs" />
+    <Compile Include="WebControls\Anthem\CompareValidator.cs" />
+    <Compile Include="WebControls\Anthem\CustomValidator.cs" />
+    <Compile Include="WebControls\Anthem\DataGrid.cs" />
+    <Compile Include="WebControls\Anthem\DataList.cs" />
+    <Compile Include="WebControls\Anthem\Debugger.cs" />
+    <Compile Include="WebControls\Anthem\DetailsView.cs" />
+    <Compile Include="WebControls\Anthem\DropDownList.cs" />
+    <Compile Include="WebControls\Anthem\FileUpload.cs" />
+    <Compile Include="WebControls\Anthem\FormView.cs" />
+    <Compile Include="WebControls\Anthem\GridView.cs" />
+    <Compile Include="WebControls\Anthem\HiddenField.cs" />
+    <Compile Include="WebControls\Anthem\HyperLink.cs" />
+    <Compile Include="WebControls\Anthem\ICallBackContainerControl.cs" />
+    <Compile Include="WebControls\Anthem\ICallBackControl.cs" />
+    <Compile Include="WebControls\Anthem\Image.cs" />
+    <Compile Include="WebControls\Anthem\ImageButton.cs" />
+    <Compile Include="WebControls\Anthem\IUpdatableControl.cs" />
+    <Compile Include="WebControls\Anthem\Label.cs" />
+    <Compile Include="WebControls\Anthem\LinkButton.cs" />
+    <Compile Include="WebControls\Anthem\ListBox.cs" />
+    <Compile Include="WebControls\Anthem\Manager.cs" />
+    <Compile Include="WebControls\Anthem\MethodAttribute.cs" />
+    <Compile Include="WebControls\Anthem\MultiView.cs" />
+    <Compile Include="WebControls\Anthem\Panel.cs" />
+    <Compile Include="WebControls\Anthem\PlaceHolder.cs" />
+    <Compile Include="WebControls\Anthem\RadioButton.cs" />
+    <Compile Include="WebControls\Anthem\RadioButtonList.cs" />
+    <Compile Include="WebControls\Anthem\RangeValidator.cs" />
+    <Compile Include="WebControls\Anthem\RegularExpressionValidator.cs" />
+    <Compile Include="WebControls\Anthem\Repeater.cs" />
+    <Compile Include="WebControls\Anthem\RequiredFieldValidator.cs" />
+    <Compile Include="WebControls\Anthem\Table.cs" />
+    <Compile Include="WebControls\Anthem\TextBox.cs" />
+    <Compile Include="WebControls\Anthem\Timer.cs" />
+    <Compile Include="WebControls\Anthem\ValidationSummary.cs" />
+    <Compile Include="WebControls\Anthem\View.cs" />
+    <Compile Include="WebControls\Anthem\WebPartZone.cs" />
+    <Compile Include="WebControls\BoundIntBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\Calendar\Calendar.cs" />
+    <Compile Include="WebControls\DropDownList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\DropdownMenus\DropdownMenu.cs" />
+    <Compile Include="WebControls\DropdownMenus\DropdownMenuItem.cs" />
+    <Compile Include="WebControls\HtmlEditorControls\HtmlEditor.cs" />
+    <Compile Include="WebControls\HtmlEditorControls\HtmlEditorControlDesigner.cs" />
+    <Compile Include="WebControls\HtmlEditorControls\ResourceHandler.cs" />
+    <Compile Include="WebControls\HtmlEditorControls\Theme.cs" />
+    <Compile Include="WebControls\HtmlEditorControls\TypesConsts.cs" />
+    <Compile Include="WebControls\IntBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\Pager\Pager.cs" />
+    <Compile Include="WebControls\Popup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\PopupAnchor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\RangeBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\RichCalendar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadFileCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadHelpr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadLoger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadStatusHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebControls\WebUpload\UploadView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XML\Serializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ServerSessionManager.cs" />
+    <EmbeddedResource Include="WebControls\IntBox.bmp" />
+    <EmbeddedResource Include="WebControls\Popup.bmp" />
+    <EmbeddedResource Include="WebControls\PopupAnchor.bmp" />
+    <EmbeddedResource Include="WebControls\Anthem\Anthem.js" />
+    <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\AutoSuggestBox.css" />
+    <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\AutoSuggestBox.js" />
+    <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\Blank.html" />
+    <Content Include="WebControls\Anthem\README.TXT" />
+    <EmbeddedResource Include="WebControls\Pager\Pager.css" />
+    <EmbeddedResource Include="WebControls\Pager\Pager.js" />
+    <EmbeddedResource Include="WebControls\Calendar\Calendar.bmp" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\Calendar.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\Calendar.js" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\CalendarDisabled.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\close.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\drop1.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\drop2.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\left1.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\left2.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\right1.gif" />
+    <EmbeddedResource Include="WebControls\Calendar\Images\right2.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Css\Style.css" />
+    <EmbeddedResource Include="WebControls\DropdownMenus\DropdownMenu.bmp" />
+    <Content Include="WebControls\HtmlEditorControls\HtmlEditor.bmp" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\AttachFile.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Bold.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\BulletedList.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Clear.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Copy.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\CreateLink.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Cut.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\DecreasesRegional.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Design.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\FontForeColor.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Help.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\IncreaseRegional.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Indent.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertFlash.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertHorizontalRule.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertPhoto.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertSymbol.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertTable.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Italic.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\JustifyCenter.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\JustifyFull.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\JustifyLeft.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\JustifyRight.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_bottom.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_left.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_left1.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_leftbottom.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_lefttop.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_right.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_right1.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_rightbottom.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_righttop.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Menu_border_top.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Mouseoff.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Mouseon.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\NumberedList.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Outdent.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Paste.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\PreFormatted.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Preview.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Printpage.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Redo.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\RemoveFormat.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Sel.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Source.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Strikethrough.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\StripWordFormatting.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Subscript.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Superscript.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Text.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\TextHighlightColor.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Underline.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Undo.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Unlink.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Scripts\Designer.js" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Scripts\DesignerView.js" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Scripts\Preload.js" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Scripts\Toolbars.js" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\Designer.html" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\DesignerToolbars.html" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\DesignerView.html" />
+    <Content Include="WebControls\HtmlEditorControls\Themes\Word2003\Toolbars.htm" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\Designer.html" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\DesignerToolbars.html" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\DesignerView.html" />
+    <Content Include="WebControls\WebUpload\WebbUpload.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

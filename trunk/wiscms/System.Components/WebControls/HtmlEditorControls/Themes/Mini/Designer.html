@@ -1,0 +1,78 @@
+﻿<input type="hidden" name="$ClientID$_Hidden" id="$ClientID$_Hidden" value="$Text$">
+<table border="0" cellpadding="0" cellspacing="0" style="border:1px solid #4e4e4e;" bgcolor="BFDBFF" align="center">
+    <tr>
+        <td bgcolor="#FFFFFF"><iframe  width="$Width$" height="$Height$" scrolling="yes" id="$ClientID$_Designer" class="HtmlEditor_Designer" name="$ClientID$_Designer" onBlur="HtmlEditor_Save($ClientID$_Designer, '$ClientID$_Hidden', $ClientID$_CurrentDesignerView);"></iframe></td>
+    </tr>
+</table>
+<div id='$ClientID$_Temp' style='VISIBILITY: hidden; OVERFLOW: hidden; POSITION: absolute; WIDTH: 0px; HEIGHT: 0px'></div>
+<script language="JavaScript" type="text/javascript">
+    // TODO:Supported in Internet Explorer, Mozilla Firefox 
+    
+    HtmlEditor_Initialize($ClientID$_Designer, '$ClientID$_Hidden', $ReadOnly$);
+    HtmlEditor_Preload();
+    
+    // var $ClientID$_Designer; // 设计器
+    // var $ClientID$_DesignerView; // 是否源代码视图状态
+    var $ClientID$_DesignViewCss = '$DesignViewCss$';
+    var $ClientID$_SourceViewCss = '$SourceViewCss$';
+    var $ClientID$_PlainTextViewCss = '$PlainTextViewCss$';
+    var $ClientID$_PreviewViewCss = '$PreviewViewCss$';
+    var $ClientID$_StartDesignerView = '$StartDesignerView$';
+    
+    // Bug? 在PostBack过程中，可能会有问题，需要判断当前View的状态
+    if ($ClientID$_DesignViewCss != '' || $ClientID$_SourceViewCss != '' || $ClientID$_PlainTextViewCss != '' || $ClientID$_PreviewViewCss != '')
+    {
+        $ClientID$_Designer.document.createStyleSheet($ClientID$_DesignViewCss);
+	    $ClientID$_Designer.document.createStyleSheet($ClientID$_SourceViewCss);
+	    $ClientID$_Designer.document.createStyleSheet($ClientID$_PlainTextViewCss);
+	    $ClientID$_Designer.document.createStyleSheet($ClientID$_PreviewViewCss);
+	    $ClientID$_Designer.document.styleSheets[0].disabled = true;
+	    $ClientID$_Designer.document.styleSheets[1].disabled = true;
+	    $ClientID$_Designer.document.styleSheets[2].disabled = true;
+	    $ClientID$_Designer.document.styleSheets[3].disabled = true;
+	    $ClientID$_Designer.document.styleSheets[$StartDesignerView$].disabled = false;
+    }
+    
+    // current designer view
+    var $ClientID$_CurrentDesignerView;
+    switch($StartDesignerView$)
+    {
+        case 0:
+            $ClientID$_CurrentDesignerView = 'DesignView';
+            break;
+        case 1:
+            $ClientID$_CurrentDesignerView = 'SourceView';
+            break;
+        case 2:
+            $ClientID$_CurrentDesignerView = 'PlainTextView';
+            break;
+        case 3:
+            $ClientID$_CurrentDesignerView = 'PreviewView';
+            break;
+    }
+
+    // dialog's path
+    var $ClientID$_DialogsPath = '$DialogsPath$';
+    var $ClientID$_SwitchMode = 'Normal';
+    // var $ClientID$_HasFocus = false;
+
+    // onkeydown
+    function $ClientID$_OnKeyDown() {
+        var designer = $ClientID$_Designer;
+        var designerView = $ClientID$_CurrentDesignerView;
+        return HtmlEditor_OnKeyDown(designer, designerView);
+    }  
+    $ClientID$_Designer.document.onkeydown = $ClientID$_OnKeyDown;
+
+    // OnPaste
+    // TODO:supports pasting mode 提示用户是否过滤word格式
+    function $ClientID$_OnPaste() {
+        var designer = $ClientID$_Designer;
+        var designerView = $ClientID$_CurrentDesignerView;
+        var tempDesigner = getElementById('$ClientID$_Temp');
+	    return HtmlEditor_OnPaste(designer, designerView, tempDesigner, $ClientID$_SwitchMode);
+    }
+    
+    $ClientID$_Designer.document.body.onpaste = $ClientID$_OnPaste;
+
+</script>

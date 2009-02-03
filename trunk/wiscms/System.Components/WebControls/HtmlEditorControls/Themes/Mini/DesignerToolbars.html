@@ -1,0 +1,123 @@
+﻿<table id="$ClientID$_Toolbars" name="$ClientID$_Toolbars" width="$Width$" border="0" align="center" cellpadding="1" cellspacing="0">
+  <tr>
+    <td height="30" align="left" valign="top" bgcolor="#D6E2F2"><table width="100%" height="40" border="0" cellpadding="2" cellspacing="0">
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td background="Menu_border_left.gif"></td>
+            <td height="25" align="center" bgcolor="D6E2F0">
+            <table width="98%" height="25" border="0" cellpadding="2" cellspacing="0">
+              <tr>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Undo($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="撤销"><img src="Undo.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>
+                <td align="center">
+                <table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Redo($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="重做"><img src="Redo.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>
+                </tr> 
+            </table>
+            </td>
+          </tr>
+        </table>
+       </td>
+        <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25" align="center" bgcolor="D6E2F0">
+            <table width="98%" height="25" border="0" cellpadding="2" cellspacing="0">                              
+              <tr>
+              <td unselectable="on"><select name="$ClientID$_FontSizes" onChange="HtmlEditor_FontSizes($ClientID$_Designer, $ClientID$_CurrentDesignerView, this[this.selectedIndex].innerText, this[this.selectedIndex].value);this.selectedIndex=0;" class="HtmlEditor_ToolbarSelect">
+                      <option selected="selected">字号</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+                    </select></td>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Bold($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="粗体"><img src="Bold.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Italic($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="斜体"><img src="Italic.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Underline($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="下划线"><img src="Underline.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>            
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_FontForeColor($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="字体颜色"><img src="FontForeColor.gif" width="16" height="16" unselectable="on" /></td>
+                  </tr>
+                </table></td>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_TextHighlightColor($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="文本高亮颜色"><img src="TextHighlightColor.gif" width="16" height="16" unselectable="on" /></td>
+                    </tr>
+                </table></td>
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+          </td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+         
+          <tr>
+            <td height="25" align="center" bgcolor="D6E2F0"><table width="98%" height="25" border="0" cellpadding="2" cellspacing="0">
+              <tr>
+                <td align="center" unselectable="on"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_InsertHorizontalRule($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="插入水平线" unselectable="on"><img src="InsertHorizontalRule.gif" width="16" height="16" unselectable="on" /></td>
+                    </tr>
+                </table></td>
+                <td align="center" unselectable="on"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_InsertPhoto($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="插入图片" unselectable="on"><img src="InsertPhoto.gif" width="16" height="16" unselectable="on" /></td>
+                    </tr>
+                </table></td>
+                <td align="center" unselectable="on"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_InsertFlash($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="插入Flash文件" unselectable="on"><img src="InsertFlash.gif" width="16" height="16" unselectable="on" /></td>
+                    </tr>
+                </table></td>              
+                <td align="center" unselectable="on"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_CreateLink($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="插入超链接" unselectable="on"><img src="CreateLink.gif" width="16" height="15" unselectable="on"/></td>
+                    </tr>
+                </table></td>
+                <td align="center"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_Unlink($ClientID$_Designer, $ClientID$_CurrentDesignerView);" title="移除超链接" unselectable="on"><img src="Unlink.gif" width="16" height="15" unselectable="on"/></td>
+                    </tr>
+                </table></td>
+                <td align="center" unselectable="on"><table width="24" height="22" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center" valign="middle" background="Mouseoff.gif" onMouseOver="this.background='Mouseon.gif';" onMouseOut="this.background='Mouseoff.gif';" onClick="HtmlEditor_InsertTable($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="插入表格" unselectable="on"><img src="InsertTable.gif" width="16" height="16" unselectable="on" /></td>
+                    </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+      </td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25" align="center" valign="middle" bgcolor="D6E2F0" unselectable="on"><img src="Help.gif" width="25" height="25" unselectable="on" onClick="HtmlEditor_Help($ClientID$_Designer, $ClientID$_CurrentDesignerView, '$DialogsPath$');" title="查看使用帮助" style="cursor:help;"/></td>
+          </tr>
+        </table>
+       </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
