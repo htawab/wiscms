@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>$Article.Title$ - 鞍山市铁东区教育局</title>
+    <link href="$TemplateDirectory$css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+        <div class="headerBox">
+            <img src="$TemplateDirectory$images/logo.gif" width="173px" height="53px" />
+            <div class="loginBox">
+                用户名：<input type="text" size="12" />
+                密码：<input type="text" size="12" />
+                <input type="button" class="btn" />
+            </div>
+            <ul>
+                <li class="left"></li>
+                <li><a href="index.html" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="jydtList.html" title="ss">教育动态</a></li><li class="sep">|</li>
+                <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
+                <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">东师资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">铁东资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">铁东教育</a></li><li class="sep">|</li>
+                <li><a href="msfc.html" title="名师风采">名师风采</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">教育博客</a></li>
+                <li class="right"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="left mgnBot" id="left">
+            <div class="position"><a href="$ApplicationPath$">首页</a>&gt;&gt;$Article.Category.CategoryName$</div>
+            <h1><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Article.Title$<tpl:else><font color="$Article.TitleColor$">$Article.Title$</font></tpl:if></h1>
+            <h2>$Article.SubTitle$</h2>
+            <div class="h1bot"><span>浏览人数：328</span>$Article.DateCreated$ &nbsp;&nbsp;$Article.Author$</div>
+            <div class="contentHtml">$Article.ContentHtml$
+                <div class="annexDown">附件下载：<a href="#">附件1</a><a href="#">附件2</a></div>
+            </div>
+            <div class="review1"><a href="#review" title="我要评论" class="flright">我要评论</a>当前共有 $Article.Comments$ 条评论</div>
+            <div class="review2">
+                <dl><tpl:foreach collection="$Comments$" var="Comment" index="Index">
+                    <dt><span style="color: #999">&nbsp;[$Index$楼]</span><span><a href="#">$Comment.Commentator$</a>&nbsp;&nbsp;$Comment.DateCreated$</span></dt>
+                    <dd>$Comment.ContentHtml$</dd></tpl:foreach>
+                </dl>
+            </div>
+            <div class="review3">
+                <dl>
+                    <dt>发表评论</dt>
+                    <dd>
+                        <a name="review" id="review"></a>&nbsp;标 题：<input type="text" />
+                        <br />
+                        &nbsp;内 容：<textarea rows="4"></textarea><br />
+                        验证码：<input type="text" class="code" />
+                        <input type="button" style="width: 40px; border: 0; height: 20px;" />
+                        <input type="button" value="提交评论" class="plbtn1" />
+                    </dd>
+                </dl>
+            </div>
+            <div class="relateArticles">
+                <dl>
+                    <dt>相关文章</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="#" title="#">市地税局开始试行保险机代缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始试构代收代缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始试行保险构代收代缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始试行收代缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始试行保险机代收代缴车船税，首批参加试点的保</a>2009-01-22</li>
+                            <li><a href="#" title="#">市地税局开始试行保险机构代收代缴车船税试点的保</a>2009-01-22</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            &nbsp;
+        </div>
+        <div class="right" id="right">
+            <div class="meeting outbox">
+                <div class="cap">
+                    <a href="#" title="查看更多">更多</a>会议信息</div>
+                <ul class="indexList">
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                    <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                </ul>
+            </div>
+            <div class="sysLink mgnBot">
+                <a href="#" title="会议预订系统">会议预订系统</a><a href="#" title="学籍管理系统">学籍管理系统</a><a href="#"
+                    title="人事管理系统">人事管理系统</a><a href="#" title="信息化教学备案">信息化教学备案</a><a href="#" title="信息化设备管理">信息化设备管理</a><a
+                        href="#" title="统计报表">统计报表</a><a href="#" title="自助建站管理">自助建站管理</a><a href="#" title="电子期刊管理">电子期刊管理</a><a
+                            href="#" title="部门职能">部门职能</a></div>
+            <div class="areasch outbox height5">
+                <div class="cap mgnBot">
+                    学区查询</div>
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <img src="$TemplateDirectory$images/areaschbtn.gif" width="56" height="21" class="btn" />
+            </div>
+            <div class="outbox height4">
+                <div class="cap">
+                    投诉中心</div>
+                <span class="gdh">工单号查询</span><input type="text" class="inputTxt" /><input type="button"
+                    class="tsBtn" />
+                <ul class="indexList">
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                </ul>
+            </div>
+            <div class="tdjy mgnBot">
+                <img src="$TemplateDirectory$images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+                <div class="line1">
+                    <div>《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
+                    <select>
+                        <option>铁东教育第13期</option>
+                    </select></div>
+                <div class="line2">
+                    <div class="lineIn">
+                        <a href="#" title="#">第12期 2008.12</a><br />
+                        <a href="#" title="#">第12期 2008.12</a></div>
+                    <input type="button" class="readBtn" /></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="outbox height3">
+                <div class="cap">
+                    <a href="#" title="查看更多">更多</a>视频新闻</div>
+                <div id="fW_Content">
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+                            <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+                            <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="softdown outbox height6">
+                <div class="cap">软件下载</div>
+                <ul>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="recLink">
+                <a href="#" title="recommendLink"><img src="$TemplateDirectory$images/recommendLink.gif" width="322" height="62" /></a></div>
+        </div>
+        <script src="$TemplateDirectory$js/fixHeight.js" type="text/javascript" language="javascript"></script>
+        <div class="clear"></div>
+    </div>
+    <div class="link outbox">
+        <div class="cap">学校链接</div>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$images/link.gif" /></a>
+        <div class="clear"></div>
+    </div>
+    <div class="bottom">
+        <a href="#" title="#">设置首页</a>－<a href="#" title="#">加入收藏</a>－<a href="#" title="#">版权声明</a>－<a href="#" title="#">联系方式</a>－<a href="#" title="#">网站地图</a><br />
+        鞍山市铁东区教育局版权所有<br />
+        辽ICP备0000号
+    </div>
+</body>
+</html>
