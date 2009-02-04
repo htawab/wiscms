@@ -1,0 +1,243 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, h1, h2, h3, h4, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em; }
+body {background:#dadada; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+ul, li {list-style:none;}
+.header {width:987px; margin:0 auto; background:#fff url(../images/headerbg.gif) bottom repeat-x; margin-bottom:3px; padding-bottom:8px;}
+.headerBox, .center, .link, .bottom {width:987px; margin:0 auto;}
+.center {}
+.clear {clear:both; font-size:0; height:0; line-height:0px;}
+a {color:#4e4e4e; text-decoration:none;}
+a:hover {color:#fe0623;}
+img {border:0;}
+.red {color:#f00;}
+.mgnBot {margin-bottom:3px;}
+
+/* 首页*/
+.headerBox {text-align:right;}
+.headerBox img {float:left; margin-right:23px;}
+.loginBox {color:#585555; margin:0 0 5px 0; padding-top:5px;}
+.loginBox input {font-size:12px; height:14px; margin-right:8px;}
+.loginBox input.btn {width:51px; height:20px; background:url(../images/loginBtn.gif); border:0;}
+
+.headerBox ul {height:35px;}
+.headerBox ul li {float:left; height:35px; padding:0 6px 0 5px; background: url(../images/navbg.gif) top repeat-x; line-height:26px; *line-height:30px; color:#fff;}
+.headerBox ul li.left {width:13px; padding:0; background:url(../images/navbgleft.gif) left no-repeat;}
+.headerBox ul li.right {width:13px; padding:0; background:url(../images/navbgright.gif) right no-repeat;}
+.headerBox ul li a {color:#fff;}
+.headerBox ul li a:hover {color:#ff0;}
+.headerBox ul li.sep {line-height:26px;}
+
+.center .left {width:662px; float:left;}
+.center .left .leftIn {background:#fff;}
+.center .right {width:322px;float:right;}
+.center .picNews {width:662px; height:180px; float:left; background:#f8f8f8;;}
+.center .meeting {width:322px; height:180px; overflow:hidden; _line-height:15px; float:right;}
+
+.indexleft {width:329px; float:left;}
+.indexleft2 {width:330px; float:right;}
+
+.height1 {height:304px; _height:307px; overflow:hidden;}
+.height2 {height:228px; _height:231px; overflow:hidden;}
+.height3 {height:282px; _height:285px; overflow:hidden;}
+.height4 {height:279px; _height:282px; overflow:hidden;}
+.height5 {height:144px; _height:147px; overflow:hidden;}
+.height6 {height:196px; _height:196px; overflow:hidden;}
+
+/* 通用模块样式 */
+div.outbox {background:#fff url(../images/boxTop.gif) top repeat-x; margin-bottom:3px;}
+div.outbox div.cap {height:25px; line-height:25px; *line-height:28px; padding-left:20px; font-size:13px; font-weight:bold; color:#ff2c2c; background:url(../images/ico1.gif) 8px 10px no-repeat;}
+div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; color:#787070; font-size:12px; background:url(../images/moreIco.gif) 0 7px no-repeat;}
+div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
+
+ul.indexList {}
+ul.indexList li {margin:0 8px; padding:5px 0 2px 0; *padding:4px 0 2px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
+
+span.date {float:right; color:#5d5c5c; letter-spacing:0; }
+
+
+/* 教育动态 教学研究 */
+.tabBox ul.tab {width:62px; height:275px; padding:3px 0; margin:0; _margin-top:-2px; _margin-bottom:-2px; background:url(../images/tabbg1.gif) top; float:left;}
+.tabBox ul.tab2 {background:url(../images/tabbg1.gif) 0 -275px repeat-x;}
+.tabBox ul.tab li {line-height:21px; text-align:center;}
+.tabBox ul.tab li a {display:block; color:#ffe5e5; width:62px;}
+.tabBox ul.tab li.active {}
+.tabBox ul.tab li.active a {background:url(../images/tabhover1.gif) left center no-repeat; color:#d93830;}
+.tabBox ul.tab li a:hover {background:url(../images/tabhover1.gif) left center no-repeat; color:#d93830;}
+.tabBox {position:relative;}
+.tabList {position:absolute; top:30px; left:60px;}
+.tabList2{position:absolute; top:26px; left:60px;}
+.disnone {display:none;}
+
+/* 教学资源 */
+.zytab1 {background:#fcc;}
+div.postion {position:relative;}
+ul#laws {position:absolute; left:88px; top:0; width:240px;}
+ul#laws li {float:left; width:78px; height:31px; text-align:center; letter-spacing:2px; background:url(../images/zytabbg2.gif) center top;}
+ul#laws li.active {background:url(../images/zytabbg1.gif) center top;}
+div.outbox div.cap ul#laws li a {padding:0; float:none; font-weight:bold; color:#726666; font-size:12px; background:none;}
+div.outbox div.cap ul#laws li a:hover {text-decoration:none;}
+div.outbox div.cap ul#laws li.active a {color:#fff;}
+
+/* 名师 */
+.msBox {width:320px; height:86px; _height:83px; border:1px solid #ebebeb; background:#f5f5f5; margin:4px 0 1px 2px; letter-spacing:0.1em; }
+.msBox .msBg {width:83px; height:83px; margin:2px 0 0 0; background:url(../images/msBg.gif); float:left;}
+.msBox .msBg img {width:65px; height:65px; margin:9px;}
+.msBox h2 {font-size:12px; color:#4b896a; margin:8px 0 3px 0;}
+.msBox p {color:#666; text-indent:14px; line-height:18px;}
+.msBox p span {float:right; margin-top:-16px;}
+.msBox p span a {color:#305489;}
+.msBox p span a:hover {color:red;}
+
+
+/* 视频新闻 */
+.video {}
+#fW_Content {
+	display: inline; float: left; width:321px; height:258px; text-align:center;}
+#fW_Controls {
+	display: inline; float: left; margin:0px 0px 0px 0px; width: 120px; height:32px; border:1px solid #ff0;}
+#fW_Controls A {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; background: url(../images/btnFeatureHover.gif) no-repeat; float: left; width: 30px; COLOR: white; PADDING-TOP: 6px; height: 24px; TEXT-ALIGN: center
+}
+#fW_Controls A.activeSlide {
+	background-POSITION: 0px -30px;}
+#fW_Controls A:hover {
+	background-POSITION: 0px -30px;}
+#fW_Content table {margin-left:2px; margin-top:4px;}
+#fW_Content td {line-height:16px;}
+#fW_Content a img {border:3px solid #dbd0d0;}
+#fW_Content a:hover img {border:3px solid #473b3b;}
+#fW_Content a:hover {color:#5f1b2e;}
+#fW_Content td {line-height:150%;}
+
+
+/* 铁东教育电子杂志 */
+div.tdjy {height:84px; background:#f0f0f0 url(../images/tdjyBg.gif) repeat-x;}
+div.tdjy img {margin:5px; float:left;}
+div.tdjy .line1 {text-align:right; margin:18px 5px 8px 5px;}
+div.tdjy .line1 div {float:left;}
+div.tdjy .line1 div span {color:#fc1503; letter-spacing:0;}
+div.tdjy select {font-size:12px; letter-spacing:0; margin-top:-4px;}
+input.readBtn {width:82px; height:26px; margin:5px 0 0 19px; border:0; background:url(../images/readBtn.gif);}
+div.lineIn {float:right; margin-right:12px; line-height:18px;}
+div.lineIn a {color:#656566;}
+div.lineIn a:hover {color:#f11;}
+
+/* 投诉中心 */
+span.gdh {color:#8c7373; font-weight:bold; letter-spacing:0; margin:0 0 0 10px;}
+input.inputTxt { border:1px solid #c4dbfa; margin:8px 0 1px 5px;}
+input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-repeat; border:0; margin:8px 0 0 5px;}
+
+/* 软件下载 */
+.softdown ul li {width:133px; height:18px;  float:left; padding-left:24px; padding-top:6px; background:url(../images/down1.gif) 3px 3px no-repeat;}
+
+/* 推荐链接 */
+.recLink {height:62px; _height:65px; background:#f8f8f8;}
+
+
+/* 学校链接 */
+.link {margin-bottom:6px;}
+.link a {float:left; width:92px; height:42px; margin:3px 0 3px 6px;}
+.link a img {width:92px; height:42px; }
+
+.bottom {padding-top:3px; height:auto; background:#f2f2f2 url(../images/bottombg.gif); text-align:center; line-height:18px; color:#7c7879;}
+.bottom a {color:#7c7879}
+.bottom a:hover {color:#7c7879; text-decoration:underline;}
+
+
+/* 列表页 */
+.main {width:987px; margin:0 auto;}
+.main .left{width:662px; float:left; background:#fff url(../images/mainbg.gif) top repeat-x;}
+.position {padding:13px 0 2px 14px; _padding-left:24px;  margin:0 8px 6px 8px; color:#ff2c2c; font-size:13px; font-weight:bold; border-bottom:1px solid red; position:relative;}
+.position div {width:32px; height:31px; background:url(../images/positionbg.gif); position:absolute; _margin-left:-12px; left:-8px; top:0px;}
+.main .listtab {height:526px; _height:529px; overflow:hidden;}
+.main .listtab ul.tab {float:left; width:660px; background:url(../images/tabLine.gif) bottom repeat-x; padding-left:4px; margin-bottom:6px;}
+.main .listtab ul.tab li {float:left; height:25px; line-height:25px; background:url(../images/tabbgright1.gif) right top; white-space:nowrap;}
+.main .listtab ul.tab li a {display:block; background:#fff; padding:0 7px 0 6px; *padding:0 7px; background:url(../images/tabbgleft1.gif) left top no-repeat;}
+
+.main .listtab ul.tab li.active {background:url(../images/tabbgright2.gif) right top;}
+.main .listtab ul.tab li.active a {background:url(../images/tabbgleft2.gif) left top no-repeat; color:#fff;}
+.main .left ul.list {}
+.main .left ul.list li {height:24px; line-height:24px; margin:0 18px; color:#666; background:url(../images/dotline.gif) bottom repeat-x; letter-spacing:0.1em;}
+.main .left ul.list li a {margin:0 4px 0 4px;}
+.main .left ul.list li span  {float:right;}
+.page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
+.main .right {width:322px; float:right;}
+
+.right div.sysLink {background:#f3f1f1; letter-spacing:0; padding:3px 0; padding-left:4px; border:1px solid #fff;}
+.right div.sysLink a {display:inline-block; width:102px; height:27px; margin:1px 1px; background:#f3f1f1 url(../images/sysbtn.gif); text-align:center; line-height:25px; color:#6c6a68;}
+.right div.sysLink a:hover {color:#f70808; position: relative; left:-1px; top:-1px; background:url(../images/sysbtn2.gif);}
+
+.right div.areasch {margin-top:3px;}
+.right div.areasch select {font-size:12px; margin:3px 6px 3px 56px; color:#444;}
+.areasch .btn {margin:8px 0 6px 126px;}
+
+/* 图片头条列表 */
+.picNewsList {margin:0 8px; background:#eee;  height:100%; margin-bottom:6px;}
+.picNewsList div {margin:7px 6px 3px 12px; float:left; text-align:center; line-height:22px;}
+.picNewsList div a {display:block; color:#111;}
+.picNewsList div a:hover {display:block; color:#f00;}
+.picNewsList div a img {border:3px solid #ccc;}
+.picNewsList div a:hover img {border:3px solid #f33;}
+.picNewsList div.clear { float:none; width:100%; clear:both; border:0; margin:0;}
+
+
+/* 详细页 */
+.main h1 {font-size:24px; color:#ff2b00; line-height:26px; text-align:center;}
+.main h2 {font-size:18px; color:#727070; line-height:24px; text-align:center;}
+.main h3 {font-size:18px; margin:0; line-height:20px; padding:0;}
+.main div.h1bot {color:#666; text-align:center; position:relative;}
+.main div.h1bot span {position:absolute; right:13px; top:0;}
+.content {width:96%; color:#222; margin:3px auto; line-height:1.5em; font-size:14px;}
+.content p {margin:3px 0; text-indent:1.8em;}
+
+.pinglun .flright {float:right;}
+.pinglun a {color:#0e8ebe;}
+.pinglun a:hover {text-decoration:underline;}
+.pinglun input {height:14px; line-height:14px; margin:3px 0; width:400px;}
+.pinglun textarea {width:400px;}
+.pinglun input.plbtn {width:67px; height:23px; line-height:25px; border:0; padding:0; margin:3px 5px; margin-left:12px; background:url(../images/plbtn.gif)}
+.pinglun input.plbtn1 {width:67px; height:23px; line-height:25px; border:0; padding:0; margin:3px 5px; margin-left:36px; background:url(../images/plbtn.gif)}
+.review {border-bottom:1px dashed #999;}
+.pinglun {width:96%; margin:0 auto; margin-bottom:8px;}
+.pinglun dt {border:1px solid #dfd6d6; background:#f0eaea; line-height:22px; padding:0 6px;}
+.pinglun dt span {float:right; }
+.pinglun dd {margin:0 0 2px 0; padding:6px; text-indent:18px; line-height:16px; color:#333; border:1px solid #dfd6d6; border-top:0;}
+
+
+
+
+/* 名师风采 */
+.msfcBox {margin:0 8px 6px 8px; border:1px solid #d5d1d1;}
+.msfcBox div {background:#f4f0f0; border:2px solid #fff;}
+div.msfcLeft {width:120px; float:left; border:0; background:none;}
+div.msfcRight {width:516px; float:right; border:0;}
+
+.msfcBox div.clear {margin:0; border:0;}
+
+.msfcBox div a.img {display:block;} 
+/* 上下margin写在a里，左右margin写在img里，以解决IE和FF的兼容 */
+.msfcBox div a img { float:left; border:3px solid #fff; margin:4px;}
+.msfcBox div a:hover img {border:3px solid #60685f;}
+
+.msfcBox div h3 {margin:8px 0 4px 0; font-size:13px;}
+
+.msfcBox div p {text-indent:1.5em; line-height:20px; float:right;}
+.msfcBox div span {/* position:absolute; right:10px; bottom:3px; */ float:right; margin-top:-16px; margin-right:4px;}
+.msfcBox div span a {color:red;}
+.msfcBox div span a:hover {text-decoration:underline;}
+
+/* 下载 */
+.contentDown {margin:0 8px 8px 8px;}
+.downTitle {height:26px; line-height:26px; font-weight:bold; color:#644f4f; text-indent:6px; border:1px solid #dad9d9; background:url(../images/downTitleBg.gif) repeat-x; margin-bottom:6px; font-size:12px;}
+.downPic {margin-left:8px; border:1px solid #ccc; float:left;}
+.downPic img {width:230px; height:220px;}
+.downInfo {font-size:12px; float:left;}
+.downInfo ul li {border-bottom:1px solid #fdf4f4; margin:0 6px 0 18px; color:#4e97e9; line-height:22px;}
+.downInfo ul li span {color:#222;}
+.downLink {margin:0 12px 4px 12px; padding:4px; border:1px solid #bbb; background:url(../images/downlinkbg.gif) 0 1px repeat-x;}
+.downLink a {margin:0 6px; color:#b96b18;}
+.downLink a:hover {color:#b22; text-decoration:underline;}
+a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; background:url(../images/downBtn.gif);}

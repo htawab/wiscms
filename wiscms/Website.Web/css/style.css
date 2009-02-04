@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+body, h1, h2, h3, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em; }
+body {background:#dadada; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+li {list-style:none;}
+.header {background:#fff url(../images/headerbg.gif) bottom repeat-x; margin-bottom:6px; padding-bottom:8px;}
+.headerBox, .center, .link, .bottom {width:987px; margin:0 auto;}
+.center {}
+.clear {clear:both;}
+a {color:#4e4e4e; text-decoration:none;}
+a:hover {color:#fe0623;}
+img {border:0;}
+.red {color:#f00;}
+.mgnBot {margin-bottom:6px;}
+
+
+/* 首页*/
+.headerBox {text-align:right;}
+.headerBox img {float:left; margin-right:23px;}
+.loginBox {color:#585555; margin:0 0 5px 0; padding-top:5px;}
+.loginBox input {font-size:12px; height:14px; margin-right:8px;}
+.loginBox input.btn {width:51px; height:20px; background:url(../images/loginBtn.gif); border:0;}
+
+.headerBox ul {height:35px;}
+.headerBox ul li {float:left; height:35px; padding:0 6px 0 5px; background: url(../images/navbg.gif) top repeat-x; line-height:26px; *line-height:30px; color:#fff;}
+.headerBox ul li.left {width:13px; padding:0; background:url(../images/navbgleft.gif) left no-repeat;}
+.headerBox ul li.right {width:13px; padding:0; background:url(../images/navbgright.gif) right no-repeat;}
+.headerBox ul li a {color:#fff;}
+.headerBox ul li a:hover {color:#ff0;}
+.headerBox ul li.sep {line-height:26px;}
+
+.center .left {width:662px; float:left;}
+.center .left .leftIn { background:#fff;}
+.center .right {width:318px;float:right;}
+.center .picNews {width:662px; height:180px; float:left; background:#f8f8f8;}
+.center .meeting {width:318px; height:180px; overflow:hidden; _line-height:15px; float:right;}
+
+.indexleft {width:328px; float:left;}
+.indexleft2 {width:328px; float:right;}
+
+.height1 {height:304px; _height:307px; overflow:hidden;}
+.height2 {height:270px; _height:273px; overflow:hidden;}
+.height3 {height:487px; _height:493px; overflow:hidden;}
+.height4 {height:197px; _height:200px; overflow:hidden;}
+.height5 {height:144px; overflow:hidden;}
+.height6 {height:193px; _height:196px; overflow:hidden;}
+
+/* 通用模块样式 */
+div.outbox {background:#fff url(../images/areaschbg.gif) top repeat-x; margin-bottom:6px;}
+div.outbox div.cap {height:25px; line-height:25px; *line-height:28px; padding-left:20px; font-size:13px; font-weight:bold; color:#ff2c2c; background:url(../images/ico1.gif) 8px 10px no-repeat;}
+div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; color:#787070; font-size:12px; background:url(../images/moreIco.gif) 0 7px no-repeat;}
+div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
+ul.indexList {}
+ul.indexList li {margin:0 8px; padding:5px 0 2px 0; *padding:4px 0 2px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
+
+
+span.date {float:right; color:#5d5c5c; letter-spacing:0; }
+
+
+/* 教育动态 教学研究 */
+.tabBox ul.tab {width:62px; height:273px; padding:3px 0; background:url(../images/tabbg1.gif) top; float:left;}
+.tabBox ul.tab li {line-height:21px; text-align:center; }
+.tabBox ul.tab li a {display:block; color:#fff; width:62px;}
+.tabBox ul.tab li.active {}
+.tabBox ul.tab li.active a {background:url(../images/tabhover1.gif) left center no-repeat; color:#111;}
+.tabBox ul.tab li a:hover {background:url(../images/tabhover1.gif) left center no-repeat; color:#111;}
+.tabBox {position:relative;}
+.tabList {position:absolute; top:30px; left:60px;}
+.tabList2{position:absolute; top:26px; left:60px;}
+.disnone {display:none;}
+
+
+/* 名师 */
+.msBox {width:320px; height:86px; border:1px solid #ebebeb; background:#f5f5f5; margin:4px 0 1px 2px; letter-spacing:0.1em; }
+.msBox .msBg {width:83px; height:83px; margin:2px 0 0 0; background:url(../images/msBg.gif); float:left;}
+.msBox .msBg img {width:65px; height:65px; margin:9px;}
+.msBox h2 {font-size:12px; color:#4b896a; margin:8px 0 3px 0;}
+.msBox p {color:#666; text-indent:14px; line-height:18px;}
+.msBox p span {float:right; margin-top:-16px;}
+.msBox p span a {color:#305489;}
+.msBox p span a:hover {color:red;}
+
+
+/* 视频新闻 */
+.video {width:300px; height:190px; margin:5px auto 3px auto; }
+div.videotitle{width:300px; height:18px; margin:0px 0px 0px auto; background:#ffffff;}
+div.videotitle a{color:Blue; text-decoration:underline;}
+div.videotitle a.hover{color:Orange;}
+/* 铁东教育电子杂志 */
+div.tdjy {height:84px; background:#f0f0f0 url(../images/tdjyBg.gif) repeat-x;}
+div.tdjy img {margin:5px; float:left;}
+div.tdjy .line1 {text-align:right; margin:18px 5px 8px 5px;}
+div.tdjy .line1 div {float:left;}
+div.tdjy .line1 div span {color:#fc1503; letter-spacing:0;}
+div.tdjy select {font-size:12px; letter-spacing:0; margin-top:-4px;}
+input.readBtn {width:82px; height:26px; margin:5px 0 0 19px; border:0; background:url(../images/readBtn.gif);}
+div.lineIn {float:right; margin-right:12px; line-height:18px;}
+div.lineIn a {color:#656566;}
+div.lineIn a:hover {color:#f11;}
+
+/* 投诉中心 */
+span.gdh {color:#8c7373; font-weight:bold; letter-spacing:0; margin:0 0 0 10px;}
+input.inputTxt { border:1px solid #c4dbfa; margin:8px 0 1px 5px;}
+input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-repeat; border:0; margin:8px 0 0 5px;}
+
+/* 软件下载 */
+.softdown ul li {width:133px; height:18px;  float:left; padding-left:24px; padding-top:6px; background:url(../images/down1.gif) 3px 3px no-repeat;}
+
+
+/* 学校链接 */
+.link {margin-bottom:6px;}
+.link a {float:left; width:92px; height:42px; margin:3px 0 3px 6px;}
+.link a img {width:92px; height:42px; }
+
+.bottom {padding-top:3px; height:auto; background:#f2f2f2 url(../images/bottombg.gif); text-align:center; line-height:18px; color:#7c7879;}
+.bottom a {color:#7c7879}
+.bottom a:hover {color:#7c7879; text-decoration:underline;}
+
+
+/* 列表页 */
+.main {width:987px; margin:0 auto; margin-top:6px;}
+.main .left{width:660px; float:left; background:#fff url(../images/mainbg.gif) top repeat-x;}
+.position {height:35px; line-height:35px; text-indent:12px; color:#0e0e0e; font-size:12px; font-weight:bold;}
+.main .listtab {height:526px;}
+.main .listtab ul.tab {float:left; width:650px; background:url(../images/tabLine.gif) bottom repeat-x; padding-left:10px; margin-bottom:6px;}
+.main .listtab ul.tab li {float:left; height:25px; white-space:nowrap;line-height:25px; background:url(../images/tabbgright1.gif) right top; cursor:hand;}
+.main .listtab ul.tab li a {display:block; width:100%; background:#fff; padding:0 7px 0 6px; *padding:0 7px; background:url(../images/tabbgleft1.gif) left top no-repeat;}
+
+.main .listtab ul.tab li.active {background:url(../images/tabbgright2.gif) right top;}
+.main .listtab ul.tab li.active a {background:url(../images/tabbgleft2.gif) left top no-repeat; color:#fff;}
+.main .left ul.list {}
+.main .left ul.list li {height:24px; line-height:24px; margin:0 18px; color:#666; background:url(../images/dotline.gif) bottom repeat-x; letter-spacing:0.1em;}
+.main .left ul.list li a {margin:0 4px 0 4px;}
+.main .left ul.list li span  {float:right;}
+.page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
+.main .right {width:320px; float:right;}
+
+.right div.sysLink {background:#fff; letter-spacing:0; padding:3px 0;}
+.right div.sysLink a {display:inline-block; width:96px; height:21px; margin:3px 3px; background:#f00 url(../images/sysbtn.gif); text-align:center; line-height:21px; color:#fff;}
+.right div.sysLink a:hover {color:#fff003;}
+.right div.areasch {}
+
+
+.right div.areasch select {font-size:12px; margin:3px 6px 3px 56px; color:#444;}
+.areasch .btn {margin:8px 0 6px 126px;}
+
+
+/* 详细页 */
+.main h1 {font-size:16px; color:#ff2b00; line-height:22px; text-align:center; letter-spacing:0.2em; font-family:"微软雅黑"}
+.main div.h1bot {color:#666; text-align:center; position:relative;}
+.main div.h1bot span {position:absolute; right:13px; top:0;}
+.content {width:88%; height:100%; color:#222; margin:10px auto; line-height:1.5em; font-size:15px;}
+.content p a{color:Blue;text-decoration:underline;}
+.content p a:hover{color:#fe0623;}
+/* 详细页附件样式 */
+.contenta{ font-size:13px}
+.contenta a{ color:Blue; text-decoration:underline;}
+.contenta a:hover{ color:#fe0623; text-decoration:underline;}
+
+
+.pinglun {width:96%; margin:2px auto ;}
+.pinglun .flright {float:right;}
+.pinglun a {color:#0e8ebe;}
+.pinglun a:hover {text-decoration:underline;}
+.pinglun input {height:14px; line-height:14px; margin:3px 0; width:400px;}
+.pinglun textarea {width:400px;}
+.pinglun input.plbtn {width:67px; height:23px; line-height:25px; cursor:hand; border:0; padding:0; margin:3px 5px; margin-left:12px; background:url(../images/plbtn.gif)}
+.pinglun input.plbtn1 {width:67px; height:23px; line-height:25px; cursor:hand; border:0; padding:0; margin:3px 5px; margin-left:36px; background:url(../images/plbtn.gif)}
+.pinglun dt {border-top:1px dashed #999;}
+.pinglun dt span {float:right; }
+.pinglun dd {margin:6px 0; text-indent:18px;}
+.pinglun dd span {float:right; }
+.pinglun dd.ip { text-align:right}
+
+
+.Pager, .Current { display:inline-block;margin:1px;text-decoration:none;font-size:12px;text-align:center;line-height:15px;padding:1px 2px;width:auto;}
+.Current{color:#fe0623;}

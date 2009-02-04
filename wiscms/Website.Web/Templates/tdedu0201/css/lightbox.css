@@ -1,0 +1,27 @@
+#jquery-overlay {
+	Z-INDEX: 90; LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 500px
+}
+#jquery-lightbox {
+	Z-INDEX: 100; LEFT: 0px; WIDTH: 100%; LINE-HEIGHT: 0; POSITION: absolute; TOP: 0px; TEXT-ALIGN: center
+}
+#jquery-lightbox A IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+#lightbox-container-image-box {
+	BACKGROUND: black; MARGIN: 0px auto; WIDTH: 250px; POSITION: relative; HEIGHT: 250px
+}
+#lightbox-container-image {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#lightbox-loading {
+	LEFT: 0%; WIDTH: 100%; LINE-HEIGHT: 0; POSITION: absolute; TOP: 40%; HEIGHT: 25%; TEXT-ALIGN: center
+}
+#lightbox-container-image-data-box {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; OVERFLOW: auto; WIDTH: 100%; LINE-HEIGHT: 1.4em; PADDING-TOP: 0px
+}
+#lightbox-container-image-data {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; COLOR: #666666; PADDING-TOP: 0px
+}
+#lightbox-secNav-btnClose {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; WIDTH: 90px; PADDING-TOP: 0px
+}

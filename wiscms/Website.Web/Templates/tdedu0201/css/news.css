@@ -1,0 +1,69 @@
+#newsMainBox {
+	MARGIN: 10px auto 0px; OVERFLOW: hidden; WIDTH: 971px; ZOOM: 1; HEIGHT: auto
+}
+.newsMain {
+	WIDTH: 705px
+}
+.topNewsBox {
+	WIDTH: 705px; POSITION: relative; HEIGHT: 262px
+}
+.topNews {
+	BORDER-RIGHT: #b7b7b7 1px solid; BORDER-TOP: #b7b7b7 1px solid; Z-INDEX: 90; BACKGROUND: #f0f0f0; LEFT: 0px; BORDER-LEFT: #b7b7b7 1px solid; WIDTH: 701px; BORDER-BOTTOM: #b7b7b7 1px solid; POSITION: absolute; TOP: 0px; HEIGHT: 258px
+}
+.topNewsPic {
+	FLOAT: left; MARGIN: 7px 14px 0px 6px; OVERFLOW: hidden; WIDTH: 414px; HEIGHT: 243px
+}
+.topNewsPic IMG {
+	WIDTH: 414px; HEIGHT: 243px
+}
+.topNewsList {
+	MARGIN-TOP: 7px; FLOAT: left; OVERFLOW: hidden; WIDTH: 256px; HEIGHT: 243px;text-align:left
+}
+.topNewsList UL {
+	MARGIN: 0px auto; OVERFLOW: hidden; WIDTH: 250px; HEIGHT: 216px
+}
+.topNewsList UL LI {
+	FONT-SIZE: 14px; OVERFLOW: hidden; WIDTH: 250px; LINE-HEIGHT: 30px; BORDER-BOTTOM: #dbdbdb 1px solid; HEIGHT: 30px
+}
+.topNewsList UL LI A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 12px; BACKGROUND: url(../images/dian.gif) no-repeat 4px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.topNewsList UL LI A.up {
+	FONT-WEIGHT: bold; BACKGROUND: url(../images/jiantou.gif) no-repeat; COLOR: #f25500
+}
+.topNewsBg {
+	Z-INDEX: 80; BACKGROUND: #dedede; LEFT: 4px; WIDTH: 701px; POSITION: absolute; TOP: 4px; HEIGHT: 258px
+}
+
+
+.focusPicBox {
+	PADDING-BOTTOM: 10px; OVERFLOW: hidden; ZOOM: 1; HEIGHT: auto
+}
+.newsHotBox .focusPic {
+	DISPLAY: block; FLOAT: none; MARGIN: 0px auto; OVERFLOW: hidden; WIDTH: 680px; ZOOM: 1; HEIGHT: auto
+}
+.newsHotBox .focusPic H4 {
+	BORDER-BOTTOM-WIDTH: 0px; MARGIN-BOTTOM: 5px; WIDTH: 680px
+}
+.newsHotBox .focusPic .picList {
+	MARGIN: 0px auto; OVERFLOW: hidden; WIDTH: 100%; HEIGHT: 244px
+}
+.newsHotBox .focusPic .picList LI {
+	PADDING-RIGHT: 24px; PADDING-LEFT: 24px; FLOAT: left; PADDING-BOTTOM: 0pt; MARGIN-LEFT: -1px; BORDER-LEFT: #989898 1px dashed; WIDTH: 122px; PADDING-TOP: 0pt; HEIGHT: 122px
+}
+.newsHotBox .focusPic .picList LI IMG {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FLOAT: left; BORDER-LEFT: #000000 1px solid; WIDTH: 120px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 90px
+}
+.newsHotBox .focusPic .picList LI P {
+	MARGIN-BOTTOM: 10px; OVERFLOW: hidden; WIDTH: 122px; LINE-HEIGHT: 30px; HEIGHT: 30px; TEXT-ALIGN: center
+}
+
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}

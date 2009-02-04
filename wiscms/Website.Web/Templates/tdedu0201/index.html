@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>首页</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<LINK href="css/lightbox.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="js/indexTab.js"></script>
+<script language="javascript" src="js/picNews.js"></script>
+<SCRIPT src="js/jquery.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/accordion.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/cycle.js" type=text/javascript></SCRIPT>
+
+<!-- jQuery Scripts //-->
+<SCRIPT type=text/javascript>
+		jQuery().ready(function(){
+			jQuery('#serviceContent').accordion({
+			autoheight: false
+			});
+		});
+			
+		$(function() {
+			$('#fW_Content').cycle({ 
+			fx:    'scrollLeft',
+			pager: '#fW_Controls'
+ 			});
+		});
+
+</SCRIPT>
+</head>
+
+<body>
+<div class="header">
+ <div class="headerBox">
+  <img src="images/logo.gif" width="173px" height="53px" />
+  <div class="loginBox">用户名：
+    <input type="text" size="12" /> 
+  密码：
+    <input type="text" size="12" /> 
+    <input type="button" class="btn" />
+  </div>
+  <ul>
+   <li class="left"></li>
+   <li><a href="index.html" title="首页">首页</a></li><li class="sep">|</li>
+   <li><a href="jydtList.html" title="ss">教育动态</a></li><li class="sep">|</li>
+   <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
+   <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
+   <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
+   <li><a href="#" title="ss">东师资源</a></li><li class="sep">|</li>
+   <li><a href="#" title="ss">铁东资源</a></li><li class="sep">|</li>
+   <li><a href="#" title="ss">铁东教育</a></li><li class="sep">|</li>
+   <li><a href="msfc.html" title="名师风采">名师风采</a></li><li class="sep">|</li>
+   <li><a href="#" title="ss">教育博客</a></li>
+   <li class="right"></li>
+  </ul>
+  <div class="clear"></div>
+ </div>
+</div>
+<div class="center">
+ <div class="picNews">
+  <div id=flashcontent01></div>
+<script type=text/javascript>
+// <![CDATA[
+var pics='images/01.jpg|images/02.jpg|images/03.jpg|images/04.jpg|images/05.jpg';		
+var mylinks='http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/';
+var texts='<b>图片新闻描述1</b>|<b>图片新闻描述2</b>|<b>图片新闻描述3</b>|<b>图片新闻描述4</b>|<b>图片新闻描述5</b>';
+var texts2="图片新闻标题1|图片新闻标题2|图片新闻标题3|图片新闻标题4|图片新闻标题5";
+
+var eduFlash2 = new eduFlash("flash/vv_new.swf","eduFlashID01","662","180","7","#ffffff");
+	eduFlash2.addParam("quality", "high");
+         eduFlash2.addParam("wmode", "opaque");
+	eduFlash2.addParam("salign", "t");	
+	eduFlash2.addVariable("p",pics);
+	eduFlash2.addVariable("l",mylinks);
+	eduFlash2.addVariable("icon",texts);
+	eduFlash2.addVariable("icon_2",texts2);
+	eduFlash2.write("flashcontent01");
+// ]]>
+</script>
+ 
+ </div>
+ <div class="meeting outbox">
+  <div class="cap"><a href="#" title="查看更多">更多</a>会议信息</div>
+  <ul class="indexList">
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+   <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+  </ul>
+ </div>
+ <div class="clear"></div>
+</div>
+<div class="center">
+ <div class="left">
+  <div class="indexleft outbox tabBox height1">
+   <div class="cap"><a href="#" title="查看更多">更多</a>教育动态</div>
+   <div><ul class="tab" id="myTabA">
+     <li class="active" onmouseover="tabsShow(this,0)"><a href="#" title="#">党&nbsp;&nbsp;&nbsp;&nbsp;群</a></li>
+     <li onmouseover="tabsShow(this,1)"><a href="#" title="#">纪&nbsp;&nbsp;&nbsp;&nbsp;检</a></li>
+     <li onmouseover="tabsShow(this,2)"><a href="#" title="#">督&nbsp;&nbsp;&nbsp;&nbsp;导</a></li>
+     <li onmouseover="tabsShow(this,3)"><a href="#" title="#">社区办</a></li>
+     <li onmouseover="tabsShow(this,4)"><a href="#" title="#">办公室</a></li>
+     <li onmouseover="tabsShow(this,5)"><a href="#" title="#">中教科</a></li>
+     <li onmouseover="tabsShow(this,6)"><a href="#" title="#">小教科</a></li>
+     <li onmouseover="tabsShow(this,7)"><a href="#" title="#">人事科</a></li>
+     <li onmouseover="tabsShow(this,8)"><a href="#" title="#">计财科</a></li>
+     <li onmouseover="tabsShow(this,9)"><a href="#" title="#">安全科</a></li>
+     <li onmouseover="tabsShow(this,10)"><a href="#" title="#">工&nbsp;&nbsp;&nbsp;&nbsp;会</a></li>
+     <li onmouseover="tabsShow(this,11)"><a href="#" title="#">基建办</a></li>
+     <li onmouseover="tabsShow(this,12)"><a href="#" title="#">信息中心</a></li>
+    </ul>
+    <ul class="indexList tabList" id="myTabAconList0">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截截取文章标题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取截取文章题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截截取文章标题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取截取文章题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList1">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList2">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList3">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList4">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList5">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList6">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList7">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList8">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList9">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList10">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取10...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList11">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截11取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabAconList12">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题12截取...</a></li>
+  	</ul>
+    <div class="clear"></div>
+   </div>
+  </div>
+  <div class="indexleft2 outbox height1">
+   <div class="cap postion">政策法规<ul id="laws"><li class="active" onmouseover="tabsShow(this,0)"><a href="laws1.html">法律法规</a></li><li onmouseover="tabsShow(this,1)"><a href="laws1.html">政策文件</a></li><li onmouseover="tabsShow(this,2)"><a href="laws1.html">规章制度</a></li></ul>
+   </div>
+   <ul class="indexList" id="lawsconList0">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+  </ul>
+   <ul class="indexList disnone" id="lawsconList1">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题截取...</a></li>
+  </ul>
+  </ul>
+   <ul class="indexList disnone" id="lawsconList2">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题截取...</a></li>
+  </ul>
+   
+  </div>
+  
+  <div class="clear"></div>
+ 
+  <div class="indexleft outbox tabBox height1">
+   <div class="cap"><a href="#" title="查看更多">更多</a>教学研究</div>
+   <ul class="tab tab2" id="myTabB">
+     <li class="active" onmouseover="tabsShow(this,0)"><a href="#" title="#">师干训</a></li>
+     <li onmouseover="tabsShow(this,1)"><a href="#" title="#">中&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+     <li onmouseover="tabsShow(this,2)"><a href="#" title="#">艺&nbsp;&nbsp;&nbsp;&nbsp;体</a></li>
+     <li onmouseover="tabsShow(this,3)"><a href="#" title="#">幼&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+     <li onmouseover="tabsShow(this,4)"><a href="#" title="#">科&nbsp;&nbsp;&nbsp;&nbsp;研</a></li>
+     <li onmouseover="tabsShow(this,5)"><a href="#" title="#">电&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+     <li onmouseover="tabsShow(this,6)"><a href="#" title="#">办公室</a></li>
+    </ul>
+    <ul class="indexList tabList2" id="myTabBconList0">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截截取文章标题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取截取文章题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截截取文章标题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取截取文章题截取</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  </ul>
+    <ul class="indexList tabList disnone" id="myTabBconList1">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabBconList2">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabBconList3">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabBconList4">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabBconList5">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+    <ul class="indexList tabList disnone" id="myTabBconList6">
+     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
+  	</ul>
+  </div>
+   <div class="indexleft2 outbox height1">
+   <div class="cap"><a href="#" title="查看更多">更多</a>名师风采</div>
+   <div class="msBox">
+    <div class="msBg"><img src="images/msms.gif" alt="s" /></div>
+    <h2>记优秀教师刘亚非</h2>
+    <p>记优秀教师刘亚，非记优秀教师刘亚非记优，秀教师刘亚非亚，非记优秀教师刘亚非记，优秀教师...<span>『<a href="#" title="more">查看详细</a>』</span></p>
+   </div>
+   <div class="msBox">
+    <div class="msBg"><img src="images/msms.gif" alt="s" /></div>
+    <h2>记优秀教师刘亚非</h2>
+    <p>记优秀教师刘亚，非记优秀教师刘亚非记优，秀教师刘师刘亚，非记优秀教师刘亚非记，优秀教师...<span>『<a href="#" title="more">查看详细</a>』</span></p>
+   </div>
+   <div class="msBox">
+    <div class="msBg"><img src="images/mshead.gif" width="65" alt="s" /></div>
+    <h2>记优秀教师刘亚非</h2>
+    <p>记优秀教师刘亚，非记优秀教师刘亚非记优，秀教师刘亚非刘亚，非记优秀教师刘亚非记，优秀教师...<span>『<a href="#" title="more">查看详细</a>』</span></p>
+   </div>
+  </div>
+  <div class="clear"></div>
+
+ </div>
+ <div class="right">
+  <div class="sysLink mgnBot"><a href="#" title="会议预订系统">会议预订系统</a><a href="#" title="学籍管理系统">学籍管理系统</a><a href="#" title="人事管理系统">人事管理系统</a><a href="#" title="信息化教学备案">信息化教学备案</a><a href="#" title="信息化设备管理">信息化设备管理</a><a href="#" title="统计报表">统计报表</a><a href="#" title="自助建站管理">自助建站管理</a><a href="#" title="电子期刊管理">电子期刊管理</a><a href="#" title="部门职能">部门职能</a></div>
+  
+  
+  <div class="areasch outbox height5">
+   <div class="cap mgnBot">学区查询</div>
+   <select name="">
+     <option>办事处名称1</option>
+   </select><span class="red">（填写说明1）</span><br />
+   <select name="">
+     <option>办事处名称1</option>
+   </select><span class="red">（填写说明1）</span><br />
+   <select name="">
+     <option>办事处名称1</option>
+   </select><span class="red">（填写说明1）</span><br />
+   <img src="images/areaschbtn.gif" width="56" height="21" class="btn" />
+  </div>
+  
+  <div class="outbox height4">
+   <div class="cap">投诉中心</div>
+   <span class="gdh">工单号查询</span><input type="text" class="inputTxt" /><input type="button" class="tsBtn" />
+   <ul class="indexList">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+  </ul>
+  </div>
+  
+  
+  
+ </div>
+ <div class="right tdjy">
+  <img src="images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+  <div class="line1">
+  <div>《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
+  <select>
+    <option>铁东教育第13期</option>
+  </select></div>
+  <div class="line2">
+   <div class="lineIn"><a href="#" title="#">第12期 2008.12</a><br /><a href="#" title="#">第12期 2008.12</a></div>
+  <input type="button" class="readBtn" /></div>  
+ </div>
+ <div class="clear"></div>
+</div>
+
+<div class="center">
+ 
+ <div class="left">
+ 
+  <div class="left mgnBot">
+  <a href="#" title="#"><img src="images/object.gif" width="662" height="84" alt="zhuanti" /></a></div>
+ 
+  <div class="indexleft outbox height2">
+   <div class="cap"><a href="#" title="查看更多">更多</a>教学资源</div>
+   <ul class="indexList">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   </ul>
+  </div>
+  
+  
+  
+  <div class="indexleft2 outbox height2">
+   <div class="cap"><a href="#" title="查看更多">更多</a>空中课堂</div>
+   <ul class="indexList">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   </ul>
+  </div>
+  <div class="clear"></div>
+  <div class="indexleft outbox height2">
+   <div class="cap"><a href="#" title="查看更多">更多</a>视频资源</div>
+   <ul class="indexList">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   </ul>
+  </div>
+  <div class="indexleft2 outbox height2">
+   <div class="cap"><a href="#" title="查看更多">更多</a>教育博客</div>
+   <ul class="indexList">
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+   </ul>
+  </div>
+ </div>
+ <div class="right">
+  <div class="outbox height3">
+   <div class="cap"><a href="#" title="查看更多">更多</a>视频新闻</div>
+   <!-- <DIV id=fW_Controls></DIV>  -->
+   <div id="fW_Content">
+    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+</table>
+
+ <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+</table>
+
+ <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+  <tr>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+    <td><a href="#"><img src="images/picNews1.gif" height="74" width="93" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+    <td><a href="#">《豆儿》系列：泡妹妹</a></td>
+  </tr>
+</table>
+  </div>
+  </div>
+ 
+ 
+ 
+  
+  
+  <div class="softdown outbox height6">
+   <div class="cap"><a href="#" title="查看更多">更多</a>软件下载</div>
+   <ul>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯球球</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+    <li><a href="#" title="#">腾讯</a></li>
+   </ul>
+   <div class="clear"></div>
+  </div>
+  <div class="recLink"><a href="#" title="recommendLink"><img src="images/recommendLink.gif" width="322" height="62" /></a></div>
+ </div>
+ <div class="clear"></div>
+</div>
+<div class="link outbox">
+ <div class="cap">学校链接</div>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <a href="#" title="#"><img src="images/link.gif" /></a>
+ <div class="clear"></div>
+</div>
+
+<div class="bottom">
+ <a href="#">设置首页</a>－<a href="#">加入收藏</a>－<a href="#">版权声明</a>－<a href="#">联系方式</a>－<a href="#">网站地图</a><br />山市铁东区教育局版权所有<br />辽ICP备000000号<div>
+</div>
+ 
+</div>
+</body>
+</html>

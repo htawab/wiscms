@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>会议信息</title>
+     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
+
+    <script src="../../JavaScript/Ajax.js" language="javascript" type="text/javascript"></script>
+
+    <script src="../../JavaScript/Pager.js" language="javascript" type="text/javascript"></script>
+
+    <script src="../../JavaScript/Meeting.js" language="javascript" type="text/javascript"></script>
+    <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="../../javascript/indexTab.js"></script>
+    <SCRIPT LANGUAGE="JavaScript">
+<!--
+    // author: never-online
+    // web: never-online.net
+
+//--> 
+</SCRIPT>
+</head>
+<body  onload="WebsiteObj.Meeting.MeetingInfo()">
+    <div class="header">
+        <div class="headerBox">
+            <img src="../../images/logo.gif" width="173px" height="53px" />
+            <div class="loginBox">
+                用户名：
+                <input type="text" size="12" />
+                密码：
+                <input type="text" size="12" />
+                <input type="button" class="btn" />
+            </div>
+            <ul>
+                <li class="left"></li>
+                     <li><a href="../index.html" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="../jydt/index.html" >教育动态</a></li><li class="sep">|</li>
+                <li><a href="../jxyj/index.html" >教学研究</a></li><li class="sep">|</li>
+                <li><a href="../hyxx/index.html" >会议资源</a></li><li class="sep">|</li>
+                <li><a href="../ztxx/index.html" >专题信息</a></li><li class="sep">|</li>
+                 <li><a href="http://218.24.13.83/jsp/" target=_blank >东师资源</a></li><li class="sep">|</li>
+                <li><a href="../tdzy/index.html" >铁东资源</a></li><li class="sep">|</li>
+                <li><a href="../tdjy/index.html" >铁东教育</a></li><li class="sep">|</li>
+                <li><a href="../msfc/index.html" >名师风采</a></li><li class="sep">|</li>
+                <li><a href="../jybk/index.html" >教育博客</a></li>
+                <li class="right"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="left mgnBot">
+            <div class="position">
+                铁东教育 &gt; 图片头条</div>
+            <h1 id="txtTitle">
+                </h1>
+            <h1>
+                </h1>
+            <div class="h1bot"><input id="eformsn" name="eformsn" style="display: none;" />
+                <span id="Hits"></span> &nbsp;&nbsp;  &nbsp;&nbsp;</div>
+            <div id="content" class="content">
+             <p>会议开始时间：<span id="txtDate"></span> </p>
+             <p>会议结束时间：<span id="txtEndDate"></span> </p>
+              <p>申请人：<span id="txtshenqingren"></span> </p>
+             <p>预定部门：<span id="deptName"></span> </p>
+             <p>主持人：<span id="txtZhuChi"></span> </p>
+             <p>会议地点：<span id="txtAddress"></span> </p>
+              <p>参会人数：<span id="txtRenShu"></span> </p>
+              <p>与会人员：<span id="txtYuHuiRY"></span> </p>
+              <p>会议内容：<span id="RichTextBox1"></span> </p>
+            </div>
+
+            <script language="javascript">
+                if (document.getElementById("content")) {
+                    var contentid = document.getElementById("content");
+                    if (contentid.offsetHeight < 276)
+                        contentid.style.height = "276px";
+                }
+            </script>
+
+            <div class="pinglun"><a style="cursor:hand; text-decoration:underline;" onclick="WebsiteObj.Meeting.CommentsLoad()" class="flright">查看所有评论</a>
+                当前共有 <span id="Comments" style="color: #0e8ebe;"></span>条评论</div>
+            <div class="pinglun">
+                <dl id="pinglunhtml">
+                </dl>
+            </div>
+            <div class="pinglun">
+                <dl>
+                    <dt></dt>
+                </dl>
+                标题：<input type="text" id="Title" />
+                <br />
+                内容：<textarea rows="4" id="ContentHtml"></textarea><br />
+                <input type="button" value="提交评论" onclick="WebsiteObj.Meeting.CommentsInsert()" class="plbtn1" /><input
+                    type="button" value="取消重置" onclick="WebsiteObj.Meeting.CommentsCancel()" class="plbtn" />
+            </div>
+        </div>
+        <div class="right">
+            <div class="sysLink mgnBot">
+                <a href="#" title="信息化设备管理">信息化设备管理</a><a href="#" title="信息化教学备案">信息化教学备案</a><a
+                    href="#" title="人事管理系统">人事管理系统</a><a href="#" title="学籍管理系统">学籍管理系统</a><a href="#"
+                        title="统计报表">统计报表</a><a href="#" title="部门职能">部门职能</a><a href="#" title="会议预订系统">会议预订系统</a><a
+                            href="#" title="电子期刊管理">电子期刊管理</a><a href="#" title="自助建站管理">自助建站管理</a></div>
+            <div class="right tdjy">
+                <img src="../../images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+                <div class="line1">
+                    <div>
+                        《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
+                    <select>
+                        <option>铁东教育第13期</option>
+                    </select></div>
+                <div class="line2">
+                    <div class="lineIn">
+                        <a href="#" title="#">第12期 2008.12</a><br />
+                        <a href="#" title="#">第12期 2008.12</a></div>
+                    <input type="button" class="readBtn" /></div>
+            </div>
+            <div class="clear  mgnBot">
+            </div>
+            <div class="areasch outbox height5">
+                <div class="cap mgnBot">
+                    学区查询</div>
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <img src="../../images/areaschbtn.gif" width="56" height="21" class="btn" />
+            </div>
+            <div class="softdown outbox height6">
+                <div class="cap">
+                    软件下载</div>
+                <ul>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+<iframe src="/web/link.html" width=100% frameborder="0"   id="menu"  name="menu"   onload="this.height=0;var fdh=(this.Document?this.Document.body.scrollHeight:this.contentDocument.body.offsetHeight);this.height=(fdh>10?fdh:10)" scrolling="no"></iframe>
+</body>
+</html>

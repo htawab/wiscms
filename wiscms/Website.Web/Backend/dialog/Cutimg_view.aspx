@@ -1,0 +1,2 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cutimg_view.aspx.cs" Inherits="Wis.Website.Web.Backend.dialog.Cutimg_view" %>
+<%--<asp:label id="lblId" runat="server" text="0" visible="False"></asp:label>--%>
