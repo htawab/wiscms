@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
 
 namespace Wis.Website.Web.Backend.Article
-{
+{ 
     public partial class ArticleAdd : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

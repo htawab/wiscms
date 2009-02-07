@@ -77,6 +77,64 @@
         a.innerHTML = ((o.style.display == "") ? "删除" : "添加") + t;
         if((o.style.display == ""))f.focus();
     }
+
+    function Switch(o, bShow) {
+        o = (typeof(o) == "string" ? S(o) : o);
+        if (o) o.style.display= (bShow ? "" : "none");
+    }
+
+    function CheckFile() {
+        var c = S( 'filecell' ).childNodes.length > 1 || ( S( 'exist_file' ) && S( 'exist_file' ).childNodes.length > 0 )
+	    var s = [ [ true, false ],[ false, true ] ][ c > 0 ? 1 : 0 ];
+	    Switch( 'sAddAtt1', s[ 0 ] );
+	    Switch( 'sAddAtt2', s[ 1 ] );
+	    Switch( 'Files', s[ 1 ] );
+    }
+
+    function DelFile( Name ) {
+        var FileCell = S('filecell');
+        var FileObj  = S( Name );
+        FileCell.removeChild( FileObj.parentNode );
+        CheckFile();
+    }
+
+    var AttachID = 1;
+    function AddFile() {
+	    document.getElementById("Uploader" + (AttachID-1)).click();
+	    CheckFile();
+    }
+
+    function AddFileCell() {
+        var FileCell = S('filecell');
+
+        var Name = "Uploader" + AttachID;
+        AttachID++;
+        
+        if(S(Name)) return;
+
+        var template = "<input class='ico_att' style='margin: 0px 3px 2px 0px' type='button' value='' />&nbsp;";
+        template += "<input class='file upload' id='" + Name + "' type='file' onchange='AfterAddFile(\"" + Name + "\")' name='" + Name + "' value='' />&nbsp;";
+        template += "<span id='S" + Name + "'></span>&nbsp;";
+        template += "<span>&nbsp;&nbsp;</span><a onclick=\"DelFile(\'" + Name + "\')\">删除</a>";
+        
+        var Div       = document.createElement("div");
+        Div.className = "attsep upload";
+        Div.id        = "D" + Name;
+        Div.innerHTML = template;
+
+        Switch( Div, true);
+        FileCell.appendChild( Div );
+    }
+
+    function AfterAddFile( id ) {
+        var filename = S( id ).value;
+        var pos      = filename.lastIndexOf("\\");
+        S( "D" + id ).className = "attsep";
+        S( "S" + id ).innerText = ( pos == -1 ? filename : filename.substr( pos + 1 ) );
+        Switch( "D" + id, true);
+        
+        AddFileCell();
+    }
     </script>
 </head>
 <body>
@@ -93,6 +151,7 @@
                 <a id="aSubTitle" href="javascript:Show('aSubTitle', 'divSubTitle', '副标题', 'SubTitle');">添加副标题</a>&nbsp;|&nbsp;
                 <a id="aSummary" href="javascript:Show('aSummary', 'divSummary', '摘要', 'Summary');">添加摘要</a>&nbsp;|&nbsp;
                 <a id="aMeta" title="什么是Meta信息：meta标签是内嵌在你网页中的特殊html标签，包含着你有关于你网页的一些隐藏信息。Meat标签的作用是向搜索引擎解释你的网页是有关哪方面信息的。" href="javascript:Show('aMeta', 'divMeta', 'Meta信息', 'MetaKeywords');">添加Meta信息</a>
+                <A id="AttachFrame" title="添加小于 50M 的文件作为附件" style="MARGIN-RIGHT: 10px" onfocus="this.blur()" onclick="AddFile();" sizelimit="50"><INPUT class="ico_att" type="button" align="" value=""/><SPAN id="sAddAtt1">添加附件</SPAN><SPAN id="sAddAtt2" style="DISPLAY: none">继续添加</SPAN></A>
             </div>
             <div style="margin-right: 20px; height: 30px;" id="divTitle">
             <label for="title">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：</label><input type="text" runat="server"
@@ -104,7 +163,10 @@
             <div style="margin-right: 20px; height: 33px; display:none" id="divSubTitle">
             <label for="SubTitle">副 标 题：</label><input id="SubTitle" runat="server" class="keyText" type="text" name="SubTitle" />
             </div>
-            <label>栏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目：</label><Wis:DropdownMenu ID="Category" runat="server" ImagePath="../images/DropdownMenu/" /><br />
+            <label>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
+            <label>来&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源：</label><input id="Original" type="text" runat="server" size="30" name="Original" />
+            <br />
+            <label style="float:left; padding-top:8px;">栏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目：</label><div style="float:left; margin-bottom:3px;"><Wis:DropdownMenu ID="Category" runat="server" ImagePath="../images/DropdownMenu/" /></div><br />
             <div runat="server" id="divTabloidPath" style="display: none;">
                cript:hiddDivPic();" size="50" id="ImagePath" name="ImagePath" /><img
                             src="../../images/folder.gif" alt="选择已有图片" border="0" style="cursor: pointer;"
@@ -133,21 +195,6 @@
                 摘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要：</label><textarea name="Summary"
                     runat="server" id="Summary" rows="4" cols="70"></textarea>
             </div>
-            <%--            <label  style="height:300px;">
-                内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容：</label>
-                 <script type="text/javascript" language="JavaScript">
-                     window.onload = function() {
-                         var sBasePath = "../../editor/"
-                         var oFCKeditor = new FCKeditor('ContentHtml');
-                         oFCKeditor.BasePath = sBasePath;
-
-                         oFCKeditor.Width = '91%';
-                         oFCKeditor.Height = '350';
-                         oFCKeditor.ReplaceTextarea();
-                     }
-                        </script>
-                        <textarea name="ContentHtml" rows="1" cols="1" style="display: none" id="ContentHtml"
-                            runat="server"></textarea>--%>
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                     <td style="height: 300px; width: 60px;">
@@ -180,8 +227,7 @@
                 </tr>
                 <tr>
                     <td style="width: 60px;">
-                        <label>
-                            附件列表：</label>
+                        <label>附件列表：</label>
                     </td>
                     <td>
                         <div id="temp">
@@ -198,12 +244,27 @@
                     </td>
                 </tr>
             </table>
-            <label>
-                作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：</label><input id="Author" type="text"
-                    size="30" runat="server" name="Author" />
-            <label>
-                来&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源：</label>
-            <input id="Original" type="text" runat="server" size="30" name="Original" /><br />
+            <div id="Files" class="bd_upload content_title attbg" style="DISPLAY: none; padding-right: 8px; padding-left: 6px; padding-bottom: 4px; width: 99%; padding-top: 8px; font-family: Tahoma" valign="top">
+                <label>附件列表：</label><div id="exist_file"></div>
+                <div id="filecell" style="margin-bottom: 4px">
+                    <div class="attsep" id="DUploader0" style="display: none">
+                        <input class="ico_att" style="margin: 0px 3px 2px 0px" type="button" value="" />
+                        <input class="file upload" id="Uploader0" type="file" onchange="AfterAddFile('Uploader0')" name="Uploader0" value="" />
+                        <span id="SUploader0"></span>&nbsp;<span>&nbsp;&nbsp;</span><a onclick="DelFile('Uploader0')">删除</a>
+                    </div>                   
+                </div>
+                <div id="BigAttach"></div>
+            </div>
+            <style>
+.attbg {	BACKGROUND-COLOR: #e0ecf9} 
+.bd_upload {	BORDER-RIGHT: #4e86c4 1px solid;	BORDER-TOP: #4e86c4 1px solid;	BORDER-LEFT: #4e86c4 1px solid;	BORDER-BOTTOM: #4e86c4 1px solid}
+.content_title {PADDING-RIGHT: 0px;PADDING-LEFT: 12px;PADDING-BOTTOM: 5px;PADDING-TOP: 0px}
+.ico_att {	BORDER-RIGHT: medium none;	PADDING-RIGHT: 0px;	BORDER-TOP: medium none;	PADDING-LEFT: 0px;	BACKGROUND: url(../images/compose.gif) no-repeat 0px -53px;	PADDING-BOTTOM: 0px;	BORDER-LEFT: medium none;	WIDTH: 12px;	PADDING-TOP: 0px;	BORDER-BOTTOM: medium none;	HEIGHT: 13px}
+.file {	MARGIN: 4px auto 2px;	FONT: bold 12px "lucida Grande",Verdana}
+.attsep { MARGIN-BOTTOM: 3px}
+.upload {DISPLAY: none}        
+            </style>
+            <br />
             <label>
                 模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;板：</label><asp:DropDownList ID="TemplatePaths"
                     runat="server" DataTextField="Title" DataValueField="TemplatePath">
