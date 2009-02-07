@@ -265,3 +265,19 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 	padding-bottom:10px;
 	filter: progid:DXImageTransform.Microsoft.DropShadow(color=#B6B6B6,offX=2,offY=2,positives=true);
 }
+
+.ico_att  
+{
+	MARGIN: 0px 3px 2px 0px;
+	BORDER-RIGHT: medium none;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: medium none;
+    PADDING-LEFT: 0px;
+    BACKGROUND: url(../images/compose.gif) no-repeat 0px -53px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: medium none;
+    WIDTH: 12px;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: medium none;
+    HEIGHT: 13px
+}
