@@ -322,6 +322,7 @@
     <Compile Include="WebControls\IntBox.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WebControls\MessageBox.cs" />
     <Compile Include="WebControls\Pager\Pager.cs" />
     <Compile Include="WebControls\Popup.cs">
       <SubType>Code</SubType>
@@ -373,6 +374,18 @@
     <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\AutoSuggestBox.css" />
     <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\AutoSuggestBox.js" />
     <EmbeddedResource Include="WebControls\Anthem\AutoSuggestBox\includes\Blank.html" />
+    <EmbeddedResource Include="ClientScript\WebResources\MessageBox.css" />
+    <EmbeddedResource Include="ClientScript\WebResources\MessageBox.js" />
+    <EmbeddedResource Include="ClientScript\WebResources\btnEnter-hover.gif" />
+    <EmbeddedResource Include="ClientScript\WebResources\btnEnter-normal.gif" />
+    <EmbeddedResource Include="ClientScript\WebResources\icon-info.gif" />
+    <EmbeddedResource Include="ClientScript\WebResources\left-corners.png" />
+    <EmbeddedResource Include="ClientScript\WebResources\left-right.png" />
+    <EmbeddedResource Include="ClientScript\WebResources\MessageBox.htm" />
+    <EmbeddedResource Include="ClientScript\WebResources\right-corners.png" />
+    <EmbeddedResource Include="ClientScript\WebResources\tool-sprites.gif" />
+    <EmbeddedResource Include="ClientScript\WebResources\top-bottom.png" />
+    <EmbeddedResource Include="ClientScript\WebResources\win.png" />
     <Content Include="WebControls\Anthem\README.TXT" />
     <EmbeddedResource Include="WebControls\Pager\Pager.css" />
     <EmbeddedResource Include="WebControls\Pager\Pager.js" />

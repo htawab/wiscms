@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="ArticleAdd.aspx.cs"
     Inherits="Wis.Website.Web.Backend.Article.ArticleAdd" %>
 
-<%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.HtmlEditorControls"
-    TagPrefix="cc1" %>
+<%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.HtmlEditorControls" TagPrefix="HtmlEditorControls" %>
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls.DropdownMenus" tagprefix="Wis" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,8 +11,14 @@
     <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
+    <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
+    <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript" src="../../editor/fckeditor.js"></script>
-
+<script language="javascript" type="text/javascript">
+<!--
+MessageBox.init("84611745", "84611745");
+//-->
+</script>
     <script type="text/javascript">
     <%=ViewState["javescript"] %>
     function checkNews() {
@@ -201,29 +206,10 @@
                         <label style="vertical-align: top;">
                             内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容：
                             <br />
-                            <span id="Div2" onclick="selectFile('videoEdit',document.form1.Summary,400,650);"
-                                style="cursor: hand; color: Red;">插入/编辑视频</span>
+                            <span id="Div2" onclick="selectFile('videoEdit',document.form1.Summary,400,650);" style="cursor: hand; color: Red;">插入/编辑视频</span>
                         </label>
                     </td>
-                    <td valign="top">
-
-                        <script type="text/javascript" language="JavaScript">
-                            window.onload = function() {
-                                var sBasePath = "../../editor/"
-                                var oFCKeditor = new FCKeditor('ContentHtml');
-                                oFCKeditor.BasePath = sBasePath;
-
-                                oFCKeditor.Width = '98%';
-                                oFCKeditor.Height = '300';
-                                oFCKeditor.ReplaceTextarea();
-                            }
-                        </script>
-
-                        <%--<cc1:HtmlEditor ID="ContentHtml" runat="server">
-        </cc1:HtmlEditor>--%>
-                        <textarea name="ContentHtml" rows="1" cols="1" style="display: none" id="ContentHtml"
-                            runat="server"></textarea>
-                    </td>
+                    <td valign="top"><HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor></td>
                 </tr>
                 <tr>
                     <td style="width: 60px;">

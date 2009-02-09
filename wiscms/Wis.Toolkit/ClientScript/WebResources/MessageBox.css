@@ -1,0 +1,219 @@
+﻿<!--
+*{
+   margin:0;
+   padding:0;
+}
+body{
+   background-color:#FFF;
+   color:#000;
+   text-align:center;
+   font:normal 12px Georgia, "Times New Roman", Times, serif;
+}
+a:link,
+a:visited{
+   text-decoration:none;
+   color:#000;
+}
+a:hover{
+   text-decoration:underline;
+   color:#F00;
+}
+img{
+   max-width:100%;
+   height:auto;
+   border:0;
+}
+ul,dl{
+   list-style-type:none;
+}
+.clear{
+   clear:both;
+   font-size:1px;
+   width:1px;
+   height:1px;
+   visibility:hidden;
+}
+div,span,p,h1,h2,h3,h4,h5,h6{
+   text-align:left;
+}
+p{
+   margin:0 auto;
+   width:400px;
+   text-align:center;
+   font-size:14px;
+   line-height:150%;
+   padding:8px 0;
+}
+#btnshow{
+   margin-top:30px;    
+}
+#shadow{
+	 position:absolute;
+	 left:0;
+	 top:0;
+	 width:100%;
+	 z-index:10;
+	 background-color:#06C;    
+	 opacity:.2;  
+	 -moz-opacity:.2;
+	 filter:alpha(opacity=20);
+}
+#window{
+   position:absolute;
+   left:50%;
+   top:50%;
+   width:400px;
+   height:180px;
+}
+#win-tl{
+   margin:0 auto;
+   width:394px;
+   padding-left:6px;
+   color:#15428b;
+   font:bold 12px tahoma,arial,verdana,sans-serif;
+   background:transparent url(left-corners.png) no-repeat 0 0;
+   zoom:1;
+   height:24px;
+}
+#win-tl h2{
+   float:left;
+   width:369px;
+   height:16px;
+   overflow:hidden;
+   padding:4px 0 4px 0;
+   background:transparent url(top-bottom.png) 0 0 repeat-x;
+   font-size:12px;
+   line-height:16px;
+}
+#win-tl h2 img{
+   float:left;
+   width:16px;
+   height:16px;
+   margin:0 5px 0 3px;
+   display:inline;
+   vertical-align:middle;
+}
+#closebar{
+   float:left;
+   width:15px;
+   height:15px;
+   text-align:right;
+   padding:5px 4px 4px 0;
+   background:transparent url(top-bottom.png) 0 0 repeat-x;
+   overflow:hidden;
+}
+#closebar a:link,
+#closebar a:visited{
+   width:255px;
+   height:15px;
+   overflow:hidden;
+   display:block;
+   margin-left:4px;
+   text-indent:-420px;
+   color:transparent;
+   background:url(tool-sprites.gif) 0 0 no-repeat;
+}
+#closebar a:hover,
+#closebar a:active{
+   background:url(tool-sprites.gif) -15px 0 no-repeat;
+}
+#win-tr{
+   float:right;
+   height:24px;
+   width:6px;
+   font-size:1px;
+   overflow:hidden;
+   background-image:url(right-corners.png);
+}
+#msg-content{
+   margin:0 auto;
+   width:400px;
+   height:150px;
+   overflow:hidden;
+}
+#msg-leftbar{
+   float:left;
+   width:6px;
+   height:150px;
+   overflow:hidden;
+   background:transparent url(left-right.png) 0 0 repeat-y;
+}
+#msg-rightbar{
+   float:right;
+   width:6px;
+   height:150px;
+   overflow:hidden;
+   background:transparent url(left-right.png) -6px 0 repeat-y;
+}
+#msg{
+   float:left;
+   width:386px;
+   height:148px;
+   border:1px solid #84A0C4; 
+   background-color:#DFE8F6;
+   color:#15428b;
+}
+#info{
+   margin:0 auto;
+   width:294px;
+   height:58px;
+   padding:35px 10px 10px 82px;
+   background:#DFE8F6 url(icon-info.gif) 30px 38px no-repeat;
+   text-align:left;
+   overflow:hidden;
+}
+#info h3{
+   font-size:12px;
+   height:12px;
+   overflow:hidden;
+   letter-spacing:1px;
+   padding-bottom:5px;
+} 
+#info p{
+   line-height:150%;
+   padding-right:30px;
+   text-align:left;
+}
+#btns{
+   margin:0 auto;
+   width:230px;
+   height:22px;
+   text-align:center;
+}
+#btns a:link,
+#btns a:visited{
+   margin:0 auto;
+   width:68px;
+   height:20px;
+   overflow:hidden;
+   font-size:12px;
+   display:block;
+   text-indent:-999px;
+   background-image:url(btnEnter-normal.gif);
+}
+#btns a:hover,
+#btns a:active{
+   background-image:url(btnEnter-hover.gif);
+}
+#msg-bottom{
+   height:6px;
+   width:400px;
+   margin:0 auto;
+   overflow:hidden;
+   background:transparent url(top-bottom.png) 0 -294px repeat-x;
+}
+#msg-bottom-right{
+   float:right;
+   width:6px;
+   height:6px;
+   overflow:hiddden;
+   background:transparent url(right-corners.png) 0 -294px no-repeat;
+}
+#msg-bottom-left{
+   float:left;
+   width:6px;
+   height:6px;
+   overflow:hiddden;
+   background:transparent url(left-corners.png) 0 -294px no-repeat;
+}
+-->
