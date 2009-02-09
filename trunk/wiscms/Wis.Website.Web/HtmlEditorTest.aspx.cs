@@ -21,6 +21,9 @@ namespace Wis.Website.Web
             item.Text = "1";
 
             DropdownMenu1.MenuItems.Add(item);
+
+            Wis.Toolkit.ClientScript.MessageBox mb = new Wis.Toolkit.ClientScript.MessageBox(this.Page, "呵呵", "出现错误");
+            mb.Call();
         }
     }
 }
