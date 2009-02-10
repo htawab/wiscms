@@ -1,6 +1,8 @@
-/// <copyright>
-/// 版本所有 (C) 2007-2008 北京东方常智科技有限公司
-/// </copyright>
+//------------------------------------------------------------------------------
+// <copyright file="DropdownMenuControlDesigner.cs" company="Everwis">
+//     Copyright (C) Everwis Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
 
 using System;
 using System.Drawing;

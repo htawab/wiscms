@@ -23,6 +23,15 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// SiteMapPath1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPath1;
+        
+        /// <summary>
         /// daohang 控件。
         /// </summary>
         /// <remarks>
@@ -39,6 +48,51 @@ namespace Wis.Website.Web.Backend.Article {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl jiantou;
+        
+        /// <summary>
+        /// Category 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wis.Toolkit.WebControls.DropdownMenus.DropdownMenu Category;
+        
+        /// <summary>
+        /// title 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
+        
+        /// <summary>
+        /// TitleColor 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TitleColor;
+        
+        /// <summary>
+        /// Author 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Author;
+        
+        /// <summary>
+        /// Original 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Original;
         
         /// <summary>
         /// ArticleType0 控件。
@@ -77,24 +131,6 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ArticleType3;
         
         /// <summary>
-        /// title 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
-        
-        /// <summary>
-        /// TitleColor 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TitleColor;
-        
-        /// <summary>
         /// SubTitle 控件。
         /// </summary>
         /// <remarks>
@@ -104,49 +140,13 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlInputText SubTitle;
         
         /// <summary>
-        /// Author 控件。
+        /// ImagePath 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Author;
-        
-        /// <summary>
-        /// Original 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Original;
-        
-        /// <summary>
-        /// Category 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.DropdownMenus.DropdownMenu Category;
-        
-        /// <summary>
-        /// divTabloidPath 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTabloidPath;
-        
-        /// <summary>
-        /// divTabloidPathVideo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTabloidPathVideo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ImagePath;
         
         /// <summary>
         /// TabloidPathVideo 控件。
@@ -192,24 +192,6 @@ namespace Wis.Website.Web.Backend.Article {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::Wis.Toolkit.WebControls.HtmlEditorControls.HtmlEditor ContentHtml;
-        
-        /// <summary>
-        /// TemplatePaths 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TemplatePaths;
-        
-        /// <summary>
-        /// ReleasePath 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ReleasePath;
         
         /// <summary>
         /// btnOK 控件。
