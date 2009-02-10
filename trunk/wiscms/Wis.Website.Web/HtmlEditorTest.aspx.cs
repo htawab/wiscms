@@ -15,15 +15,15 @@ namespace Wis.Website.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Wis.Toolkit.WebControls.DropdownMenus.DropdownMenuItem item;
+            //Wis.Toolkit.WebControls.DropdownMenus.DropdownMenuItem item;
             
-            item = new Wis.Toolkit.WebControls.DropdownMenus.DropdownMenuItem();
-            item.Text = "1";
+            //item = new Wis.Toolkit.WebControls.DropdownMenus.DropdownMenuItem();
+            //item.Text = "1";
 
-            DropdownMenu1.MenuItems.Add(item);
+            //DropdownMenu1.MenuItems.Add(item);
 
-            Wis.Toolkit.ClientScript.MessageBox mb = new Wis.Toolkit.ClientScript.MessageBox(this.Page, "呵呵", "出现错误");
-            mb.Call();
+            //Wis.Toolkit.ClientScript.MessageBox mb = new Wis.Toolkit.ClientScript.MessageBox(this.Page, "呵呵", "出现错误");
+            //mb.Call();
         }
     }
 }

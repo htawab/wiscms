@@ -123,7 +123,7 @@ namespace Wis.Website.Web.Backend.Article
             article.Author = Author.Value.Replace("'", "\"");
             article.Category = category;
             article.Comments = 0;
-            article.ContentHtml = ContentHtml.Value;
+            article.ContentHtml = ContentHtml.Text;
             article.DateCreated = System.DateTime.Now;
             article.Editor = Guid.Empty; // TODO: 当前登录用户
             article.Hits = 0;

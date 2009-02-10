@@ -84,7 +84,7 @@ var MessageBox = {
 	       var H2 = document.createElement('h2');
 	   
 	       var IMG=document.createElement('img');
-	       IMG.setAttribute('src','win.png');
+	       IMG.setAttribute('src','../images/MessageBox/win.png');
 	       IMG.setAttribute('alt','Window-Icon');
 	   
 	       var txtTitle=document.createTextNode(this.strTitle);
@@ -247,7 +247,7 @@ var MessageBox = {
      closeDiv: function(){
         var selects = document.getElementsByTagName('select');
         for(index = 0; index < selects.length; index++){
-	        selects[index].style.display = 'block';
+	        selects[index].style.display = '';
         }
      
      	    if(this.oAlertWindow.style.filter=='' || this.oAlertWindow.style.opacity==1){
