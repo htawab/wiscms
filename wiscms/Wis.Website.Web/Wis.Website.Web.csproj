@@ -1228,7 +1228,6 @@
     <Content Include="Templates\tdjy\index.html" />
     <Content Include="Templates\zcfg\index.html" />
     <Content Include="Templates\ztxx\index.html" />
-    <Content Include="Todo.txt" />
     <Content Include="Web\link.html" />
     <Content Include="Web\hyxx\index.html" />
     <Content Include="Web\hyxx\MeetingInfo.html">
@@ -1250,6 +1249,7 @@
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
     <None Include="Templates\tdedu12.31\flash\~vv_new.fla" />
+    <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backend\user\" />
