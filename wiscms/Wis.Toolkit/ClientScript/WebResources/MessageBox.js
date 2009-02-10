@@ -36,7 +36,6 @@ var MessageBox = {
     iWindowIcon: 1,       // 弹出窗口图标的风格
     
     init: function(title, message, bSlide){
-    	   alert(title);
 	    this.strTitle = title;
 	    this.strMessage = message;
 	    this.bSlideWindow=bSlide?false:true;
