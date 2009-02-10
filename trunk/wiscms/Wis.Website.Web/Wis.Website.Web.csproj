@@ -1249,6 +1249,7 @@
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
     <None Include="Templates\tdedu12.31\flash\~vv_new.fla" />
+    <Content Include="Web.sitemap" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>

@@ -15,13 +15,35 @@ namespace Wis.Website.Web.Backend.Article
 { 
     public partial class ArticleAdd : System.Web.UI.Page
     {
+        private const string CallScriptKey = "CallMessageBox";
+        public void MessageBox(string title, string message)
+        {
+            // 输出标题和消息
+            if (!this.Page.ClientScript.IsStartupScriptRegistered(CallScriptKey))
+            {
+                string scriptBlock = string.Format("\n<script language='JavaScript' type='text/javascript'><!--\nMessageBox.init('{0}', '{1}');\n//--></script>\n", title, message);
+                this.Page.ClientScript.RegisterStartupScript(this.GetType(), CallScriptKey, scriptBlock);
+            }
+        }
+
+        //SiteMapNode SiteMap_SiteMapResolve(object sender, SiteMapResolveEventArgs e)
+        //{
+        //    SiteMapNode currentNode = SiteMap.CurrentNode.Clone(true);
+        //    currentNode.Url = currentNode.Url + "?cid=";
+        //    currentNode.Title = "动态生成";
+        //    return currentNode;
+        //}
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // 
+            //SiteMapPath1..SiteMapResolve += new SiteMapResolveEventHandler(SiteMap_SiteMapResolve);
+
+            Wis.Website.DataManager.CategoryManager categoryManager = new Wis.Website.DataManager.CategoryManager();
+            Category.MenuItems = categoryManager.GetCategoryMenuItems();
+
             if (!Page.IsPostBack)
             {
-                Wis.Website.DataManager.CategoryManager categoryManager = new Wis.Website.DataManager.CategoryManager();
-                Category.MenuItems = categoryManager.GetCategoryMenuItems();
-
                 // 获取分类的信息
                 string requestCategoryGuid = Request.QueryString["CategoryGuid"];
                 if (Wis.Toolkit.Validator.IsGuid(requestCategoryGuid))
@@ -37,18 +59,6 @@ namespace Wis.Website.Web.Backend.Article
                     }
                 }
 
-                // 读取 Template 表中 “TemplateType 为 Item ; ArticleType为选定内容类型”的模版
-                Wis.Website.DataManager.ArticleType articleType = Wis.Website.DataManager.ArticleType.Normal;
-                if (ArticleType0.Checked) articleType = Wis.Website.DataManager.ArticleType.Normal;
-                if (ArticleType1.Checked) articleType = Wis.Website.DataManager.ArticleType.Image;
-                if (ArticleType2.Checked) articleType = Wis.Website.DataManager.ArticleType.Video;
-                if (ArticleType3.Checked) articleType = Wis.Website.DataManager.ArticleType.Soft;
-                Wis.Website.DataManager.TemplateType templateType = Wis.Website.DataManager.TemplateType.Item;
-                Wis.Website.DataManager.TemplateManager templateManager = new Wis.Website.DataManager.TemplateManager();
-                List<Wis.Website.DataManager.Template> templates = templateManager.GetTemplates(articleType, templateType);
-                TemplatePaths.DataSource = templates;
-                TemplatePaths.DataBind();
-
                 // 提交表单前检测
                 this.btnOK.Attributes.Add("onclick", "javascript:return checkNews();");
             }            
@@ -56,15 +66,17 @@ namespace Wis.Website.Web.Backend.Article
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
+            MessageBox("错误提示", "请输入分类信息");
+            return;
             // 获取分类的信息
             if (string.IsNullOrEmpty(Category.Value))
             {
-                Response.Write("<script language='javascript'>alert ('请输入分类信息!');window.close();</script>");
+                MessageBox("错误提示", "请输入分类信息");
                 return;
             }
             if (!Wis.Toolkit.Validator.IsGuid(Category.Value))
             {
-                Response.Write("<script language='javascript'>alert ('请输入分类信息!');window.close();</script>");
+                MessageBox("错误提示", "请输入分类信息");
                 return;
             }
 
@@ -73,9 +85,8 @@ namespace Wis.Website.Web.Backend.Article
             Wis.Website.DataManager.Category category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
             if (!string.IsNullOrEmpty(category.CategoryName))// 没有读取到分类信息
             {
-                Response.Write("<script language='javascript'>alert ('未读取到分类信息!');window.close();</script>");
+                MessageBox("错误提示", "未读取到分类信息");
                 return;
-                // 报错
             }
 
             // TODO:判断并校验表单中各录入项的值
@@ -112,7 +123,7 @@ namespace Wis.Website.Web.Backend.Article
             if (count > 0)
             {
                 // TODO:更友好的提示
-                ViewState["javescript"] = string.Format("alert('标题重复!');");
+                MessageBox("错误提示", "标题重复");
                 return;
             }
 
@@ -137,7 +148,7 @@ namespace Wis.Website.Web.Backend.Article
             article.SpecialGuid = Guid.Empty; // TODO:
             article.SubTitle = SubTitle.Value;
             article.Summary = Summary.Value;
-            article.TemplatePath = TemplatePaths.SelectedItem.Value;
+            //article.TemplatePath = TemplatePaths.SelectedItem.Value;
             article.TitleColor = TitleColor.Value;
             article.Votes = 0;
 
@@ -204,12 +215,17 @@ namespace Wis.Website.Web.Backend.Article
 
 
             // 生成静态页面和关联页面
+            // 1、读取发布分类关联表 ReleaseCategory，读取本篇新闻对应的发布编号ReleaseGuid；
+            // 2、根据发布编号ReleaseGuid读取需要生成静态页的模板，Article实体类作为参数传入；
+            // 3、索引页、列表页、详细页、专题页逐个生成；
+            // 4、Release 表反映了前台网站的站点结构，可以根据Release表生成站点地图Google Sitemap和Baidu Sitemap
+            // 以上设计实现了：内容与模板没有耦合，一篇文章的详细页可以用多套模板生成，同时生成受影响的关联页面。
+
             //Website.WriteHtml.Build(article);
             //DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
             //releaseManager.AddNew(article);
 
-            // 添加操作日志。
-
+            // 添加操作日志
             Wis.Website.DataManager.LogManager logManager = new Wis.Website.DataManager.LogManager();
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 

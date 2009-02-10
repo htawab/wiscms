@@ -313,6 +313,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebControls\DropdownMenus\DropdownMenu.cs" />
+    <Compile Include="WebControls\DropdownMenus\DropdownMenuControlDesigner.cs" />
     <Compile Include="WebControls\DropdownMenus\DropdownMenuItem.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditor.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditorControlDesigner.cs" />

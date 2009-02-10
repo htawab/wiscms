@@ -19,7 +19,7 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
     [System.Web.UI.ToolboxData("<{0}:DropdownMenu runat=server></{0}:DropdownMenu>")]
     [System.Web.UI.ValidationProperty("Text")]
     [System.ComponentModel.DefaultProperty("Text")]
-    [System.ComponentModel.Designer(typeof(Wis.Toolkit.WebControls.HtmlEditorControls.HtmlEditorControlDesigner))]
+    [System.ComponentModel.Designer(typeof(Wis.Toolkit.WebControls.DropdownMenus.DropdownMenuControlDesigner))]
     [System.ComponentModel.Description("Dropdown Menu")]
     public class DropdownMenu : System.Web.UI.WebControls.WebControl
     {
