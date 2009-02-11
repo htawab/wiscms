@@ -110,6 +110,27 @@
     <Compile Include="Backend\dialog\Cutimg_view.aspx.designer.cs">
       <DependentUpon>Cutimg_view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx.cs">
+      <DependentUpon>AttachFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx.designer.cs">
+      <DependentUpon>AttachFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx.cs">
+      <DependentUpon>InsertImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx.designer.cs">
+      <DependentUpon>InsertImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Pager.ascx.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Pager.ascx.designer.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\SystemManage\CategoryAdd.aspx.cs">
       <DependentUpon>CategoryAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1210,6 +1231,25 @@
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
     <None Include="Templates\tdedu12.31\flash\~vv_new.fla" />
+    <Content Include="Backend\images\compose.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\backimage.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\ColorPicker.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\findreplace.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\help.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertDirectImage.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\insertflash.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertSymbol.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\selcolor.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\table.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\tablecell.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\tablecellsplit.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\文件存储规则.txt" />
+    <Content Include="Backend\images\HtmlEditor\Images\rect.gif" />
+    <Content Include="Backend\images\HtmlEditor\Images\space.gif" />
+    <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
+    <Content Include="Backend\images\HtmlEditor\Setting.xml" />
     <Content Include="Web.sitemap" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
