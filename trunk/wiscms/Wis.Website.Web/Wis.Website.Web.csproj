@@ -450,7 +450,7 @@
     <Content Include="images\object.gif" />
     <Content Include="images\plbtn.gif" />
     <Content Include="images\readBtn.gif" />
-    <Content Include="images\rect.gif" />
+    <Content Include="Backend\images\rect.gif" />
     <Content Include="images\space.gif" />
     <Content Include="images\subBtn.gif" />
     <Content Include="images\sysbtn.gif" />
@@ -1250,7 +1250,6 @@
     <Content Include="Backend\images\HtmlEditor\Images\space.gif" />
     <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
     <Content Include="Backend\images\HtmlEditor\Setting.xml" />
-    <Content Include="Web.sitemap" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>

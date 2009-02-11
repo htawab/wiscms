@@ -23,49 +23,31 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SiteMapPath1 控件。
+        /// MySiteMapPath 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPath1;
+        protected global::System.Web.UI.WebControls.SiteMapPath MySiteMapPath;
         
         /// <summary>
-        /// daohang 控件。
+        /// DropdownMenuCategory 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl daohang;
+        protected global::Wis.Toolkit.WebControls.DropdownMenus.DropdownMenu DropdownMenuCategory;
         
         /// <summary>
-        /// jiantou 控件。
+        /// Title 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl jiantou;
-        
-        /// <summary>
-        /// Category 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.DropdownMenus.DropdownMenu Category;
-        
-        /// <summary>
-        /// title 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText title;
+        protected global::System.Web.UI.WebControls.TextBox Title;
         
         /// <summary>
         /// TitleColor 控件。

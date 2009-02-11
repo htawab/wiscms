@@ -13,6 +13,13 @@
 <body>
     <form id="form1" runat="server">
     <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
+    <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em"
+    PathSeparator=" &gt; ">
+    <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+    <CurrentNodeStyle ForeColor="#333333" />
+    <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+    <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+   </asp:SiteMapPath>
     </form>
 </body>
 </html>
