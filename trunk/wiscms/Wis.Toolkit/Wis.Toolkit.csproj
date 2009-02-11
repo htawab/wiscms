@@ -205,6 +205,7 @@
     <Compile Include="Settings\GenericPageCollection.cs" />
     <Compile Include="Settings\Setting.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="SiteMapDataProvider.cs" />
     <Compile Include="Templates\Functions\Operators.cs" />
     <Compile Include="Templates\Functions\Validator.cs" />
     <Compile Include="Templates\ITagHandler.cs" />
