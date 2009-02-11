@@ -136,8 +136,14 @@
     <form id="form1" runat="server">
     <div class="right">
         <div class="position">
-            <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathSeparator="»"><RootNodeTemplate>内容管理</RootNodeTemplate><CurrentNodeTemplate>添加新闻</CurrentNodeTemplate></asp:SiteMapPath>
-            内容管理 » <span class="red" runat="server" id="daohang"></span><span runat="server" id="jiantou"></span><span class="red">添加新闻</span>
+               <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em"
+    PathSeparator=" &gt; ">
+    <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+    <CurrentNodeStyle ForeColor="#333333" />
+    <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+    <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+   </asp:SiteMapPath>
+            <span class="red" runat="server" id="daohang"></span><span runat="server" id="jiantou"></span><span class="red">添加新闻</span>
         </div>
         <div id="divCategory">
             <label>分类：</label>
