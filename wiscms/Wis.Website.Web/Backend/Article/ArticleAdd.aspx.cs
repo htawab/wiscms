@@ -34,61 +34,59 @@ namespace Wis.Website.Web.Backend.Article
         //    return currentNode;
         //}
 
+        private Wis.Website.DataManager.Category category = null;
+        private Wis.Website.DataManager.CategoryManager categoryManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // 
-            //SiteMapPath1..SiteMapResolve += new SiteMapResolveEventHandler(SiteMap_SiteMapResolve);
-
-            Wis.Website.DataManager.CategoryManager categoryManager = new Wis.Website.DataManager.CategoryManager();
-            Category.MenuItems = categoryManager.GetCategoryMenuItems();
+            string requestCategoryGuid = Request.QueryString["CategoryGuid"];
+            if(categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
+            
+            DropdownMenuCategory.MenuItems = categoryManager.GetCategoryMenuItems();
 
             if (!Page.IsPostBack)
             {
                 // 获取分类的信息
-                string requestCategoryGuid = Request.QueryString["CategoryGuid"];
                 if (Wis.Toolkit.Validator.IsGuid(requestCategoryGuid))
                 {
                     Guid categoryGuid = new Guid(requestCategoryGuid);
-                    Wis.Website.DataManager.Category category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
+                    category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
                     if (!string.IsNullOrEmpty(category.CategoryName))
                     {
-                        ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(category.CategoryName, string.Format("ArticleList.aspx?CategoryGuid={0}", category.CategoryGuid));
-                        List<KeyValuePair<string, Uri>> nodes = new List<KeyValuePair<string, Uri>>();
-                        nodes.Add(new KeyValuePair<string, Uri>("Dynamic Content", new Uri(Request.Url, "Default.aspx?id=")));
-                        nodes.Add(new KeyValuePair<string, Uri>(Request["id"], Request.Url));
-                        ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
-
-                        Category.Text = category.CategoryName;
-                        Category.Value = category.CategoryGuid.ToString();
-                        daohang.InnerText = category.CategoryName;
-                        jiantou.InnerText = " » ";
+                        DropdownMenuCategory.Text = category.CategoryName;
+                        DropdownMenuCategory.Value = category.CategoryGuid.ToString();
                     }
                 }
 
                 // 提交表单前检测
                 this.btnOK.Attributes.Add("onclick", "javascript:return checkNews();");
-            }            
+            }
+
+            // 管理所在位置 MySiteMapPath
+            List<KeyValuePair<string, Uri>> nodes = new List<KeyValuePair<string, Uri>>();
+            if (category != null)
+            {
+                nodes.Add(new KeyValuePair<string, Uri>(category.CategoryName, new Uri(Request.Url, string.Format("ArticleList.aspx?CategoryGuid={0}", category.CategoryGuid))));
+            }
+            nodes.Add(new KeyValuePair<string, Uri>("新增内容", Request.Url));
+            ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
         }
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
-            MessageBox("错误提示", "请输入分类信息");
-            return;
             // 获取分类的信息
-            if (string.IsNullOrEmpty(Category.Value))
+            if (string.IsNullOrEmpty(DropdownMenuCategory.Value))
             {
                 MessageBox("错误提示", "请输入分类信息");
                 return;
             }
-            if (!Wis.Toolkit.Validator.IsGuid(Category.Value))
+            if (!Wis.Toolkit.Validator.IsGuid(DropdownMenuCategory.Value))
             {
                 MessageBox("错误提示", "请输入分类信息");
                 return;
             }
 
-            Wis.Website.DataManager.CategoryManager categoryManager = new Wis.Website.DataManager.CategoryManager();
-            Guid categoryGuid = new Guid(Category.Value);
-            Wis.Website.DataManager.Category category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
+            Guid categoryGuid = new Guid(DropdownMenuCategory.Value);
+            category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
             if (!string.IsNullOrEmpty(category.CategoryName))// 没有读取到分类信息
             {
                 MessageBox("错误提示", "未读取到分类信息");
@@ -235,7 +233,7 @@ namespace Wis.Website.Web.Backend.Article
             Wis.Website.DataManager.LogManager logManager = new Wis.Website.DataManager.LogManager();
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 
-            Response.Redirect("ArticleList.aspx?CategoryGuid=" + Category.Value);
+            Response.Redirect("ArticleList.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
         }
     }
 }

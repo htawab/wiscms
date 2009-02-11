@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Collections.Generic;
 
 namespace Wis.Website.Web
 {
@@ -24,6 +25,11 @@ namespace Wis.Website.Web
 
             //Wis.Toolkit.ClientScript.MessageBox mb = new Wis.Toolkit.ClientScript.MessageBox(this.Page, "呵呵", "出现错误");
             //mb.Call();
+            //((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(category.CategoryName, string.Format("ArticleList.aspx?CategoryGuid={0}", category.CategoryGuid));
+            List<KeyValuePair<string, Uri>> nodes = new List<KeyValuePair<string, Uri>>();
+            nodes.Add(new KeyValuePair<string, Uri>("Dynamic Content", new Uri(Request.Url, "Default.aspx?id=")));
+            nodes.Add(new KeyValuePair<string, Uri>(Request["id"], Request.Url));
+            ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
         }
     }
 }

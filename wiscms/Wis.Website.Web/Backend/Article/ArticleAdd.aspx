@@ -136,24 +136,24 @@
     <form id="form1" runat="server">
     <div class="right">
         <div class="position">
-               <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em"
-    PathSeparator=" &gt; ">
-    <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
-    <CurrentNodeStyle ForeColor="#333333" />
-    <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
-    <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
-   </asp:SiteMapPath>
-            <span class="red" runat="server" id="daohang"></span><span runat="server" id="jiantou"></span><span class="red">添加新闻</span>
+            <label>所在位置：</label>
+            <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
+                <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                <CurrentNodeStyle ForeColor="#333333" />
+                <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+                <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            </asp:SiteMapPath>
         </div>
         <div id="divCategory">
             <label>分类：</label>
-            <DropdownMenus:DropdownMenu ID="Category" runat="server" ImagePath="../images/DropdownMenu/" /><br />
+            <DropdownMenus:DropdownMenu ID="DropdownMenuCategory" runat="server" 
+                ImagePath="../images/DropdownMenu/" /><br />
         </div>
         <div id="divTitle"> 
             <label>标题：</label>
-            <input type="text" runat="server" id="title" class="keyText" name="title" />
+            <asp:TextBox ID="Title" runat="server" CssClass="keyText"></asp:TextBox>
             <input name="TitleColor" runat="server" style="display: none;" id="TitleColor" type="text" size="10" />
-            <img border="0" src="../../images/rect.gif" width="18" style="background-color: #FFFFFF; cursor: hand;" id="SelectTitleColor" onclick='SelectColor("TitleColor","SelectTitleColor")' align="absmiddle">
+            <img border="0" src="../images/rect.gif" width="18" style="background-color: #FFFFFF; cursor: hand;" id="SelectTitleColor" onclick='SelectColor("TitleColor","SelectTitleColor")' align="absmiddle">
         </div>
         <div id="divAuthor">
             <label>作者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
@@ -182,7 +182,7 @@
             <input type="text" runat="server" onmouseover="javascript:ShowDivPic(this,document.form1.ImagePath.value.toLowerCase().replace('{@dirfile}','files').replace('{@userdirfile}','userfiles'),'.jpg',1);" onmouseout="javascript:hiddDivPic();" size="50" id="ImagePath" name="ImagePath" />
             <img src="../../images/folder.gif" alt="选择已有图片" border="0" style="cursor: pointer;" onclick="selectFile('pic',document.form1.ImagePath,350,500);document.form1.ImagePath.focus();" />
             <span onclick="selectFile('UploadImage',document.form1.ImagePath,165,500);document.form1.ImagePath.focus();" style="cursor: hand; color: Red;">上传新图片</span>
-            <img src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" />
+            <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" />
             <br />
         </div>
         <div id="divTabloidPathVideo" style="display: none;">
