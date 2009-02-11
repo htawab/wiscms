@@ -52,6 +52,12 @@ namespace Wis.Website.Web.Backend.Article
                     Wis.Website.DataManager.Category category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
                     if (!string.IsNullOrEmpty(category.CategoryName))
                     {
+                        ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(category.CategoryName, string.Format("ArticleList.aspx?CategoryGuid={0}", category.CategoryGuid));
+                        List<KeyValuePair<string, Uri>> nodes = new List<KeyValuePair<string, Uri>>();
+                        nodes.Add(new KeyValuePair<string, Uri>("Dynamic Content", new Uri(Request.Url, "Default.aspx?id=")));
+                        nodes.Add(new KeyValuePair<string, Uri>(Request["id"], Request.Url));
+                        ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
+
                         Category.Text = category.CategoryName;
                         Category.Value = category.CategoryGuid.ToString();
                         daohang.InnerText = category.CategoryName;
