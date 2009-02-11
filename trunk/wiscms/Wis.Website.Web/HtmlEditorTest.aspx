@@ -9,6 +9,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
+    <style>
+#Pager A 	
+{
+	BORDER-RIGHT: #92296a 1px solid;
+	BORDER-TOP: #92296a 1px solid;
+	DISPLAY: inline;
+	BACKGROUND: #faedf5;
+	BORDER-LEFT: #92296a 1px solid;
+	MARGIN-RIGHT: 10px;
+	BORDER-BOTTOM: #92296a 1px solid;
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 0px;
+	COLOR: #92296a;
+	LINE-HEIGHT: 19px;
+	PADDING-TOP: 0px;
+	COLOR: #636363;
+	TEXT-DECORATION: none
+	}    
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

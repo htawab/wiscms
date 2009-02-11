@@ -57,11 +57,11 @@ namespace Wis.Website.Web.Backend.SystemManage
                 //    {
                 //        string[] categoryIds = categoryId.Split(',');
 
-                //        for (int i = 0; i < categoryIds.Length; i++)
+                //        for (int pageIndex = 0; pageIndex < categoryIds.Length; pageIndex++)
                 //        {
-                //            if (Wis.Toolkit.Validator.IsInt(categoryIds[i]))
+                //            if (Wis.Toolkit.Validator.IsInt(categoryIds[pageIndex]))
                 //            {
-                //                commandText = string.Format(@"insert into CategoryLink(LinkGuid,CategoryGuid) values ('{0}',(select CategoryGuid from Category where CategoryId ={1}))", linkguid, categoryIds[i]);
+                //                commandText = string.Format(@"insert into CategoryLink(LinkGuid,CategoryGuid) values ('{0}',(select CategoryGuid from Category where CategoryId ={1}))", linkguid, categoryIds[pageIndex]);
                 //                dataProvider.ExecuteNonQuery(commandText);
                 //            }
                 //        }

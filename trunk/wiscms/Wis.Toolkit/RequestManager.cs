@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="Formats.cs" company="Everwis">
+// <copyright file="RequestManager.cs" company="Everwis">
 //     Copyright (C) Everwis Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
@@ -36,7 +36,8 @@ namespace Wis.Toolkit
 
 
         /// <summary>
-        /// 判断当前访问是否来自浏览器软件
+        /// 判断当前访问是否来自浏览器软件
+
         /// </summary>
         /// <returns>当前访问是否来自浏览器软件</returns>
         public static bool IsBrowser()
@@ -80,6 +81,94 @@ namespace Wis.Toolkit
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// 获得Url或表单参数的值, 先判断Url参数是否为空字符串, 如为True则返回表单参数的值
+        /// </summary>
+        /// <param name="name">参数</param>
+        /// <returns>Url或表单参数的值</returns>
+        public static string Request(string name)
+        {
+            return Request(name, false);
+        }
+
+        /// <summary>
+        /// 获得Url或表单参数的值, 先判断Url参数是否为空字符串, 如为True则返回表单参数的值
+        /// </summary>
+        /// <param name="name">参数</param>
+        /// <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+        /// <returns>Url或表单参数的值</returns>
+        public static string Request(string name, bool sqlSafeCheck)
+        {
+            if ("".Equals(RequestQueryString(name)))
+                return RequestFormString(name, sqlSafeCheck);
+            else
+                return RequestQueryString(name, sqlSafeCheck);
+        }
+
+        /// <summary>
+        /// 获得指定Url参数的值
+        /// </summary>
+        /// <param name="name">Url参数</param>
+        /// <returns>Url参数的值</returns>
+        public static string RequestQueryString(string name)
+        {
+            return RequestQueryString(name, false);
+        }
+
+        /// <summary>
+        /// 获得指定Url参数的值
+        /// </summary> 
+        /// <param name="name">Url参数</param>
+        /// <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+        /// <returns>Url参数的值</returns>
+        public static string RequestQueryString(string name, bool sqlSafeCheck)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Current.Request.QueryString[name]))
+                return string.Empty;
+
+            if (sqlSafeCheck && !IsSafeSqlString(HttpContext.Current.Request.QueryString[name]))
+                return "含有对数据库不安全的文本";
+
+            return HttpContext.Current.Request.QueryString[name];
+        }
+
+        /// <summary>
+        /// 获得指定表单参数的值
+        /// </summary>
+        /// <param name="name">表单参数</param>
+        /// <returns>表单参数的值</returns>
+        public static string RequestFormString(string name)
+        {
+            return RequestFormString(name, false);
+        }
+
+        /// <summary>
+        /// 获得指定表单参数的值
+        /// </summary>
+        /// <param name="name">表单参数</param>
+        /// <param name="sqlSafeCheck">是否进行SQL安全检查</param>
+        /// <returns>表单参数的值</returns>
+        public static string RequestFormString(string name, bool sqlSafeCheck)
+        {
+            if (string.IsNullOrEmpty(HttpContext.Current.Request.Form[name]))
+                return string.Empty;
+
+            if (sqlSafeCheck && !IsSafeSqlString(HttpContext.Current.Request.Form[name]))
+                return "含有对数据库不安全的文本";
+
+            return HttpContext.Current.Request.Form[name];
+        }
+
+        /// <summary>
+        /// 检测是否有Sql危险字符
+        /// </summary>
+        /// <param name="str">要判断字符串</param>
+        /// <returns>判断结果</returns>
+        public static bool IsSafeSqlString(string str)
+        {
+            return !System.Text.RegularExpressions.Regex.IsMatch(str, @"[-|;|,|\/|\(|\)|\[|\]|\}|\{|%|@|\*|!|\']");
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
+using Wis.Website.DataManager;
 
 namespace Wis.Website.Web
 {
@@ -30,6 +31,9 @@ namespace Wis.Website.Web
             nodes.Add(new KeyValuePair<string, Uri>("Dynamic Content", new Uri(Request.Url, "Default.aspx?id=")));
             nodes.Add(new KeyValuePair<string, Uri>(Request["id"], Request.Url));
             ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
+
+            ReleaseManager releaseManager = new ReleaseManager();
+            Response.Write(releaseManager.ReleasePager(3, 100, 19));
         }
     }
 }
