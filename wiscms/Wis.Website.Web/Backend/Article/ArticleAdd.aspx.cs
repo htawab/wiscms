@@ -26,14 +26,6 @@ namespace Wis.Website.Web.Backend.Article
             }
         }
 
-        //SiteMapNode SiteMap_SiteMapResolve(object sender, SiteMapResolveEventArgs e)
-        //{
-        //    SiteMapNode currentNode = SiteMap.CurrentNode.Clone(true);
-        //    currentNode.Url = currentNode.Url + "?cid=";
-        //    currentNode.Title = "动态生成";
-        //    return currentNode;
-        //}
-
         private Wis.Website.DataManager.Category category = null;
         private Wis.Website.DataManager.CategoryManager categoryManager = null;
         protected void Page_Load(object sender, EventArgs e)
@@ -117,7 +109,7 @@ namespace Wis.Website.Web.Backend.Article
                 article.ArticleType = Wis.Website.DataManager.ArticleType.Soft;
             }
             
-            article.Title = title.Value.Replace("'","\"");
+            article.Title = Title.Text.Replace("'","\"");
             // TODO:注入式脚本处理，过滤非法字符
 
             // 判断标题是否重复
