@@ -1,0 +1,72 @@
+///编辑器上载的文件全部存储在/Files/目录下。
+
+///插入类型            存储路径
+///附件                /Files/Attachments/
+///Flash文件           /Files/Flashs/
+///图片文件            /Files/Images/
+
+文件存储规则
+
+1、配置
+
+内网服务器配置
+==============
+		配置节点Key	配置节点Value
+上传目录	UploadFiles	\\ttg-mip0\Msra.cn\UploadFiles\
+
+--------------------------------------------------------------------
+
+外网服务器配置		
+==============
+		配置节点Key	配置节点Value
+文件目录  	Files		/Files/
+
+
+/Files/ 有可能是 Http://domain:port/Files/
+
+2、数据库存储
+
+文件信息在Files表中
+FileGuid			自动生成
+MediaType			用户选择的
+OriginalFileName	只允许上传指定MediaType的文件
+SaveAsFileName		用户填写的
+Size				自动获取的
+CreatedBy			自动获取的
+CreationDate		自动获取的
+Description			用户填写的
+
+MediaTypes
+常量信息，内网不需要维护，外网通过发布环节更新。
+
+3、示例
+内网
+==============
+$FilePath$$GetMediaTypeDirectory(FileGuid)$\FileGuid.{FileExtension}
+
+解释：
+$FilePath$				模板标签，读取配置文件 \\ttg-mip0\Msra.cn\UploadFiles\
+$MediaType-Directory$   模板函数，表示MediaTypes表中的字段Directory的信息
+{FileExtension}         从OriginalFileName自动读取扩展名，如果是ContentHtml就直接给定扩展名
+
+外网
+==============
+插入到ContentHtml字段中
+------------------------
+$FilePath$$GetMediaTypeDirectory(FileGuid)$\FileGuid.msi
+
+解释：
+$FilePath$		模板标签，读取配置文件 /Files/
+$MediaType-Directory$   模板函数，表示MediaTypes表中的字段Directory的信息
+.MSI			一个示例，实际情况中可以是.JPG、.EXE或者别的，外网程序不需要关心扩展名，就是内容的一部分，不需要设计标签
+
+
+Download类型的文件
+------------------------
+{FileGuid}.aspx		该ASPX文件不存在，由Handler处理
+
+$FilePath$$GetMediaTypeDirectory(FileGuid)$\FileGuid.{自动获取扩展名}
+
+解释：
+{FileGuid}		是FileGuid
+扩展名			根据OriginalFileName自动获取的
