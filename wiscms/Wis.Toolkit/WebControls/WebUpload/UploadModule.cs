@@ -257,7 +257,7 @@ namespace Wis.Toolkit.WebControls.WebUpload
 		/// <returns></returns>
 		private string AnalysePreLoadedContent(string i_perLoadedData, string m_fiedName)
 		{
-		//	string preloadedContent = HttpContext.Current.Request.ContentEncoding.GetString(m_preLoadedData);
+		//	string preloadedContent = HttpContext.Current.Request.ContentEncoding.Request(m_preLoadedData);
 			if (i_perLoadedData.Length > 0)
 			{
 				string	m_temp	= "name=\""+m_fiedName+"\"\r\n\r\n";

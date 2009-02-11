@@ -134,6 +134,17 @@ namespace Wis.Website.DataManager
         }
 
 
+
+        public int CountArticlesByCategoryGuid(Guid categoryGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("CountArticlesByCategoryGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, categoryGuid));
+            object o = DbProviderHelper.ExecuteScalar(command);
+            command.Dispose();
+            return (int)o;
+        }
+
+
         public Article GetArticle(int ArticleId)
         {
             Article article = new Article();
@@ -294,43 +305,6 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@DateCreated", DbType.DateTime, article.DateCreated));
 
             article.ArticleId = Convert.ToInt32(DbProviderHelper.ExecuteScalar(command));
-
-            // 装载模版
-            string templatePath = System.Web.HttpContext.Current.Server.MapPath(article.TemplatePath);
-            Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
-
-            // 内容实体类
-            templateManager.SetVariable("Article", article);
-
-            // 模板路径
-            string templateDirectory = System.Configuration.ConfigurationManager.AppSettings["TemplateDirectory"];
-            if (!templateDirectory.EndsWith("/")) templateDirectory += "/";
-            string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
-            if (!applicationPath.EndsWith("/")) applicationPath += "/";
-            templateDirectory = applicationPath + templateDirectory;
-            templateManager.SetVariable("TemplateDirectory", templateDirectory);
-
-            // 读取内容对应的评论
-            CommentManager commentManager = new CommentManager();
-            List<Comment> comments = commentManager.GetCommentsBySubmissionGuid(article.ArticleGuid);
-            templateManager.SetVariable("Comments", comments);
-
-            // 生成静态页
-            string releasePath = System.Web.HttpContext.Current.Server.MapPath(article.ReleasePath);
-            if (!System.IO.Directory.Exists(releasePath))
-            {
-                System.IO.Directory.CreateDirectory(releasePath);
-            }
-            releasePath = releasePath + "\\" + article.ArticleId.ToString() + ".htm";
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(releasePath, false, Encoding.UTF8))
-            {
-                sw.Write(templateManager.Process());
-            }
-
-            // 生成分类页
-
-            // 生成相关页
-
             return article.ArticleId;
         }
 
