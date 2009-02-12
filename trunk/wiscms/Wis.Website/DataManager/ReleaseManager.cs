@@ -121,7 +121,7 @@ namespace Wis.Website.DataManager
                 string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.TemplatePath);
                 Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
                 templateManager.SetVariable("TemplateDirectory", templateDirectory);
-
+                templateManager.SetVariable("ReleaseDirectory", releaseDirectory);
                 // 读取内容对应的评论 TODO:签入模板中调用
                 //CommentManager commentManager = new CommentManager();
                 //List<Comment> comments = commentManager.GetCommentsBySubmissionGuid(article.ArticleGuid);
@@ -135,9 +135,6 @@ namespace Wis.Website.DataManager
                 // 专题页："{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
                 release.ReleasePath = release.ReleasePath.Replace("{RootPath}", releaseDirectory);
                 release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
                 
                 // 分类页
                 // 处理 {PageIndex:20}
@@ -200,8 +197,12 @@ namespace Wis.Website.DataManager
                 else
                 {
                     if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
+                    {
+                        release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
+                        release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
+                        release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
                         templateManager.SetVariable("Article", article);
-
+                    }
                     release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
 
                     // TODO:按照 ContentHtml 长度，生成多页

@@ -13,10 +13,8 @@
         <div class="headerBox">
             <img src="$TemplateDirectory$images/logo.gif" width="173px" height="53px" />
             <div class="loginBox">
-                用户名：
-                <input type="text" size="12" />
-                密码：
-                <input type="text" size="12" />
+                用户名：<input type="text" size="12" />
+                密码：<input type="text" size="12" />
                 <input type="button" class="btn" />
             </div>
             <ul>
@@ -59,24 +57,18 @@
             <div id="myTabAconList0">
                 <ul class="list">
                     <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryId(Category.CategoryId, PageIndex, PageSize)$" var="Article">
-                    <li><span class="time">$Article.DateCreated$</span><a href="$TemplateDirectory$/$Article.ArticleId$/$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Article.Title$</a>[$Article.Author$]</li>
+                    <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$$Article.Category.CategoryId$/$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Article.Title$</a>[$Article.Author$]</li>
                     </tpl:foreach>
                 </ul>
                 <div class="page">$Pager$</div>
             </div>
             <div id="myTabAconList1" class="disnone">a</div>
-            <div id="myTabAconList2" class="disnone">
-                b</div>
-            <div id="myTabAconList3" class="disnone">
-                c</div>
-            <div id="myTabAconList4" class="disnone">
-                d</div>
-            <div id="myTabAconList5" class="disnone">
-                e</div>
-            <div id="myTabAconList6" class="disnone">
-                f</div>
-            <div id="myTabAconList7" class="disnone">
-                g</div>
+            <div id="myTabAconList2" class="disnone">b</div>
+            <div id="myTabAconList3" class="disnone">c</div>
+            <div id="myTabAconList4" class="disnone">d</div>
+            <div id="myTabAconList5" class="disnone">e</div>
+            <div id="myTabAconList6" class="disnone">f</div>
+            <div id="myTabAconList7" class="disnone">g</div>
             <div id="myTabAconList8" class="disnone">
                 h</div>
             <div id="myTabAconList9" class="disnone">
