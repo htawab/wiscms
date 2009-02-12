@@ -331,6 +331,29 @@ namespace Wis.Website.DataManager
             return DbProviderHelper.ExecuteNonQuery(command);
         }
 
+        /// <summary>
+        /// 更新浏览数
+        /// </summary>
+        /// <param name="articleGuid">文章编号</param>
+        /// <returns>返回受影响的记录数，1表示成功</returns>
+        public int UpdateArticleHits(Guid articleGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("UpdateArticleHits", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            return DbProviderHelper.ExecuteNonQuery(command);
+        }
+
+        /// <summary>
+        /// 更新评论数
+        /// </summary>
+        /// <param name="articleGuid">文章编号</param>
+        /// <returns>返回受影响的记录数，1表示成功</returns>
+        public int UpdateArticleComments(Guid articleGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("UpdateArticleComments", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            return DbProviderHelper.ExecuteNonQuery(command);
+        }
 
         public int Update(Article article)
         {

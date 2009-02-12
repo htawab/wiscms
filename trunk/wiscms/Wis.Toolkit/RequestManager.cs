@@ -90,7 +90,7 @@ namespace Wis.Toolkit
         /// <returns>Url或表单参数的值</returns>
         public static string Request(string name)
         {
-            return Request(name, false);
+            return Request(name, true);
         }
 
         /// <summary>

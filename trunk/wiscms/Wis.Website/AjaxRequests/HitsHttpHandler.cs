@@ -11,8 +11,9 @@ using Wis.Website.DataManager;
 
 namespace Wis.Website.AjaxRequests
 {
-    public class CommentHttpHandler : IHttpHandler
+    public class HitsHttpHandler : IHttpHandler
     {
+
         #region IHttpHandler 成员
 
         public bool IsReusable
@@ -22,8 +23,7 @@ namespace Wis.Website.AjaxRequests
 
         public void ProcessRequest(HttpContext context)
         {
-            // 验证评论数据
-
+            // TODO:同一IP在指定的时间内浏览网页不做统计
             // 获取文章的编号
             string requestArticleId = RequestManager.Request("ArticleId");
 
@@ -44,31 +44,11 @@ namespace Wis.Website.AjaxRequests
                 return;
             }
 
-            // 构造评论实体类
-            Comment comment = new Comment();
+            // 更新Article的浏览数
+            articleManager.UpdateArticleHits(article.ArticleGuid);
 
-            // 获得实体类
-            // TODO:如果前台支持用户注册和登录，获取用户的昵称(唯一不重复)
-            comment.Commentator = string.Empty;
-
-            comment.CommentGuid = Guid.NewGuid();
-            //comment.CommentId
-            comment.ContentHtml = RequestManager.Request("ContentHtml");
-            comment.DateCreated = DateTime.Now;
-            comment.IPAddress = RequestManager.GetClientIP();
-            comment.Original = string.Empty;
-            comment.SubmissionGuid = article.ArticleGuid;
-            comment.Title = RequestManager.Request("Title");
-
-            CommentManager commentManager = new CommentManager();
-            commentManager.AddNew(comment);
-
-            // TODO:事务处理
-            // 更新Article的评论数
-            articleManager.UpdateArticleComments(article.ArticleGuid);
-
-            // 输出评论数
-            context.Response.Write((article.Comments + 1).ToString());
+            // 输出浏览数
+            context.Response.Write((article.Hits + 1).ToString());
         }
 
         #endregion

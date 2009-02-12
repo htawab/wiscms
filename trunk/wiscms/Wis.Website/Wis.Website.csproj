@@ -51,6 +51,7 @@
     <Compile Include="AbstractManager.cs" />
     <Compile Include="AjaxRequests\ArticleHttpHandler.cs" />
     <Compile Include="AjaxRequests\CommentHttpHandler.cs" />
+    <Compile Include="AjaxRequests\HitsHttpHandler.cs" />
     <Compile Include="AjaxRequests\MeetingHttpHandler.cs" />
     <Compile Include="AjaxRequests\SystemHttpHandler.cs" />
     <Compile Include="Label\Entity.cs" />
