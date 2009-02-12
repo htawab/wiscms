@@ -56,12 +56,12 @@ namespace Wis.Website.DataManager
             {
                 if (index > pageCount) break;
                 if (index == pageIndex)
-                    sb.Append(string.Format("<span title='第{0}页'>{0}<span>", index));
+                    sb.Append(string.Format("<span title='第{0}页' class='currentPager'>{0}</span>", index));
                 else
-                    sb.Append(string.Format("<a href='{0}.htm' title='第{0}页'>{0}<a>", index));
+                    sb.Append(string.Format("<a href='{0}.htm' title='第{0}页'>{0}</a>", index));
             }
             if (pageCount >= startPage + 10)
-                sb.Append(string.Format("<a href='{0}.htm' title='下{0}页'>...<a>", (startPage + 10)));
+                sb.Append(string.Format("<a href='{0}.htm' title='下{0}页'>...</a>", (startPage + 10)));
             if (nextPage > pageCount)
             {
                 sb.Append("下一页");
