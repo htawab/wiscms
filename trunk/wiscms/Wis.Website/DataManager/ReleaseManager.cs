@@ -30,7 +30,7 @@ namespace Wis.Website.DataManager
             int nextPage = pageIndex + 1;
             StringBuilder sb = new StringBuilder();
             sb.Append("<div id='Pager'>");
-            sb.Append(string.Format("<span>共{0}条记录&nbsp;第{1}页/共{2}页</span>&nbsp;", recordCount, pageIndex, pageCount));
+            sb.Append(string.Format("<span>共{0}条记录&nbsp;第{1}页/共{2}页</span>", recordCount, pageIndex, pageCount));
 
             if (prevPage < 1)
             {
