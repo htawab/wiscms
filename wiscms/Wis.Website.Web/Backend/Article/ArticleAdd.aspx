@@ -6,19 +6,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <link href="../css/css.css" rel="stylesheet" type="text/css" />
-     <style type="text/css">
-    div.right div {clear:both; margin:0 0 4px 0;}
-    div.right div input {float:left;}
-    div.right div#divArticleType input {float:none;}
-    
-    div.right div#divCategory {height:22px; clear:none;}
-    div.right div#divCategory div.dropdownmenu {line-height:23px; height:20px; width:200px; float:left; clear:none; font-size:12px; font-family:@宋体;}
-    label.articleLabel {width:60px; float:left; margin-right:8px; text-align:right; height:22px; line-height:22px;}
-    #divTitle {clear:both;}
-    #divShortcut {margin-left:68px;}
-    </style>
+<title></title>
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+ </style>
     <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
@@ -155,18 +147,18 @@
                 <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
             </asp:SiteMapPath>
         </div>
-        <div id="divCategory">
+        <div id="divCategory" class="box">
             <label class="articleLabel">分 类：</label>
             <div class="dropdownmenu"><DropdownMenus:DropdownMenu ID="DropdownMenuCategory" runat="server" 
                 ImagePath="../images/DropdownMenu/" /></div>
         </div>
-        <div id="divTitle"> 
+        <div id="divTitle" class="box"> 
             <label class="articleLabel">标 题：</label>
             <asp:TextBox ID="Title" runat="server" CssClass="title"></asp:TextBox>
             <input name="TitleColor" runat="server" style="display: none;" id="TitleColor" type="text" size="10" />
             <img border="0" src="../images/rect.gif" width="18" style="background-color: #FFFFFF; cursor: hand;" id="SelectTitleColor" onclick='SelectColor("TitleColor","SelectTitleColor")' align="absmiddle">
         </div>
-        <div id="divArticleType">
+        <div id="divArticleType" class="box">
             <label class="articleLabel">新闻类型：</label>
             <input runat="server" id="ArticleType0" type="radio" onclick="slectArticletype();" name="ArticleType" value="0" checked />普 通
             <input runat="server" id="ArticleType1" type="radio" onclick="slectArticletype();" name="ArticleType" value="1" />图 片
@@ -174,16 +166,16 @@
             <input runat="server" id="ArticleType3" type="radio" onclick="slectArticletype();" name="ArticleType" value="3" />软 件
             <br />
         </div>
-        <div id="divShortcut">
+        <div id="divShortcut" class="box">
             <a id="aSubTitle" href="javascript:Show('aSubTitle', 'divSubTitle', '副标题', 'SubTitle');">添加副标题</a>&nbsp;|&nbsp;
             <a id="aSummary" href="javascript:Show('aSummary', 'divSummary', '摘要', 'Summary');">添加摘要</a>&nbsp;|&nbsp;
             <a id="aMeta" title="什么是Meta信息：meta标签是内嵌在你网页中的特殊html标签，包含着你有关于你网页的一些隐藏信息。Meat标签的作用是向搜索引擎解释你的网页是有关哪方面信息的。" href="javascript:Show('aMeta', 'divMeta', 'Meta信息', 'MetaKeywords');">添加Meta信息</a>
         </div>
-        <div id="divSubTitle" style="display: none;">
+        <div id="divSubTitle" style="display: none;" class="box">
             <label for="SubTitle" class="articleLabel">副 标 题：</label>
             <input id="SubTitle" runat="server" class="title" type="text" name="SubTitle" />
         </div>
-        <div id="divTabloidPath" style="display: none;">
+        <div id="divTabloidPath" style="display: none;" class="box">
             <label class="articleLabel">图片地址：</label>
             <input type="text" runat="server" onmouseover="javascript:ShowDivPic(this,document.form1.ImagePath.value.toLowerCase().replace('{@dirfile}','files').replace('{@userdirfile}','userfiles'),'.jpg',1);" onmouseout="javascript:hiddDivPic();" size="50" id="ImagePath" name="ImagePath" />
             <img src="../../images/folder.gif" alt="选择已有图片" border="0" style="cursor: pointer;" onclick="selectFile('pic',document.form1.ImagePath,350,500);document.form1.ImagePath.focus();" />
@@ -191,31 +183,33 @@
             <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" />
             <br />
         </div>
-        <div id="divTabloidPathVideo" style="display: none;">
+        <div id="divTabloidPathVideo" style="display: none;" class="box">
             <label class="articleLabel">视频地址：</label>
             <input type="text" runat="server" size="50" id="TabloidPathVideo" name="TabloidPathVideo" />
             <img src="../../images/folder.gif" alt="选择已有视频" border="0" style="cursor: pointer;" onclick="selectFile('video',document.form1.TabloidPathVideo,350,500);document.form1.TabloidPathVideo.focus();" />
             <span onclick="selectFile('UploadVideo',document.form1.TabloidPathVideo,165,500);document.form1.TabloidPathVideo.focus();" style="cursor: hand; color: Red;">上传新视频</span>
             <br />
         </div>
-        <div id="divMeta" style="display: none;">
+        <div id="divMeta" style="display: none;" class="box">
+            <div class="box">
             <label class="articleLabel">meta关键字：</label>
             <textarea name="MetaKeywords" runat="server" id="MetaKeywords" rows="4" cols="70"></textarea>
-            <br />
+            </div>
+            <div class="box">
             <label class="articleLabel">meta描 述：</label>
             <textarea name="MetaDesc" runat="server" id="MetaDesc" rows="4" cols="70"></textarea>
-            <br />
+            </div>
         </div>
-        <div id="divSummary" style="display: none;">
+        <div id="divSummary" style="display: none;" class="box">
             <label class="articleLabel">摘 要：</label>
             <textarea name="Summary" runat="server" id="Summary" rows="4" cols="70"></textarea>
             <br />
         </div>
-        <div id="divAuthor">
+        <div id="divAuthor" class="box">
             <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
             <br />
         </div>
-        <div id="divOriginal">
+        <div id="divOriginal" class="box">
             <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" />
             <br />
         </div>
@@ -223,7 +217,7 @@
             <label class="articleLabel">内 容：</label>
             <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
         </div>
-        <div id="divbtnOK">
+        <div id="divbtnOK" class="box">
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
         </div>
     </div>
