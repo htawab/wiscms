@@ -27,6 +27,22 @@ namespace Wis.Website.DataManager
             return GetArticles(dataReader);
         }
 
+        public static List<Article> GetArticlesByCategoryId(int categoryId, int pageIndex, int pageSize)
+        {
+            DbProviderHelper.GetConnection();
+
+            List<Article> articles = new List<Article>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "vw_Article"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryId={0}", categoryId)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticles(dataReader);
+        }
+
 
         public List<Article> GetArticlesByCategoryId(int categoryId)
         {
@@ -43,7 +59,7 @@ namespace Wis.Website.DataManager
         /// </summary>
         /// <param name="dataReader"></param>
         /// <returns></returns>
-        public List<Article> GetArticles(DbDataReader dataReader)
+        public static List<Article> GetArticles(DbDataReader dataReader)
         {
             // ºØ∫œ¿‡
             List<Article> articles = new List<Article>();
@@ -111,8 +127,8 @@ namespace Wis.Website.DataManager
                 if (dataReader["SpecialGuid"] != DBNull.Value)
                     article.SpecialGuid = (Guid)dataReader["SpecialGuid"];
 
-                article.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
-                article.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+                //article.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+                //article.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
                 article.Hits = Convert.ToInt32(dataReader["Hits"]);
                 article.Comments = Convert.ToInt32(dataReader["Comments"]);
                 article.Votes = Convert.ToInt32(dataReader["Votes"]);
@@ -291,14 +307,6 @@ namespace Wis.Website.DataManager
                 command.Parameters.Add(DbProviderHelper.CreateParameter("@Original", DbType.String, article.Original));
 
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, article.Rank));
-
-            if (article.SpecialGuid.HasValue && !article.SpecialGuid.Equals(Guid.Empty))
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid", DbType.Guid, article.SpecialGuid));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid", DbType.Guid, DBNull.Value));
-
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, article.TemplatePath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, article.ReleasePath));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Hits", DbType.Int32, article.Hits));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Comments", DbType.Int32, article.Comments));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Votes", DbType.Int32, article.Votes));

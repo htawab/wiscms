@@ -166,8 +166,48 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 .main .left ul.list li {height:24px; line-height:24px; margin:0 18px; color:#666; background:url(../images/dotline.gif) bottom repeat-x; letter-spacing:0.1em;}
 .main .left ul.list li a {margin:0 4px 0 4px; padding-left:8px; background:url(../images/listIco2.gif) left center no-repeat;}
 .main .left ul.list li span  {float:right;}
-.page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
 .main .right {width:322px; float:right; background:#fff url(../images/rightBG.gif) 0 -34px repeat-x; _background:#fff url(../images/rightBG.gif) 0 -22px repeat-x;}
+.page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
+/* 列表页分页 */
+#Pager 
+{
+	color:#222;
+	font-family:宋体;
+	font-size:12px;
+}
+#Pager span 
+{
+	border:1px solid #ddd;
+	padding:3px 6px;
+	margin:0 2px;
+}
+#Pager a 	
+{
+	border:1px solid #ddd;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	color:#886db4;
+}
+#Pager a:hover	
+{
+	border:1px solid #999;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	color:#fff;
+	background:#c48c4b;
+}
+
+#Pager span.currentPager
+{
+	border:1px solid #ddd;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	background:#fafafa;
+}
+
 
 .right div.sysLink {background:#f3f1f1; letter-spacing:0; padding:3px 0; padding-left:4px; float:none; border:1px solid #fff;}
 .right div.sysLink a {display:inline-block; width:102px; height:27px; margin:1px 1px; background:#f3f1f1 url(../images/sysbtn.gif); text-align:center; line-height:25px; color:#6c6a68;}

@@ -1119,7 +1119,7 @@
     <Content Include="Templates\tdedu0201\js\picNews.js" />
     <Content Include="Templates\tdedu0201\jxyjList.html" />
     <Content Include="Templates\tdedu0201\ArticleItem.htm" />
-    <Content Include="Templates\tdedu0201\jydtList.html" />
+    <Content Include="Templates\tdedu0201\ArticleList.htm" />
     <Content Include="Templates\tdedu0201\laws1.html" />
     <Content Include="Templates\tdedu0201\meetingList.html" />
     <Content Include="Templates\tdedu0201\msfc.html" />
