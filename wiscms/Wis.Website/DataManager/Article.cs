@@ -34,14 +34,14 @@ namespace Wis.Website.DataManager
         /// </summary>
         public Category Category
 		{
-            get { return _Category; }
-            set 
+            get 
             {
                 if (_Category == null)
                     _Category = new Category();
 
-                _Category = value;
+                return _Category;
             }
+            set { _Category = value; }
 		}
 
         private ArticleType _ArticleType;

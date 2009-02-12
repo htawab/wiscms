@@ -88,15 +88,18 @@ namespace Wis.Website.DataManager
             // 根据分类编号获取发布编号 
             List<Release> releases = new List<Release>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectReleasesByCategoryGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
             DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
             while (dataReader.Read())
             {
                 Release release = new Release();
                 release.ReleaseId = Convert.ToInt32(dataReader["ReleaseId"]);
                 release.ReleaseGuid = (Guid)dataReader["ReleaseGuid"];
-                release.CategoryGuid = (Guid)dataReader["CategoryGuid"];
-                release.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
-                release.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+                release.Title = (string)dataReader["Title"];
+                release.TemplatePath = (string)dataReader["TemplatePath"];
+                release.ReleasePath = (string)dataReader["ReleasePath"];
+                release.DateReleased = (DateTime)dataReader["DateReleased"];
+                release.ParentGuid = (Guid)dataReader["ParentGuid"];
                 releases.Add(release);
             }
             dataReader.Close();
@@ -125,22 +128,17 @@ namespace Wis.Website.DataManager
                 //templateManager.SetVariable("Comments", comments);
 
                 // 生成静态页，支持索引页比如首页、列表页、详细页、专题页
-                // 首页：  "/{RootPath}/default.htm"
-                // 单页：  "/{RootPath}/{PageId}.htm" 这个{PageId}是已知的
-                // 列表页："/{RootPath}/{CategoryId}/{PageIndex}.htm"
-                // 详细页："/{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
-                // 专题页："/{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
+                // 首页：  "{RootPath}/default.htm"
+                // 单页：  "{RootPath}/{PageId}.htm" 这个{PageId}是已知的
+                // 列表页："{RootPath}/{CategoryId}/{PageIndex}.htm"
+                // 详细页："{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
+                // 专题页："{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
                 release.ReleasePath = release.ReleasePath.Replace("{RootPath}", releaseDirectory);
                 release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Month}", System.DateTime.Now.Month.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Day}", System.DateTime.Now.Day.ToString());
+                release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
+                release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
                 release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
-                if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                {
-                    templateManager.SetVariable("Article", article);
-                }
-                string releasePath = System.Web.HttpContext.Current.Server.MapPath(article.ReleasePath);
-
+                
                 // 分类页
                 // 处理 {PageIndex:20}
                 string pattern = @"\{PageIndex\:(?<PageSize>\d+)\}";
@@ -148,6 +146,9 @@ namespace Wis.Website.DataManager
                 Match match = reg.Match(release.ReleasePath);
                 if (match.Success)
                 {
+                    // 哪个分类
+                    templateManager.SetVariable("Category", article.Category);
+
                     // 计算一共有多少页，然后逐页生成
                     int pageSize = 20;
                     string groupPageSize = match.Groups[1].Value;
@@ -169,14 +170,27 @@ namespace Wis.Website.DataManager
                     // 逐页生成
                     for (int pageIndex = 1; pageIndex <= pageCount; pageIndex++)
                     {
+                        // {RootPath}/{CategoryId}/{PageIndex}.htm
                         templateManager.SetVariable("PageIndex", pageIndex);
-                        article.ReleasePath = Regex.Replace(article.ReleasePath, pattern, pageIndex.ToString(), RegexOptions.IgnoreCase);
+                        // 分页
+                        templateManager.SetVariable("Pager", ReleasePager(pageIndex, recordCount, pageCount));
+                        string releasePath = Regex.Replace(release.ReleasePath, pattern, pageIndex.ToString(), RegexOptions.IgnoreCase);
+                        releasePath = System.Web.HttpContext.Current.Server.MapPath(releasePath);
                         lock (this)
                         {
                             // TODO:失败了如何回滚? 将已经删除的网页恢复
-                            if (System.IO.File.Exists(article.ReleasePath)) System.IO.File.Delete(article.ReleasePath);
-                            System.Threading.Thread.Sleep(100);
-                            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(article.ReleasePath, false, Encoding.UTF8))
+                            if (System.IO.File.Exists(releasePath))
+                            {
+                                System.IO.File.Delete(releasePath);
+                                System.Threading.Thread.Sleep(100);
+                            }
+
+                            // 如果目录不存在，则创建目录
+                            System.IO.FileInfo fileInfo = new System.IO.FileInfo(releasePath);
+                            if (!fileInfo.Directory.Exists) fileInfo.Directory.Create();
+
+                            // 生成发布
+                            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(releasePath, false, Encoding.UTF8))
                             {
                                 sw.Write(templateManager.Process()); // 模板解析由模板的标签所决定
                             }
@@ -185,6 +199,11 @@ namespace Wis.Website.DataManager
                 }
                 else
                 {
+                    if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
+                        templateManager.SetVariable("Article", article);
+
+                    release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+
                     // TODO:按照 ContentHtml 长度，生成多页
                     //if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
                     //{
@@ -193,9 +212,18 @@ namespace Wis.Website.DataManager
                     lock (this)
                     {
                         // TODO:失败了如何回滚? 将已经删除的网页恢复
-                        if (System.IO.File.Exists(article.ReleasePath)) System.IO.File.Delete(article.ReleasePath);
-                        System.Threading.Thread.Sleep(100);
-                        using (System.IO.StreamWriter sw = new System.IO.StreamWriter(article.ReleasePath, false, Encoding.UTF8))
+                        if (System.IO.File.Exists(article.ReleasePath))
+                        {
+                            System.IO.File.Delete(article.ReleasePath);
+                            System.Threading.Thread.Sleep(100);
+                        }
+
+                        // 如果目录不存在，则创建目录
+                        System.IO.FileInfo fileInfo = new System.IO.FileInfo(release.ReleasePath);
+                        if (!fileInfo.Directory.Exists) fileInfo.Directory.Create();
+
+                        // 生成发布
+                        using (System.IO.StreamWriter sw = new System.IO.StreamWriter(release.ReleasePath, false, Encoding.UTF8))
                         {
                             sw.Write(templateManager.Process()); // 模板解析由模板的标签所决定
                         }
@@ -224,9 +252,11 @@ namespace Wis.Website.DataManager
                 Release release = new Release();
                 release.ReleaseId = Convert.ToInt32(dataReader["ReleaseId"]);
                 release.ReleaseGuid = (Guid)dataReader["ReleaseGuid"];
-                release.CategoryGuid = (Guid)dataReader["CategoryGuid"];
-                release.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
-                release.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+                release.Title = (string)dataReader["Title"];
+                release.TemplatePath = (string)dataReader["TemplatePath"];
+                release.ReleasePath = (string)dataReader["ReleasePath"];
+                release.DateReleased = (DateTime)dataReader["DateReleased"];
+                release.ParentGuid = (Guid)dataReader["ParentGuid"];
                 releases.Add(release);
             }
             dataReader.Close();
@@ -235,20 +265,22 @@ namespace Wis.Website.DataManager
 
         public Release GetRelease(int ReleaseId)
         {
-            Release oRelease = new Release();
-            DbCommand oDbCommand = DbProviderHelper.CreateCommand("SELECTRelease", CommandType.StoredProcedure);
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseId", DbType.Int32, ReleaseId));
-            DbDataReader oDbDataReader = DbProviderHelper.ExecuteReader(oDbCommand);
-            while (oDbDataReader.Read())
+            Release release = new Release();
+            DbCommand command = DbProviderHelper.CreateCommand("SELECTRelease", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseId", DbType.Int32, ReleaseId));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            while (dataReader.Read())
             {
-                oRelease.ReleaseId = Convert.ToInt32(oDbDataReader["ReleaseId"]);
-                oRelease.ReleaseGuid = (Guid)oDbDataReader["ReleaseGuid"];
-                oRelease.CategoryGuid = (Guid)oDbDataReader["CategoryGuid"];
-                oRelease.TemplatePath = Convert.ToString(oDbDataReader["TemplatePath"]);
-                oRelease.ReleasePath = Convert.ToString(oDbDataReader["ReleasePath"]);
+                release.ReleaseId = Convert.ToInt32(dataReader["ReleaseId"]);
+                release.ReleaseGuid = (Guid)dataReader["ReleaseGuid"];
+                release.Title = (string)dataReader["Title"];
+                release.TemplatePath = (string)dataReader["TemplatePath"];
+                release.ReleasePath = (string)dataReader["ReleasePath"];
+                release.DateReleased = (DateTime)dataReader["DateReleased"];
+                release.ParentGuid = (Guid)dataReader["ParentGuid"];
             }
-            oDbDataReader.Close();
-            return oRelease;
+            dataReader.Close();
+            return release;
         }
 
 
@@ -259,7 +291,6 @@ namespace Wis.Website.DataManager
         /// <returns></returns>
         public int AddNew(Article article)
         {
-
             Guid releaseGuid = Guid.NewGuid();
             DbCommand command = DbProviderHelper.CreateCommand("INSERTRelease", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));

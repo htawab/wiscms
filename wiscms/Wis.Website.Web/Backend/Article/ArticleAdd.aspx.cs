@@ -78,7 +78,7 @@ namespace Wis.Website.Web.Backend.Article
 
             Guid categoryGuid = new Guid(DropdownMenuCategory.Value);
             category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
-            if (!string.IsNullOrEmpty(category.CategoryName))// 没有读取到分类信息
+            if (string.IsNullOrEmpty(category.CategoryName))// 没有读取到分类信息
             {
                 MessageBox("错误提示", "未读取到分类信息");
                 return;
@@ -180,7 +180,7 @@ namespace Wis.Website.Web.Backend.Article
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 
             // 跳转
-            Response.Redirect("ArticleList.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
+            //Response.Redirect("ArticleList.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
         }
     }
 }
