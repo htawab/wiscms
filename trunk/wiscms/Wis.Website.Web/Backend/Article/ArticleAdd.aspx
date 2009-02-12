@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../editor/fckeditor.js"></script>
     <script type="text/javascript">
     <%=ViewState["javescript"] %>
-    function checkNews() {
+    function CheckArticle() {
         if (document.getElementById("title").value == "") {
             alert("标题不能为空！");
             return false;
@@ -166,11 +166,6 @@
             <input name="TitleColor" runat="server" style="display: none;" id="TitleColor" type="text" size="10" />
             <img border="0" src="../images/rect.gif" width="18" style="background-color: #FFFFFF; cursor: hand;" id="SelectTitleColor" onclick='SelectColor("TitleColor","SelectTitleColor")' align="absmiddle">
         </div>
-        <div id="divAuthor">
-            <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
-            <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" />
-            <br />
-        </div>
         <div id="divArticleType">
             <label class="articleLabel">新闻类型：</label>
             <input runat="server" id="ArticleType0" type="radio" onclick="slectArticletype();" name="ArticleType" value="0" checked />普 通
@@ -203,25 +198,30 @@
             <span onclick="selectFile('UploadVideo',document.form1.TabloidPathVideo,165,500);document.form1.TabloidPathVideo.focus();" style="cursor: hand; color: Red;">上传新视频</span>
             <br />
         </div>
-        <div id="divMetaKeywords" style="display: none;">
+        <div id="divMeta" style="display: none;">
             <label class="articleLabel">meta关键字：</label>
             <textarea name="MetaKeywords" runat="server" id="MetaKeywords" rows="4" cols="70"></textarea>
             <br />
-        </div>
-        <div id="divMetaDesc" style="display: none;">
             <label class="articleLabel">meta描 述：</label>
             <textarea name="MetaDesc" runat="server" id="MetaDesc" rows="4" cols="70"></textarea>
             <br />
         </div>
-        <div id="divSummary">
+        <div id="divSummary" style="display: none;">
             <label class="articleLabel">摘 要：</label>
             <textarea name="Summary" runat="server" id="Summary" rows="4" cols="70"></textarea>
+            <br />
+        </div>
+        <div id="divAuthor">
+            <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
+            <br />
+        </div>
+        <div id="divOriginal">
+            <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" />
             <br />
         </div>
         <div id="divContentHtml">
             <label class="articleLabel">内 容：</label>
             <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
-            
         </div>
         <div id="divbtnOK">
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
