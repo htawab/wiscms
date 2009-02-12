@@ -150,7 +150,7 @@ a.menu11 {
 
 div.right {background:#d6e7f7; border:1px solid #9fb5d2; height:100%; margin-left:0px; _margin-left:4px;}
 .position {
-	width:auto; height:25px; line-height:24px; *line-height:26px; margin:3px; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
+	width:100%; padding:4px 0; margin:3px; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
 }
 div.viewvdieo {background:#ffffff;border:1px solid #9fb5d2; height:100%; margin:4px 4px 4px 4px;}
 div.right .schBox {line-height:20px;}
@@ -203,6 +203,24 @@ div.slBox input {margin:0;}
 div.slBox textarea {margin:0;}
 div.addBox input.sldjBtn {width:64px; height:22px; line-height:22px; margin:4px 5px 6px 220px; border:0; background:url(../images/sldjBtn.gif) no-repeat;}
 div.addBox input.back {margin:4px 5px 6px 2px;}
+
+
+
+div.right div {clear:both;width:100%; margin:4px 0 4px 0;}
+div.right div.box {float:left; margin:4px 0 4px 0;}
+div.right div.dropdownmenu { margin:0;}
+div.right div input {float:left;}
+div.right div#divArticleType input {float:none;}
+    
+div.right div#divCategory {height:22px; clear:none;}
+div.right div#divCategory div.dropdownmenu {line-height:23px; height:20px; width:200px; float:left; clear:none; font-size:12px; font-family:@宋体;}
+div.right textarea {width:680px; float:left;}
+label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; text-align:right; height:22px; line-height:22px;}
+#divTitle {clear:both;}
+#divShortcut {text-indent:68px;}
+    
+  
+#ContentHtmlContainer {margin:0; float:left;}
 
 div.update {width:57px; height:22px; border:0; margin:0 0 0 6px; background:url(../images/schbtn.gif) no-repeat;}
 
