@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Wis.Website.AjaxRequests
 {
-    class CommentHttpHandler : IHttpHandler
+    public class CommentHttpHandler : IHttpHandler
     {
         #region IHttpHandler 成员
 
@@ -17,6 +17,8 @@ namespace Wis.Website.AjaxRequests
 
         public void ProcessRequest(HttpContext context)
         {
+            // Title
+            // ContentHtml
             string command = (context.Request["command"] == null) ? string.Empty : context.Request["command"];
             if (command == "Hits")
                 this.Hits(context);
