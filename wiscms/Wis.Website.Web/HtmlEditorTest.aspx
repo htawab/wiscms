@@ -10,24 +10,45 @@
 <head runat="server">
     <title></title>
     <style>
-#Pager A 	
+#Pager 
 {
-	BORDER-RIGHT: #92296a 1px solid;
-	BORDER-TOP: #92296a 1px solid;
-	DISPLAY: inline;
-	BACKGROUND: #faedf5;
-	BORDER-LEFT: #92296a 1px solid;
-	MARGIN-RIGHT: 10px;
-	BORDER-BOTTOM: #92296a 1px solid;
-	PADDING-RIGHT: 5px;
-	PADDING-LEFT: 5px;
-	PADDING-BOTTOM: 0px;
-	COLOR: #92296a;
-	LINE-HEIGHT: 19px;
-	PADDING-TOP: 0px;
-	COLOR: #636363;
-	TEXT-DECORATION: none
-	}    
+	color:#222;
+	font-family:宋体;
+	font-size:12px;
+	}
+#Pager span 
+{
+	border:1px solid #ddd;
+	padding:3px 6px;
+	margin:0 2px;
+	}
+#Pager a 	
+{
+	border:1px solid #ddd;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	color:#886db4;
+	}
+#Pager a:hover	
+{
+	border:1px solid #999;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	color:#fff;
+	background:#c48c4b;
+	}
+
+#Pager span.currentPager
+{
+	border:1px solid #ddd;
+	text-decoration:none;
+	padding:3px 6px;
+	margin:0 2px;
+	background:#fafafa;
+	}
+	
     </style>
 </head>
 <body>
