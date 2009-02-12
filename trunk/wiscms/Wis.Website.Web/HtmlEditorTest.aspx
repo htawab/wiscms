@@ -9,33 +9,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
-    <style>
+<style type="text/css">
 #Pager 
 {
 	color:#222;
 	font-family:宋体;
 	font-size:12px;
-	}
+	line-height:14px;
+	height:26px;
+	}  
 #Pager span 
 {
 	border:1px solid #ddd;
-	padding:3px 6px;
+	padding:2px 6px;
 	margin:0 2px;
+	float:left;
 	}
 #Pager a 	
 {
 	border:1px solid #ddd;
 	text-decoration:none;
-	padding:3px 6px;
+	padding:2px 6px;
 	margin:0 2px;
 	color:#886db4;
+	float:left;
 	}
 #Pager a:hover	
 {
 	border:1px solid #999;
-	text-decoration:none;
-	padding:3px 6px;
-	margin:0 2px;
 	color:#fff;
 	background:#c48c4b;
 	}
@@ -43,13 +44,9 @@
 #Pager span.currentPager
 {
 	border:1px solid #ddd;
-	text-decoration:none;
-	padding:3px 6px;
-	margin:0 2px;
 	background:#fafafa;
-	}
-	
-    </style>
+	}	
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
