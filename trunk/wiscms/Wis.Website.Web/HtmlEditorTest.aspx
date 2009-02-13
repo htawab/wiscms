@@ -25,6 +25,10 @@
 	margin:0 2px;
 	float:left;
 	}
+#Pager span.noLink
+{
+	color:#b9b9b9;
+	}
 #Pager a 	
 {
 	border:1px solid #ddd;
@@ -33,6 +37,7 @@
 	margin:0 2px;
 	color:#886db4;
 	float:left;
+	background:#fcfcfc;
 	}
 #Pager a:hover	
 {
@@ -43,8 +48,9 @@
 
 #Pager span.currentPager
 {
-	border:1px solid #ddd;
-	background:#fafafa;
+	border:1px solid #faa;
+	background:#fff;
+	color:#f00;
 	}	
 </style>
 </head>
