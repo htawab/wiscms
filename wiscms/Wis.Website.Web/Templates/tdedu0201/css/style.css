@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body, h1, h2, h3, h4, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em; }
+body, h1, h2, h3, h4, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em;}
 body {background:#dadada; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
 ul, li {list-style:none;}
 .header {width:987px; margin:0 auto; background:#fff url(../images/headerbg.gif) bottom repeat-x; margin-bottom:3px; padding-bottom:8px;}
@@ -9,6 +9,7 @@ ul, li {list-style:none;}
 .center {}
 .clear {clear:both; font-size:0; height:0; line-height:0px;}
 a {color:#4e4e4e; text-decoration:none;}
+a {color:#934d4c; text-decoration:none;}
 a:hover {color:#fe0623;}
 img {border:0;}
 .red {color:#f00;}
@@ -163,6 +164,7 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 .main .listtab ul.tab li.active {background:url(../images/tabbgright2.gif) right top;}
 .main .listtab ul.tab li.active a {background:url(../images/tabbgleft2.gif) left top no-repeat; color:#fff;}
 .main .left ul.list {}
+.main .left ul.list li strong {color:#f87c5c;}
 .main .left ul.list li {height:24px; line-height:24px; margin:0 18px; color:#666; background:url(../images/dotline.gif) bottom repeat-x; letter-spacing:0.1em;}
 .main .left ul.list li a {margin:0 4px 0 4px; padding-left:8px; background:url(../images/listIco2.gif) left center no-repeat;}
 .main .left ul.list li span  {float:right;}
