@@ -34,8 +34,8 @@ namespace Wis.Website.DataManager
 
             if (prevPage < 1)
             {
-                sb.Append("首页");
-                sb.Append("上一页");
+                sb.Append("<span class='noLink'>首页</span>");
+                sb.Append("<span class='noLink'>上一页</span>");
             }
             else
             {
