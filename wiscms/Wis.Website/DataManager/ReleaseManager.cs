@@ -64,8 +64,8 @@ namespace Wis.Website.DataManager
                 sb.Append(string.Format("<a href='{0}.htm' title='��{0}ҳ'>...</a>", (startPage + 10)));
             if (nextPage > pageCount)
             {
-                sb.Append("��һҳ");
-                sb.Append("βҳ");
+                sb.Append("<span class='noLink'>��һҳ</span>");
+                sb.Append("<span class='noLink'>βҳ</span>");
             }
             else
             {
