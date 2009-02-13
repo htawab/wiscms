@@ -11,7 +11,7 @@ using Wis.Website.DataManager;
 
 namespace Wis.Website.AjaxRequests
 {
-    public class CommentHttpHandler : IHttpHandler
+    public class CommentHttpHandler : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
         #region IHttpHandler 成员
 
@@ -22,10 +22,52 @@ namespace Wis.Website.AjaxRequests
 
         public void ProcessRequest(HttpContext context)
         {
-            // 验证评论数据
+            // 1 验证验证码
+            if (context.Session[CommentVerifyHttpHandler.ConstCommentVerify] == null)
+            {
+                return;
+            }
+            string commentVerify1 = context.Session[CommentVerifyHttpHandler.ConstCommentVerify].ToString();
+            string commentVerify2 = context.Request[CommentVerifyHttpHandler.ConstCommentVerify];
+            if (string.IsNullOrEmpty(commentVerify1) || string.IsNullOrEmpty(commentVerify2))
+            {
+                return;
+            }
+            if (commentVerify1.ToUpper() != commentVerify2.ToUpper())
+            {
+                return;
+            }
 
+            // 验证评论数据，两者不能同时为空
+            string title = RequestManager.Request("Title");
+            string contentHtml = RequestManager.Request("ContentHtml");
+            if (string.IsNullOrEmpty(title) && string.IsNullOrEmpty(contentHtml))
+            {
+                return;
+            }
+
+            // 2 验证评论数据
             // 获取文章的编号
-            string requestArticleId = RequestManager.Request("ArticleId");
+            if (context.Request.UrlReferrer == null)
+            {
+                return;
+            }
+
+            string rawUrl = context.Request.UrlReferrer.AbsoluteUri;
+            int charIndex = rawUrl.LastIndexOf('/');
+            if (charIndex == -1)
+            {
+                return;
+            }
+
+            // http://localhost:3419/Web/2/2-13/38.htm
+            rawUrl = rawUrl.Substring(charIndex + 1); // 38.htm
+            charIndex = rawUrl.IndexOf('.');
+            if (charIndex == -1)
+            {
+                return;
+            }
+            string requestArticleId = rawUrl.Substring(0, charIndex); // RequestManager.Request("ArticleId");
 
             // 文章编号是否为数字
             int articleId;
@@ -53,12 +95,12 @@ namespace Wis.Website.AjaxRequests
 
             comment.CommentGuid = Guid.NewGuid();
             //comment.CommentId
-            comment.ContentHtml = RequestManager.Request("ContentHtml");
+            comment.ContentHtml = contentHtml;
             comment.DateCreated = DateTime.Now;
             comment.IPAddress = RequestManager.GetClientIP();
             comment.Original = string.Empty;
             comment.SubmissionGuid = article.ArticleGuid;
-            comment.Title = RequestManager.Request("Title");
+            comment.Title = title;
 
             CommentManager commentManager = new CommentManager();
             commentManager.AddNew(comment);
@@ -66,6 +108,9 @@ namespace Wis.Website.AjaxRequests
             // TODO:事务处理
             // 更新Article的评论数
             articleManager.UpdateArticleComments(article.ArticleGuid);
+
+            // 清空评论验证码
+            context.Session[CommentVerifyHttpHandler.ConstCommentVerify] = null;
 
             // 输出评论数
             context.Response.Write((article.Comments + 1).ToString());

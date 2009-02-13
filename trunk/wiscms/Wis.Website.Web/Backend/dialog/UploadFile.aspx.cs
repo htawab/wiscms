@@ -67,7 +67,7 @@ namespace Wis.Website.Web.Backend.dialog
                 {
                     System.IO.Directory.CreateDirectory(path);
                 }
-                string randnum = Wis.Toolkit.Drawings.TextToImage.CreateRandNum(8);
+                string randnum = Wis.Toolkit.Drawings.TextToImage.CreateRandChars(8);
                 path += "/" + randnum + "-" + fileName;
                 try
                 {

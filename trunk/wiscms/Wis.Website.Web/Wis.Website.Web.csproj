@@ -1106,7 +1106,6 @@
     <Content Include="Templates\tdedu0201\index.html" />
     <Content Include="Templates\tdedu0201\js\accordion.js" />
     <Content Include="Templates\tdedu0201\js\cycle.js" />
-    <Content Include="Templates\tdedu0201\js\fixHeight.js" />
     <Content Include="Templates\tdedu0201\js\indexTab.js" />
     <Content Include="Templates\tdedu0201\js\jquery.js" />
     <Content Include="Templates\tdedu0201\js\picNews.js" />
@@ -1120,11 +1119,6 @@
     <Content Include="Templates\tdedu0201\picNewsList.html" />
     <Content Include="Templates\tdedu0201\uploads\picnews001.jpg" />
     <Content Include="Templates\tdedu0201\uploads\picnews002.jpg" />
-    <Content Include="Web\link.html" />
-    <Content Include="Web\hyxx\index.html" />
-    <Content Include="Web\hyxx\MeetingInfo.html">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wis.Toolkit\Wis.Toolkit.csproj">
@@ -1159,22 +1153,13 @@
     <Content Include="Backend\images\HtmlEditor\Images\space.gif" />
     <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
     <Content Include="Backend\images\HtmlEditor\Setting.xml" />
+    <Content Include="Templates\tdedu0201\js\w.js" />
+    <Content Include="Web\2\2-13\38.htm" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backend\user\" />
     <Folder Include="files\orther\" />
-    <Folder Include="Web\jxyj\" />
-    <Folder Include="Web\jxzy\" />
-    <Folder Include="Web\jydt\" />
-    <Folder Include="Web\kzkt\" />
-    <Folder Include="Web\msfc\" />
-    <Folder Include="Web\spxw\" />
-    <Folder Include="Web\spzy\" />
-    <Folder Include="Web\tdjy\" />
-    <Folder Include="Web\tdzy\" />
-    <Folder Include="Web\zcfg\" />
-    <Folder Include="Web\ztxx\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
