@@ -1,13 +1,15 @@
 @charset "utf-8";
 /* CSS Document */
-body, h1, h2, h3, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em; }
+
+body, h1, h2, h3, h4, ul, li, dl, dt, dd, p {margin:0; padding:0; letter-spacing:0.1em; }
 body {background:#dadada; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
-li {list-style:none;}
+ul, li {list-style:none;}
 .header {background:#fff url(../images/headerbg.gif) bottom repeat-x; margin-bottom:6px; padding-bottom:8px;}
 .headerBox, .center, .link, .bottom {width:987px; margin:0 auto;}
 .center {}
 .clear {clear:both;}
 a {color:#4e4e4e; text-decoration:none;}
+a {color:#934d4c; text-decoration:none;}
 a:hover {color:#fe0623;}
 img {border:0;}
 .red {color:#f00;}
@@ -30,7 +32,7 @@ img {border:0;}
 .headerBox ul li.sep {line-height:26px;}
 
 .center .left {width:662px; float:left;}
-.center .left .leftIn { background:#fff;}
+.center .left .leftIn {background:#fff;}
 .center .right {width:318px;float:right;}
 .center .picNews {width:662px; height:180px; float:left; background:#f8f8f8;}
 .center .meeting {width:318px; height:180px; overflow:hidden; _line-height:15px; float:right;}
@@ -130,9 +132,11 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 .main .listtab ul.tab li.active {background:url(../images/tabbgright2.gif) right top;}
 .main .listtab ul.tab li.active a {background:url(../images/tabbgleft2.gif) left top no-repeat; color:#fff;}
 .main .left ul.list {}
+.main .left ul.list li strong {color:#f87c5c;}
 .main .left ul.list li {height:24px; line-height:24px; margin:0 18px; color:#666; background:url(../images/dotline.gif) bottom repeat-x; letter-spacing:0.1em;}
 .main .left ul.list li a {margin:0 4px 0 4px;}
 .main .left ul.list li span  {float:right;}
+
 .page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
 .main .right {width:320px; float:right;}
 
