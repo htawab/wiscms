@@ -69,7 +69,7 @@ namespace Wis.Toolkit.Drawings
         #endregion
 
         #region 验证码字体大小(为了显示扭曲效果，默认28像素，可以自行修改)
-        int fontSize = 40;
+        int fontSize = 28;
         public int FontSize
         {
             get { return fontSize; }
