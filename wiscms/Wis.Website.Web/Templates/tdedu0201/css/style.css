@@ -33,7 +33,7 @@ img {border:0;}
 .center .left {width:662px; float:left;}
 .center .left .leftIn {background:#fff;}
 .center .right {width:322px;float:right;}
-.center .picNews {width:662px; height:180px; float:left; background:#f8f8f8;;}
+.center .picNews {width:662px; height:180px; float:left; background:#f8f8f8;}
 .center .meeting {width:322px; height:180px; overflow:hidden; _line-height:15px; float:right;}
 .right .meeting {width:322px; height:180px; overflow:hidden; _line-height:15px;}
 
@@ -117,7 +117,7 @@ div.outbox div.cap ul#laws li.active a {color:#fff;}
 
 
 /* 铁东教育电子杂志 */
-div.tdjy {height:84px; background:#f0f0f0 url(../images/tdjyBg.gif) repeat-x; border-top:1px solid #ddd;;}
+div.tdjy {height:84px; background:#f0f0f0 url(../images/tdjyBg.gif) repeat-x; border-top:1px solid #ddd;}
 .center div.tdjy {border:0;}
 div.tdjy img {margin:5px; float:left;}
 div.tdjy .line1 {text-align:right; margin:18px 5px 8px 5px;}
@@ -262,14 +262,16 @@ div.summary {margin:6px 14px; border:1px solid #dce1e5; background:#f7fcff; line
 .review3 {width:96%; font-size:13px; margin:0 auto; margin-top:8px; border:1px solid #fea9a9; border-top:0;}
 .review3 dl {}
 .review3 dt {border-bottom:1px solid #fea9a9; border-top:1px solid #fea9a9; background:#fce9eb url(../images/reviewBG.gif) ;  color:#000; font-size:12px; line-height:25px; padding:0 3px 0 6px; height:25px;}
-.review3 dd {margin:0 0 0 0; padding:6px; font-size:13px; line-height:20px; color:#333;}
+.review3 dd {margin:0 0 0 0; padding:0 6px; font-size:13px; line-height:20px; color:#333; letter-spacing:0;}
+.review3 dl dd label {float:left; width:58px; padding-top:3px;}
 .review3 input {height:14px; line-height:14px; margin:3px 0; width:400px;}
-.review3 input.code {height:14px; line-height:14px; margin:3px 0; width:40px;}
+.review3 input.code {height:14px; line-height:14px; margin:3px 0; width:60px;}
 .review3 textarea {width:400px;}
 .review3 input.plbtn {width:67px; height:23px; line-height:25px; border:0; padding:0; margin:3px 5px; margin-left:12px; background:url(../images/plbtn.gif)}
-.review3 input.plbtn1 {width:67px; height:23px; line-height:25px; border:0; padding:0; margin:3px 5px; margin-left:36px; background:url(../images/plbtn.gif)}
-
-
+.review3 input.plbtn1 {width:67px; height:23px; line-height:25px; border:0; padding:0; margin:3px 5px; margin-left:52px; background:url(../images/plbtn.gif)}
+img#CommentVerify {margin-left:52px;}
+.review3 dl dd dl#divCommentVerify dd {display:inline; padding:0; margin:0 0 0 6px; _margin:0 0 0 10px; cursor:pointer;}
+.review3 dl dd dl#divCommentVerify dd a {text-decoration:underline;}
 
 
 
