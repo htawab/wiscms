@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style>
+
+</style>
+<link href="upLoadWin.css" rel="stylesheet" media="all" type="text/css" />
+<script language="javascript" type="text/javascript" src="upLoadWin.js"></script>
+<script language="javascript" type="text/javascript">
+function tabChange(boxId) {
+var Box1 = document.getElementById("box1");
+var Box2 = document.getElementById("box2");
+var tabIn = document.getElementById("tab").getElementsByTagName("a");
+
+
+if (boxId==1) {
+Box1.style.display="block";
+Box2.style.display="none";
+tabIn[0].id ="tabNoBorder";
+tabIn[1].id ="";
+}
+if (boxId==2) {
+Box1.style.display="none";
+Box2.style.display="block";
+tabIn[0].id ="";
+tabIn[1].id ="tabNoBorder";
+}
+
+}
+
+function picShow(obj) {
+var picSrc = obj.src;
+var showBox = document.getElementById("showBox");
+if (picSrc != "") {
+ showBox.src=obj.src;
+ 
+ if (showBox.width>160) {
+ showBox.style.width=160+"px";
+ }
+ else {
+ showBox.style.width="";
+ }
+}
+}
+
+</script>
+
+
+<body>
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+<!--
+upLoadBox.init("上传图片");
+//-->
+</script>
+<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br />sdfdfd<Br /><Br /><Br />
+</body>
+</html>
