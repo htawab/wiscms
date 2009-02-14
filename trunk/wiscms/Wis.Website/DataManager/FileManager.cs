@@ -42,8 +42,10 @@ namespace Wis.Website.DataManager
 			return files;
 		}
 
-        public List<File> GetFilesBySubmissionGuid(Guid submissionGuid)
+
+        public static List<File> GetFilesBySubmissionGuid(Guid submissionGuid)
         {
+            DbProviderHelper.GetConnection();
             List<File> files = new List<File>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectFilesBySubmissionGuid", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@SubmissionGuid", DbType.Guid, submissionGuid));

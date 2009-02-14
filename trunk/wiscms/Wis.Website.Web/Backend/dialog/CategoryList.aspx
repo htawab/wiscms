@@ -114,7 +114,7 @@
             if (ClassInfo[0] == "<div id=\"newsList\">Succee") {
                 $("Parent" + ClassInfo[1]).innerHTML = ClassInfo[2];
             } else {
-                $("Parent" + ClassInfo[1]).innerHTML = "<a href=\"点击重试\" onclick=\"$('Parent" + ClassInfo[1] + "').innerHTML='栏目加载中...';GetSubClass('" + ClassInfo[1] + "');return false;\">点击重试</a>";
+                $("Parent" + ClassInfo[1]).innerHTML = "<a href=\"点击重试\" onclick=\"G('Parent" + ClassInfo[1] + "').innerHTML='栏目加载中...';GetSubClass('" + ClassInfo[1] + "');return false;\">点击重试</a>";
             }
         } else {
             alert("读取栏目错误.\n请联系管理员.");

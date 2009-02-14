@@ -77,17 +77,17 @@ namespace Wis.Website.DataManager
             return sb.ToString();
         }
 
-        public void Release(Article article)
+        public void ReleaseRelation(Article article)
         {
             // 1、读取发布分类关联表 ReleaseCategory，读取本篇新闻对应的发布编号ReleaseGuid；
             // 2、根据发布编号ReleaseGuid读取需要生成静态页的模板，Article实体类作为参数传入；
             // 3、索引页、列表页、详细页、专题页逐个生成；
-            // 4、Release 表反映了前台网站的站点结构，可以根据Release表生成站点地图Google Sitemap和Baidu Sitemap
+            // 4、ReleaseRelation 表反映了前台网站的站点结构，可以根据Release表生成站点地图Google Sitemap和Baidu Sitemap
             // 以上设计实现了：内容与模板没有耦合，一篇文章的详细页可以用多套模板生成，同时生成受影响的关联页面。
 
             // 根据分类编号获取发布编号 
             List<Release> releases = new List<Release>();
-            DbCommand command = DbProviderHelper.CreateCommand("SelectReleasesByCategoryGuid", CommandType.StoredProcedure);
+            DbCommand command = DbProviderHelper.CreateCommand("SelectReleaseRelations", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
             DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
             while (dataReader.Read())
@@ -103,6 +103,8 @@ namespace Wis.Website.DataManager
                 releases.Add(release);
             }
             dataReader.Close();
+
+            if (releases.Count == 0) return;
 
             // 模板路径
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
@@ -135,7 +137,7 @@ namespace Wis.Website.DataManager
                 // 专题页："{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
                 release.ReleasePath = release.ReleasePath.Replace("{RootPath}", releaseDirectory);
                 release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
-                
+
                 // 分类页
                 // 处理 {PageIndex:20}
                 string pattern = @"\{PageIndex\:(?<PageSize>\d+)\}";
@@ -198,6 +200,7 @@ namespace Wis.Website.DataManager
                 {
                     if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
                     {
+                        release.ReleasePath = release.ReleasePath.Replace("{Year}", article.DateCreated.Year.ToString());
                         release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
                         release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
                         release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
@@ -233,6 +236,96 @@ namespace Wis.Website.DataManager
             }
         }
 
+        public void ReleaseArticle(Article article)
+        {
+            // {RootPath}/{CategoryId}/{Year}-{Month}-{Day}/{ArticleId}.htm
+            // 1、读取发布分类关联表 ReleaseCategory，读取本篇新闻对应的发布编号ReleaseGuid；
+            // 2、根据发布编号ReleaseGuid读取需要生成静态页的模板，Article实体类作为参数传入；
+            // 3、根据 {ArticleId} 读取详细页；
+
+            // 根据分类编号获取发布编号 
+            List<Release> releases = new List<Release>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectReleaseArticles", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            while (dataReader.Read())
+            {
+                if (dataReader["ReleasePath"].ToString().IndexOf("{ArticleId}") > -1)
+                {
+                    Release release = new Release();
+                    release.ReleaseId = Convert.ToInt32(dataReader["ReleaseId"]);
+                    release.ReleaseGuid = (Guid)dataReader["ReleaseGuid"];
+                    release.Title = (string)dataReader["Title"];
+                    release.TemplatePath = (string)dataReader["TemplatePath"];
+                    release.ReleasePath = (string)dataReader["ReleasePath"];
+                    release.DateReleased = (DateTime)dataReader["DateReleased"];
+                    release.ParentGuid = (Guid)dataReader["ParentGuid"];
+                    releases.Add(release);
+                }
+            }
+            dataReader.Close();
+
+            if (releases.Count == 0) return;
+
+            // 模板路径
+            string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
+            if (!applicationPath.EndsWith("/")) applicationPath += "/";
+            string templateDirectory = System.Configuration.ConfigurationManager.AppSettings["TemplateRootDirectory"];
+            if (!templateDirectory.EndsWith("/")) templateDirectory += "/";
+            templateDirectory = applicationPath + templateDirectory;
+            string releaseDirectory = System.Configuration.ConfigurationManager.AppSettings["ReleaseRootDirectory"];
+            if (!releaseDirectory.EndsWith("/")) releaseDirectory += "/";
+            releaseDirectory = applicationPath + releaseDirectory;
+
+            foreach (Release release in releases)
+            {
+                // 装载模版
+                release.TemplatePath = release.TemplatePath.Replace("{RootPath}", templateDirectory);
+                string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.TemplatePath);
+                Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
+                templateManager.SetVariable("TemplateDirectory", templateDirectory);
+                templateManager.SetVariable("ReleaseDirectory", releaseDirectory);
+
+                // 生成详细页的静态页
+                // "{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
+                release.ReleasePath = release.ReleasePath.Replace("{RootPath}", releaseDirectory);
+                release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
+
+                 // 详细页
+                release.ReleasePath = release.ReleasePath.Replace("{Year}", article.DateCreated.Year.ToString());
+                release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
+                release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
+                release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
+                templateManager.SetVariable("Article", article);
+
+                release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+
+                // TODO:按照 ContentHtml 长度，生成多页
+                //if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
+                //{
+                //}
+
+                lock (this)
+                {
+                    // TODO:失败了如何回滚? 将已经删除的网页恢复
+                    if (System.IO.File.Exists(article.ReleasePath))
+                    {
+                        System.IO.File.Delete(article.ReleasePath);
+                        System.Threading.Thread.Sleep(100);
+                    }
+
+                    // 如果目录不存在，则创建目录
+                    System.IO.FileInfo fileInfo = new System.IO.FileInfo(release.ReleasePath);
+                    if (!fileInfo.Directory.Exists) fileInfo.Directory.Create();
+
+                    // 生成发布
+                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(release.ReleasePath, false, Encoding.UTF8))
+                    {
+                        sw.Write(templateManager.Process());
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// 生成单页关联的模板。

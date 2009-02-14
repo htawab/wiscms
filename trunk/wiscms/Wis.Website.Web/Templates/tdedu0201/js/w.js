@@ -1,4 +1,4 @@
-﻿$ = function(i){
+﻿G = function(i){
      if(!document.getElementById) return false;
      if(typeof i==='string'){
    	     if(document.getElementById && document.getElementById(i)) {// W3C DOM
@@ -18,8 +18,8 @@
 }
 
 window.onload = function() {
-    var left = $('left');
-    var right = $('right');
+    var left = G('left');
+    var right = G('right');
     if(!left || !right) return;
     
     var leftHeight = left.offsetHeight;

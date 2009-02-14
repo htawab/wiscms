@@ -113,7 +113,10 @@ namespace Wis.Website.AjaxRequests
             context.Session[CommentVerifyHttpHandler.ConstCommentVerify] = null;
 
             // 输出评论数
-            context.Response.Write((article.Comments + 1).ToString());
+            //context.Response.Write((article.Comments + 1).ToString());
+            // 重新生成 Article
+            ReleaseManager releaseManager = new ReleaseManager();
+            releaseManager.ReleaseArticle(article);
         }
 
         #endregion

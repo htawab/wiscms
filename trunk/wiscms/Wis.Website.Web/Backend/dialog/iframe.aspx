@@ -11,13 +11,13 @@
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div onmousedown="drag(event,$('s_id'));" class="titile_bg" style="cursor: move;">
+    <div onmousedown="drag(event,G('s_id'));" class="titile_bg" style="cursor: move;">
         <table style="width: 100%; background-color: #006699;" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="height: 26px;">
                     <font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;窗口可拖动;双击此处关闭窗口;列表处双击选择文件</font>
                 </td>
-                <%--<td style="width:10px"><img align="right" src="../../sysImages/normal/close.gif" style="cursor:pointer;padding-right:2px;padding-bottom:2px;" title="关闭" onclick="closediv($('s_id'));" /></td>--%>
+                <%--<td style="width:10px"><img align="right" src="../../sysImages/normal/close.gif" style="cursor:pointer;padding-right:2px;padding-bottom:2px;" title="关闭" onclick="closediv(G('s_id'));" /></td>--%>
             </tr>
         </table>
     </div>

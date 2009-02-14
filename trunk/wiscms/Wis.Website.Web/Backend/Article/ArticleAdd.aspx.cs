@@ -173,7 +173,7 @@ namespace Wis.Website.Web.Backend.Article
             // TODO:需要事务处理，如果生成页面失败，那新增新闻也失败
             // 生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
-            releaseManager.Release(article);
+            releaseManager.ReleaseRelation(article);
 
             // 添加操作日志
             DataManager.LogManager logManager = new DataManager.LogManager();

@@ -292,7 +292,7 @@ function buildPager(els, opts) {
     $.each(els, function(i,o) {
         var $a = (typeof opts.pagerAnchorBuilder == 'function')
             ? $(opts.pagerAnchorBuilder(i,o))
-            : $('<a href="#">'+(i+1)+'</a>');
+            : G('<a href="#">'+(i+1)+'</a>');
         // don't reparent if anchor is in the dom
         if ($a.parents('body').length == 0)
             $a.appendTo($p);

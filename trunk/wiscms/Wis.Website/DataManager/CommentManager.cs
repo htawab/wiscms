@@ -47,7 +47,7 @@ namespace Wis.Website.DataManager
         }
 
 
-        public List<Comment> GetCommentsBySubmissionGuid(Guid submissionGuid)
+        public static List<Comment> GetCommentsBySubmissionGuid(Guid submissionGuid)
         {
             List<Comment> comments = new List<Comment>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectCommentsBySubmissionGuid", CommandType.StoredProcedure);
