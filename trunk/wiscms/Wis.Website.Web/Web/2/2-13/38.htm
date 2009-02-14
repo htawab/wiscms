@@ -55,13 +55,13 @@
             <div class="review3"><iframe height="0" width="0" id="Hidden"></iframe><form id="Comment" action="/A/Comment.aspx" target="Hidden">
                 <dl>
                     <dt>发表评论</dt>
-                    <dd>&nbsp;<a name="review" id="review"></a>标&nbsp;&nbsp;题：<input type="text" name="Title" /></dd>
-                    <dd>&nbsp;内&nbsp;&nbsp;容：<textarea cols="6" rows="4" name="ContentHtml"></textarea></dd>
-                    <dd>&nbsp;验证码：<input name="Verify" type="text" class="code" onfocus="$('CommentVerify').src=$('CommentVerify').src+'?';$('divCommentVerify').style.display='';" /></dd>
+                    <dd><label><a name="review" id="review"></a>标&nbsp;&nbsp;题：</label><input type="text" name="Title" /></dd>
+                    <dd><label>内&nbsp;&nbsp;容：</label><textarea cols="6" rows="4" name="ContentHtml"></textarea></dd>
+                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onfocus="$('CommentVerify').src=$('CommentVerify').src+'?';$('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
                     <dd>
                         <dl style="display:none" id="divCommentVerify">
                             <dd><img id="CommentVerify" src="/A/CommentVerify.aspx" alt="看不清？点击更换" onclick="this.src=this.src+'?'" /></dd>
-                            <dd onclick="$('CommentVerify').src=$('CommentVerify').src+'?'">看不清？点击更换</dd>
+                            <dd onclick="$('CommentVerify').src=$('CommentVerify').src+'?'"><a>看不清？点击更换</a></dd>
                         </dl>
                     </dd>
                     <dd>&nbsp;<input type="button" value="提交评论" class="plbtn1" onclick="$('Comment').submit();" /></dd>
