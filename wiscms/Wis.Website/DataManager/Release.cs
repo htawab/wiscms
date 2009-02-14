@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// <copyright file="Release.cs" company="Everwis">
+// <copyright file="ReleaseRelation.cs" company="Everwis">
 //     Copyright (C) Everwis Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ namespace Wis.Website.DataManager
 			{
 				this.SorterMode = SorterMode;
 			}
-			#region IComparer<Release> Membres
+			#region IComparer<ReleaseRelation> Membres
 			int System.Collections.Generic.IComparer<Release>.Compare(Release x, Release y)
 			{
 				if (SorterMode == SorterMode.Ascending)

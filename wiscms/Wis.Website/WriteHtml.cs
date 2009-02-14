@@ -724,7 +724,7 @@ namespace Wis.Website
                 return "";
 
             Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
-            List<Wis.Website.DataManager.File> files = fileManager.GetFilesBySubmissionGuid(article.ArticleGuid);
+            List<Wis.Website.DataManager.File> files = Wis.Website.DataManager.FileManager.GetFilesBySubmissionGuid(article.ArticleGuid);
             int index = 1;
             System.Text.StringBuilder sb = new StringBuilder();
             foreach (Wis.Website.DataManager.File file in files)

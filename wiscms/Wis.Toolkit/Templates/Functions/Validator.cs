@@ -28,7 +28,7 @@ namespace Wis.Toolkit.Templates.Functions
 				// 抛出 arguments 参数数量不一致的异常
 				return false;
 			}
-
+            if (args[0] == null) return true;
 			return args[0].Equals(System.DBNull.Value);
 		}
 
@@ -46,8 +46,8 @@ namespace Wis.Toolkit.Templates.Functions
 				return false;
 			}
 
+			if (args[0] == null) return true;
 			if (args[0].Equals(System.DBNull.Value)) return true;
-			if (args[0].Equals(null)) return true;
 			if (args[0].Equals(string.Empty)) return true;
 
 			return false;
@@ -67,7 +67,7 @@ namespace Wis.Toolkit.Templates.Functions
 				return false;
 			}
 
-			if (args[0].Equals(null)) return true;
+			if (args[0] == null) return true;
 			if (args[0].Equals(string.Empty)) return true;
 
 			return false;
@@ -111,7 +111,6 @@ namespace Wis.Toolkit.Templates.Functions
 
 			try
 			{
-				//int parsedValue = 
 				Int32.Parse(value, CultureInfo.CurrentCulture);
 				return true;
 			}

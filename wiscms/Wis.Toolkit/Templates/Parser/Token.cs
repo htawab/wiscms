@@ -40,7 +40,7 @@ namespace Wis.Toolkit.Templates.Parser
         OpOr,           // "or" keyword
         OpAnd,          // "and" keyword
 		OpIs,			// "is" keyword
-		OpIsNot,		// "isnot" keyword
+        OpIsNot,		// "IsNot" keyword
 		OpLt,			// "lt" keyword
 		OpGt,			// "gt" keyword
 		OpLte,			// "lte" keyword

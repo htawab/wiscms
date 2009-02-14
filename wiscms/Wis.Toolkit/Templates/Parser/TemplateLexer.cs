@@ -18,14 +18,14 @@ namespace Wis.Toolkit.Templates.Parser
         static TemplateLexer()
         {
             keywords = new HybridDictionary(false);
-            keywords["or"] = TokenKind.OpOr;
-            keywords["and"] = TokenKind.OpAnd;
-			keywords["is"] = TokenKind.OpIs;
-			keywords["isnot"] = TokenKind.OpIsNot;
-			keywords["lt"] = TokenKind.OpLt;
-			keywords["gt"] = TokenKind.OpGt;
-			keywords["lte"] = TokenKind.OpLte;
-			keywords["gte"] = TokenKind.OpGte;
+            keywords["Or"] = TokenKind.OpOr;
+            keywords["And"] = TokenKind.OpAnd;
+            keywords["Is"] = TokenKind.OpIs;
+            keywords["IsNot"] = TokenKind.OpIsNot;
+            keywords["Lt"] = TokenKind.OpLt;
+            keywords["Gt"] = TokenKind.OpGt;
+            keywords["Lte"] = TokenKind.OpLte;
+            keywords["Gte"] = TokenKind.OpGte;
         }
 
 		enum LexMode

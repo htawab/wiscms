@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<tpl:set name="Files" value="$CreateTypeReference("Wis.Website.DataManager.FileManager").GetFilesBySubmissionGuid(Article.ArticleGuid)$" />
+<tpl:set name="Comments" value="$CreateTypeReference("Wis.Website.DataManager.CommentManager").GetCommentsBySubmissionGuid(Article.ArticleGuid)$" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,32 +38,37 @@
         <div class="left mgnBot" id="left">
             <div class="position"><a href="$ApplicationPath$">首页</a>&gt;&gt;$Article.Category.CategoryName$</div>
             <h1><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Article.Title$<tpl:else><font color="$Article.TitleColor$">$Article.Title$</font></tpl:if></h1>
-            <h2>$Article.SubTitle$</h2>
-            <div class="h1bot"><span>浏览人数：328</span>$Article.DateCreated$ &nbsp;&nbsp;$Article.Author$ 来源：京华时报</div>
-            <div class="summary">从今年11月1日开始，市地税局开始试行保险机构代收代缴车船税，首批参加试点的保险公司有中国人保、天平汽车保险、华农财险三家公司</div>
-            <div class="contentHtml">$Article.ContentHtml$
-                <div class="annexDown">附件下载：<a href="#">附件1</a><a href="#">附件2</a></div>
+            <tpl:if test="$IsNotEmpty(Article.SubTitle)$"><h2>$Article.SubTitle$</h2></tpl:if>
+            <div class="h1bot">
+                <span>浏览人数：$Article.Hits$&nbsp;&nbsp;</span>
+                $Article.DateCreated$&nbsp;&nbsp;
+                <tpl:if test="$IsNotEmpty(Article.Author)$">作者：$Article.Author$&nbsp;&nbsp;</tpl:if>
+                <tpl:if test="$IsNotEmpty(Article.Original)$">来源：$Article.Original$</tpl:if>
             </div>
+            <tpl:if test="$IsNotEmpty(Article.Summary)$"><div class="summary">$Article.Summary$</div></tpl:if>
+            <div class="contentHtml">$Article.ContentHtml$<tpl:if test="$Files.Count IsNot 0$">
+                <div class="annexDown">附件下载：<tpl:foreach collection="$Files$" var="File"><a href="$File.SaveAsFileName$" target="_blank">$File.OriginalFileName$($File.Size$字节)</a></tpl:foreach></div>
+            </tpl:if></div>
             <div class="review1"><a href="#review" title="我要评论" class="flright">我要评论</a>当前共有 $Article.Comments$ 条评论</div>
-            <div class="review2">
+            <tpl:if test="$Comments.Count IsNot 0$"><div class="review2">
                 <dl><tpl:foreach collection="$Comments$" var="Comment" index="Index">
-                    <dt><span style="color: #999">&nbsp;[$Index$楼]</span><span><a href="#">$Comment.Commentator$</a>&nbsp;&nbsp;$Comment.DateCreated$</span></dt>
+                    <dt><span style="color: #999">&nbsp;[$Index$楼]</span><span><a href="#">$Comment.Commentator$</a>&nbsp;&nbsp;$Comment.DateCreated$</span><span>$Comment.Title$</span></dt>
                     <dd>$Comment.ContentHtml$</dd></tpl:foreach>
                 </dl>
-            </div>
+            </div></tpl:if>
             <div class="review3"><iframe height="0" width="0" id="Hidden"></iframe><form id="Comment" action="/A/Comment.aspx" target="Hidden">
                 <dl>
                     <dt>发表评论</dt>
                     <dd><label><a name="review" id="review"></a>标&nbsp;&nbsp;题：</label><input type="text" name="Title" /></dd>
                     <dd><label>内&nbsp;&nbsp;容：</label><textarea cols="6" rows="4" name="ContentHtml"></textarea></dd>
-                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onfocus="$('CommentVerify').src=$('CommentVerify').src+'?';$('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
+                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onfocus="G('CommentVerify').src=G('CommentVerify').src+'?';G('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
                     <dd>
                         <dl style="display:none" id="divCommentVerify">
                             <dd><img id="CommentVerify" src="/A/CommentVerify.aspx" alt="看不清？点击更换" onclick="this.src=this.src+'?'" /></dd>
-                            <dd onclick="$('CommentVerify').src=$('CommentVerify').src+'?'"><a>看不清？点击更换</a></dd>
+                            <dd onclick="G('CommentVerify').src=G('CommentVerify').src+'?'"><a>看不清？点击更换</a></dd>
                         </dl>
                     </dd>
-                    <dd>&nbsp;<input type="button" value="提交评论" class="plbtn1" onclick="$('Comment').submit();" /></dd>
+                    <dd>&nbsp;<input type="button" value="提交评论" class="plbtn1" onclick="G('Comment').submit();" /></dd>
                 </dl></form>
             </div>
             <div class="relateArticles">

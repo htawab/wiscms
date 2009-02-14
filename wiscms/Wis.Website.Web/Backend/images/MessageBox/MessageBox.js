@@ -1,7 +1,7 @@
 ﻿<!--
 var MessageBox = {
     // 根据ID获得DOM节点
-    $: function(i){
+    G: function(i){
 	     if(!document.getElementById)return false;
 	     if(typeof i==='string'){
 	   	     if(document.getElementById && document.getElementById(i)) {// W3C DOM
@@ -40,8 +40,8 @@ var MessageBox = {
 	    this.strMessage = message;
 	    this.bSlideWindow=bSlide?false:true;
     	   
-	    var oWin=this.$('window');
-        var oSha=this.$('shadow');
+	    var oWin=this.G('window');
+        var oSha=this.G('shadow');
 	    if(oSha && oWin) this.closeDiv();
         window.onload = function(){
             MessageBox.createDiv();
