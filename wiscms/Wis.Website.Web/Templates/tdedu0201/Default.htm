@@ -1,4 +1,5 @@
 <tpl:set name="ArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager")$" />
+<tpl:set name="CategoryManager" value="$CreateTypeReference("Wis.Website.DataManager.CategoryManager")$" />
 <tpl:set name="Formats" value="$CreateTypeReference("Wis.Toolkit.Formats")$" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -101,70 +102,68 @@ var eduFlash2 = new eduFlash("flash/vv_new.swf","eduFlashID01","662","180","7","
     <div class="center">
         <div class="left">
             <div class="indexleft outbox tabBox height1">
-                <div class="cap">
-                    <a href="#" title="查看更多">更多</a>教育动态</div>
+                <div class="cap">教育动态</div>
                 <div>
                     <ul class="tab" id="myTabA">
-                        <li class="active" onmouseover="tabsShow(this,0)"><a href="#" title="#">党&nbsp;&nbsp;&nbsp;&nbsp;群</a></li>
-                        <li onmouseover="tabsShow(this,1)"><a href="#" title="#">纪&nbsp;&nbsp;&nbsp;&nbsp;检</a></li>
-                        <li onmouseover="tabsShow(this,2)"><a href="#" title="#">督&nbsp;&nbsp;&nbsp;&nbsp;导</a></li>
-                        <li onmouseover="tabsShow(this,3)"><a href="#" title="#">社区办</a></li>
-                        <li onmouseover="tabsShow(this,4)"><a href="#" title="#">办公室</a></li>
-                        <li onmouseover="tabsShow(this,5)"><a href="#" title="#">中教科</a></li>
-                        <li onmouseover="tabsShow(this,6)"><a href="#" title="#">小教科</a></li>
-                        <li onmouseover="tabsShow(this,7)"><a href="#" title="#">人事科</a></li>
-                        <li onmouseover="tabsShow(this,8)"><a href="#" title="#">计财科</a></li>
-                        <li onmouseover="tabsShow(this,9)"><a href="#" title="#">安全科</a></li>
-                        <li onmouseover="tabsShow(this,10)"><a href="#" title="#">工&nbsp;&nbsp;&nbsp;&nbsp;会</a></li>
-                        <li onmouseover="tabsShow(this,11)"><a href="#" title="#">基建办</a></li>
-                        <li onmouseover="tabsShow(this,12)"><a href="#" title="#">信息中心</a></li>
+                        <li class="active" onmouseover="tabsShow(this,0)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" target="_blank">党&nbsp;&nbsp;&nbsp;&nbsp;群</a></li>
+                        <li onmouseover="tabsShow(this,1)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("纪检")$/1.htm" target="_blank">纪&nbsp;&nbsp;&nbsp;&nbsp;检</a></li>
+                        <li onmouseover="tabsShow(this,2)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("督导")$/1.htm" target="_blank">督&nbsp;&nbsp;&nbsp;&nbsp;导</a></li>
+                        <li onmouseover="tabsShow(this,3)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("社区办")$/1.htm" target="_blank">社区办</a></li>
+                        <li onmouseover="tabsShow(this,4)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("办公室")$/1.htm" target="_blank">办公室</a></li>
+                        <li onmouseover="tabsShow(this,5)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("中教科")$/1.htm" target="_blank">中教科</a></li>
+                        <li onmouseover="tabsShow(this,6)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("小教科")$/1.htm" target="_blank">小教科</a></li>
+                        <li onmouseover="tabsShow(this,7)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("人事科")$/1.htm" target="_blank">人事科</a></li>
+                        <li onmouseover="tabsShow(this,8)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("计财科")$/1.htm" target="_blank">计财科</a></li>
+                        <li onmouseover="tabsShow(this,9)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("安全科")$/1.htm" target="_blank">安全科</a></li>
+                        <li onmouseover="tabsShow(this,10)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("工会")$/1.htm" target="_blank">工&nbsp;&nbsp;&nbsp;&nbsp;会</a></li>
+                        <li onmouseover="tabsShow(this,11)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("基建办")$/1.htm" target="_blank">基建办</a></li>
+                        <li onmouseover="tabsShow(this,12)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("信息中心")$/1.htm" target="_blank">信息中心</a></li>
                     </ul>
                     <ul class="indexList tabList" id="myTabAconList0"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("党群", 1, 12)$" var="Article">
-                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$...<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$...</font></tpl:if></a></li>
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
                     </tpl:foreach></ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList1">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList2">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList3">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList4">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList5">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList6">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList7">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList8">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList9">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList10">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截取10...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList11">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题截11取...</a></li>
-                    </ul>
-                    <ul class="indexList tabList disnone" id="myTabAconList12">
-                        <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章标题12截取...</a></li>
-                    </ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList1"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("纪检", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList2"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("督导", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList3"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("社区办", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList4"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("办公室", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList5"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("中教科", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList6"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("小教科", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList7"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("人事科", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList8"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("计财科", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList9"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("安全科", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList10"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("工会", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList11"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("基建办", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
+                    <ul class="indexList tabList disnone" id="myTabAconList12"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("信息中心", 1, 12)$" var="Article">
+                        <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                    </tpl:foreach></ul>
                     <div class="clear">
                     </div>
                 </div>
             </div>
             <div class="indexleft2 outbox height1">
-                <div class="cap postion">
-                    政策法规<ul id="laws">
+                <div class="cap postion">政策法规<ul id="laws">
                         <li class="active" onmouseover="tabsShow(this,0)"><a href="laws1.html">法律法规</a></li><li
                             onmouseover="tabsShow(this,1)"><a href="laws1.html">政策文件</a></li><li onmouseover="tabsShow(this,2)">
                                 <a href="laws1.html">规章制度</a></li></ul>

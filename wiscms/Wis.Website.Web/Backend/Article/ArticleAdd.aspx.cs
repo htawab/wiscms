@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
 using Wis.Toolkit;
+using Wis.Website.DataManager;
 
 namespace Wis.Website.Web.Backend.Article
 { 
@@ -170,6 +171,11 @@ namespace Wis.Website.Web.Backend.Article
             // article 入库，获取 ArticleId ，补全了 article 对象的ArticleId
             article.ArticleId = articleManager.AddNew(article);
             
+            // 添加标记
+            string requestTags = RequestManager.Request("Tags"); // 获取标记
+            TagManager tagManager = new TagManager();
+            tagManager.AddNew(article.ArticleGuid, requestTags);
+
             // TODO:需要事务处理，如果生成页面失败，那新增新闻也失败
             // 生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
@@ -180,7 +186,7 @@ namespace Wis.Website.Web.Backend.Article
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 
             // 跳转
-            //Response.Redirect("ArticleList.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
+            Response.Redirect("ArticleAdd.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
         }
     }
 }

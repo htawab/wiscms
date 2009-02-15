@@ -10,8 +10,8 @@ namespace Wis.Website
     {
         //public static Wis.Website.DataManager.Article articleEntity = new Wis.Website.DataManager.Article();
         public static Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
-        public static Tag.Entity tagEntity = new Wis.Website.Tag.Entity();
-        public static Tag.Manager tagManager = new Wis.Website.Tag.Manager();
+        //public static Tag.Entity tagEntity = new Wis.Website.Tag.Entity();
+        //public static Tag.Manager tagManager = new Wis.Website.Tag.Manager();
         public static Label.Entity labelEntity = new Wis.Website.Label.Entity();
         public static string tempcontent = "";
         /// <summary>
@@ -133,7 +133,7 @@ namespace Wis.Website
             {
                 string myLabelName = m[i].Value;
                 myLabelName = myLabelName.Replace("$", "").Replace("Tag_", "");
-                myLabelName = getTags(myLabelName);
+                //myLabelName = getTags(myLabelName);
                 tempcontent = tempcontent.Replace(m[i].Value, myLabelName);
             }
         }
@@ -142,260 +142,260 @@ namespace Wis.Website
         /// </summary>
         /// <param name="myLabelName"></param>
         /// <returns></returns>
-        public static string getTags(string myLabelName)
-        {
-            tagEntity = tagManager.Load(myLabelName);
-            if (tagEntity == null)
-                return "";
-            string pattern = @"\[tpl:[^\]]+\]";
-            Regex reg = new Regex(pattern, RegexOptions.Compiled);
-            MatchCollection m = reg.Matches(tagEntity.ContentHtml);
-            if (m.Count == 0)
-                return "";
-            string contentHtml = m[0].Value;
-            contentHtml = contentHtml.Replace("[tpl:", "").Replace("]", "");
-            string[] contentHtmls = contentHtml.Split(';');
-            labelEntity = new Wis.Website.Label.Entity();
-            for (int k = 0; k < contentHtmls.Length; k++)
-            {
-                if (contentHtmls[k].IndexOf("CommandText") > -1)
-                {
-                    contentHtmls[k] = contentHtmls[k].Replace("CommandText=", "").Replace("{","").Replace("}","");
-                     labelEntity.Load("CommandText", contentHtmls[k]);
-                }
-                else
-                {
-                    string[] labels = contentHtmls[k].Split('=');
-                     labelEntity.Load(labels[0], labels[1]);
-                }
-            }
-            //读取数据库数据
-            return Listhtml(tagEntity.ContentHtml.Replace(m[0].Value,"").Replace("[/tpl]",""));
-        }
+        //public static string getTags(string myLabelName)
+        //{
+        //    tagEntity = tagManager.Load(myLabelName);
+        //    if (tagEntity == null)
+        //        return "";
+        //    string pattern = @"\[tpl:[^\]]+\]";
+        //    Regex reg = new Regex(pattern, RegexOptions.Compiled);
+        //    MatchCollection m = reg.Matches(tagEntity.ContentHtml);
+        //    if (m.Count == 0)
+        //        return "";
+        //    string contentHtml = m[0].Value;
+        //    contentHtml = contentHtml.Replace("[tpl:", "").Replace("]", "");
+        //    string[] contentHtmls = contentHtml.Split(';');
+        //    labelEntity = new Wis.Website.Label.Entity();
+        //    for (int k = 0; k < contentHtmls.Length; k++)
+        //    {
+        //        if (contentHtmls[k].IndexOf("CommandText") > -1)
+        //        {
+        //            contentHtmls[k] = contentHtmls[k].Replace("CommandText=", "").Replace("{","").Replace("}","");
+        //             labelEntity.Load("CommandText", contentHtmls[k]);
+        //        }
+        //        else
+        //        {
+        //            string[] labels = contentHtmls[k].Split('=');
+        //             labelEntity.Load(labels[0], labels[1]);
+        //        }
+        //    }
+        //    //读取数据库数据
+        //    return Listhtml(tagEntity.ContentHtml.Replace(m[0].Value,"").Replace("[/tpl]",""));
+        //}
         /// <summary>
         ///  列表数据HTML
         /// </summary>
         /// <returns></returns>
-        public static string Listhtml(string dateHtml)
-        {
-            string html = "";
-            System.Data.DataTable dt = ArticleDt();
-            if (dt == null)
-                return "";
-            //分页 装载到数组中 JS读取数组
-            if (labelEntity.IsPage)
-            {
-                html += "<SCRIPT language=javascript>\r\n";
-                html += "var " + tagEntity.TagName + "webData = [";
-                string pattern = @"\$[^\$]+\$";
-                Regex reg = new Regex(pattern, RegexOptions.Compiled);
-                MatchCollection m = reg.Matches(tagEntity.ContentHtml);
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    html += "{";
-                    for (int k = 0; k < m.Count; k++)
-                    {
-                        string columns = m[k].Value.Replace("$", "");
-                        string columnsValue = "";
-                        try
-                        {
-                            columnsValue = dt.Rows[i][columns].ToString();
-                            if (columns == "DateCreated")
-                                columnsValue = System.Convert.ToDateTime(columnsValue).ToShortDateString();
-                            dateHtml = dateHtml.Replace(m[k].Value, "'+" + tagEntity.TagName + "webData[i]." + columns + "+'");
-                        }
-                        catch { }
-                        html += "\"" + columns + "\":\"" + columnsValue.Replace('"', '\'') + "\"";
-                        if (k < m.Count - 1)
-                            html += ",";
-                    }
-                    html += "}\r\n";
-                    if (i < dt.Rows.Count - 1)
-                        html += ",";
-                }
-                html += "]\r\n";
-                html += "var " + tagEntity.TagName + "CurPage =" + labelEntity.CurPage + ";\r\n ";//当前记录数
-                html += "var " + tagEntity.TagName + "vNum =" + tagEntity.TagName + "webData.length;\r\n";//全部数目
-                html += "var " + tagEntity.TagName + "showData =" + tagEntity.TagName + "webData;\r\n";
-                html += "var " + tagEntity.TagName + "pageListNum = " + labelEntity.PageSize + ";\r\n";//每页显示记录数
-                html += "var " + tagEntity.TagName + "pageCount = " + tagEntity.TagName + "vNum/" + tagEntity.TagName + "pageListNum + ((" + tagEntity.TagName + "vNum%" + tagEntity.TagName + "pageListNum == 0)? 0:1);\r\n";  //总记录数    
+        //public static string Listhtml(string dateHtml)
+        //{
+        //    string html = "";
+        //    System.Data.DataTable dt = ArticleDt();
+        //    if (dt == null)
+        //        return "";
+        //    //分页 装载到数组中 JS读取数组
+        //    if (labelEntity.IsPage)
+        //    {
+        //        html += "<SCRIPT language=javascript>\r\n";
+        //        html += "var " + tagEntity.TagName + "webData = [";
+        //        string pattern = @"\$[^\$]+\$";
+        //        Regex reg = new Regex(pattern, RegexOptions.Compiled);
+        //        MatchCollection m = reg.Matches(tagEntity.ContentHtml);
+        //        for (int i = 0; i < dt.Rows.Count; i++)
+        //        {
+        //            html += "{";
+        //            for (int k = 0; k < m.Count; k++)
+        //            {
+        //                string columns = m[k].Value.Replace("$", "");
+        //                string columnsValue = "";
+        //                try
+        //                {
+        //                    columnsValue = dt.Rows[i][columns].ToString();
+        //                    if (columns == "DateCreated")
+        //                        columnsValue = System.Convert.ToDateTime(columnsValue).ToShortDateString();
+        //                    dateHtml = dateHtml.Replace(m[k].Value, "'+" + tagEntity.TagName + "webData[i]." + columns + "+'");
+        //                }
+        //                catch { }
+        //                html += "\"" + columns + "\":\"" + columnsValue.Replace('"', '\'') + "\"";
+        //                if (k < m.Count - 1)
+        //                    html += ",";
+        //            }
+        //            html += "}\r\n";
+        //            if (i < dt.Rows.Count - 1)
+        //                html += ",";
+        //        }
+        //        html += "]\r\n";
+        //        html += "var " + tagEntity.TagName + "CurPage =" + labelEntity.CurPage + ";\r\n ";//当前记录数
+        //        html += "var " + tagEntity.TagName + "vNum =" + tagEntity.TagName + "webData.length;\r\n";//全部数目
+        //        html += "var " + tagEntity.TagName + "showData =" + tagEntity.TagName + "webData;\r\n";
+        //        html += "var " + tagEntity.TagName + "pageListNum = " + labelEntity.PageSize + ";\r\n";//每页显示记录数
+        //        html += "var " + tagEntity.TagName + "pageCount = " + tagEntity.TagName + "vNum/" + tagEntity.TagName + "pageListNum + ((" + tagEntity.TagName + "vNum%" + tagEntity.TagName + "pageListNum == 0)? 0:1);\r\n";  //总记录数    
 
-                html += "if (isNaN(parseInt(" + tagEntity.TagName + "pageCount))) " + tagEntity.TagName + "pageCount = 1;\r\n";
-                html += "if (" + tagEntity.TagName + "pageCount < 1) " + tagEntity.TagName + "pageCount = 1;\r\n";
-                html += "  " + tagEntity.TagName + "pageCount = parseInt(" + tagEntity.TagName + "pageCount);\r\n";
-                html += "var " + tagEntity.TagName + "draw = function(page){\r\n";
-                html += "     if (page <= 0 || page > " + tagEntity.TagName + "pageCount)\r\n";
-                html += "         page = 1;\r\n";
-                html += "    " + tagEntity.TagName + "CurPage = page;\r\n";
-                html += " var tvBegin = (" + tagEntity.TagName + "CurPage-1) * " + tagEntity.TagName + "pageListNum;\r\n";
-                html += "var html = '';\r\n";
-                html += "var tempListNum = tvBegin+" + tagEntity.TagName + "pageListNum;\r\n";
-                html += "if (tempListNum > " + tagEntity.TagName + "vNum)\r\n";
-                html += "tempListNum = " + tagEntity.TagName + "vNum;\r\n";
-                html += "var k =0 ;\r\n";
-                html += "for(var i = tvBegin; i < tempListNum; i++){\r\n";
-                html += " html += '" + dateHtml + "';\r\n";
-                html += " k++;\r\n";
-                html += "}\r\n";
-                html += " if (k <   " + tagEntity.TagName + "pageListNum) {\r\n";
-                html += "for (var i = 0; i < " + tagEntity.TagName + "pageListNum - k; i++)\r\n";
-                html += "   html += '<li> </li>';\r\n";
-                html += " }\r\n";
+        //        html += "if (isNaN(parseInt(" + tagEntity.TagName + "pageCount))) " + tagEntity.TagName + "pageCount = 1;\r\n";
+        //        html += "if (" + tagEntity.TagName + "pageCount < 1) " + tagEntity.TagName + "pageCount = 1;\r\n";
+        //        html += "  " + tagEntity.TagName + "pageCount = parseInt(" + tagEntity.TagName + "pageCount);\r\n";
+        //        html += "var " + tagEntity.TagName + "draw = function(page){\r\n";
+        //        html += "     if (page <= 0 || page > " + tagEntity.TagName + "pageCount)\r\n";
+        //        html += "         page = 1;\r\n";
+        //        html += "    " + tagEntity.TagName + "CurPage = page;\r\n";
+        //        html += " var tvBegin = (" + tagEntity.TagName + "CurPage-1) * " + tagEntity.TagName + "pageListNum;\r\n";
+        //        html += "var html = '';\r\n";
+        //        html += "var tempListNum = tvBegin+" + tagEntity.TagName + "pageListNum;\r\n";
+        //        html += "if (tempListNum > " + tagEntity.TagName + "vNum)\r\n";
+        //        html += "tempListNum = " + tagEntity.TagName + "vNum;\r\n";
+        //        html += "var k =0 ;\r\n";
+        //        html += "for(var i = tvBegin; i < tempListNum; i++){\r\n";
+        //        html += " html += '" + dateHtml + "';\r\n";
+        //        html += " k++;\r\n";
+        //        html += "}\r\n";
+        //        html += " if (k <   " + tagEntity.TagName + "pageListNum) {\r\n";
+        //        html += "for (var i = 0; i < " + tagEntity.TagName + "pageListNum - k; i++)\r\n";
+        //        html += "   html += '<li> </li>';\r\n";
+        //        html += " }\r\n";
 
-                html += "document.getElementById('" + tagEntity.TagName + "pageinfo').innerHTML = html;\r\n";
-                html += "document.getElementById('" + tagEntity.TagName + "page').innerHTML = " + tagEntity.TagName + "getPageHtml();\r\n";
-                html += "}\r\n";
-                html += tagEntity.TagName + "draw(1);\r\n";
-                //总页数;
+        //        html += "document.getElementById('" + tagEntity.TagName + "pageinfo').innerHTML = html;\r\n";
+        //        html += "document.getElementById('" + tagEntity.TagName + "page').innerHTML = " + tagEntity.TagName + "getPageHtml();\r\n";
+        //        html += "}\r\n";
+        //        html += tagEntity.TagName + "draw(1);\r\n";
+        //        //总页数;
 
-                ///输出分页html
-                html += "function " + tagEntity.TagName + "getPageHtml(){\r\n";
-                html += "var pageIndex =" + tagEntity.TagName + "CurPage;\r\n";
-                html += " var pageCount =" + tagEntity.TagName + "pageCount;\r\n";
-                html += " var RecordCount =" + tagEntity.TagName + "vNum;\r\n";
-                html += "var html = '',prevPage = pageIndex - 1, nextPage = pageIndex + 1;;\r\n";
-                html += "if (pageCount <= 1)\r\n";
-                html += "{\r\n";
-                html += "     return \"\";\r\n";
-                html += "}\r\n";
-                html += " html += '<span><span class=\"Pager\">共' + RecordCount + '条记录&nbsp;第' + pageIndex + '页/共' + pageCount + '页</span>';\r\n";
-                html += "  if (prevPage < 1) {\r\n";
-                html += "} else {\r\n";
-                html += "  html += '<a href=\"javascript:" + tagEntity.TagName + "draw(1)\" title=\"首页\" class=\"Pager\">首页</a>';\r\n";
-                html += " html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+prevPage+')\" title=\"上一页\" class=\"Pager\">上一页</a>';\r\n";
-                html += "  }\r\n";
-                html += " if (pageIndex % 10 == 0) {\r\n";
-                html += "    var startPage = pageIndex - 9;\r\n";
-                html += "   } else {\r\n";
-                html += "      var startPage = pageIndex - pageIndex % 10 + 1;\r\n";
-                html += "   }\r\n";
-                html += "   if (startPage > 10) html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+(startPage - 1)+')\" title=\"前10页\" class=\"Pager\">...</a>';\r\n";
-                html += "   for (var i = startPage; i < startPage + 10; i++) {\r\n";
-                html += "  if (i > pageCount) break;\r\n";
-                html += "  if (i == pageIndex) {\r\n";
-                html += "       html += '<span title=\"第' + i + '页\" class=\"Current\">' + i + '</span>';\r\n";
-                html += "   } else {\r\n";
-                html += "        html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+i+')\" title=\"第' + i + '页\" class=\"Pager\">' + i + '</a>';\r\n";
-                html += "    }\r\n";
-                html += " }\r\n";
-                html += " if (pageCount >= startPage + 10) html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+(startPage +10)+')\" title=\"下10页\" class=\"Pager\">...</a>';\r\n";
-                html += " if (nextPage > pageCount) {\r\n";
-                html += " } else {\r\n";
-                html += "     html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+nextPage+')\" title=\"下一页\" class=\"Pager\">下一页</a>';\r\n";
-                html += "      html += '<a href= \"javascript:" + tagEntity.TagName + "draw('+pageCount+')\" title=\"尾页\" class=\"Pager\">尾页</a>';\r\n";
-                html += "  }\r\n";
-                html += "  html += '</span>';\r\n";
-                html += "return html;}\r\n";
-                html += "</SCRIPT>";
+        //        ///输出分页html
+        //        html += "function " + tagEntity.TagName + "getPageHtml(){\r\n";
+        //        html += "var pageIndex =" + tagEntity.TagName + "CurPage;\r\n";
+        //        html += " var pageCount =" + tagEntity.TagName + "pageCount;\r\n";
+        //        html += " var RecordCount =" + tagEntity.TagName + "vNum;\r\n";
+        //        html += "var html = '',prevPage = pageIndex - 1, nextPage = pageIndex + 1;;\r\n";
+        //        html += "if (pageCount <= 1)\r\n";
+        //        html += "{\r\n";
+        //        html += "     return \"\";\r\n";
+        //        html += "}\r\n";
+        //        html += " html += '<span><span class=\"Pager\">共' + RecordCount + '条记录&nbsp;第' + pageIndex + '页/共' + pageCount + '页</span>';\r\n";
+        //        html += "  if (prevPage < 1) {\r\n";
+        //        html += "} else {\r\n";
+        //        html += "  html += '<a href=\"javascript:" + tagEntity.TagName + "draw(1)\" title=\"首页\" class=\"Pager\">首页</a>';\r\n";
+        //        html += " html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+prevPage+')\" title=\"上一页\" class=\"Pager\">上一页</a>';\r\n";
+        //        html += "  }\r\n";
+        //        html += " if (pageIndex % 10 == 0) {\r\n";
+        //        html += "    var startPage = pageIndex - 9;\r\n";
+        //        html += "   } else {\r\n";
+        //        html += "      var startPage = pageIndex - pageIndex % 10 + 1;\r\n";
+        //        html += "   }\r\n";
+        //        html += "   if (startPage > 10) html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+(startPage - 1)+')\" title=\"前10页\" class=\"Pager\">...</a>';\r\n";
+        //        html += "   for (var i = startPage; i < startPage + 10; i++) {\r\n";
+        //        html += "  if (i > pageCount) break;\r\n";
+        //        html += "  if (i == pageIndex) {\r\n";
+        //        html += "       html += '<span title=\"第' + i + '页\" class=\"Current\">' + i + '</span>';\r\n";
+        //        html += "   } else {\r\n";
+        //        html += "        html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+i+')\" title=\"第' + i + '页\" class=\"Pager\">' + i + '</a>';\r\n";
+        //        html += "    }\r\n";
+        //        html += " }\r\n";
+        //        html += " if (pageCount >= startPage + 10) html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+(startPage +10)+')\" title=\"下10页\" class=\"Pager\">...</a>';\r\n";
+        //        html += " if (nextPage > pageCount) {\r\n";
+        //        html += " } else {\r\n";
+        //        html += "     html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+nextPage+')\" title=\"下一页\" class=\"Pager\">下一页</a>';\r\n";
+        //        html += "      html += '<a href= \"javascript:" + tagEntity.TagName + "draw('+pageCount+')\" title=\"尾页\" class=\"Pager\">尾页</a>';\r\n";
+        //        html += "  }\r\n";
+        //        html += "  html += '</span>';\r\n";
+        //        html += "return html;}\r\n";
+        //        html += "</SCRIPT>";
 
 
-            }
-            //未分页直接些到HTML中区
-            else
-            {
-                if (labelEntity.Type.ToLower() == "flash")
-                {
-                    html += "<SCRIPT language=javascript>\r\n";
-                    string pics = "";
-                    string mylinks = "";
-                    string texts = "";
-                    string texts2 = "";
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        pics += dt.Rows[i]["ImagePath"].ToString();
-                        mylinks += dt.Rows[i]["ReleasePath"].ToString();
-                        texts += dt.Rows[i]["Summary"].ToString();
-                        texts2 += dt.Rows[i]["Title"].ToString();
-                        if (i < dt.Rows.Count - 1)
-                        {
-                            pics += "|"; mylinks += "|"; texts += "|"; texts2 += "|";
-                        }
-                    }
-                    html += "var pics ='" + pics + "'\r\n";
-                    html += "var mylinks ='" + mylinks + "'\r\n";
-                    html += "var texts ='" + texts + "'\r\n";
-                    html += "var texts2 ='" + texts2 + "'\r\n";
-                    html += "var eduFlash2 = new eduFlash(\"../flash/vv_new.swf\",\"eduFlashID01\",\"662\",\"180\",\"7\",\"#ffffff\");\r\n";
-                    html += "    eduFlash2.addParam(\"quality\", \"high\");\r\n";
-                    html += "         eduFlash2.addParam(\"wmode\", \"opaque\");\r\n";
-                    html += "    eduFlash2.addParam(\"salign\", \"t\");	\r\n";
-                    html += "    eduFlash2.addVariable(\"p\",pics);\r\n";
-                    html += "    eduFlash2.addVariable(\"l\",mylinks);\r\n";
-                    html += "    eduFlash2.addVariable(\"icon\",texts);\r\n";
-                    html += "    eduFlash2.addVariable(\"icon_2\",texts2);\r\n";
-                    html += "    eduFlash2.write(\"" + tagEntity.TagName + "flash\");\r\n";
-                    html += "            </script>\r\n";
-                }
-                else if (labelEntity.Type.ToLower() == "video")
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        string pattern = @"\$[^\$]+\$";
-                        Regex reg = new Regex(pattern, RegexOptions.Compiled);
-                        MatchCollection m = reg.Matches(tagEntity.ContentHtml);
-                        string columnstml = dateHtml;
-                        for (int k = 0; k < m.Count; k++)
-                        {
-                            string columns = m[k].Value.Replace("$", "");
-                            string columnsValue = "";
-                            try
-                            {
-                                columnsValue = dt.Rows[i][columns].ToString();
-                                if (columns == "Title")
-                                {
-                                    if (labelEntity.TruncateNumber != 0)
-                                        columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
-                                }
-                                if (columns == "TabloidPath")
-                                {
-                                    ///插入播放器代码；
-                                    columnsValue = videoHtml(columnsValue);
-                                }
-                                columnstml = columnstml.Replace(m[k].Value, columnsValue);
-                            }
-                            catch { }
-                        }
-                        html += columnstml;
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        string pattern = @"\$[^\$]+\$";
-                        Regex reg = new Regex(pattern, RegexOptions.Compiled);
-                        MatchCollection m = reg.Matches(tagEntity.ContentHtml);
-                        string columnstml = dateHtml;
-                        for (int k = 0; k < m.Count; k++)
-                        {
-                            string columns = m[k].Value.Replace("$", "");
-                            string columnsValue = "";
-                            try
-                            {
-                                columnsValue = dt.Rows[i][columns].ToString();
-                                if (columns == "DateCreated")
-                                    columnsValue = System.Convert.ToDateTime(columnsValue).ToShortDateString();
-                                if (columns == "Title")
-                                {
-                                    if (labelEntity.TruncateNumber != 0)
-                                        columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
-                                }
-                                if (columns == "Summary")
-                                {
-                                    if (labelEntity.SummaryNumber != 0)
-                                        columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.SummaryNumber);
-                                }
-                                columnstml = columnstml.Replace(m[k].Value, columnsValue);
-                            }
-                            catch { }
+        //    }
+        //    //未分页直接些到HTML中区
+        //    else
+        //    {
+        //        if (labelEntity.Type.ToLower() == "flash")
+        //        {
+        //            html += "<SCRIPT language=javascript>\r\n";
+        //            string pics = "";
+        //            string mylinks = "";
+        //            string texts = "";
+        //            string texts2 = "";
+        //            for (int i = 0; i < dt.Rows.Count; i++)
+        //            {
+        //                pics += dt.Rows[i]["ImagePath"].ToString();
+        //                mylinks += dt.Rows[i]["ReleasePath"].ToString();
+        //                texts += dt.Rows[i]["Summary"].ToString();
+        //                texts2 += dt.Rows[i]["Title"].ToString();
+        //                if (i < dt.Rows.Count - 1)
+        //                {
+        //                    pics += "|"; mylinks += "|"; texts += "|"; texts2 += "|";
+        //                }
+        //            }
+        //            html += "var pics ='" + pics + "'\r\n";
+        //            html += "var mylinks ='" + mylinks + "'\r\n";
+        //            html += "var texts ='" + texts + "'\r\n";
+        //            html += "var texts2 ='" + texts2 + "'\r\n";
+        //            html += "var eduFlash2 = new eduFlash(\"../flash/vv_new.swf\",\"eduFlashID01\",\"662\",\"180\",\"7\",\"#ffffff\");\r\n";
+        //            html += "    eduFlash2.addParam(\"quality\", \"high\");\r\n";
+        //            html += "         eduFlash2.addParam(\"wmode\", \"opaque\");\r\n";
+        //            html += "    eduFlash2.addParam(\"salign\", \"t\");	\r\n";
+        //            html += "    eduFlash2.addVariable(\"p\",pics);\r\n";
+        //            html += "    eduFlash2.addVariable(\"l\",mylinks);\r\n";
+        //            html += "    eduFlash2.addVariable(\"icon\",texts);\r\n";
+        //            html += "    eduFlash2.addVariable(\"icon_2\",texts2);\r\n";
+        //            html += "    eduFlash2.write(\"" + tagEntity.TagName + "flash\");\r\n";
+        //            html += "            </script>\r\n";
+        //        }
+        //        else if (labelEntity.Type.ToLower() == "video")
+        //        {
+        //            for (int i = 0; i < dt.Rows.Count; i++)
+        //            {
+        //                string pattern = @"\$[^\$]+\$";
+        //                Regex reg = new Regex(pattern, RegexOptions.Compiled);
+        //                MatchCollection m = reg.Matches(tagEntity.ContentHtml);
+        //                string columnstml = dateHtml;
+        //                for (int k = 0; k < m.Count; k++)
+        //                {
+        //                    string columns = m[k].Value.Replace("$", "");
+        //                    string columnsValue = "";
+        //                    try
+        //                    {
+        //                        columnsValue = dt.Rows[i][columns].ToString();
+        //                        if (columns == "Title")
+        //                        {
+        //                            if (labelEntity.TruncateNumber != 0)
+        //                                columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
+        //                        }
+        //                        if (columns == "TabloidPath")
+        //                        {
+        //                            ///插入播放器代码；
+        //                            columnsValue = videoHtml(columnsValue);
+        //                        }
+        //                        columnstml = columnstml.Replace(m[k].Value, columnsValue);
+        //                    }
+        //                    catch { }
+        //                }
+        //                html += columnstml;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            for (int i = 0; i < dt.Rows.Count; i++)
+        //            {
+        //                string pattern = @"\$[^\$]+\$";
+        //                Regex reg = new Regex(pattern, RegexOptions.Compiled);
+        //                MatchCollection m = reg.Matches(tagEntity.ContentHtml);
+        //                string columnstml = dateHtml;
+        //                for (int k = 0; k < m.Count; k++)
+        //                {
+        //                    string columns = m[k].Value.Replace("$", "");
+        //                    string columnsValue = "";
+        //                    try
+        //                    {
+        //                        columnsValue = dt.Rows[i][columns].ToString();
+        //                        if (columns == "DateCreated")
+        //                            columnsValue = System.Convert.ToDateTime(columnsValue).ToShortDateString();
+        //                        if (columns == "Title")
+        //                        {
+        //                            if (labelEntity.TruncateNumber != 0)
+        //                                columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
+        //                        }
+        //                        if (columns == "Summary")
+        //                        {
+        //                            if (labelEntity.SummaryNumber != 0)
+        //                                columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.SummaryNumber);
+        //                        }
+        //                        columnstml = columnstml.Replace(m[k].Value, columnsValue);
+        //                    }
+        //                    catch { }
 
-                        }
-                        html += columnstml;
-                    }
-                }
-            }
-            return html;
-        }
+        //                }
+        //                html += columnstml;
+        //            }
+        //        }
+        //    }
+        //    return html;
+        //}
         /// <summary>
         /// 插入播放器代码
         /// </summary>

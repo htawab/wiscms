@@ -83,7 +83,7 @@ namespace Wis.Website.DataManager
             return categorys;
         }
 
-        //SelectCategoryByCategoryGuid
+
         public Category GetCategory(int CategoryId)
         {
             Category category = new Category();
@@ -106,6 +106,27 @@ namespace Wis.Website.DataManager
             }
             dataReader.Close();
             return category;
+        }
+
+
+        /// <summary>
+        /// 根据目录名称获取目录编号
+        /// </summary>
+        /// <param name="categoryName">目录名称</param>
+        /// <returns>返回目录编号</returns>
+        public static int GetCategoryIdByCategoryName(string categoryName)
+        {
+            DbProviderHelper.GetConnection();
+            using (DbCommand command = DbProviderHelper.CreateCommand("SelectCategoryIdByCategoryName", CommandType.StoredProcedure))
+            {
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryName", DbType.String, categoryName));
+                Object o = DbProviderHelper.ExecuteScalar(command);
+                if (o != null && !o.Equals(DBNull.Value))
+                {
+                    return (int)o;
+                }
+            }
+            return -1;
         }
 
 

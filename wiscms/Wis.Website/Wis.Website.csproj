@@ -101,8 +101,6 @@
     <Compile Include="WriteHtml.cs" />
     <Compile Include="Page\Entity.cs" />
     <Compile Include="Page\Manager.cs" />
-    <Compile Include="Tag\Entity.cs" />
-    <Compile Include="Tag\Manager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wis.Toolkit\Wis.Toolkit.csproj">

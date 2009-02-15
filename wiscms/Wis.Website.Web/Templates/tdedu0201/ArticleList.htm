@@ -1,17 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <tpl:set name="ArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager")$" />
+<tpl:set name="CategoryManager" value="$CreateTypeReference("Wis.Website.DataManager.CategoryManager")$" />
+<tpl:set name="Formats" value="$CreateTypeReference("Wis.Toolkit.Formats")$" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>教育动态</title>
-    <link href="$TemplateDirectory$css/style.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" src="js/indexTab.js"></script>
+    <title>教育动态 - 鞍山市铁东区教育局</title>
+    <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
 </head>
 <body>
     <div class="header">
         <div class="headerBox">
-            <img src="$TemplateDirectory$images/logo.gif" width="173px" height="53px" />
+            <img src="$TemplateDirectory$/images/logo.gif" width="173px" height="53px" />
             <div class="loginBox">
                 用户名：<input type="text" size="12" />
                 密码：<input type="text" size="12" />
@@ -19,8 +21,8 @@
             </div>
             <ul>
                 <li class="left"></li>
-                <li><a href="index.html" title="首页">首页</a></li><li class="sep">|</li>
-                <li><a href="jydtList.html" title="ss">教育动态</a></li><li class="sep">|</li>
+                <li><a href="Default.htm" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" title="ss">教育动态</a></li><li class="sep">|</li>
                 <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
                 <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
@@ -35,50 +37,30 @@
     </div>
     <div class="main">
         <div class="left listtab">
-            <div class="position">
-                >>教育动态</div>
+            <div class="position"><a href="../Default.htm">首页</a> >> 教育动态 >> $Category.CategoryName$</div>
             <ul class="tab" id="myTabA">
-                <li class="active" onclick="tabsShow(this,0)"><a href="#">党群</a></li>
-                <li onclick="tabsShow(this,1)"><a href="#">纪检</a></li>
-                <li onclick="tabsShow(this,2)"><a href="#">督导</a></li>
-                <li onclick="tabsShow(this,3)"><a href="#">社区办</a></li>
-                <li onclick="tabsShow(this,4)"><a href="#">办公室</a></li>
-                <li onclick="tabsShow(this,5)"><a href="#">中教科</a></li>
-                <li onclick="tabsShow(this,6)"><a href="#">小教科</a></li>
-                <li onclick="tabsShow(this,7)"><a href="#">人事科</a></li>
-                <li onclick="tabsShow(this,8)"><a href="#">计财科</a></li>
-                <li onclick="tabsShow(this,9)"><a href="#">安全科</a></li>
-                <li onclick="tabsShow(this,10)"><a href="#">工会</a></li>
-                <li onclick="tabsShow(this,11)"><a href="#">基建办</a></li>
-                <li onclick="tabsShow(this,12)"><a href="#">信息中心</a></li>
+                <li class="active"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" target="_blank">党群</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("纪检")$/1.htm" target="_blank">纪检</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("督导")$/1.htm" target="_blank">督导</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("社区办")$/1.htm" target="_blank">社区办</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("办公室")$/1.htm" target="_blank">办公室</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("中教科")$/1.htm" target="_blank">中教科</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("小教科")$/1.htm" target="_blank">小教科</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("人事科")$/1.htm" target="_blank">人事科</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("计财科")$/1.htm" target="_blank">计财科</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("安全科")$/1.htm" target="_blank">安全科</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("工会")$/1.htm" target="_blank">工会</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("基建办")$/1.htm" target="_blank">基建办</a></li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("信息中心")$/1.htm" target="_blank">信息中心</a></li>
             </ul>
             <div class="clear">
             </div>
-            <div id="myTabAconList0">
-                <ul class="list">
-                    <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName(Category.CategoryName, PageIndex, PageSize)$" var="Article">
-                    <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Article.Title$[<strong>32</strong>阅 <strong>25</strong>评]</a>[$Article.Author$]</li>
-                    </tpl:foreach>
-                </ul>
-                <div class="page">$Pager$</div>
-            </div>
-            <div id="myTabAconList1" class="disnone">a</div>
-            <div id="myTabAconList2" class="disnone">b</div>
-            <div id="myTabAconList3" class="disnone">c</div>
-            <div id="myTabAconList4" class="disnone">d</div>
-            <div id="myTabAconList5" class="disnone">e</div>
-            <div id="myTabAconList6" class="disnone">f</div>
-            <div id="myTabAconList7" class="disnone">g</div>
-            <div id="myTabAconList8" class="disnone">
-                h</div>
-            <div id="myTabAconList9" class="disnone">
-                i</div>
-            <div id="myTabAconList10" class="disnone">
-                j</div>
-            <div id="myTabAconList11" class="disnone">
-                k</div>
-            <div id="myTabAconList12" class="disnone">
-                k</div>
+            <ul class="list">
+                <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName(Category.CategoryName, PageIndex, PageSize)$" var="Article">
+                <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Formats.TruncateString(Article.Title, 30)$[<strong>$Article.Hits$</strong>阅 <strong>$Article.Comments$</strong>评]</a></li>
+                </tpl:foreach>
+            </ul>
+            <div class="page">$Pager$</div>
         </div>
         <div class="right">
             <div class="sysLink mgnBot">
@@ -87,7 +69,7 @@
                         title="统计报表">统计报表</a><a href="#" title="部门职能">部门职能</a><a href="#" title="会议预订系统">会议预订系统</a><a
                             href="#" title="电子期刊管理">电子期刊管理</a><a href="#" title="自助建站管理">自助建站管理</a></div>
             <div class="tdjy">
-                <img src="$TemplateDirectory$images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+                <img src="$TemplateDirectory$/images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
                 <div class="line1">
                     <div>
                         《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
@@ -103,8 +85,7 @@
             <div class="clear  mgnBot">
             </div>
             <div class="areasch outbox height5">
-                <div class="cap mgnBot">
-                    学区查询</div>
+                <div class="cap mgnBot">学区查询</div>
                 <select name="">
                     <option>办事处名称1</option>
                 </select><span class="red">（填写说明1）</span><br />
@@ -114,7 +95,7 @@
                 <select name="">
                     <option>办事处名称1</option>
                 </select><span class="red">（填写说明1）</span><br />
-                <img src="$TemplateDirectory$images/areaschbtn.gif" width="56" height="21" class="btn" />
+                <img src="$TemplateDirectory$/images/areaschbtn.gif" width="56" height="21" class="btn" />
             </div>
             <div class="softdown outbox height6">
                 <div class="cap">
@@ -143,52 +124,49 @@
         </div>
     </div>
     <div class="link outbox">
-        <div class="cap">
-            学校链接</div>
+        <div class="cap">学校链接</div>
+        <a href="#" title="#"><img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
+        <a href="#" title="#"><img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <a href="#" title="#">
-            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="$TemplateDirectory$images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <a href="#" title="#">
-            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="$TemplateDirectory$images/link.gif" /></a>
-        <a href="#" title="#">
-            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="$TemplateDirectory$images/link.gif" /></a>
-        <a href="#" title="#">
-            <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                    <img src="$TemplateDirectory$images/link.gif" /></a> <a href="#" title="#">
-                        <img src="$TemplateDirectory$images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <div class="clear">
         </div>
     </div>
