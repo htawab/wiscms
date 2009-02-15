@@ -1103,7 +1103,7 @@
     <Content Include="Templates\tdedu0201\images\tdjyPic.gif" />
     <Content Include="Templates\tdedu0201\images\zytabbg1.gif" />
     <Content Include="Templates\tdedu0201\images\zytabbg2.gif" />
-    <Content Include="Templates\tdedu0201\index.html" />
+    <Content Include="Templates\tdedu0201\Default.htm" />
     <Content Include="Templates\tdedu0201\js\accordion.js" />
     <Content Include="Templates\tdedu0201\js\cycle.js" />
     <Content Include="Templates\tdedu0201\js\indexTab.js" />

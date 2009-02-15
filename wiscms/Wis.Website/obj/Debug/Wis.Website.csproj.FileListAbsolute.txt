@@ -1,7 +1,0 @@
-E:\教育局\src\wiscms\Wis.Website\bin\Debug\Wis.Website.dll
-E:\教育局\src\wiscms\Wis.Website\bin\Debug\Wis.Website.pdb
-E:\教育局\src\wiscms\Wis.Website\bin\Debug\Wis.Toolkit.dll
-E:\教育局\src\wiscms\Wis.Website\bin\Debug\Wis.Toolkit.pdb
-E:\教育局\src\wiscms\Wis.Website\obj\Debug\ResolveAssemblyReference.cache
-E:\教育局\src\wiscms\Wis.Website\obj\Debug\Wis.Website.dll
-E:\教育局\src\wiscms\Wis.Website\obj\Debug\Wis.Website.pdb

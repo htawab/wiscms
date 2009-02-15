@@ -27,15 +27,17 @@ namespace Wis.Website.DataManager
             return GetArticles(dataReader);
         }
 
-        public static List<Article> GetArticlesByCategoryId(int categoryId, int pageIndex, int pageSize)
+        public static List<Article> GetArticlesByCategoryName(string categoryName, int pageIndex, int pageSize)
         {
             DbProviderHelper.GetConnection();
+
+            // TODO:对 categoryName 进行注入式攻击防范
 
             List<Article> articles = new List<Article>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "vw_Article"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryId={0}", categoryId)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryName='{0}'", categoryName)));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
@@ -52,16 +54,6 @@ namespace Wis.Website.DataManager
             DbCommand command = DbProviderHelper.CreateCommand("SelectArticlesByTag", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int32, size));
-            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
-            return GetArticles(dataReader);
-        }
-
-
-        public List<Article> GetArticlesByCategoryId(int categoryId)
-        {
-            List<Article> articles = new List<Article>();
-            DbCommand command = DbProviderHelper.CreateCommand("SelectArticlesByCategoryId", CommandType.StoredProcedure);
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryId", DbType.Int32, categoryId));
             DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
             return GetArticles(dataReader);
         }

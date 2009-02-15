@@ -56,9 +56,8 @@
             </div>
             <div id="myTabAconList0">
                 <ul class="list">
-                    <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryId(Category.CategoryId, PageIndex, PageSize)$" var="Article">
-                    <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$$Article.Category.CategoryId$/$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Article.Title$</a>[$Article.Author$]</li>
-                    <li><a href="#" title="第二十九中学取得矣人战绩">第二十九中学取得矣人战绩</a>[<strong>32</strong>阅 <strong>25</strong>评]</li>
+                    <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName(Category.CategoryName, PageIndex, PageSize)$" var="Article">
+                    <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Article.Title$[<strong>32</strong>阅 <strong>25</strong>评]</a>[$Article.Author$]</li>
                     </tpl:foreach>
                 </ul>
                 <div class="page">$Pager$</div>

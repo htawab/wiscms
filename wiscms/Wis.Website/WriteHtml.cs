@@ -344,7 +344,7 @@ namespace Wis.Website
                                 if (columns == "Title")
                                 {
                                     if (labelEntity.TruncateNumber != 0)
-                                        columnsValue = Wis.Toolkit.Utility.StringUtility.NTruncateString(columnsValue, labelEntity.TruncateNumber);
+                                        columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
                                 }
                                 if (columns == "TabloidPath")
                                 {
@@ -378,7 +378,7 @@ namespace Wis.Website
                                 if (columns == "Title")
                                 {
                                     if (labelEntity.TruncateNumber != 0)
-                                        columnsValue = Wis.Toolkit.Utility.StringUtility.NTruncateString(columnsValue, labelEntity.TruncateNumber);
+                                        columnsValue = Wis.Toolkit.Utility.StringUtility.TruncateString(columnsValue, labelEntity.TruncateNumber);
                                 }
                                 if (columns == "Summary")
                                 {
