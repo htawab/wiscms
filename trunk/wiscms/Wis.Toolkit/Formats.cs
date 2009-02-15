@@ -70,93 +70,20 @@ namespace Wis.Toolkit
             return System.Text.RegularExpressions.Regex.Replace(html, "<[^>]*>", "").Replace("&nbsp;", " ");
         }
 
-
         /// <summary>
-        /// 格式化让球盘口和大小盘口，负数自动格式化为正数。
+        /// 截断字符串，不带… 
         /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        public static string FormatHandicap(decimal d)
+        /// <param name="text">被截断的字符。</param>
+        /// <param name="length">被截断的长度</param>
+        /// <returns>返回截断后的字符。</returns>
+        public static string TruncateString(string text, int length)
         {
-            return FormatHandicap(d, true);
-        }
+            if (string.IsNullOrEmpty(text)) return string.Empty;
 
-        /// <summary>
-        /// 格式化赔率。
-        /// </summary>
-        /// <param name="d">赔率</param>
-        /// <param name="IsMinusRemoved">是否移除符号</param>
-        /// <returns></returns>
-        public static string FormatHandicap(decimal d, bool IsMinusRemoved)
-        {
-            if (d.Equals(decimal.MinValue) || d.Equals(decimal.MaxValue)) return string.Empty;
-            if (d.Equals(0 - decimal.MinValue) || d.Equals(0 - decimal.MaxValue)) return string.Empty;
-            if (d.ToString().IndexOf('.') < 0)
-            {
-                if (d < 0)
-                    d = 0 - d;
-                return d.ToString();
-            }
-            if (d == 0)
-                return "0";
+            if (text.Length > length)
+                return text.Substring(0, length);
             else
-            {
-                string dFormated;
-                if (d < 0 && IsMinusRemoved)
-                {
-                    dFormated = (0 - d).ToString();
-                    if (dFormated.IndexOf('.') > 0)
-                        return dFormated.TrimEnd('0').TrimEnd('.'); // 将负号去掉
-                    else
-                        return dFormated;
-                }
-                else
-                {
-                    dFormated = d.ToString();
-                    if (dFormated.IndexOf('.') > 0)
-                        return dFormated.TrimEnd('0').TrimEnd('.');
-                    else
-                        return dFormated;
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 格式化赔率/让分/大小盘/比分。
-        /// </summary>
-        /// <param name="bet">赔率/让分/大小盘</param>
-        /// <returns></returns>
-        public static string FormatBet(string bet)
-        {
-            
-            if (string.IsNullOrEmpty(bet)) return string.Empty;
-
-            if (bet == "0")
-                return bet;
-            else
-                return bet.TrimEnd('0').TrimEnd('.').Replace("-", "");// 去掉负号
-        }
-
-
-        /// <summary>
-        /// 格式化赔率。
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        public static string FormatOdds(decimal d)
-        {
-           
-            if (d.Equals(decimal.MinValue)) return string.Empty;
-            if (d.Equals(0 - decimal.MinValue)) return string.Empty;
-             if (d.ToString().IndexOf('.') < 0)
-            {
-                return d.ToString();
-            }
-            if (d == 0)
-                return "0";
-            else
-                return d.ToString().TrimEnd('0').TrimEnd('.');
+                return text;
         }
     }
 }

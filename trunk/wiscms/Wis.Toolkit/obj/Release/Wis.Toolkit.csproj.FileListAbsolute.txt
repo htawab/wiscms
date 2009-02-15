@@ -1,6 +1,0 @@
-E:\教育局\src\System.Components\obj\Release\ResolveAssemblyReference.cache
-E:\教育局\src\System.Components\bin\Release\Wis.Toolkit.dll
-E:\教育局\src\System.Components\obj\Release\Wis.Toolkit.dll
-E:\教育局\src\Wis.Toolkit\bin\Release\Wis.Toolkit.dll
-E:\教育局\src\Wis.Toolkit\obj\Release\ResolveAssemblyReference.cache
-E:\教育局\src\Wis.Toolkit\obj\Release\Wis.Toolkit.dll

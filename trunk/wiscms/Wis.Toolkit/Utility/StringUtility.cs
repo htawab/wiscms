@@ -24,23 +24,8 @@ namespace Wis.Toolkit.Utility
 				return text;
 			}
 		}
-		/// <summary>
-		/// ½Ø¶Ï×Ö·û²»´ø¡­ 
-		/// </summary>
-		/// <param name="text">±»½Ø¶ÏµÄ×Ö·û¡£</param>
-		/// <param name="length">±»½Ø¶ÏµÄ³¤¶È</param>
-		/// <returns>·µ»Ø½Ø¶ÏºóµÄ×Ö·û¡£</returns>
-		public static string NTruncateString(string text, int length)
-		{
-			if (text.Length > length)
-			{
-				return text.Substring(0, length);
-			}
-			else
-			{
-				return text;
-			}
-		}
+
+
 		/// <summary>
 		/// Î´²¿½Ø¶Ï×Ö·û
 		/// </summary>

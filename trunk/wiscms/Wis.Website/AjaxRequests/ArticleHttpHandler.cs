@@ -99,7 +99,7 @@ namespace Wis.Website.AjaxRequests
                     sb.Append(";"); // 
                     sb.Append(dataReader["Author"].ToString());
                     sb.Append(";"); // 
-                    sb.Append(Wis.Toolkit.Utility.StringUtility.NTruncateString(dataReader["Title"].ToString(), 28));
+                    sb.Append(Wis.Toolkit.Utility.StringUtility.TruncateString(dataReader["Title"].ToString(), 28));
                     sb.Append(";"); // 
                     sb.Append(System.Convert.ToDateTime(dataReader["DateCreated"]).ToString("yyyy-mm-dd"));
                     sb.Append(";"); // 
@@ -387,7 +387,7 @@ namespace Wis.Website.AjaxRequests
                     sb.Append(";"); //  
                     sb.Append(dataReader["Enable"].ToString());
                     sb.Append(";"); // 
-                    sb.Append(Wis.Toolkit.Utility.StringUtility.NTruncateString(dataReader["Title"].ToString(), 25));
+                    sb.Append(Wis.Toolkit.Utility.StringUtility.TruncateString(dataReader["Title"].ToString(), 25));
                     sb.Append(";"); // 
                     sb.Append(System.Convert.ToDateTime(dataReader["DateCreated"]).ToString("yyyy-mm-dd"));
                     sb.Append(";"); // 
@@ -447,9 +447,9 @@ namespace Wis.Website.AjaxRequests
                 return;
             }
 
-            List<Wis.Website.DataManager.Article> articles;
+            List<Wis.Website.DataManager.Article> articles = null;
             Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
-            articles = articleManager.GetArticlesByCategoryId(categoryId);
+            //??articles = articleManager.GetArticlesByCategoryName(categoryId);
             int index = 0;
             foreach (Wis.Website.DataManager.Article article in articles)
             {

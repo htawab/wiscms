@@ -106,15 +106,19 @@ namespace Wis.Website.DataManager
 
             if (releases.Count == 0) return;
 
-            // 模板路径
+            // 模板路径和发布路径
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
-            if (!applicationPath.EndsWith("/")) applicationPath += "/";
+            if (!applicationPath.EndsWith("/")) applicationPath += "/"; // 前后导都有 /
+
             string templateDirectory = System.Configuration.ConfigurationManager.AppSettings["TemplateRootDirectory"];
-            if (!templateDirectory.EndsWith("/")) templateDirectory += "/";
-            templateDirectory = applicationPath + templateDirectory;
-            string releaseDirectory = System.Configuration.ConfigurationManager.AppSettings["ReleaseRootDirectory"];
-            if (!releaseDirectory.EndsWith("/")) releaseDirectory += "/";
-            releaseDirectory = applicationPath + releaseDirectory;
+            if (templateDirectory.StartsWith("/")) templateDirectory = templateDirectory.Remove(1, 1);
+            if (templateDirectory.EndsWith("/")) templateDirectory = templateDirectory.Remove(templateDirectory.Length - 1);
+            templateDirectory = string.Format("{0}{1}", applicationPath, templateDirectory);
+
+            string releaseDirectory = System.Configuration.ConfigurationManager.AppSettings["ReleaseRootDirectory"]; // 不要有前后导的间隔符号
+            if (releaseDirectory.StartsWith("/")) releaseDirectory = releaseDirectory.Remove(1, 1);
+            if (releaseDirectory.EndsWith("/")) releaseDirectory = releaseDirectory.Remove(releaseDirectory.Length - 1);
+            releaseDirectory = string.Format("{0}{1}", applicationPath, releaseDirectory);
 
             foreach (Release release in releases)
             {
@@ -267,7 +271,7 @@ namespace Wis.Website.DataManager
 
             if (releases.Count == 0) return;
 
-            // 模板路径
+            // 模板路径和发布路径
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
             if (!applicationPath.EndsWith("/")) applicationPath += "/"; // 前后导都有 /
 

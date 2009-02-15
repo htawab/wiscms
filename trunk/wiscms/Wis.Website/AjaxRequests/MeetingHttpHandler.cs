@@ -79,7 +79,7 @@ txtshenqingren ,deptName , eformsn";
                     sb.Append(dataReader["txtAddress"].ToString());
                     sb.Append(";"); // 
 
-                    sb.Append(Wis.Toolkit.Utility.StringUtility.NTruncateString(dataReader["txtTitle"].ToString(), 16));
+                    sb.Append(Wis.Toolkit.Utility.StringUtility.TruncateString(dataReader["txtTitle"].ToString(), 16));
                     sb.Append(";"); // 
                     sb.Append(dataReader["txtshenqingren"].ToString());
                     sb.Append(";"); // 
@@ -146,7 +146,7 @@ txtshenqingren ,deptName , eformsn";
                     sb.Append(dataReader["txtAddress"].ToString());
                     sb.Append(";"); // 
 
-                    sb.Append(Wis.Toolkit.Utility.StringUtility.NTruncateString(dataReader["txtTitle"].ToString(), 10));
+                    sb.Append(Wis.Toolkit.Utility.StringUtility.TruncateString(dataReader["txtTitle"].ToString(), 10));
                     sb.Append(";"); // 
                     sb.Append(dataReader["txtshenqingren"].ToString());
                     sb.Append(";"); // 
