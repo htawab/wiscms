@@ -44,6 +44,19 @@ namespace Wis.Website.DataManager
         }
 
 
+        public static List<Article> GetArticlesByTag(Guid articleGuid, int size)
+        {
+            DbProviderHelper.GetConnection();
+
+            List<Article> articles = new List<Article>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectArticlesByTag", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int32, size));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticles(dataReader);
+        }
+
+
         public List<Article> GetArticlesByCategoryId(int categoryId)
         {
             List<Article> articles = new List<Article>();
