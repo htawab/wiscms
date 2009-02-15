@@ -81,7 +81,7 @@ namespace Wis.Toolkit
             if (string.IsNullOrEmpty(text)) return string.Empty;
 
             if (text.Length > length)
-                return text.Substring(0, length);
+                return text.Substring(0, length) + "...";
             else
                 return text;
         }

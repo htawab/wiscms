@@ -217,6 +217,10 @@
             <label class="articleLabel">内 容：</label>
             <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
         </div>
+        <div id="divTag">
+            <label class="articleLabel" title="不同于一般的目录结构的分类方法，以较少的代价细化分类">标 记：</label><input id="Tags" type="text" runat="server" size="30" name="Tags" /> 
+            标记用空格隔开<br />
+        </div>
         <div id="divbtnOK" class="box">
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
         </div>

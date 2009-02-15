@@ -50,15 +50,31 @@ namespace Wis.Website.DataManager
 			return oTag;
 		}
 
-		public int AddNew(Guid TagGuid, Guid SubmissionGuid, string TagName, int Hits)
-		{
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("INSERTTag",CommandType.StoredProcedure);
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TagGuid",DbType.Guid,TagGuid));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SubmissionGuid",DbType.Guid,SubmissionGuid));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TagName",DbType.String,TagName));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Hits",DbType.Int32,Hits));
 
-			return Convert.ToInt32(DbProviderHelper.ExecuteScalar(oDbCommand));
+        /// <summary>
+        /// 添加标记
+        /// </summary>
+        /// <param name="submissionGuid">标记对应的对象编号</param>
+        /// <param name="requestTags">客户端传递的标记</param>
+        public void AddNew(Guid submissionGuid, string requestTags)
+		{
+            if (!string.IsNullOrEmpty(requestTags))
+            {
+                // TODO:区隔标记的字符作为配置项
+                string[] tags = requestTags.Split(new char[] { ' ' });
+                foreach (string tagName in tags)
+                {
+                    using (DbCommand command = DbProviderHelper.CreateCommand("INSERTTag", CommandType.StoredProcedure))
+                    {
+                        command.Parameters.Add(DbProviderHelper.CreateParameter("@TagGuid", DbType.Guid, Guid.NewGuid()));
+                        command.Parameters.Add(DbProviderHelper.CreateParameter("@SubmissionGuid", DbType.Guid, submissionGuid));
+                        command.Parameters.Add(DbProviderHelper.CreateParameter("@TagName", DbType.String, tagName));
+                        command.Parameters.Add(DbProviderHelper.CreateParameter("@Hits", DbType.Int32, 0));
+
+                        DbProviderHelper.ExecuteNonQuery(command);
+                    }
+                }
+            }
 		}
 
 		public int Update(int TagId, Guid TagGuid, Guid SubmissionGuid, string TagName, int Hits)
