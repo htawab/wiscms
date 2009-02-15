@@ -1154,7 +1154,7 @@
     <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
     <Content Include="Backend\images\HtmlEditor\Setting.xml" />
     <Content Include="Templates\tdedu0201\js\w.js" />
-    <Content Include="Web\2\2-13\38.htm" />
+    <Content Include="Web\2\2009-2-13\38.htm" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>
