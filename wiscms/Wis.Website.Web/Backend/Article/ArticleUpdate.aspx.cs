@@ -34,7 +34,7 @@ namespace Wis.Website.Web.Backend.Article
         protected void getdate()
         {
 
-            string commandtext = string.Format("select * from vw_Article where ArticleId ={0}", articleId);
+            string commandtext = string.Format("select * from View_Article where ArticleId ={0}", articleId);
             dataProvider.Open();
             System.Data.DataTable dt = dataProvider.ExecuteDataset(commandtext).Tables[0];
             dataProvider.Close();

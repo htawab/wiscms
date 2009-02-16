@@ -27,7 +27,53 @@ namespace Wis.Website.DataManager
             return GetArticles(dataReader);
         }
 
-        public static List<Article> GetArticlesByCategoryName(string categoryName, int pageIndex, int pageSize)
+        public static List<Article> GetArticlesByCategoryName(string categoryName, string parentCategoryName, int pageIndex, int pageSize)
+        {
+            DbProviderHelper.GetConnection();
+
+            if (string.IsNullOrEmpty(categoryName))
+                throw new System.ArgumentNullException("categoryName");
+            if (string.IsNullOrEmpty(parentCategoryName))
+                parentCategoryName = string.Empty;
+
+            // TODO:对 categoryName 进行注入式攻击防范
+
+            List<Article> articles = new List<Article>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "View_Article"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryName='{0}' and ParentCategoryName='{1}'", categoryName, parentCategoryName)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticles(dataReader);
+        }
+
+
+        public static List<Article> GetArticlesByParentCategoryName(string parentCategoryName, int pageIndex, int pageSize)
+        {
+            DbProviderHelper.GetConnection();
+
+            if (string.IsNullOrEmpty(parentCategoryName))
+                parentCategoryName = string.Empty;
+
+            // TODO:对 categoryName 进行注入式攻击防范
+
+            List<Article> articles = new List<Article>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "View_Article"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("(CategoryName='{0}' OR ParentCategoryName='{0}')", parentCategoryName)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticles(dataReader);
+        }
+
+
+        public static List<Article> GetArticlesByCategoryGuid(Guid categoryGuid, int pageIndex, int pageSize)
         {
             DbProviderHelper.GetConnection();
 
@@ -35,9 +81,9 @@ namespace Wis.Website.DataManager
 
             List<Article> articles = new List<Article>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "vw_Article"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "View_Article"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryName='{0}'", categoryName)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryGuid='{0}'", categoryGuid)));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
