@@ -119,8 +119,9 @@ var eduFlash2 = new eduFlash("flash/vv_new.swf","eduFlashID01","662","180","7","
                         <li onmouseover="tabsShow(this,11)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("基建办")$/1.htm" target="_blank">基建办</a></li>
                         <li onmouseover="tabsShow(this,12)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("信息中心")$/1.htm" target="_blank">信息中心</a></li>
                     </ul>
-                    <ul class="indexList tabList" id="myTabAconList0"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("党群", 1, 12)$" var="Article">
+                    <ul class="indexList tabList" id="myTabAconList0"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("党群", 1, 11)$" var="Article">
                         <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
+                        <li class="more">【<a href="#" title="查看更多">查看更多</a>】</li>
                     </tpl:foreach></ul>
                     <ul class="indexList tabList disnone" id="myTabAconList1"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("纪检", 1, 12)$" var="Article">
                         <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
