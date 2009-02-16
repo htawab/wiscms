@@ -68,7 +68,7 @@ namespace Wis.Website.AjaxRequests
             }
             //select txtZhuChi as 主持人,txtEndDate as 会议结束日期,txtRenShu as 参会人数,txtTime as 会议时间,txtAddress as 会议地点,txtDate as 会议日期,txtTitle as 会议名称,txtshenqingren as 申请人,deptName as 预定部门, eformsn from wd_75 where toPublic=1    order by eformsn Desc
             Wis.Website.Pager.Entity entity = new Wis.Website.Pager.Entity();
-            entity.TableName = "vw_Article";
+            entity.TableName = "View_Article";
             entity.ColumnList = "*";
             entity.PageIndex = System.Convert.ToInt32(pageIndex);
             entity.PagerColumn = "ArticleId";
@@ -135,7 +135,7 @@ namespace Wis.Website.AjaxRequests
                     searchCondition += string.Format("and {0} like '%{1}%' ", type, keysword.Replace("'", ""));
             }
 
-            string commandText = string.Format("select count(ArticleId) from vw_Article {0}", searchCondition);
+            string commandText = string.Format("select count(ArticleId) from View_Article {0}", searchCondition);
             Wis.Toolkit.DataProvider dataProvider = new Wis.Toolkit.DataProvider(Website.Setting.ConnectionString);
             dataProvider.Open();
             int count = (int)dataProvider.ExecuteScalar(commandText);

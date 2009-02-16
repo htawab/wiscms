@@ -56,8 +56,8 @@
             <div class="clear">
             </div>
             <ul class="list">
-                <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName(Category.CategoryName, PageIndex, PageSize)$" var="Article">
-                <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank">$Formats.TruncateString(Article.Title, 30)$[<strong>$Article.Hits$</strong>阅 <strong>$Article.Comments$</strong>评]</a></li>
+                <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryGuid(Category.CategoryGuid, PageIndex, PageSize)$" var="Article">
+                <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$(<strong>$Article.Hits$</strong>阅 <strong>$Article.Comments$</strong>评)">$Formats.TruncateString(Article.Title, 35)$</a></li>
                 </tpl:foreach>
             </ul>
             <div class="page">$Pager$</div>
