@@ -299,10 +299,11 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 }
 
 
+#divTag {line-height:24px;}
 
 
 
-/* new */
+/* 上传图片弹出窗口 */
 #shadow{
 	 position:absolute;
 	 left:0;
@@ -322,6 +323,7 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
    border:1px solid #8fa7c6;
 }
 
+#oIframe {width:100%; height:340px; overflow:hidden; border:0; border-style:none;}
 .widowBox {border:1px solid #8fa7c6; margin:0 auto;}
 #windowBoxIn {border:1px solid #fff;}
 #windowTitle {height:24px; line-height:24px; background:url(../images/top-bottom.png) left -3px repeat-x;}
@@ -341,11 +343,6 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 #closebar1 a:link, #closebar1 a:visited {width:255px; height:15px; overflow:hidden; display:block;
 margin-left:4px; text-indent:-420px; color:transparent; background:url(../images/tool-sprites.gif) 0 0 no-repeat;}
 #closebar1 a:hover, #closebar a:active{background:url(../images/tool-sprites.gif) -15px 0 no-repeat;}
-
-#tab {height:23px; clear:both; border-top:1px solid #87a0bf; border-bottom:1px solid #87a0bf;  background:#dfe8f7;  }
-#tab li {float:left; border-right:1px solid #87a0bf; _width:40px; white-space:nowrap;}
-#tab li a {height:23px; display:block; padding:0 6px; background:#dbe3ef; line-height:26px;}
-#tab li a#tabNoBorder {border-bottom:1px solid #dfe8f7; height:23px; line-height:26px; background:url(../images/tabCurrent.gif) repeat-x;}
 
 
 #box1 {clear:both; background:#dfe8f7;}
