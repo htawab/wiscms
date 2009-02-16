@@ -8,9 +8,7 @@
 <head runat="server">
 <title></title>
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-
- </style>
+    <script src="../../JavaScript/upLoadWin.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
