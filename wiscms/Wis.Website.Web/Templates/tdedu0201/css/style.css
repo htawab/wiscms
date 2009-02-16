@@ -53,12 +53,13 @@ div.outbox div.cap {height:25px; line-height:25px; *line-height:28px; padding-le
 div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; color:#787070; font-size:12px; background:url(../images/moreIco.gif) 0 7px no-repeat;}
 div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
 
+ul.floatList {width:270px; white-space:nowrap; overflow:hidden;}
 ul.indexList {}
-ul.indexList li {margin:0 8px; display:block; font-family:宋体; padding:5px 0 3px 0; *padding:4px 0 3px 0; letter-spacing:0; *letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li {margin:0 8px; display:block; line-height:16px; padding:5px 0 3px 0; *padding:4px 0 3px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
 ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
 
-span.date {float:right; color:#5d5c5c; letter-spacing:0;}
-ul.indexList li.more {text-align:right; background:none; margin:0;  padding-top:10px; color:#777;}
+span.date {float:right; color:#5d5c5c; letter-spacing:0em;}
+ul.indexList li.more {text-align:right; background:none; margin:0;  padding-top:4px; color:#777;}
 ul.indexList li.more a {background:none; color:#dd3300; margin:0; padding:0;}
 ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 
@@ -72,8 +73,8 @@ ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 .tabBox ul.tab li.active a {background:url(../images/tabhover1.gif) left center no-repeat; color:#d93830;}
 .tabBox ul.tab li a:hover {background:url(../images/tabhover1.gif) left center no-repeat; color:#d93830;}
 .tabBox {position:relative;}
-.tabList {position:absolute; top:30px; left:60px;}
-.tabList2{position:absolute; top:30px; left:60px;}
+.tabList {position:absolute; top:28px; left:60px;}
+.tabList2{position:absolute; top:28px; left:60px;}
 .disnone {display:none;}
 
 /* 教学资源 */
