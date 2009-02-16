@@ -103,7 +103,7 @@ var eduFlash2 = new eduFlash("flash/vv_new.swf","eduFlashID01","662","180","7","
         <div class="left">
             <div class="indexleft outbox tabBox height1">
                 <div class="cap">教育动态</div>
-                <div>
+                
                     <ul class="tab" id="myTabA">
                         <li class="active" onmouseover="tabsShow(this,0)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" target="_blank">党&nbsp;&nbsp;&nbsp;&nbsp;群</a></li>
                         <li onmouseover="tabsShow(this,1)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("纪检")$/1.htm" target="_blank">纪&nbsp;&nbsp;&nbsp;&nbsp;检</a></li>
@@ -158,9 +158,7 @@ var eduFlash2 = new eduFlash("flash/vv_new.swf","eduFlashID01","662","180","7","
                     <ul class="indexList tabList disnone" id="myTabAconList12"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("信息中心", 1, 12)$" var="Article">
                         <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Hits$阅 $Article.Comments$评"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 12)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 12)$</font></tpl:if></a></li>
                     </tpl:foreach></ul>
-                    <div class="clear">
-                    </div>
-                </div>
+                   
             </div>
             <div class="indexleft2 outbox height1">
                 <div class="cap postion">政策法规<ul id="laws">
