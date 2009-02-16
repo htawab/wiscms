@@ -54,7 +54,7 @@ div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; col
 div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
 
 ul.indexList {}
-ul.indexList li {margin:0 8px; padding:5px 0 2px 0; *padding:4px 0 2px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li {margin:0 8px; display:block; font-family:宋体; padding:5px 0 3px 0; *padding:4px 0 3px 0; letter-spacing:0; *letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
 ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
 
 span.date {float:right; color:#5d5c5c; letter-spacing:0;}
@@ -73,7 +73,7 @@ ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 .tabBox ul.tab li a:hover {background:url(../images/tabhover1.gif) left center no-repeat; color:#d93830;}
 .tabBox {position:relative;}
 .tabList {position:absolute; top:30px; left:60px;}
-.tabList2{position:absolute; top:26px; left:60px;}
+.tabList2{position:absolute; top:30px; left:60px;}
 .disnone {display:none;}
 
 /* 教学资源 */
