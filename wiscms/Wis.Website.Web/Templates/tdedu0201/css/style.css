@@ -79,10 +79,10 @@ ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 /* 教学资源 */
 .zytab1 {background:#fcc;}
 div.postion {position:relative;}
-ul#laws {position:absolute; left:88px; top:0; width:240px;}
-ul#laws li {float:left; width:78px; height:31px; text-align:center; letter-spacing:2px; background:url(../images/zytabbg2.gif) center top;}
-ul#laws li.active {background:url(../images/zytabbg1.gif) center top;}
-div.outbox div.cap ul#laws li a {padding:0; float:none; font-weight:bold; color:#726666; font-size:12px; background:none;}
+ul#laws {position:absolute; left:88px; top:5px; width:240px;}
+ul#laws li {float:left; width:78px; height:26px; line-height:23px; text-align:center; letter-spacing:2px; background:#ccc url(../images/zytabbg2.gif) left top no-repeat;}
+ul#laws li.active {background:url(../images/zytabbg1.gif) center top no-repeat; }
+div.outbox div.cap ul#laws li a {padding:0; float:none; font-weight:normal; color:#726666; font-size:12px; background:none;}
 div.outbox div.cap ul#laws li a:hover {text-decoration:none;}
 div.outbox div.cap ul#laws li.active a {color:#fff;}
 
