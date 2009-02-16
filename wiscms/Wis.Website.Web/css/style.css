@@ -57,7 +57,10 @@ ul.indexList li {margin:0 8px; padding:5px 0 2px 0; *padding:4px 0 2px 0; letter
 ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
 
 
-span.date {float:right; color:#5d5c5c; letter-spacing:0; }
+span.date {float:right; color:#5d5c5c; letter-spacing:0;}
+ul.indexList li.more {text-align:right; background:none; margin:0;  padding-top:10px; color:#777;}
+ul.indexList li.more a {background:none; color:#dd3300; margin:0; padding:0;}
+ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 
 
 /* 教育动态 教学研究 */
