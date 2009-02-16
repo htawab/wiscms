@@ -72,7 +72,7 @@ ul.indexList li.more a:hover {color:#FF3300; text-decoration:underline;}
 .tabBox ul.tab li a:hover {background:url(../images/tabhover1.gif) left center no-repeat; color:#111;}
 .tabBox {position:relative;}
 .tabList {position:absolute; top:30px; left:60px;}
-.tabList2{position:absolute; top:26px; left:60px;}
+.tabList2{position:absolute; top:30px; left:60px;}
 .disnone {display:none;}
 
 
