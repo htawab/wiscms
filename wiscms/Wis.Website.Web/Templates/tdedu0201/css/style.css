@@ -53,10 +53,12 @@ div.outbox div.cap {height:25px; line-height:25px; *line-height:28px; padding-le
 div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; color:#787070; font-size:12px; background:url(../images/moreIco.gif) 0 7px no-repeat;}
 div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
 
-ul.floatList {width:270px; white-space:nowrap; overflow:hidden;}
 ul.indexList {}
-ul.indexList li {margin:0 8px; display:block; line-height:16px; padding:5px 0 3px 0; *padding:4px 0 3px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li {margin:0 8px; display:block; line-height:16px; padding:3px 0 3px 0; *padding:3px 0 3px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
 ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
+
+ul.floatList {width:270px; white-space:nowrap; overflow:hidden;}
+ul.floatList li {padding:4px 0 3px 0; *padding:4px 0 3px 0;}
 
 span.date {float:right; color:#5d5c5c; letter-spacing:0em;}
 ul.indexList li.more {text-align:right; background:none; margin:0;  padding-top:4px; color:#777;}
