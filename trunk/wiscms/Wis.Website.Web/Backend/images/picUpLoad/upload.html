@@ -50,33 +50,51 @@ if (picSrc != "") {
 <body>
 <div class="widowContent">
   <ul class="tab" id="tab">
-   <li><a href="javascript:tabChange(1)" class="tabNoBorder" onfocus="this.blur();">从图片列表中选择</a></li>
+   <li><a href="javascript:tabChange(1)" class="tabNoBorder" onfocus="this.blur();">从列表中选择</a></li>
    <li><a href="javascript:tabChange(2)" class="" onfocus="this.blur();">从电脑上传</a></li>
   </ul>
   <div id="Box1">
-   <div id="picChoose">
-    <div id="SelectBox">
-    <select>
-     <option>图片目录</option>
-     <option>图片目录</option>
-     <option>图片目录</option>
-    </select>
+  
+  <div class="annexChoose">
+   <div class="annexChooseTop">
+   <select>
+     <option>附件目录</option>
+     <option>附件目录</option>
+     <option>附件目录</option>
+   </select>
+   </div>
+   <div class="annexChooseBox">
+    <div class="outBox">
+     <div class="top">1.附件名称：<span>附件名称.doc</span> <a href="####">修改文件名</a> 附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
     </div>
-    <div id="allPics">
-     <a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a><a href="####" title="#"><img src="aa.png" onclick="picShow(this)" /></a> </div>
+    <div class="outBox">
+     <div  class="top">2.附件名称：<input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
+    </div>
+    <div class="outBox">
+     <div  class="top">3.附件名称：<input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
+    </div>
+   </div>
    </div>
   
-   <div id="picShow">
-    <div id="imgBox"><img src="noimg.gif" id="showBox" /></div>
-    <div class="imgRename">图片名称：<input type="text" /></div>
-    <div class="imgDes">图片描述：<textarea cols="6" rows="2" wrap="physical"></textarea>
+   <div id="pic">
+    <div id="SelectBox">
+    
     </div>
+    
    </div>
+  
+   
    <div class="clear"></div>
   </div>
   <div id="Box2">
-   <div class="picupLoad">
-    <input type="file" />
+   <div class="annexupLoad">
+   <div class="annexupLoadTop"><input type="button" value="添加文件" /><a>全部删除</a></div>
+   <div class="annexupLoadBox">
+    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K <a>删除</a></div>
+    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K <a>删除</a></div>
+   </div>
    </div>
   </div>
  </div>
