@@ -225,5 +225,8 @@
         </div>
     </div>
     </form>
+    <script>
+    annexUpLoadBox.init("ss");
+    </script>
 </body>
 </html>
