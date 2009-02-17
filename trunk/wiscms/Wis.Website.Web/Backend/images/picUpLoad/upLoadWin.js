@@ -1,5 +1,5 @@
 ﻿<!--
-var upLoadBox = {
+var annexUpLoadBox = {
     // 根据ID获得DOM节点
     $: function(i){
 	     if(!document.getElementById)return false;
@@ -45,8 +45,8 @@ var upLoadBox = {
 	    if(oSha && oWin) this.closeDiv();
 	    
         //window.onload = function(){
-           upLoadBox.createDiv();
-           upLoadBox.setEvent();
+           annexUpLoadBox.createDiv();
+           annexUpLoadBox.setEvent();
         //}
     }, 
     
@@ -109,7 +109,7 @@ var upLoadBox = {
 		   //widowContent
 		   var windowContent = document.createElement('div');
 		   windowContent.setAttribute('class','windowContent');
-		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/picUpLoad/upLoad.html" frameborder="0" scrolling="no"></iframe>'	   
+		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/annexUpLoad/upLoad.html" frameborder="0" scrolling="no"></iframe>'	   
 		   //widowContent over
 		   
 		   var btnOut = document.createElement('div');
@@ -160,7 +160,7 @@ var upLoadBox = {
      
 	       // 设置关闭和确定按钮的功能--关闭(移除)提示框       
          this.oBtnEnter.onclick=this.oBtnClose.onclick=function(){
-              upLoadBox.closeDiv();                             	
+              annexUpLoadBox.closeDiv();                             	
          }	 
      },
     
@@ -175,26 +175,26 @@ var upLoadBox = {
 			                       this.oUpLoadWindow.style.opacity = 1;
 			                  }
 			                  else{	
-	   	    	   	             upLoadBox.oUpLoadWindow.style.filter ='';
+	   	    	   	             annexUpLoadBox.oUpLoadWindow.style.filter ='';
 	   	    	            }
 	   	    	            return false;
 	   	    	        }
 			              if(window.opera){
-			                  upLoadBox.oUpLoadWindow.style.opacity = j;
+			                  annexUpLoadBox.oUpLoadWindow.style.opacity = j;
 			                  j += 0.1;
 			              }
 			              else{	
-	   	                  upLoadBox.oUpLoadWindow.style.filter = 'alpha(opacity='+i+')';
+	   	                  annexUpLoadBox.oUpLoadWindow.style.filter = 'alpha(opacity='+i+')';
 	   	    	            i += 10;
 	   	              }    
 	   	       }
 	   	       else{
 	   	    	        if(j>1){
 	   	    	             if(tt) tt=window.clearInterval(tt);
-	   	    	             upLoadBox.oUpLoadWindow.style.opacity=1;
+	   	    	             annexUpLoadBox.oUpLoadWindow.style.opacity=1;
 	   	    	             return false;
 	   	    	        }
-			              upLoadBox.oUpLoadWindow.style.opacity = j;
+			              annexUpLoadBox.oUpLoadWindow.style.opacity = j;
 			              j += 0.1;
 	   	       }
 	       }
@@ -251,12 +251,12 @@ var upLoadBox = {
 }
 
 window.onresize=function(){
-	   if(upLoadBox.oUpLoadWindow){
-	   	    var yScroll = upLoadBox.getPageScroll()[1];
-	   	    var pageHeight = upLoadBox.getPageHeight();
+	   if(annexUpLoadBox.oUpLoadWindow){
+	   	    var yScroll = annexUpLoadBox.getPageScroll()[1];
+	   	    var pageHeight = annexUpLoadBox.getPageHeight();
 	   	    var marginTop = yScroll+(pageHeight-180)/2;
-	        upLoadBox.marginTop= marginTop;
-	        upLoadBox.fixPos();
+	        annexUpLoadBox.marginTop= marginTop;
+	        annexUpLoadBox.fixPos();
 	   }
 }
 

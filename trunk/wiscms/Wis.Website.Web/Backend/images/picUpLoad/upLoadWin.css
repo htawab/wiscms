@@ -1,4 +1,4 @@
-﻿body { background:#dfe8f7; font-size:12px; line-height:22px; margin:0;}
+﻿body { background:#dfe8f7; font-size:12px; line-height:22px; margin:0; color:#444;}
 a {color:#1b417f; text-decoration:none;}
 ul,li {margin:0; padding:0; list-style:none;}
 #clear {clear:both;}
@@ -47,7 +47,7 @@ margin-left:4px; text-indent:-420px; color:transparent; background:url(tool-spri
 #tab li a.tabNoBorder {border-bottom:1px solid #dfe8f7; height:23px; line-height:26px; background:url(tabCurrent.gif) repeat-x;}
 
 
-#box1 {clear:both; background:#dfe8f7;}
+#Box1 {clear:both; background:#dfe8f7; padding:6px 4px;}
 #SelectBox {padding:3px;}
 
 
@@ -65,7 +65,7 @@ margin-left:4px; text-indent:-420px; color:transparent; background:url(tool-spri
 .imgDes {height:30px; margin:2px 4px 0 4px;  text-align:left;}
 .imgDes textarea {width:160px; height:48px; *margin-left:-4px;}
 
-#box2 {display:none; clear:both; background:#dfe8f7; margin-top:0px; padding:6px 4px; height:303px;}
+#Box2 {display:none; clear:both; background:#dfe8f7; margin-top:0px; padding:6px 4px; height:303px;}
 img{
    max-width:100%;
    height:auto;
@@ -90,3 +90,36 @@ img{
 #btns a:active{
    background-image:url(btnEnter-hover.gif);
 }
+
+
+.annexupLoad {}
+.annexupLoadTop {position:relative;}
+.annexupLoadTop input {border:1px solid #ddd; background:#fff; cursor:pointer;}
+.annexupLoadTop a {position:absolute; right:4px; color:#a04935;}
+.annexupLoadBox {background:#fff; padding-bottom:3px; border:1px solid #9fb0c4; height:274px;}
+.annexupLoadBox div {padding:18px 6px 6px 6px; margin:0 6px; border-bottom:1px solid #dfe8f7; position:relative;}
+.annexupLoadBox div input {border:1px solid #b5c6e3; text-align:right; width:90px;}
+.annexupLoadBox div a {color:#a04935;}
+
+
+
+.annexChooseTop {position:relative;}
+.annexChooseTop input {border:1px solid #ddd; background:#fff; cursor:pointer;}
+.annexChooseTop a {position:absolute; right:4px; color:#a04935;}
+.annexChooseBox {background:#ebf3fc; padding-bottom:3px; border:1px solid #9fb0c4; height:274px; overflow-y:scroll;}
+.annexChooseBox div.outBox {padding:0; margin:3px 6px; border:1px solid #dfe8f7; position:relative; background:#f2f7fc;}
+.annexChooseBox div div.top {padding:2px; padding-left:8px; margin:0; border:0; position:relative;}
+.annexChooseBox div.beizhu {padding:2px; padding-left:8px; border-top:1px solid #dfe8f7;}
+.annexChooseBox div.beizhu label {float:left;}
+.annexChooseBox div.beizhu textarea {border:1px solid #ddd; width:80%;}
+.annexChooseBox div span {text-align:right; border:1px solid #f2f7fc; height:22px; width:78px; display:inline-block; color:#4376b3;}
+.annexChooseBox div input {border:1px solid #b5c6e3; text-align:right; height:14px; width:78px;}
+.annexChooseBox div input.noBorder {border:0; text-align:right; width:90px;}
+.annexChooseBox div input.checkBox {border:0; text-align:right; width:auto;}
+.annexChooseBox div div.btn {text-align:center; margin:0 auto;}
+.annexChooseBox div.btn input {border:1px; background:#b8d1f1; text-align:center; width:70px; height:22px; line-height:20px; margin:4px;}
+.annexChooseBox div a {color:#a04935; text-decoration:underline; margin:0 4px;}
+.annexChooseBox div a.del {}
+
+.annexChooseBox div div.operate {position:absolute; top:0; right:4px; color:#a04935; width:90px;}
+
