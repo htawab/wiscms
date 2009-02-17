@@ -26,6 +26,10 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string ParentGuid = "ParentGuid";
         /// <summary>
+        /// 父分类名称。
+        /// </summary>
+        public const string ParentCategoryName = "ParentCategoryName";
+        /// <summary>
         /// 排序等级。
         /// </summary>
         public const string Rank = "Rank";

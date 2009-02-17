@@ -71,7 +71,7 @@ namespace Wis.Toolkit
         }
 
         /// <summary>
-        /// 截断字符串，不带… 
+        /// 截断字符串 
         /// </summary>
         /// <param name="text">被截断的字符。</param>
         /// <param name="length">被截断的长度</param>
@@ -79,11 +79,32 @@ namespace Wis.Toolkit
         public static string TruncateString(string text, int length)
         {
             if (string.IsNullOrEmpty(text)) return string.Empty;
+            text = text.Trim(); // 去掉前后空格
+            if (text.Length <= length) return text;
 
-            if (text.Length > length)
-                return text.Substring(0, length) + "...";
-            else
-                return text;
+            int charsLength = 0;
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            char[] chars = text.ToCharArray();
+            for (int index = 0; index < chars.Length; index++)
+            {
+                sb.Append(chars[index]);
+                int asc = chars[index];
+                if (asc < 0 || asc > 127)
+                    charsLength += 2;
+                else
+                    charsLength++;
+
+                if (charsLength == length * 2 || (charsLength + 1) == length * 2)
+                {
+                    if ((index + 1) == (chars.Length-1)) // 如果只剩下一个汉字或一个字母，就不用追加…
+                        sb.Append(chars[index + 1]);
+                    else
+                        sb.Append("…");
+
+                    break;
+                }
+            }
+            return sb.ToString();
         }
     }
 }

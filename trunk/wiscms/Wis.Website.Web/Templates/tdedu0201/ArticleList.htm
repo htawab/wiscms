@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>教育动态 - 鞍山市铁东区教育局</title>
+    <title>$CategoryManager.GetPageTitle(Category.CategoryGuid, " - ")$ - 鞍山市铁东区教育局</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
 </head>
@@ -22,7 +22,7 @@
             <ul>
                 <li class="left"></li>
                 <li><a href="Default.htm" title="首页">首页</a></li><li class="sep">|</li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" title="ss">教育动态</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群", "教育动态")$/1.htm">教育动态</a></li><li class="sep">|</li>
                 <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
                 <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
@@ -37,23 +37,11 @@
     </div>
     <div class="main">
         <div class="left listtab">
-            <div class="position"><a href="../Default.htm">首页</a> >> 教育动态 >> $Category.CategoryName$</div>
-            <ul class="tab" id="myTabA">
-                <li class="active"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("党群")$/1.htm" target="_blank">党群</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("纪检")$/1.htm" target="_blank">纪检</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("督导")$/1.htm" target="_blank">督导</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("社区办")$/1.htm" target="_blank">社区办</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("办公室")$/1.htm" target="_blank">办公室</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("中教科")$/1.htm" target="_blank">中教科</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("小教科")$/1.htm" target="_blank">小教科</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("人事科")$/1.htm" target="_blank">人事科</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("计财科")$/1.htm" target="_blank">计财科</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("安全科")$/1.htm" target="_blank">安全科</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("工会")$/1.htm" target="_blank">工会</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("基建办")$/1.htm" target="_blank">基建办</a></li>
-                <li><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("信息中心")$/1.htm" target="_blank">信息中心</a></li>
-            </ul>
-            <div class="clear">
+            <div class="position"><a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
+            <tpl:if test="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid).Count IsNot 0$"><ul class="tab" id="myTabA">
+                <tpl:foreach collection="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid)$" var="SubCategory"><li<tpl:if test="$Equals(SubCategory.CategoryGuid, Category.CategoryGuid)$"> class="active"</tpl:if>><a href="$ReleaseDirectory$/$SubCategory.CategoryId$/1.htm">$SubCategory.CategoryName$</a></li>
+            </tpl:foreach></ul>
+            </tpl:if><div class="clear">
             </div>
             <ul class="list">
                 <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryGuid(Category.CategoryGuid, PageIndex, PageSize)$" var="Article">

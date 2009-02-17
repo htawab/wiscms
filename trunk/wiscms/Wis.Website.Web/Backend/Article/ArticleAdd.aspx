@@ -205,11 +205,11 @@
             <br />
         </div>
         <div id="divAuthor" class="box">
-            <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" />
+            <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" value="" />
             <br />
         </div>
         <div id="divOriginal" class="box">
-            <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" />
+            <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" value="" />
             <br />
         </div>
         <div id="divContentHtml">
@@ -217,16 +217,13 @@
             <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
         </div>
         <div id="divTag">
-            <label class="articleLabel" title="不同于一般的目录结构的分类方法，以较少的代价细化分类">标 记：</label><input id="Tags" type="text" runat="server" size="30" name="Tags" /> 
-            标记用空格隔开<br />
+            <label class="articleLabel" title="不同于一般的目录结构的分类方法，以较少的代价细化分类">主 题：</label><input id="Tags" type="text" runat="server" size="30" name="Tags" value="行业新闻" /> 
+            主题用空格隔开<br />
         </div>
         <div id="divbtnOK" class="box">
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
         </div>
     </div>
     </form>
-    <script>
-    annexUpLoadBox.init("ss");
-    </script>
 </body>
 </html>

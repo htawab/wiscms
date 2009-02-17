@@ -126,6 +126,7 @@ namespace Wis.Website.DataManager
                 release.TemplatePath = release.TemplatePath.Replace("{RootPath}", templateDirectory);
                 string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.TemplatePath);
                 Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
+                templateManager.SetVariable("ApplicationPath", applicationPath);
                 templateManager.SetVariable("TemplateDirectory", templateDirectory);
                 templateManager.SetVariable("ReleaseDirectory", releaseDirectory);
                 // 读取内容对应的评论 TODO:签入模板中调用
@@ -291,6 +292,7 @@ namespace Wis.Website.DataManager
                 release.TemplatePath = release.TemplatePath.Replace("{RootPath}", templateDirectory);
                 string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.TemplatePath);
                 Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
+                templateManager.SetVariable("ApplicationPath", applicationPath);
                 templateManager.SetVariable("TemplateDirectory", templateDirectory);
                 templateManager.SetVariable("ReleaseDirectory", releaseDirectory);
 
