@@ -278,7 +278,7 @@ namespace Wis.Toolkit.Templates
 
 		object FuncEquals(object[] args)
 		{
-			if (!CheckArgCount(2, "equals", args))
+            if (!CheckArgCount(2, "Equals", args))
 				return null;
 
 			return args[0].Equals(args[1]);
@@ -287,7 +287,7 @@ namespace Wis.Toolkit.Templates
 
 		object FuncNotEquals(object[] args)
 		{
-			if (!CheckArgCount(2, "notequals", args))
+            if (!CheckArgCount(2, "NotEquals", args))
 				return null;
 
 			return !args[0].Equals(args[1]);
