@@ -14,3 +14,4 @@ table img {width:464px; height:190px;}
 .fenye {color:#a8a8a8; text-align:right;}
 .fenye a {display:inline; color:#fbef2a; border:0; background:none; padding:0;}
 .fenye a:hover {display:inline; text-decoration:underline; border:0; background:none; padding:0;}
+.fenye a.noLink {color:#ccc; text-decoration:none; cursor:default; }
