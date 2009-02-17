@@ -59,6 +59,7 @@ ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px
 
 ul.floatList {width:270px; white-space:nowrap; overflow:hidden;}
 ul.floatList li {padding:4px 0 3px 0; *padding:4px 0 3px 0;}
+.meeting ul.indexList li {_padding:3px 0 2px 0;}
 
 span.date {float:right; color:#5d5c5c; letter-spacing:0em;}
 ul.indexList li.more {text-align:right; background:none; margin:0;  padding-top:4px; color:#777;}
