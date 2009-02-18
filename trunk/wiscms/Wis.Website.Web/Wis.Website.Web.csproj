@@ -278,13 +278,6 @@
     <Compile Include="Backend\SystemManage\TemplatesList.aspx.designer.cs">
       <DependentUpon>TemplatesList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
