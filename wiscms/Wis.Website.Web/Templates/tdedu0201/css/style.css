@@ -286,7 +286,8 @@ img#CommentVerify {margin-left:52px;}
 .relateArticles dl {}
 .relateArticles dt {border-bottom:1px solid #fea9a9; border-top:1px solid #fea9a9; background:#fce9eb url(../images/reviewBG.gif) ;  color:#000; font-size:12px; line-height:25px; padding:0 3px 0 6px; height:25px;}
 .relateArticles dd {margin:0 0 0 0; padding:3px 6px; font-size:12px; line-height:22px; color:#999;}
-.relateArticles a {text-decoration:underline; margin-right:6px;}
+.relateArticles ul li {background:url(../images/listico2.gif) left center no-repeat;}
+.relateArticles a {text-decoration:underline; margin-right:6px; padding-left:8px;}
 
 
 
