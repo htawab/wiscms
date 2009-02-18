@@ -1127,6 +1127,19 @@
     <None Include="files\file\2008-12\F3HG2S6O-11月份工作安排.doc" />
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
+    <Content Include="Backend\images\annexUpLoad\btnEnter-hover.gif" />
+    <Content Include="Backend\images\annexUpLoad\btnEnter-normal.gif" />
+    <Content Include="Backend\images\annexUpLoad\noimg.gif" />
+    <Content Include="Backend\images\annexUpLoad\tabCurrent.gif" />
+    <Content Include="Backend\images\annexUpLoad\tool-sprites.gif" />
+    <Content Include="Backend\images\annexUpLoad\top-bottom.png" />
+    <Content Include="Backend\images\annexUpLoad\upload.html" />
+    <Content Include="Backend\images\annexUpLoad\upLoadWin.css" />
+    <Content Include="Backend\images\annexUpLoad\upLoadWin.js" />
+    <Content Include="Backend\images\annexUpLoad\win.png" />
+    <Content Include="Backend\images\btnBig.gif" />
+    <Content Include="Backend\images\btnEnter-hover.gif" />
+    <Content Include="Backend\images\btnEnter-normal.gif" />
     <Content Include="Backend\images\compose.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\backimage.htm" />
@@ -1146,7 +1159,23 @@
     <Content Include="Backend\images\HtmlEditor\Images\space.gif" />
     <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
     <Content Include="Backend\images\HtmlEditor\Setting.xml" />
+    <Content Include="Backend\images\picUpLoad\btnEnter-hover.gif" />
+    <Content Include="Backend\images\picUpLoad\btnEnter-normal.gif" />
+    <Content Include="Backend\images\picUpLoad\noimg.gif" />
+    <Content Include="Backend\images\picUpLoad\tabCurrent.gif" />
+    <Content Include="Backend\images\picUpLoad\tool-sprites.gif" />
+    <Content Include="Backend\images\picUpLoad\top-bottom.png" />
+    <Content Include="Backend\images\picUpLoad\upload.html" />
+    <Content Include="Backend\images\picUpLoad\upLoadWin.css" />
+    <Content Include="Backend\images\picUpLoad\upLoadWin.js" />
+    <Content Include="Backend\images\picUpLoad\win.png" />
+    <Content Include="Backend\images\tabCurrent.gif" />
+    <Content Include="Backend\images\tool-sprites.gif" />
+    <Content Include="Backend\images\top-bottom.png" />
+    <Content Include="Backend\images\win.png" />
+    <Content Include="Templates\tdedu0201\images\annexDown.gif" />
     <Content Include="Templates\tdedu0201\js\w.js" />
+    <Content Include="Web\Default.htm" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>
