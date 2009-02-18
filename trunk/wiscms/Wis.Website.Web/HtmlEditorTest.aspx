@@ -64,6 +64,19 @@
     <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
     <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
    </asp:SiteMapPath>
+   
+   <br />
+   Video Play
+   <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="360" height="270">
+<param name="movie" value="play.swf">
+<param name="quality" value="high">
+<param name="allowFullScreen" value="true" />
+<param name="FlashVars" value="vcastr_file=thewitcher12.flv&LogoUrl=Logo.swf" /> 
+<embed src="Play.swf" allowFullScreen="true" FlashVars="vcastr_file=vcastr_file=thewitcher12.flv&LogoUrl=Logo.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="360" height="270"></embed>
+</object>
+
+<br />
+
     </form>
 </body>
 </html>
