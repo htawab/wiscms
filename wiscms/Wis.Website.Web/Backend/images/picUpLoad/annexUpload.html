@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>上传图片</title>
+</head>
+<style>
+
+</style>
+<link href="upLoadWin.css" rel="stylesheet" media="all" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+function tabChange(boxId) {
+var Box1 = document.getElementById("Box1");
+var Box2 = document.getElementById("Box2");
+var Box3 = document.getElementById("Box3");
+var tabIn = document.getElementById("tab").getElementsByTagName("a");
+
+
+if (boxId==1) {
+Box1.style.display="block";
+Box2.style.display="none";
+tabIn[0].className ="tabNoBorder";
+tabIn[1].className ="";
+tabIn[2].className ="";
+}
+if (boxId==2) {
+Box1.style.display="none";
+Box2.style.display="block";
+tabIn[0].className ="";
+tabIn[1].className ="tabNoBorder";
+tabIn[2].className ="";
+}
+
+if (boxId==3) {
+Box1.style.display="none";
+Box2.style.display="none";
+Box3.style.display="block";
+tabIn[0].className ="";
+tabIn[1].className ="";
+tabIn[2].className ="tabNoBorder";
+}
+
+}
+
+function picShow(obj) {
+var picSrc = obj.src;
+var showBox = document.getElementById("showBox");
+if (picSrc != "") {
+ showBox.src=obj.src;
+ 
+ if (showBox.width>160) {
+ showBox.style.width=160+"px";
+ }
+ else {
+ showBox.style.width="";
+ }
+}
+}
+
+</script>
+<body>
+<div class="widowContent">
+  <ul class="tab" id="tab">
+   <li><a href="javascript:tabChange(1)" class="tabNoBorder" onfocus="this.blur();">从列表中选择</a></li>
+   <li><a href="javascript:tabChange(2)" class="" onfocus="this.blur();">从电脑上传</a></li>
+   <li><a href="javascript:tabChange(3)" class="" onfocus="this.blur();">附件管理</a></li>
+  </ul>
+  <div id="Box1">
+  
+  <div class="annexChoose">
+   <div class="annexChooseTop">
+   <select>
+     <option>附件目录</option>
+     <option>附件目录</option>
+     <option>附件目录</option>
+   </select>
+   </div>
+   <div class="annexChooseBox">
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+    </div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+    </div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+    </div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+    </div>
+
+    
+    
+   </div>
+   </div>
+  
+   <div id="pic">
+    <div id="SelectBox">
+    
+    </div>
+    
+   </div>
+  
+   
+   <div class="clear"></div>
+  </div>
+  <div id="Box2">
+   <div class="annexupLoad">
+   <div class="annexupLoadTop"><input type="button" value="添加文件" /><a>全部删除</a></div>
+   <div class="annexupLoadBox">
+    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K dfdf<a>删除</a></div>
+    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K <a>删除</a></div>
+   </div>
+   </div>
+  </div>
+  
+  <div id="Box3">
+  
+  <div class="annexChoose">
+   <div class="annexChooseTop">
+   <select>
+     <option>附件目录</option>
+     <option>附件目录</option>
+     <option>附件目录</option>
+   </select>
+   </div>
+   <div class="annexChooseBox">
+    <div class="outBox">
+     <div class="top"><span>附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">修改</a><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+    </div>
+    <div class="outBox">
+     <div  class="top"><input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
+    </div>
+    <div class="outBox">
+     <div  class="top"><input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
+     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
+    </div>
+   </div>
+   </div>
+  
+   
+  
+   
+   <div class="clear"></div>
+  </div>
+  
+  
+ </div>
+</body>
+</html>
+s
