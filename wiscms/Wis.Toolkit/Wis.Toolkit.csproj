@@ -405,7 +405,7 @@
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Css\Style.css" />
     <EmbeddedResource Include="WebControls\DropdownMenus\DropdownMenu.bmp" />
     <Content Include="WebControls\HtmlEditorControls\HtmlEditor.bmp" />
-    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\AttachFile.gif" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertFile.gif" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Bold.gif" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\BulletedList.gif" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\Clear.gif" />
@@ -466,6 +466,7 @@
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\Designer.html" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\DesignerToolbars.html" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Mini\DesignerView.html" />
+    <EmbeddedResource Include="WebControls\HtmlEditorControls\Images\InsertVideo.gif" />
     <Content Include="WebControls\HtmlEditorControls\Themes\Word2003\Toolbars.htm" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\Designer.html" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\DesignerToolbars.html" />
