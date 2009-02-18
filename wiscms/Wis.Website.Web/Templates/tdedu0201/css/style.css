@@ -54,7 +54,7 @@ div.outbox div.cap a {padding:0 3px 0 12px; float:right; font-weight:normal; col
 div.outbox div.cap a:hover {color:#f11; text-decoration:underline;}
 
 ul.indexList {}
-ul.indexList li {margin:0 8px; display:block; line-height:16px; padding:3px 0 3px 0; *padding:3px 0 3px 0; letter-spacing:0.1em; background:url(../images/borderDash.gif) bottom repeat-x;}
+ul.indexList li {margin:0 8px; font-family:宋体; letter-spacing:0; display:block; line-height:16px; padding:3px 0 3px 0; *padding:3px 0 3px 0;  background:url(../images/borderDash.gif) bottom repeat-x;}
 ul.indexList li a {padding-left:10px; background:url(../images/listIco1.gif) 4px 7px no-repeat;}
 
 ul.floatList {width:270px; white-space:nowrap; overflow:hidden;}
