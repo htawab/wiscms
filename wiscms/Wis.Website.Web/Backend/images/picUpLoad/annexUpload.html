@@ -126,19 +126,59 @@ if (picSrc != "") {
    </select>
    </div>
    <div class="annexChooseBox">
-    <div class="outBox">
-     <div class="top"><span>附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">修改</a><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
-    </div>
-    <div class="outBox">
-     <div  class="top"><input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
-     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
-    </div>
-    <div class="outBox">
-     <div  class="top"><input type="text" value="附件名称" /><a href="####">保存</a><a href="####">取消</a>  附件大小：153.5K <div class="operate"><a href="####">删除</a><a href="####">备注</a><input type="checkbox" class="checkBox" /></div></div>
-     <div class="beizhu"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></div>
-    </div>
+    
+    <dl class="outBox">
+     <dt class="top"><span id="fjName1">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ" id="bzNo1"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+    </dl>
+    <dl class="outBox">
+     <dt class="top"><span id="Span1">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ" id="Dd1"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+    </dl>
+    <dl class="outBox">
+     <dt class="top"><span id="Span2">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ" id="Dd2"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+    </dl>
+    
+    
+    <input id="fjNameValue" value="" />
    </div>
    </div>
+   
+   <script type="text/javascript">
+   function showBZ(bzId) {
+   var bznum = document.getElementById(bzId);
+   if(bznum.className=="showBZ"){
+   
+   bznum.className="hiddenBZ"
+   
+   return;
+
+  }
+   else if(bznum.className=="hiddenBZ") {
+   
+   bznum.className="showBZ";
+  
+  return;
+   }
+   }
+   
+   //修改
+   function fjName (a){
+   var fjName1 = document.getElementById("fjName1");
+   var fjNameValue = document.getElementById("fjNameValue");
+   
+   
+   if (a==1){
+   fjNameValue.value=fjName1.innerHTML;
+   fjName1.innerHTML="<input type='text' value='附件名称' /><a href='####'>保存</a><a href='javascript:fjName(2)'>取消</a>";
+   }
+   else if (a==2) {
+   fjName1.innerHTML=fjNameValue.value;
+   }
+   }   
+   </script>
+   
   
    
   
