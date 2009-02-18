@@ -1173,13 +1173,13 @@
     <Content Include="Backend\images\tool-sprites.gif" />
     <Content Include="Backend\images\top-bottom.png" />
     <Content Include="Backend\images\win.png" />
+    <Content Include="Backend\文件存储规则.txt" />
     <Content Include="Templates\tdedu0201\images\annexDown.gif" />
     <Content Include="Templates\tdedu0201\js\w.js" />
     <Content Include="Web\Default.htm" />
     <None Include="任务清单.tdl" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backend\user\" />
     <Folder Include="files\orther\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
