@@ -109,7 +109,7 @@ var picUpLoadBox = {
 		   //widowContent
 		   var windowContent = document.createElement('div');
 		   windowContent.setAttribute('class','windowContent');
-		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/picUpLoad/upLoad.html" frameborder="0" scrolling="no"></iframe>'	   
+		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/picUpLoad/picUpLoad.html" frameborder="0" scrolling="no"></iframe>'	   
 		   //widowContent over
 		   
 		   var btnOut = document.createElement('div');
