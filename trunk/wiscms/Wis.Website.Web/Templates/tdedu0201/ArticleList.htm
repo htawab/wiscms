@@ -37,7 +37,7 @@
     </div>
     <div class="main">
         <div class="left listtab">
-            <div class="position"><a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
+            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
             <tpl:if test="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid).Count IsNot 0$"><ul class="tab" id="myTabA">
                 <tpl:foreach collection="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid)$" var="SubCategory"><li<tpl:if test="$Equals(SubCategory.CategoryGuid, Category.CategoryGuid)$"> class="active"</tpl:if>><a href="$ReleaseDirectory$/$SubCategory.CategoryId$/1.htm">$SubCategory.CategoryName$</a></li>
             </tpl:foreach></ul>
