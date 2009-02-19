@@ -405,11 +405,6 @@
     <Content Include="css\dialog.css" />
     <Content Include="css\style.css" />
     <Content Include="error.html" />
-    <Content Include="files\images\2008-12\6L4YX3EI-81D918A1BEEC9300162FDE233B7C0638.GIF" />
-    <Content Include="files\images\2008-12\8E1S9V7K-1.gif" />
-    <Content Include="files\video\2008-12\7JQN5I81-~vv_new.swf" />
-    <Content Include="files\video\2008-12\8NCT53JQ-vv_new.swf" />
-    <Content Include="files\video\2008-12\HWJSMZQO-复件 vv_new.swf" />
     <Content Include="flash\vv_new.swf" />
     <Content Include="flash\~vv_new.swf" />
     <Content Include="flash\复件 vv_new.swf" />
@@ -559,7 +554,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="files\file\2008-12\F3HG2S6O-11月份工作安排.doc" />
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
     <Content Include="Backend\images\annexUpLoad\btnEnter-hover.gif" />
@@ -615,9 +609,6 @@
     <Content Include="Templates\tdedu0201\js\w.js" />
     <Content Include="Web\Default.htm" />
     <None Include="任务清单.tdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="files\orther\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
