@@ -226,7 +226,7 @@
     </div>
     </form>
     <script>
-    annexUpLoadBox.init("oK");
+    
     </script>
 </body>
 </html>
