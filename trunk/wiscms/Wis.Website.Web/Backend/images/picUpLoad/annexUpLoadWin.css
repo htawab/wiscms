@@ -97,10 +97,26 @@ img{
 .annexupLoadTop {position:relative;}
 .annexupLoadTop input {border:1px solid #ddd; background:#fff; cursor:pointer;}
 .annexupLoadTop a {position:absolute; right:4px; color:#a04935;}
-.annexupLoadBox {background:#fff; padding-bottom:3px; border:1px solid #9fb0c4; height:274px;}
-.annexupLoadBox div {padding:18px 6px 6px 6px; margin:0 6px; border-bottom:1px solid #dfe8f7; position:relative;}
-.annexupLoadBox div input {border:1px solid #b5c6e3; text-align:right; width:90px;}
+
+.annexupLoadBox {background:#ebf3fc; overflow:hidden; padding-bottom:3px; border:1px solid #9fb0c4; height:274px; color:#808080;}
 .annexupLoadBox div a {color:#a04935;}
+.annexupLoadBox div.outBox {padding:0;  margin:3px 6px; border:1px solid #dfe8f7; background:#f2f7fc;}
+.annexupLoadBox div.outBox div.top {position:relative;}
+.annexupLoadBox div.operate {position:absolute; top:0; right:4px; padding-top:6px; line-height:12px; color:#a04935; width:160px; text-align:right;}
+
+.annexupLoadBox div.operate a {margin:0 4px;}
+
+
+.annexupLoadBox div span { margin:0; padding:0; border:1px solid #f2f7fc; height:22px; width:188px; display:inline-block; color:#4376b3;}
+.annexupLoadBox div input {*margin-left:-6px; border:1px solid #b5c6e3; text-align:right; height:14px; width:120px;}
+.annexupLoadBox div input.checkBox {border:0; text-align:right; width:auto;}
+.annexupLoadBox div div.btn {text-align:center; margin:0 auto;}
+.annexupLoadBox div.btn input {border:1px; background:#b8d1f1; text-align:center; width:70px; height:22px; line-height:20px; margin:4px;}
+
+
+
+
+
 
 
 
@@ -109,8 +125,8 @@ img{
 .annexChooseTop input {border:1px solid #ddd; background:#fff; cursor:pointer;}
 .annexChooseTop a {position:absolute; right:4px; color:#a04935;}
 .annexChooseBox {background:#ebf3fc; overflow:hidden; padding-bottom:3px; border:1px solid #9fb0c4; height:274px; color:#808080;}
-.annexChooseBox div.outBox {padding:0;  margin:3px 6px; border:1px solid #dfe8f7; background:#f2f7fc;}
-.annexChooseBox div dt.top {padding:2px; z-index:0;  padding-left:4px; margin:0; border:0; position:relative;}
+.annexChooseBox div.outBox {padding:0;  margin:3px 6px; border:1px solid #dfe8f7; background:#f2f7fc; position:relative;}
+.annexChooseBox div div.top {padding:2px; z-index:0;  padding-left:4px; margin:0; border:0; position:relative;}
 
 .annexChooseBox div span { margin:0; padding:0; border:1px solid #f2f7fc; height:22px; width:188px; display:inline-block; color:#4376b3;}
 .annexChooseBox div input {*margin-left:-6px; border:1px solid #b5c6e3; text-align:right; height:14px; width:120px;}
@@ -119,17 +135,18 @@ img{
 .annexChooseBox div.btn input {border:1px; background:#b8d1f1; text-align:center; width:70px; height:22px; line-height:20px; margin:4px;}
 .annexChooseBox div a {color:#a04935; text-decoration:underline; margin:0 4px;}
 .annexChooseBox div a.del {}
+.annexChooseBox div div.operate {position:absolute; top:0; right:4px; color:#a04935; width:160px; text-align:right;}
 
-.annexChooseBox div div.operate {position:absolute; top:0; right:4px; color:#a04935; width:120px;}
 
-
-.annexChooseBox dl div.operate {position:absolute; top:0; right:4px; color:#a04935; width:120px;}
+.annexChooseBox dl div.operate {position:absolute; top:0; right:4px; color:#a04935; width:160px; text-align:right;}
 
 .annexChooseBox dl.outBox {padding:0;  margin:3px 6px; border:1px solid #dfe8f7; background:#f2f7fc;}
 .annexChooseBox dl dt.top {padding:2px; z-index:0;  padding-left:4px; margin:0; border:0; position:relative;}
 
-.annexChooseBox dl.outBox span { margin:0; padding:0; border:1px solid #f2f7fc; height:22px; width:188px; display:inline-block; color:#4376b3;}
-.annexChooseBox dl.outBox input {*margin-left:-6px; border:1px solid #b5c6e3; text-align:right; height:14px; width:120px;}
+.annexChooseBox dl.outBox span {over-flow:hidden; margin:0; padding:0; height:22px; width:188px; display:inline-block; color:#4376b3;}
+.annexChooseBox dl.outBox span.size {width:100px;}
+.annexChooseBox dl.outBox span input {border:1px solid #b5c6e3; text-align:right; height:14px; width:120px; display:inline-block;}
+
 .annexChooseBox dl.outBox input.checkBox {border:0; text-align:right; width:auto;}
 .annexChooseBox dl.outBox div.btn {text-align:center; margin:0 auto;}
 .annexChooseBox dl.outBox .btn input {border:1px; background:#b8d1f1; text-align:center; width:70px; height:22px; line-height:20px; margin:4px;}
