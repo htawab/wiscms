@@ -556,15 +556,15 @@
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
     <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
+    <Content Include="Backend\images\annexUpLoad\annexUpload.html" />
+    <Content Include="Backend\images\annexUpLoad\annexUpLoadWin.css" />
+    <Content Include="Backend\images\annexUpLoad\annexUpLoadWin.js" />
     <Content Include="Backend\images\annexUpLoad\btnEnter-hover.gif" />
     <Content Include="Backend\images\annexUpLoad\btnEnter-normal.gif" />
     <Content Include="Backend\images\annexUpLoad\noimg.gif" />
     <Content Include="Backend\images\annexUpLoad\tabCurrent.gif" />
     <Content Include="Backend\images\annexUpLoad\tool-sprites.gif" />
     <Content Include="Backend\images\annexUpLoad\top-bottom.png" />
-    <Content Include="Backend\images\annexUpLoad\upload.html" />
-    <Content Include="Backend\images\annexUpLoad\upLoadWin.css" />
-    <Content Include="Backend\images\annexUpLoad\upLoadWin.js" />
     <Content Include="Backend\images\annexUpLoad\win.png" />
     <Content Include="Backend\images\btnBig.gif" />
     <Content Include="Backend\images\btnEnter-hover.gif" />
@@ -591,11 +591,11 @@
     <Content Include="Backend\images\picUpLoad\btnEnter-hover.gif" />
     <Content Include="Backend\images\picUpLoad\btnEnter-normal.gif" />
     <Content Include="Backend\images\picUpLoad\noimg.gif" />
+    <Content Include="Backend\images\picUpLoad\picUpLoad.css" />
+    <Content Include="Backend\images\picUpLoad\picUpload.html" />
     <Content Include="Backend\images\picUpLoad\tabCurrent.gif" />
     <Content Include="Backend\images\picUpLoad\tool-sprites.gif" />
     <Content Include="Backend\images\picUpLoad\top-bottom.png" />
-    <Content Include="Backend\images\picUpLoad\upload.html" />
-    <Content Include="Backend\images\picUpLoad\upLoadWin.css" />
     <Content Include="Backend\images\picUpLoad\upLoadWin.js" />
     <Content Include="Backend\images\picUpLoad\win.png" />
     <Content Include="Backend\images\tabCurrent.gif" />
