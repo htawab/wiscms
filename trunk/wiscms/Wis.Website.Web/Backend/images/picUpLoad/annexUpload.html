@@ -109,8 +109,15 @@ if (picSrc != "") {
    <div class="annexupLoad">
    <div class="annexupLoadTop"><input type="button" value="添加文件" /><a>全部删除</a></div>
    <div class="annexupLoadBox">
-    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K dfdf<a>删除</a></div>
-    <div>1.附件名称：<input type="text" value="附件名称" />.doc 附件大小：153.5K <a>删除</a></div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">删除</a></div></div>
+    </div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">删除</a></div></div>
+    </div>
+    <div class="outBox">
+     <div class="top"><span>1.附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="####">删除</a></div></div>
+    </div>
    </div>
    </div>
   </div>
@@ -128,26 +135,33 @@ if (picSrc != "") {
    <div class="annexChooseBox">
     
     <dl class="outBox">
-     <dt class="top"><span id="fjName1">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
-     <dd class="hiddenBZ" id="bzNo1"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <dt class="top"><span>附件名称1</span> <span class="size">附件大小：153.5K</span> <div class="operate"><a href="####" onclick="annexEdit(1,this)">修改</a><a href="####">删除</a><a href="####" onclick="showBZ(this)">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <input  type="hidden" value="" />
     </dl>
+    
     <dl class="outBox">
-     <dt class="top"><span id="Span1">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
-     <dd class="hiddenBZ" id="Dd1"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <dt class="top"><span>附件名称2.doc</span> 附件大小：153.5K <div class="operate"><a href="####" onclick="annexEdit(1,this)">修改</a><a href="####">删除</a><a href="####" onclick="showBZ(this)">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <input type="hidden" value="" />
     </dl>
+    
     <dl class="outBox">
-     <dt class="top"><span id="Span2">附件名称.doc</span> 附件大小：153.5K <div class="operate"><a href="javascript:fjName(1)">修改</a><a href="####">删除</a><a href="javascript:showBZ('bzNo1')">备注</a><input type="checkbox" class="checkBox" /></div></dt>
-     <dd class="hiddenBZ" id="Dd2"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <dt class="top"><span>附件名称3.doc</span> 附件大小：153.5K <div class="operate"><a href="####" onclick="annexEdit(1,this)">修改</a><a href="####">删除</a><a href="####" onclick="showBZ(this)">备注</a><input type="checkbox" class="checkBox" /></div></dt>
+     <dd class="hiddenBZ"><label>备注：</label><textarea rows="3" ></textarea><div  class="btn"><input type="button" value="保存" /><input type="button" class="btn" value="取消" /></div></dd>
+     <input type="hidden" value="" />
     </dl>
     
     
-    <input id="fjNameValue" value="" />
+    
+    
+    
    </div>
    </div>
    
    <script type="text/javascript">
-   function showBZ(bzId) {
-   var bznum = document.getElementById(bzId);
+   function showBZ(oobj) {
+   var bznum = oobj.parentNode.parentNode.parentNode.getElementsByTagName("dd")[0];
    if(bznum.className=="showBZ"){
    
    bznum.className="hiddenBZ"
@@ -164,17 +178,15 @@ if (picSrc != "") {
    }
    
    //修改
-   function fjName (a){
-   var fjName1 = document.getElementById("fjName1");
-   var fjNameValue = document.getElementById("fjNameValue");
-   
-   
+   function annexEdit (a,oobj){
+   var annexDT = oobj.parentNode.parentNode;
+   var annexValue = oobj.parentNode.parentNode.parentNode.getElementsByTagName("input");
    if (a==1){
-   fjNameValue.value=fjName1.innerHTML;
-   fjName1.innerHTML="<input type='text' value='附件名称' /><a href='####'>保存</a><a href='javascript:fjName(2)'>取消</a>";
+   annexValue.value=annexDT.innerHTML;
+   annexDT.innerHTML="<span><input type='text' value='附件名称' /></span> <span class='size'>附件大小：153.5K</span> <div class='operate'><a href='####'>保存</a><a href='####'onclick='annexEdit(2,this)'>取消</a><a href='####'>删除</a><a href='####' onclick='showBZ(this)'>备注</a><input type='checkbox' class='checkBox' /></div>";
    }
    else if (a==2) {
-   fjName1.innerHTML=fjNameValue.value;
+   annexDT.innerHTML=annexValue.value;
    }
    }   
    </script>
