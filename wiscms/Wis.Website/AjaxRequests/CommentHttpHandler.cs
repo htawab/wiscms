@@ -8,6 +8,7 @@ using System;
 using System.Web;
 using Wis.Toolkit;
 using Wis.Website.DataManager;
+using System.Text.RegularExpressions;
 
 namespace Wis.Website.AjaxRequests
 {
@@ -45,6 +46,11 @@ namespace Wis.Website.AjaxRequests
             {
                 return;
             }
+
+            // 评论标题和内过滤Html脚本
+            // TODO:过滤内嵌Script脚本、样式
+            title = Regex.Replace(title, "<[^>]*>", "");
+            contentHtml = Regex.Replace(contentHtml, "<[^>]*>", "");
 
             // 2 验证评论数据
             // 获取文章的编号
