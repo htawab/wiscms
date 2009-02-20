@@ -48,7 +48,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
@@ -123,6 +122,13 @@
     </Compile>
     <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx.designer.cs">
       <DependentUpon>InsertImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.aspx.cs">
+      <DependentUpon>InsertPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.aspx.designer.cs">
+      <DependentUpon>InsertPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\images\HtmlEditor\Pager.ascx.cs">
       <DependentUpon>Pager.ascx</DependentUpon>
@@ -578,6 +584,7 @@
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertDirectImage.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\insertflash.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertSymbol.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\selcolor.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\table.htm" />
@@ -588,16 +595,15 @@
     <Content Include="Backend\images\HtmlEditor\Images\space.gif" />
     <Content Include="Backend\images\HtmlEditor\Pager.ascx" />
     <Content Include="Backend\images\HtmlEditor\Setting.xml" />
-    <Content Include="Backend\images\picUpLoad\btnEnter-hover.gif" />
-    <Content Include="Backend\images\picUpLoad\btnEnter-normal.gif" />
-    <Content Include="Backend\images\picUpLoad\noimg.gif" />
-    <Content Include="Backend\images\picUpLoad\picUpLoad.css" />
-    <Content Include="Backend\images\picUpLoad\picUpload.html" />
-    <Content Include="Backend\images\picUpLoad\tabCurrent.gif" />
-    <Content Include="Backend\images\picUpLoad\tool-sprites.gif" />
-    <Content Include="Backend\images\picUpLoad\top-bottom.png" />
-    <Content Include="Backend\images\picUpLoad\upLoadWin.js" />
-    <Content Include="Backend\images\picUpLoad\win.png" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\btnEnter-hover.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\btnEnter-normal.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\noimg.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\picUpLoad.css" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\tabCurrent.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\tool-sprites.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\top-bottom.png" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\upLoadWin.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\win.png" />
     <Content Include="Backend\images\tabCurrent.gif" />
     <Content Include="Backend\images\tool-sprites.gif" />
     <Content Include="Backend\images\top-bottom.png" />

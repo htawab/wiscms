@@ -1,6 +1,6 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-body {margin:0;	padding:0; font-family:Arial, Helvetica, sans-serif; overflow:hidden; font-size:12px;}
+body {margin:0;	padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
 ul,li {margin:0; padding:0; list-style:none;}
 a {
 	text-decoration:none;
@@ -144,9 +144,9 @@ a.menu11 {
 .leftbar div.selected {line-height:22px; height:22px; vertical-align:middle; text-indent:6px; background:#bddfee; border-bottom:1px solid #fff;}
 .leftbar div.Parent{line-height:22px; height:22px; vertical-align:middle; text-indent:6px; background:#e1f5fd; border-bottom:1px solid #fff;}
 
-div.right {background:#d6e7f7; border:1px solid #9fb5d2; height:100%; margin-left:0px; _margin-left:4px;}
+div.right {background:#d6e7f7; margin-left:0px; _margin-left:4px;}
 .position {
-	width:100%; padding:4px 0; margin:3px; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
+	padding:4px 0; margin:3px; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
 }
 div.viewvdieo {background:#ffffff;border:1px solid #9fb5d2; height:100%; margin:4px 4px 4px 4px;}
 div.right .schBox {line-height:20px;}
@@ -202,7 +202,7 @@ div.addBox input.back {margin:4px 5px 6px 2px;}
 
 
 
-div.right div {clear:both;width:100%; margin:4px 0 4px 0;}
+div.right div {clear:both; margin:4px 0 4px 0;}
 div.right div.box {float:left; margin:4px 0 4px 0;}
 div.right div.dropdownmenu { margin:0;}
 div.right div input {float:left;}
@@ -319,11 +319,11 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
    position:absolute;
    left:50%;
    top:50%;
-   width:500px;
+   width:600px;
    border:1px solid #8fa7c6;
 }
 
-#oIframe {width:100%; height:340px; overflow:hidden; border:0; border-style:none;}
+#oIframe {width:100%; height:380px; overflow:hidden; border:0; border-style:none;}
 .widowBox {border:1px solid #8fa7c6; margin:0 auto;}
 #windowBoxIn {border:1px solid #fff;}
 #windowTitle {height:24px; line-height:24px; background:url(../images/top-bottom.png) left -3px repeat-x;}
@@ -355,8 +355,8 @@ margin-left:4px; text-indent:-420px; color:transparent; background:url(../images
 #allPics a{display:inline;}
 #allPics a:hover img {border:3px solid #9c9c9d;}
 
-#picShow {background:#f6f8fa; width:176px; height:300px; margin:6px 4px; border:1px solid #a8b5c8; float:left; text-align:center;}
-#picShow #imgBox {margin:6px auto 0 auto; border:2px solid #e8e8e8; width:160px; height:160px; overflow: hidden; text-align:center;}
+#picShow {background:#f6f8fa;  margin:6px 4px; border:1px solid #a8b5c8; float:left; text-align:center;}
+#picShow #imgBox {margin:6px auto 0 auto; border:2px solid #e8e8e8; width:220px; height:220px; overflow: hidden; text-align:center;}
 #picShow #imgBox img {vertical-align:middle;}
 .imgRename {margin:6px 4px 0 4px;}
 .imgRename input {width:160px; height:14px;}
@@ -388,3 +388,89 @@ img{
 #btns a:active{
    background-image:url(../images/btnEnter-hover.gif);
 }
+
+
+/* 新闻列表 */
+.listBox {padding-left:8px;}
+
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
+div.right div.AticleSch input {float:none; margin:0; padding:0;}
+div.right div.AticleSch select {margin:0; padding:0;}
+
+.listBox ul {float:left;}
+.listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px;}
+.listBox ul li.listSort {width:80px; border:solid 1px #a3b5cd; border-top:0;}
+.listBox ul li.listTitle {width:380px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+.listBox ul li.listTime {width:140px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+.listBox ul li.listUser { width:80px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+.listBox ul li.listOperate {width:100px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+
+.listBox ul.top li {border-top:solid 1px #a3b5cd;}
+.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
+.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
+/* 图片管理列表 */
+.picListBox {padding-left:8px;}
+
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
+div.right div.AticleSch input {float:none; margin:0; padding:0;}
+div.right div.AticleSch select {margin:0; padding:0;}
+
+.picListBox ul {float:left; width:auto;}
+.picListBox ul li {float:left; height:24px; line-height:24px; height:120px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
+.picListBox ul li.picSmall {width:120px; line-height:120px;}
+.picListBox ul li.picSmall img {width:100px;}
+.picListBox ul li.picTitle {width:159px; border-left:0;}
+.picListBox ul li.picDes {width:180px; border-left:0;}
+.picListBox ul li.picAddTime {width:140px; border-left:0;}
+.picListBox ul li.picUser { width:80px; border-left:0;}
+.picListBox ul li.picOperate {width:100px; border-left:0;}
+
+.picListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
+.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
+.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
+/* 附件管理列表 */
+.FileListBox {padding-left:8px;}
+
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
+div.right div.AticleSch input {float:none; margin:0; padding:0;}
+div.right div.AticleSch select {margin:0; padding:0;}
+
+.FileListBox ul {float:left; width:auto;}
+.FileListBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
+.FileListBox ul li.fileTitle {width:159px;}
+.FileListBox ul li.fileSize {width:120px; border-left:0;}
+.FileListBox ul li.fileDes {width:180px; border-left:0;}
+.FileListBox ul li.fileAddTime {width:140px; border-left:0;}
+.FileListBox ul li.fileUser { width:80px; border-left:0;}
+.FileListBox ul li.fileOperate {width:100px; border-left:0;}
+
+.FileListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
+.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
+.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
+
+/* 友情链接管理列表 */
+.LinkListBox {padding-left:8px;}
+
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
+div.right div.AticleSch input {float:none; margin:0; padding:0;}
+div.right div.AticleSch select {margin:0; padding:0;}
+
+.LinkListBox ul {float:left; width:auto;}
+.LinkListBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
+.LinkListBox ul li.LinkTitle {width:129px;}
+.LinkListBox ul li.LinkUrl {width:180px; border-left:0;}
+.LinkListBox ul li.LinkDes {width:150px; border-left:0;}
+.LinkListBox ul li.LinkAddTime {width:140px; border-left:0;}
+.LinkListBox ul li.LinkUser { width:80px; border-left:0;}
+.LinkListBox ul li.LinkOperate {width:100px; border-left:0;}
+
+.LinkListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
+.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
+.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
+
+a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3px 6px 2px 6px;}
+
