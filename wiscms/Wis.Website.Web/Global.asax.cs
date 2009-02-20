@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Text.RegularExpressions;
+using Wis.Toolkit.WebControls.FileUploads;
 
 namespace Wis.Website.Web
 {
@@ -15,9 +16,18 @@ namespace Wis.Website.Web
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            // This sets up the default processor
+            UploadManager.Instance.ProcessorType = typeof(DummyProcessor);
+            UploadManager.Instance.ProcessorInit += new FileProcessorInitEventHandler(Processor_Init);
         }
-
+        /// <summary>
+        /// Initialises the file processor.
+        /// </summary>
+        /// <param name=\"sender\">Sender</param>
+        /// <param name=\"args\">Arguments</param>
+        void Processor_Init(object sender, FileProcessorInitEventArgs args)
+        {
+        }
         protected void Session_Start(object sender, EventArgs e)
         {
 

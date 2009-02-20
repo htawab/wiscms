@@ -316,6 +316,24 @@
     <Compile Include="WebControls\DropdownMenus\DropdownMenu.cs" />
     <Compile Include="WebControls\DropdownMenus\DropdownMenuControlDesigner.cs" />
     <Compile Include="WebControls\DropdownMenus\DropdownMenuItem.cs" />
+    <Compile Include="WebControls\FileUploads\DJAccessibleProgressBar.cs" />
+    <Compile Include="WebControls\FileUploads\DJFileUpload.cs" />
+    <Compile Include="WebControls\FileUploads\DJUploadController.cs" />
+    <Compile Include="WebControls\FileUploads\DummyProcessor.cs" />
+    <Compile Include="WebControls\FileUploads\FieldTestProcessor.cs" />
+    <Compile Include="WebControls\FileUploads\FileSystemProcessor.cs" />
+    <Compile Include="WebControls\FileUploads\FormStream.cs" />
+    <Compile Include="WebControls\FileUploads\IFileProcessor.cs" />
+    <Compile Include="WebControls\FileUploads\SettingsStorageObject.cs" />
+    <Compile Include="WebControls\FileUploads\SQLFileDownloadHandler.cs" />
+    <Compile Include="WebControls\FileUploads\SQLProcessor.cs" />
+    <Compile Include="WebControls\FileUploads\UploadConfigurationSection.cs" />
+    <Compile Include="WebControls\FileUploads\UploadedFile.cs" />
+    <Compile Include="WebControls\FileUploads\UploadManager.cs" />
+    <Compile Include="WebControls\FileUploads\UploadModule.cs" />
+    <Compile Include="WebControls\FileUploads\UploadProgressHandler.cs" />
+    <Compile Include="WebControls\FileUploads\UploadStatus.cs" />
+    <Compile Include="WebControls\FileUploads\UploadWorkerRequest.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditor.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditorControlDesigner.cs" />
     <Compile Include="WebControls\HtmlEditorControls\ResourceHandler.cs" />
@@ -336,33 +354,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebControls\RichCalendar.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadFile.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadFileCollection.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadHelpr.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadInstance.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadLoger.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadModule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadProcess.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadStatusHandler.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WebControls\WebUpload\UploadView.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="XML\Serializer.cs">
@@ -471,7 +462,6 @@
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\Designer.html" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\DesignerToolbars.html" />
     <EmbeddedResource Include="WebControls\HtmlEditorControls\Themes\Word2007\DesignerView.html" />
-    <Content Include="WebControls\WebUpload\WebbUpload.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
