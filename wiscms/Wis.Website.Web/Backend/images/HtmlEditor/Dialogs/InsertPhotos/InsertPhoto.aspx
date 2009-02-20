@@ -39,35 +39,33 @@
                 </div>
             </div>
             <div id="picShow">
-                <div id="imgBox">
-                    <img src="noimg.gif" id="showBox" /></div>
+                <div id="imgBox"><img src="noimg.gif" id="showBox" /></div>
                 <div class="imgInputA">
-                    说明文字：<input type="text" />
+                   <div>图片说明：<input type="text" /></div>
                 </div>
                 <div class="imgInputB">
-                    边框粗细：<input type="text" />
-                    边框颜色：<input type="text" />
+                    <div>边框粗细：<input type="text" /></div>
+                    <div>边框颜色：<input type="text" /></div>
                 </div>
                 <div class="imgInputB">
-                    特殊效果：<select><option>特殊效果</option><option>特殊效果</option><option>特殊效果</option></select>
+                    <div>特殊效果：<select><option>特殊效果</option><option>特殊效果</option><option>特殊效果</option></select></div>
                 
-                    对齐方式：<select><option>对齐方式</option><option>对齐方式</option><option>对齐方式</option></select>
+                    <div>对齐方式：<select><option>对齐方式</option><option>对齐方式</option><option>对齐方式</option></select></div>
                 </div>
                 <div class="imgInputB">
-                    图片宽度：<input type="text" />
+                    <div>图片宽度：<input type="text" /></div>
                 
-                    图片高度：<input type="text" />
+                    <div>图片高度：<input type="text" /></div>
                 </div>
                 <div class="imgInputB">
-                    上下间距：<input type="text" />
+                    <div>上下间距：<input type="text" /></div>
                 
-                    左右间距：<input type="text" />
+                    <div>左右间距：<input type="text" /></div>
                 </div>
 
             
             </div>
-            <div class="clear">
-            </div>
+            <div class="clear"></div>
         </div>
         <div id="Box2" style="display:none">
             <div class="picupLoad">
