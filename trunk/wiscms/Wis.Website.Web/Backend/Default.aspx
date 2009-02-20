@@ -46,7 +46,7 @@
                     <iframe frameborder="0" width="172px"  src="Article/ArticleMenu.aspx" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight);" scrolling="no"></iframe>
                 </td>
                 <td    valign="top">
-                    <iframe frameborder="0" width="100%"  src="Index.aspx"  name="main"   style="height: expression(main.document.body.scrollHeight);"  scrolling="no"></iframe>
+                    <iframe frameborder="0" width="100%"  src="Article/LinkList.htm"  name="main"  style="height:660px; border:1px solid #9fb5d2; width:100%;"  scrolling="no"></iframe>
                 </td>
             </tr>
         </table> <div class="clear"></div>
