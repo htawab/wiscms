@@ -1,6 +1,6 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="TokenKind.cs" company="HeatBet">
-//     Copyright (C) HeatBet Corporation.  All rights reserved.
+// <copyright file="TokenKind.cs" company="Oriental Everwisdom">
+//     Copyright (C) Oriental Everwisdom Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
 

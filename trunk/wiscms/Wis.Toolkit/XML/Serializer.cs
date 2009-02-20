@@ -1,6 +1,8 @@
-/// <copyright>
-/// °æ±¾ËùÓÐ (C) 2006-2007 HeatBet
-/// </copyright>
+//------------------------------------------------------------------------------
+// <copyright file="XMLSerializer.cs" company="Oriental Everwisdom">
+//     Copyright (C) Oriental Everwisdom Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
 
 using System.Xml;
 using System.IO;
