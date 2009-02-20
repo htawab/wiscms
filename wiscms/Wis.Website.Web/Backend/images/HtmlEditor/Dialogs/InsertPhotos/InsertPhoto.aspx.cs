@@ -88,12 +88,12 @@ namespace Wis.Website.Web.Backend.images.HtmlEditor.Dialogs.InsertPhotos
         {
             // Set the default processor
             FileSystemProcessor fs = new FileSystemProcessor();
-            fs.OutputPath = Server.MapPath("~/uploadsdefault");
+            fs.OutputPath = Server.MapPath("~/Uploads/Default");
             DJUploadController1.DefaultFileProcessor = fs;
 
             // Change the file processor and set it's properties.
             FieldTestProcessor fsd = new FieldTestProcessor();
-            fsd.OutputPath = Server.MapPath("~/uploads");
+            fsd.OutputPath = Server.MapPath("~/Uploads/Photos/");
             DJFileUpload1.FileProcessor = fsd;
         }
     }

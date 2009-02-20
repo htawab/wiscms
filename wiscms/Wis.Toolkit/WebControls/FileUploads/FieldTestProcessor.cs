@@ -56,7 +56,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
                 if (!value.EndsWith(@"\")) value += @"\";
 
                 if (!Directory.Exists(value))
-                    throw new ArgumentException("Directory does not exist:" + value);
+                    Directory.CreateDirectory(value);
 
                 _outputPath = value;
             }

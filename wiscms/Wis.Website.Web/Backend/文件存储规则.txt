@@ -4,7 +4,7 @@
 详细页	/Web/分类编号/年-月-日/内容编号.htm
 单页	/Web/单页编号.htm
 
-图片	/Web/Files/年-月-日/文件编号.htm
-附件	/Web/Photos/年-月-日/文件编号.htm
-视频	/Web/Videos/年-月-日/文件编号.htm
-Flash	/Web/Flashs/年-月-日/文件编号.htm
+图片	/Uploads/Files/年-月-日/文件编号.htm
+附件	/Uploads/Photos/年-月-日/文件编号.htm
+视频	/Uploads/Videos/年-月-日/文件编号.htm
+Flash	/Uploads/Flashs/年-月-日/文件编号.htm

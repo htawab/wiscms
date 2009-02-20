@@ -28,13 +28,13 @@ namespace Wis.Toolkit.WebControls.FileUploads
 
         int _initialFileUploads;
         int _maxFileUploads;
-        bool _showUploadButton;
-        bool _showAddButton;
+        bool _showUploadButton = true;
+        bool _showAddButton = true;
         bool _requiredField;
         bool _applyStyles = false;
         string _requiredMessage = "至少选择一个文件";
         string _invalidExtensionMessage = "文件类型只允许：";// + AllowedFileExtensions;
-        string _allowedFileExtentions = null;
+        string _AllowedFileExtensions = string.Empty;
         IFileProcessor _processor;
 
         internal static string UPLOAD_PARAMETER_TAG = "::DJ_UPLOAD_PARAMETER::";
@@ -49,7 +49,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
         public IFileProcessor FileProcessor
         {
             get { return _processor; }
-            set 
+            set
             {
                 _processor = value as IFileProcessor;
 
@@ -66,23 +66,20 @@ namespace Wis.Toolkit.WebControls.FileUploads
         /// <value>The allowed file extensions.</value>
         public string AllowedFileExtensions
         {
-            get 
-            {
-                if (_allowedFileExtentions != null)
-                {
-                    return _allowedFileExtentions;
-                }
-                else if (_controller != null)
-                {
-                    return _controller.AllowedFileExtensions;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            set { _allowedFileExtentions = value; }
+            get { return _AllowedFileExtensions; }
+            set { _AllowedFileExtensions = value; }
         }
+
+        private string _ReferencePath = "/";
+        /// <summary>
+        /// 引用路径
+        /// </summary>
+        public string ReferencePath
+        {
+            get { return _ReferencePath; }
+            set { _ReferencePath = value; }
+        }
+
 
         /// <summary>
         /// Gets/sets a boolean value indicating if at least one upload file is required for this control.
@@ -119,7 +116,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             get { return _invalidExtensionMessage; }
             set { _invalidExtensionMessage = value; }
         }
-        
+
         /// <summary>
         /// Gets or sets the initial number of file uploads.
         /// </summary>

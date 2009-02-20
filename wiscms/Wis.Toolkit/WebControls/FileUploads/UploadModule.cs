@@ -318,20 +318,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
         /// </summary>
         int LengthExceededHttpCode
         {
-            get
-            {
-                UploadConfigurationSection settings = UploadConfigurationSection.GetConfig();
-                int DEFAULT_LENGTH_CODE = 400;
-
-                if (settings != null)
-                {
-                    return settings.LengthExceededHttpCode;
-                }
-                else
-                {
-                    return DEFAULT_LENGTH_CODE;
-                }
-            }
+            get { return 400; }
         }
 
         /// <summary>

@@ -327,7 +327,6 @@
     <Compile Include="WebControls\FileUploads\SettingsStorageObject.cs" />
     <Compile Include="WebControls\FileUploads\SQLFileDownloadHandler.cs" />
     <Compile Include="WebControls\FileUploads\SQLProcessor.cs" />
-    <Compile Include="WebControls\FileUploads\UploadConfigurationSection.cs" />
     <Compile Include="WebControls\FileUploads\UploadedFile.cs" />
     <Compile Include="WebControls\FileUploads\UploadManager.cs" />
     <Compile Include="WebControls\FileUploads\UploadModule.cs" />

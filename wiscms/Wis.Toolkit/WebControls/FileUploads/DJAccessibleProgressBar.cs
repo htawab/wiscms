@@ -60,10 +60,8 @@ namespace Wis.Toolkit.WebControls.FileUploads
             {
                 _frame.Attributes["src"] = _progressURL + "?DJUploadStatus=" + controller.UploadID;
 
-                if (controller.ShowProgressBar)
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), ID, "up_killProgress('" + ClientID + "')", true);
-                }
+                // TODO:修改为内嵌的滚动条
+                Page.ClientScript.RegisterStartupScript(this.GetType(), ID, "up_killProgress('" + ClientID + "')", true);
             }
         }
     }
