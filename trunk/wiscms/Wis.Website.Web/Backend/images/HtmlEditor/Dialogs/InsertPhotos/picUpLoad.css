@@ -171,24 +171,28 @@ ul, li
 {
 	background: #f6f8fa;
 	
-	
+	width:290px;
 	margin: 6px 4px;
 	border: 1px solid #a8b5c8;
 	float: left;
 	text-align: center;
+	padding-bottom:5px;
 }
 #picShow #imgBox
 {
 	margin: 6px auto 0 auto;
 	border: 2px solid #e8e8e8;
-	width: 160px;
-	height: 160px;
+	width: 220px;
+	
 	overflow: hidden;
 	text-align: center;
+	margin-bottom:6px;
 }
 #picShow #imgBox img
 {
 	vertical-align: middle;
+	
+	height: 200px;
 }
 .imgRename
 {
@@ -256,6 +260,11 @@ img
 }
 
 
-.imgInputA, .imgInputB {text-align:left;}
-.imgInputA input {width:130px;}
-.imgInputB input {width:60px;}
+.imgInputA, .imgInputB {text-align:left; float:left;  padding:2px 0;}
+.imgInputB {}
+.imgInputA input,.imgInputB input {height:13px; border:solid 1px #999;}
+.imgInputA input {width:214px;}
+.imgInputB input {width:70px;}
+.imgInputA {float:left;}
+.imgInputA div { margin-left:4px;}
+.imgInputB div {float:left; width:140px; margin-left:4px;}
