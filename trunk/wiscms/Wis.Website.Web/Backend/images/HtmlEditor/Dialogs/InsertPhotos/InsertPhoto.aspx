@@ -70,8 +70,10 @@
             </div>
         </div>
         <div id="Box2" style="display:none">
-            <div class="picupLoad"><FileUploads:DJUploadController ID="DJUploadController1" runat="server" /><FileUploads:DJAccessibleProgressBar ID="DJAccessibleProgrssBar1" runat="server" />
-                <FileUploads:DJFileUpload ID="DJFileUpload1" runat="server" ShowAddButton="true" ShowUploadButton="true" />
+            <div class="picupLoad">
+                <FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
+                <FileUploads:DJAccessibleProgressBar ID="DJAccessibleProgrssBar1" runat="server" />
+                <FileUploads:DJFileUpload ID="DJFileUpload1" runat="server" ShowAddButton="true" ShowUploadButton="true" AllowedFileExtensions=".pdf,.xls,.doc,.zip,.rar,.iso,.png,.jpg,.gif,.ppt" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
                 <br />
                 <asp:Literal runat="server" ID="ltResults"></asp:Literal>
             </div>

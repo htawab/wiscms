@@ -130,6 +130,13 @@
     <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.aspx.designer.cs">
       <DependentUpon>InsertPhoto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\UploadProgress.aspx.cs">
+      <DependentUpon>UploadProgress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\UploadProgress.aspx.designer.cs">
+      <DependentUpon>UploadProgress.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\images\HtmlEditor\Pager.ascx.cs">
       <DependentUpon>Pager.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -584,7 +591,22 @@
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertDirectImage.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\insertflash.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertImage.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Images\addbutton.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Images\cancelbutton.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Images\removebutton.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Images\selectbutton.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Images\uploadbutton.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.aspx" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Scripts\effects.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Scripts\fileupload.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Scripts\modalbox.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Scripts\prototype.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Scripts\scriptaculous.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Styles\dynamicstyles.css" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Styles\modalbox.css" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Styles\spinner.gif" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\Styles\uploadstyles.css" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\UploadProgress.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertSymbol.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\selcolor.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\table.htm" />
@@ -610,11 +632,21 @@
     <Content Include="Backend\images\win.png" />
     <Content Include="Backend\文件存储规则.txt" />
     <Content Include="Logo.swf" />
+    <Content Include="logoPlugIn.swf" />
     <Content Include="play.swf" />
+    <Content Include="pthreadGC2.dll" />
     <Content Include="Templates\tdedu0201\images\annexDown.gif" />
     <Content Include="Templates\tdedu0201\js\w.js" />
+    <Content Include="vcastr3.swf" />
     <Content Include="Web\Default.htm" />
     <None Include="任务清单.tdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Uploads\Default\" />
+    <Folder Include="Uploads\Files\" />
+    <Folder Include="Uploads\Flashs\" />
+    <Folder Include="Uploads\Photos\" />
+    <Folder Include="Uploads\Videos\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

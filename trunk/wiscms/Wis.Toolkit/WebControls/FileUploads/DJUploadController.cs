@@ -31,17 +31,11 @@ namespace Wis.Toolkit.WebControls.FileUploads
         string _imagePath;
         string _progressUrl;
         UploadStatus _status;
-        bool _showCancelButton;
-        string _allowedFileExtentions;
-        bool _showProgressBar = true;
-        bool _enableManualProcessing = true;
+        //bool _showCancelButton;
+        //string _allowedFileExtentions;
+        //bool _showProgressBar = true;
+        //bool _enableManualProcessing = true;
         IFileProcessor _processor;
-        UploadConfigurationSection _settings;
-
-        string DEFAULT_IMAGE_PATH = "/upload_images";
-        string DEFAULT_CSS_PATH = "/upload_styles";
-        string DEFAULT_JS_PATH = "/upload_scripts";
-        string DEFAULT_PROGRESS_URL = "UploadProgress.aspx";
 
         #endregion
 
@@ -63,16 +57,6 @@ namespace Wis.Toolkit.WebControls.FileUploads
         }
 
         /// <summary>
-        /// Gets or sets the allowed file extensions (a comma separated list .pdf,.zip,.gif).
-        /// </summary>
-        /// <value>The allowed file extensions.</value>
-        public string AllowedFileExtensions
-        {
-            get { return _allowedFileExtentions; }
-            set { _allowedFileExtentions = value; }
-        }
-
-        /// <summary>
         /// Gets or sets the upload status.
         /// </summary>
         /// <value>The upload status.</value>
@@ -91,6 +75,19 @@ namespace Wis.Toolkit.WebControls.FileUploads
             get { return _scriptPath; }
             set { _scriptPath  = value; }
         }
+
+
+        private string _ReferencePath;
+        /// <summary>
+        /// 引用路径
+        /// </summary>
+        /// <value>Script文件、图片文件和Style文件引用的路径</value>
+        public string ReferencePath
+        {
+            get { return _ReferencePath; }
+            set { _ReferencePath = value; }
+        }
+
 
         /// <summary>
         /// Gets or sets the path to the css file.
@@ -122,37 +119,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             set { _imagePath = value; }
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether the cancel button should be shown.
-        /// </summary>
-        /// <value><c>true</c> if the cancel button should be shown; otherwise, <c>false</c>.</value>
-        public bool ShowCancelButton
-        {
-            get { return _showCancelButton; }
-            set { _showCancelButton = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the progress bar should be shown.
-        /// </summary>
-        /// <value><c>true</c> if the progress bar should be shown; otherwise, <c>false</c>.</value>
-        public bool ShowProgressBar
-        {
-            get { return _showProgressBar; }
-            set { _showProgressBar = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether manual processing should be allowed if the
-        /// upload module is not installed.
-        /// </summary>
-        /// <value><c>true</c> if manual processing is allowed; otherwise, <c>false</c>.</value>
-        public bool EnableManualProcessing
-        {
-            get { return _enableManualProcessing; }
-            set { _enableManualProcessing = value; }
-        }
-
+ 
         /// <summary>
         /// Gets the upload ID.
         /// </summary>
@@ -168,6 +135,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
         {
         }
 
+
         /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
         /// </summary>
@@ -175,41 +143,14 @@ namespace Wis.Toolkit.WebControls.FileUploads
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            _settings = UploadConfigurationSection.GetConfig();
+            
+            string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath.TrimEnd('/');
+            string referencePath = this.ReferencePath.TrimStart('/').TrimEnd('/');
 
-            if (String.IsNullOrEmpty(ImagePath))
-            {
-                ImagePath = _settings == null ? DEFAULT_IMAGE_PATH : _settings.ImagePath;
-            }
-
-            ImagePath = ImagePath.TrimEnd('/') + "/";
-
-            if (String.IsNullOrEmpty(CSSPath))
-            {
-                CSSPath = _settings == null ? DEFAULT_CSS_PATH : _settings.CSSPath;
-            }
-
-            CSSPath = CSSPath.TrimEnd('/') + "/";
-
-            if (String.IsNullOrEmpty(ScriptPath))
-            {
-                ScriptPath = _settings == null ? DEFAULT_JS_PATH : _settings.ScriptPath;
-            }
-
-            if (String.IsNullOrEmpty(ProgressUrl))
-            {
-                ProgressUrl = _settings == null ? DEFAULT_PROGRESS_URL : _settings.ProgressUrl;
-            }
-
-            if (_settings != null)
-            {
-                AllowedFileExtensions = _settings.AllowedFileExtensions;
-                ShowCancelButton = _settings.ShowCancelButton;
-                ShowProgressBar = _settings.ShowProgressBar;
-                EnableManualProcessing = _settings.EnableManualProcessing;
-            }
-
-            ScriptPath = ScriptPath.TrimEnd('/') + "/";
+            ImagePath = string.Format("{0}/{1}/Images/", applicationPath, referencePath);
+            CSSPath = string.Format("{0}/{1}/Styles/", applicationPath, referencePath);
+            ScriptPath = string.Format("{0}/{1}/Scripts/", applicationPath, referencePath);
+            ProgressUrl = string.Format("{0}/{1}/UploadProgress.aspx", applicationPath, referencePath);
 
             if (UploadManager.Instance.ModuleInstalled)
             {
@@ -239,7 +180,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
         {
             base.OnLoad(e);
 
-            if (Page.IsPostBack && !UploadManager.Instance.ModuleInstalled && EnableManualProcessing)
+            if (Page.IsPostBack && !UploadManager.Instance.ModuleInstalled)
             {
                 ManualProcessUploads();
             }
@@ -256,9 +197,9 @@ namespace Wis.Toolkit.WebControls.FileUploads
 
             _uploadID.Value = UPLOAD_ID_TAG + Guid.NewGuid().ToString();
 
-            if (ShowProgressBar && UploadManager.Instance.ModuleInstalled)
+            if (UploadManager.Instance.ModuleInstalled)
             {
-                Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "FU_Submit", "up_BeginUpload('" + _uploadID.ClientID + "'," + (ShowCancelButton ? "true" : "false") + ", '" + ProgressUrl + "')");
+                Page.ClientScript.RegisterOnSubmitStatement(this.GetType(), "FU_Submit", "up_BeginUpload('" + _uploadID.ClientID + "',true, '" + ProgressUrl + "')");
             }
         }
 
