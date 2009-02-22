@@ -177,10 +177,11 @@
             <input id="SubTitle" runat="server" class="title" type="text" name="SubTitle" />
         </div>
         <div id="divTabloidPath" style="display: none;" class="box">
+            <label class="articleLabel">图片尺寸：</label>
+            宽<input type="text" runat="server" size="50" id="ImageWidth" name="ImageWidth" readonly />&nbsp;&nbsp;高<input type="text" runat="server" size="50" id="ImageHeight" name="ImageHeight" readonly />
+            <br />
             <label class="articleLabel">图片地址：</label>
-            <input type="text" runat="server" onmouseover="javascript:ShowDivPic(this,document.form1.ImagePath.value.toLowerCase().replace('{@dirfile}','files').replace('{@userdirfile}','userfiles'),'.jpg',1);" onmouseout="javascript:hiddDivPic();" size="50" id="ImagePath" name="ImagePath" />
-            <img src="../../images/folder.gif" alt="选择已有图片" border="0" style="cursor: pointer;" onclick="selectFile('pic',document.form1.ImagePath,350,500);document.form1.ImagePath.focus();" />
-            <span onclick="selectFile('UploadImage',document.form1.ImagePath,165,500);document.form1.ImagePath.focus();" style="cursor: hand; color: Red;">上传新图片</span>
+            <input type="text" runat="server" size="50" id="ImagePath" name="ImagePath" />
             <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" />
             <br />
         </div>

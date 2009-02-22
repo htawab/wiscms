@@ -31,7 +31,41 @@ namespace Wis.Website.DataManager
             get { return _CategoryGuid; }
             set { _CategoryGuid = value; }
         }
-        
+
+        private int _ArticleType;
+        /// <summary>
+        /// 文章类型
+        /// 1 普通新闻
+        /// 2 图片新闻
+        /// 3 视频新闻
+        /// 4 软件
+        /// </summary>
+        public int ArticleType
+        {
+            get { return _ArticleType; }
+            set { _ArticleType = value; }
+        }
+
+        private Nullable<int> _ImageWidth;
+        /// <summary>
+        /// 标识图片宽
+        /// </summary>
+        public Nullable<int> ImageWidth
+        {
+            get { return _ImageWidth; }
+            set { _ImageWidth = value; }
+        }
+
+        private Nullable<int> _ImageHeight;
+        /// <summary>
+        /// 标识图片高
+        /// </summary>
+        public Nullable<int> ImageHeight
+        {
+            get { return _ImageHeight; }
+            set { _ImageHeight = value; }
+        }
+
         private string _CategoryName;
         /// <summary>
         /// 分类名称。
