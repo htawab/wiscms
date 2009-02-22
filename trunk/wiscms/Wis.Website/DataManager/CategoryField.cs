@@ -18,6 +18,18 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string CategoryGuid = "CategoryGuid";
         /// <summary>
+        /// 文章类型。
+        /// </summary>
+        public const string ArticleType = "ArticleType";
+        /// <summary>
+        /// 图片宽度。
+        /// </summary>
+        public const string ImageWidth = "ImageWidth";
+        /// <summary>
+        /// 图片高度。
+        /// </summary>
+        public const string ImageHeight = "ImageHeight";
+        /// <summary>
         /// 分类名称。
         /// </summary>
         public const string CategoryName = "CategoryName";

@@ -116,6 +116,11 @@ namespace Wis.Website.DataManager
                 Category category = new Category();
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
+                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
+                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
+                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
+                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
@@ -142,6 +147,11 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
+                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
+                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
+                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
+                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
@@ -196,6 +206,11 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
+                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
+                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
+                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
+                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
