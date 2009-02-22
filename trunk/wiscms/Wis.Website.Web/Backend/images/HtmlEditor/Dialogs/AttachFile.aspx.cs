@@ -160,7 +160,7 @@ namespace Wis.Website.Web.Admin
             //    string filepath = FilesHandle.GetNonDownloadFileFullPath(fileguid);
 
             //    description = description.Replace("'", "\\'");
-            //    string script = "<script language=\"javascript\">\n\twindow.onload = function selectFile() {\n\t\tsetProperties('" + filepath + "', '" + filepath + "');\n\t}\n</script>";
+            //    string script = "<script language=\"javascript\">\n\twindow.onload = function selectFile() {\n\tableImages\tsetProperties('" + filepath + "', '" + filepath + "');\n\tableImages}\n</script>";
             //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "", script);
             //    Alert("上传成功");
 

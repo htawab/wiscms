@@ -79,6 +79,8 @@ namespace Wis.Website.Web.Backend.images.HtmlEditor.Dialogs.InsertPhotos
             }
         }
 
+        private string OutputPath;
+
         /// <summary>
         /// Handles the Load event of the Page control.
         /// </summary>
@@ -86,6 +88,8 @@ namespace Wis.Website.Web.Backend.images.HtmlEditor.Dialogs.InsertPhotos
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.OutputPath = Server.MapPath("~/Uploads/Photos/");
+
             // Set the default processor
             FileSystemProcessor fs = new FileSystemProcessor();
             fs.OutputPath = Server.MapPath("~/Uploads/Default");
@@ -93,8 +97,49 @@ namespace Wis.Website.Web.Backend.images.HtmlEditor.Dialogs.InsertPhotos
 
             // Change the file processor and set it's properties.
             FieldTestProcessor fsd = new FieldTestProcessor();
-            fsd.OutputPath = Server.MapPath("~/Uploads/Photos/");
+            fsd.OutputPath = this.OutputPath + System.DateTime.Now.ToShortDateString() + "/";
             DJFileUpload1.FileProcessor = fsd;
+
+            // 读取目录 ~/Uploads/Photos/年-月-日/文件编号.htm
+            if (!Page.IsPostBack)
+            {
+                System.IO.DirectoryInfo outputPath = new System.IO.DirectoryInfo(this.OutputPath);
+                System.IO.DirectoryInfo[] subOutputPaths = outputPath.GetDirectories();
+                foreach (System.IO.DirectoryInfo subOutputPath in subOutputPaths)
+                {
+                    DropDownListDirectory.Items.Add(new ListItem(subOutputPath.Name, subOutputPath.FullName.Replace(this.OutputPath, "")));
+                }
+
+                BindImages();
+            }
+        }
+
+        private void BindImages()
+        {
+            if (DropDownListDirectory.Items.Count == 0) return;
+
+            string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath.TrimEnd('/');
+            System.Data.DataTable tableImages = new System.Data.DataTable();
+            tableImages.Columns.Add("ImagePath");
+
+            string selectDirectory = this.OutputPath + DropDownListDirectory.SelectedItem.Value;
+            System.IO.DirectoryInfo selectDirectoryInfo = new System.IO.DirectoryInfo(selectDirectory);
+            System.IO.FileInfo[] selectFileInfos = selectDirectoryInfo.GetFiles();
+            foreach (System.IO.FileInfo selectFileInfo in selectFileInfos)
+            {
+                System.Data.DataRow row = tableImages.NewRow();
+                row["ImagePath"] = applicationPath + "/Uploads/Photos/" + selectFileInfo.Directory.Name + "/" + selectFileInfo.Name;
+                tableImages.Rows.Add(row);
+            }
+
+            this.RepeaterImages.DataSource = tableImages;
+            this.RepeaterImages.DataBind();
+        }
+
+
+        protected void DropDownListDirectory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindImages();
         }
     }
 }

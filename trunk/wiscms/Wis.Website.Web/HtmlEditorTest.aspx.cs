@@ -44,7 +44,7 @@ namespace Wis.Website.Web
         //    string str3 = "240x180";
         //    ProcessStartInfo startInfo = new ProcessStartInfo();
         //    startInfo.FileName = base.Server.MapPath(base.Request.ApplicationPath) + @"\ffmpeg.exe";
-        //    startInfo.Arguments = " -i " + str + " -t 0.001 -s " + str3 + " -ss 15 -y -f image2 " + str2;
+        //    startInfo.Arguments = " -i " + str + " -tableImages 0.001 -s " + str3 + " -ss 15 -y -f image2 " + str2;
         //    startInfo.UseShellExecute = true;
         //    startInfo.CreateNoWindow = false;
         //    startInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -53,7 +53,7 @@ namespace Wis.Website.Web
         /*
 thumbnail vedio
 
-C:\TDDOWNLOAD>ffmpeg -i C:\TDDOWNLOAD\thewitcher12.wmv -t 0.02 -s 480x270 -ss 15
+C:\TDDOWNLOAD>ffmpeg -i C:\TDDOWNLOAD\thewitcher12.wmv -tableImages 0.02 -s 480x270 -ss 15
  -y -f image2 C:\TDDOWNLOAD\thewitcher12.jpg
 
 转换文件
@@ -82,8 +82,8 @@ C:\TDDOWNLOAD>ffmpeg  -i C:\TDDOWNLOAD\thewitcher12.wmv -ab 56 -ar 22050 -b 500
          * ffmpeg -i "/opt/input/a.avi" -y -ab 32 -ar 22050 -b 800000 -s 640*480 /opt/output/a.flv"
          * 
          * 视频抓图:
-         * ffmpeg -i "/opt/input/a.flv" -y -f image2 -t 1 -s 300*200 "/opt/output/1.jpg" //获取静态图
-         * ffmpeg -i "test.avi" -y -f image2 -ss 8 -t 0.001 -s 350x240 'test.jpg' 
+         * ffmpeg -i "/opt/input/a.flv" -y -f image2 -tableImages 1 -s 300*200 "/opt/output/1.jpg" //获取静态图
+         * ffmpeg -i "test.avi" -y -f image2 -ss 8 -tableImages 0.001 -s 350x240 'test.jpg' 
          * ffmpeg -i "/opt/input/a.mpg" -vframes 30 -y -f gif "/output/1.gif" //获取动态图;
          * 不提倡抓gif文件；因为抓出的gif文件大而播放不流畅。
          * 
@@ -107,7 +107,7 @@ ffmpeg常见的命令:
 -f fmt 强迫采用格式fmt
 -I filename 输入文件
 -y 覆盖输出文件
--t duration 设置纪录时间 hh:mm:ss[.xxx]格式的记录时间也支持(截图需要)
+-tableImages duration 设置纪录时间 hh:mm:ss[.xxx]格式的记录时间也支持(截图需要)
 -ss position 搜索到指定的时间 [-]hh:mm:ss[.xxx]的格式也支持
 -title string 设置标题
 -author string 设置作者
@@ -160,7 +160,7 @@ ffmpeg常见的命令:
               还有-an和-vn参数,分别从多媒体文件中提取出纯粹视频和音频.
               另,如果你是用shell批量处理,请使用-y参数覆盖生成flv.
 
-   2.截取图片:ffmpeg -i infile.* -y (-ss second_offset) -t 0.001 -s msize (-f image_fmt) outfile.jpg
+   2.截取图片:ffmpeg -i infile.* -y (-ss second_offset) -tableImages 0.001 -s msize (-f image_fmt) outfile.jpg
             其中second_offset同上,msize同vsize,图片大小.image_fmt=image2强制使用jpg,image_fmt=gif,强制使用gif格式.
             还可以用-vframes fn指定截取某帧图片,fn=1,2,3,...         
 
@@ -172,9 +172,9 @@ ffmpeg -vcodec mpeg4 -b 1000 -r 10 -g 300 -vd x11:0,0 -s 1024×768 ~/test.avi
 参考5(http://linuxtoy.org/archives/ffmpeg.html)
 
 使用ffmpeg抓图
-ffmpeg -i test2.asf -y -f image2 -ss 08.010 -t 0.001 -s 352×240 b.jpg
-jpg: ffmpeg -i test.asf -y -f image2 -t 0.001 -s 352×240 -ss a.jpg //注意-ss就是要提取视频文件中指定时间的图像
-jpg: ffmpeg -i asf.flv -y -f image2 -t 1 asf.jpg
+ffmpeg -i test2.asf -y -f image2 -ss 08.010 -tableImages 0.001 -s 352×240 b.jpg
+jpg: ffmpeg -i test.asf -y -f image2 -tableImages 0.001 -s 352×240 -ss a.jpg //注意-ss就是要提取视频文件中指定时间的图像
+jpg: ffmpeg -i asf.flv -y -f image2 -tableImages 1 asf.jpg
 gif: ffmpeg -i test.asf -vframes 30 -y -f gif a.gif
 参考3 参考2(http://www.killflash.net/blog/article.asp?id=77)
 

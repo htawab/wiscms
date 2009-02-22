@@ -50,8 +50,7 @@ function HtmlEditor_AttachFile(designer, designerView, dialogsPath) {
 }
 
 /// <summary>
-/// 文本高亮颜色。
-/// </summary>
+/// 文本高亮颜色。/// </summary>
 function HtmlEditor_TextHighlightColor(designer,designerView, dialogsPath) {
 	if (designerView != 'DesignView') return;
 	script = dialogsPath + 'ColorPicker.htm?action=backcolor';
@@ -60,8 +59,7 @@ function HtmlEditor_TextHighlightColor(designer,designerView, dialogsPath) {
 }
 
 /// <summary>
-/// 字体颜色。
-/// </summary>
+/// 字体颜色。/// </summary>
 function HtmlEditor_FontForeColor(designer, designerView, dialogsPath) {
 	if (designerView != 'DesignView') return;
 	script = dialogsPath + 'ColorPicker.htm?action=forecolor';
@@ -78,8 +76,7 @@ function HtmlEditor_Bold(designer, designerView) {
 }
 
 /// <summary>
-/// 项目符号列表。
-/// </summary>
+/// 项目符号列表。/// </summary>
 function HtmlEditor_BulletedList(designer, designerView) { 
 	HtmlEditor_Format(designer, designerView, 'insertunorderedlist'); 
 }

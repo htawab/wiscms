@@ -184,7 +184,7 @@ namespace Wis.Website.Web.Admin
             //    // alt, border, borderColor, vspace, hspace, filter, align, width, height
 
             //    description = description.Replace("'", "\\'"); // TODO: Test '
-            //    string script = "<script language=\"javascript\">\n\twindow.onload = function selectImage() {\n\t\tsetProperties('" + filepath + "', '" + description + "');\n\t}\n</script>";
+            //    string script = "<script language=\"javascript\">\n\twindow.onload = function selectImage() {\n\tableImages\tsetProperties('" + filepath + "', '" + description + "');\n\tableImages}\n</script>";
             //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "", script);
             //    Alert("上传成功");
             //    BindPhotos();
