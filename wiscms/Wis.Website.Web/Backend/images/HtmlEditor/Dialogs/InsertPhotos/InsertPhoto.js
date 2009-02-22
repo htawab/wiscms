@@ -109,7 +109,7 @@ var picUpLoadBox = {
 		   //widowContent
 		   var windowContent = document.createElement('div');
 		   windowContent.setAttribute('class','windowContent');
-		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/picUpLoad/picUpLoad.html" frameborder="0" scrolling="no"></iframe>'	   
+		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.aspx" frameborder="0" scrolling="no"></iframe>'	   
 		   //widowContent over
 		   
 		   var btnOut = document.createElement('div');
@@ -283,19 +283,17 @@ tabIn[1].id ="tabNoBorder";
 }
 
 function picShow(obj) {
-var picSrc = obj.src;
-var showBox = document.getElementById("showBox");
-if (picSrc != "") {
- showBox.src=obj.src;
- 
- if (showBox.width>160) {
- showBox.style.width=160+"px";
- }
- else {
- showBox.style.width="";
- }
-}
-}
+    var picSrc = obj.src;
+    var showBox = document.getElementById("showBox");
+    if (picSrc != "") {
+        showBox.src=obj.src;
 
-
+        if (showBox.width>160) {
+            showBox.style.width=160+"px";
+        }
+        else {
+            showBox.style.width="";
+        }
+    }
+}
 //-->

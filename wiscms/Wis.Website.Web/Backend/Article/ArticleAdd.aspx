@@ -7,12 +7,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <title></title>
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script src="../images/picUpLoad/upLoadWin.js" language="javascript" type="text/javascript"></script>
-<script src="../images/annexUpLoad/annexUpLoadWin.js" language="javascript" type="text/javascript"></script>
+    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+    <script src="../images/picUpLoad/upLoadWin.js" language="javascript" type="text/javascript"></script>
+    <script src="../images/annexUpLoad/annexUpLoadWin.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
+    <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
+    <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
     <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript" src="../../editor/fckeditor.js"></script>

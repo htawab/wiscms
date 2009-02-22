@@ -586,6 +586,7 @@
     <Content Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\backimage.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\ColorPicker.htm" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\Dialog.js" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\findreplace.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\help.htm" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertDirectImage.htm" />
@@ -620,11 +621,11 @@
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\btnEnter-hover.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\btnEnter-normal.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\noimg.gif" />
-    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\picUpLoad.css" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.css" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\tabCurrent.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\tool-sprites.gif" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\top-bottom.png" />
-    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\upLoadWin.js" />
+    <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\InsertPhoto.js" />
     <Content Include="Backend\images\HtmlEditor\Dialogs\InsertPhotos\win.png" />
     <Content Include="Backend\images\tabCurrent.gif" />
     <Content Include="Backend\images\tool-sprites.gif" />
