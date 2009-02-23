@@ -145,7 +145,7 @@
     <form id="form1" runat="server">
     <div class="right">
         <div class="position">
-            <label>所在位置：</label>
+            所在位置：
             <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
                 <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
                 <CurrentNodeStyle ForeColor="#333333" />
