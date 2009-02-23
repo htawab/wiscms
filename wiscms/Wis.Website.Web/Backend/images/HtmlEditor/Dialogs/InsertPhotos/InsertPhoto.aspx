@@ -6,7 +6,7 @@
 <head id="PageHeader" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>上传图片</title>
-    <link href="picUpLoad.css" rel="stylesheet" media="all" type="text/css" />
+    <link href="InsertPhoto.css" rel="stylesheet" media="all" type="text/css" />
     <script type="text/javascript" src="../Dialog.js"></script>
     <script type="text/javascript" language="javascript">
     var AllowImageSize = "100"; // TODO:上传图片的大小可配置
@@ -285,13 +285,15 @@ function picShow(obj) {
                 </div>
             </div>
             <div id="picShow">
-                <div id="divPreview"><img src="noimg.gif" id="imgPreview" /></div>                <div id="imgPreviewSize"></div>                <div class="imgInputA">
-                    图片地址：<input id="ImageSrc" type="text" />                </div>
+                <div id="divPreview"><img src="noimg.gif" id="imgPreview" /></div>
+                <div id="imgPreviewSize"></div>
+                <div class="imgInputA">
+                    图片地址：<input id="ImageSrc" type="text" /> </div>
                 <div class="imgInputA">
                     说明文字：<input type=text id=ImageAlt size=10 value="" />
                 </div>
                 <div class="imgInputB">
-                    边框粗细：<input style="width:80px" type=text id=ImageBorder size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();">                    边框颜色：<input style="width:62px" type=text id=ImageBordercolor size=7 value=""><img border=0 src="Images/rect.gif" width=18 style="cursor:hand" id="RectBordercolor" onclick="SelectColor('bordercolor')" align=absmiddle>                </div>
+                    边框粗细：<input style="width:80px" type=text id=ImageBorder size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();">                    边框颜色：<input style="width:62px" type=text id=ImageBordercolor size=7 value=""><img border="0" src="Images/rect.gif" width="18" style="cursor:hand" id="RectBordercolor" onclick="SelectColor('bordercolor')" align=absmiddle />                </div>
                 <div class="imgInputB">
                     特殊效果：<select id=ImageFilter size=1 style="width:80px" onchange="PreviewImage()">					<option value='' selected lang=DlgComNone></option>					<option value='Alpha(Opacity=50)'>半透明</option>					<option value='Alpha(Opacity=0, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=100, FinishY=140)' lang=DlgImgAlpha2>线型透明</option>					<option value='Alpha(Opacity=10, FinishOpacity=100, Style=2, StartX=30, StartY=30, FinishX=200, FinishY=200)' lang=DlgImgAlpha3></option>					<option value='blur(add=1,direction=14,strength=15)' lang=DlgImgBlur1>模糊效果</option>					<option value='blur(add=true,direction=45,strength=30)' lang=DlgImgBlur2>风动模糊</option>					<option value='Wave(Add=0, Freq=60, LightStrength=1, Phase=0, Strength=3)' lang=DlgImgWave>正弦波纹</option>					<option value='gray' lang=DlgImgGray>黑白照片</option>					<option value='Chroma(Color=#FFFFFF)' lang=DlgImgChroma>白色透明</option>					<option value='DropShadow(Color=#999999, OffX=7, OffY=4, Positive=1)' lang=DlgImgDropShadow>投射阴影</option>					<option value='Shadow(Color=#999999, Direction=45)' lang=DlgImgShadow>阴影</option>					<option value='Glow(Color=#ff9900, Strength=5)' lang=DlgImgGlow>发光</option>					<option value='flipv' lang=DlgImgFlipv>垂直翻转</option>					<option value='fliph' lang=DlgImgFliph>左右翻转</option>					<option value='grays' lang=DlgImgGrays>降低彩色</option>					<option value='xray' lang=DlgImgXray>X光照片</option>					<option value='invert' lang=DlgImgInvert>底片</option>					</select>                    对齐方式：<select id=ImageAlign size=1 style="width:80px">					<option value='' selected lang=DlgComDefault>默认</option>					<option value='left' lang=DlgAlignLeft>左对齐</option>					<option value='right' lang=DlgAlignRight>右对齐</option>					<option value='top' lang=DlgAlignTop>顶部</option>					<option value='middle' lang=DlgAlignMiddle>中部</option>					<option value='bottom' lang=DlgAlignBottom>底部</option>					<option value='absmiddle' lang=DlgAlignAbsmiddle>绝对居中</option>					<option value='absbottom' lang=DlgAlignAbsbottom>绝对底部</option>					<option value='baseline' lang=DlgAlignBaseline>基线</option>					<option value='texttop' lang=DlgAlignTexttop>文本顶部</option>					</select>                </div>
                 <div class="imgInputB">
