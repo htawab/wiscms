@@ -3,11 +3,12 @@
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls.DropdownMenus" tagprefix="Wis" %>
 
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls.HtmlEditorControls" tagprefix="HtmlEditorControls" %>
+<%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.FileUploads" TagPrefix="FileUploads" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
+<head id="PageHeader" runat="server">
     <title></title>
 <style type="text/css">
 #Pager 
@@ -131,6 +132,11 @@
 					</plugIns>
 				</vcastr>"/>
 		</object>
+		
+		<br />
+		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
+		<asp:FileUpload ID="fuTest" runat="server"  />
+		<asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="upButtonNormal" ajaxcall="none" />
     </form>
 </body>
 </html>

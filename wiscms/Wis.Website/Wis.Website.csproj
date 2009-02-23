@@ -55,6 +55,9 @@
     <Compile Include="AjaxRequests\MeetingHttpHandler.cs" />
     <Compile Include="AjaxRequests\SystemHttpHandler.cs" />
     <Compile Include="AjaxRequests\CommentVerifyHttpHandler.cs" />
+    <Compile Include="BackendPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Label\Entity.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="DataManager\Article.cs" />

@@ -122,15 +122,6 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlInputText ImageHeight;
         
         /// <summary>
-        /// ImagePath 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ImagePath;
-        
-        /// <summary>
         /// TabloidPathVideo 控件。
         /// </summary>
         /// <remarks>
@@ -167,6 +158,15 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Summary;
         
         /// <summary>
+        /// ContentHtml 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wis.Toolkit.WebControls.HtmlEditorControls.HtmlEditor ContentHtml;
+        
+        /// <summary>
         /// Author 控件。
         /// </summary>
         /// <remarks>
@@ -183,15 +183,6 @@ namespace Wis.Website.Web.Backend.Article {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Original;
-        
-        /// <summary>
-        /// ContentHtml 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.HtmlEditorControls.HtmlEditor ContentHtml;
         
         /// <summary>
         /// Tags 控件。

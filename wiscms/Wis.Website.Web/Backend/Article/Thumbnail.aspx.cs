@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Wis.Website.Web.Backend.dialog
 {
-    public partial class Cutimg : System.Web.UI.Page
+    public partial class Cutimg : BackendPage
     {
         private Wis.Website.DataManager.Category category = null;
         private Wis.Website.DataManager.CategoryManager categoryManager = null;
@@ -27,7 +27,9 @@ namespace Wis.Website.Web.Backend.dialog
                 category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
                 if (string.IsNullOrEmpty(category.CategoryName))
                 {
-                    // TODO:分类不存在，退出
+                    // TODO:关闭本层
+                    // TODO:弹出消息层
+                    this.MessageBox("缺少参数", "未传递分类编号");
                     return;
                 }
                 if(category.ImageWidth.HasValue)
@@ -37,10 +39,12 @@ namespace Wis.Website.Web.Backend.dialog
 
                 if (this.w.Text.Trim() == "" || this.h.Text.Trim() == "")
                 {
-                    // TODO:错误提示
+                    this.MessageBox("配置不全", "分类编号为 {0} 的分类需要配置缩略图的宽度和高度");
                     return;
                 }
             }
+
+            // 图片保存的路径 /Uploads/Files/年-月-日/文件编号.htm
 
             if (!Page.IsPostBack)
             {
@@ -51,7 +55,7 @@ namespace Wis.Website.Web.Backend.dialog
                 this.w.Text = this.tow.Value = ToWidth;
                 this.h.Text = this.toh.Value = ToHeight;
                 this.PhotoUrl.Value = imagePath;
-                select_iframe.InnerHtml = "<iframe src=\"Cutimg_view.aspx?ImagePath=" + imagePath + "&ToWidth=" + ToWidth + "&ToHeight=" + ToHeight + "\" frameborder=\"0\" id=\"select_main\" scrolling=\"yes\" name=\"select_main\" width=\"100%\" height=\"" + sh + "px\" />";
+                select_iframe.InnerHtml = "<iframe src=\"ThumbnailPreview.aspx?ImagePath=" + imagePath + "&ToWidth=" + ToWidth + "&ToHeight=" + ToHeight + "\" frameborder=\"0\" id=\"select_main\" scrolling=\"yes\" name=\"select_main\" width=\"100%\" height=\"" + sh + "px\" />";
             }    
         }
         
