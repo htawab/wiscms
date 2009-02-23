@@ -10,18 +10,11 @@
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
     <script src="../images/picUpLoad/upLoadWin.js" language="javascript" type="text/javascript"></script>
     <script src="../images/annexUpLoad/annexUpLoadWin.js" language="javascript" type="text/javascript"></script>
-    <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
-    <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
-    <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
     <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
     <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
-    
-
-    
-    
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
     <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
-    <script type="text/javascript" src="../../editor/fckeditor.js"></script>
+    <script src="wis.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript">
     <%=ViewState["javescript"] %>
     function CheckArticle() {
@@ -181,10 +174,7 @@
             <input id="SubTitle" runat="server" class="title" type="text" name="SubTitle" />
         </div>
         <div id="divTabloidPath" style="display: none;" class="box">
-            <label class="articleLabel">缩 略 图：</label><div class="slt"><div class="Preview"><img src="" /></div><div><label>宽</label><input type="text" runat="server" size="4" id="ImageWidth" name="ImageWidth" readonly /><label>高</label><input type="text" runat="server" size="4" id="ImageHeight" name="ImageHeight" readonly /> <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" /></div></div>
-        
-           
-            
+            <label class="articleLabel">缩 略 图：</label><div class="slt"><div class="Preview"><img src="" /></div><div><label>宽</label><input type="text" runat="server" size="4" id="ImageWidth" name="ImageWidth" readonly /><label>高</label><input type="text" runat="server" size="4" id="ImageHeight" name="ImageHeight" readonly /><iframe src="ThumbnailUpload.aspx" frameborder="0" height="60" width="250"></iframe></div></div>
             <br />
         </div>
         <div id="divTabloidPathVideo" style="display: none;" class="box">

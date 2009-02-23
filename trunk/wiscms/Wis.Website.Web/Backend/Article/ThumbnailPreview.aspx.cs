@@ -43,7 +43,7 @@ namespace Wis.Website.Web.Backend.dialog
                     printhtml += "        </tr>\r\n";
                     printhtml += "        <tr height=\"" + ToHeight + "\">\r\n";
                     printhtml += "            <td><img></td>\r\n";
-                    printhtml += "            <td onmousedown=\"G('bxHole').dragStart(event,0)\" style=\"background:transparent;filter:;-moz-opacity:1;cursor:move;border:1px solid white !important\"><img></td>\r\n";
+                    printhtml += "            <td onmousedown=\"$('bxHole').dragStart(event,0)\" style=\"background:transparent;filter:;-moz-opacity:1;cursor:move;border:1px solid white !important\"><img></td>\r\n";
                     printhtml += "            <td><img></td>\r\n";
                     printhtml += "        </tr>\r\n";
                     printhtml += "        <tr>\r\n";
@@ -52,10 +52,10 @@ namespace Wis.Website.Web.Backend.dialog
                     printhtml += "            <td><img></td>\r\n";
                     printhtml += "        </tr>\r\n";
                     printhtml += "    </table>\r\n";
-                    printhtml += "    <img id=\"bxHoleMove1\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=G('bxHole').dragStart(event,1) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove2\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=G('bxHole').dragStart(event,2) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove3\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=G('bxHole').dragStart(event,3) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove4\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=G('bxHole').dragStart(event,4) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\"> </div>\r\n";
+                    printhtml += "    <img id=\"bxHoleMove1\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,1) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
+                    printhtml += "    <img id=\"bxHoleMove2\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,2) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
+                    printhtml += "    <img id=\"bxHoleMove3\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,3) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
+                    printhtml += "    <img id=\"bxHoleMove4\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,4) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\"> </div>\r\n";
                     //printhtml += "<div id=\"bxImgHoleShow\" style=\"position:absolute;left:" + Convert.ToString(imgWidth + 20) + ";top:20;width:" + ToWidth + ";height:" + ToHeight + ";border:1px solid #808080;overflow:hidden\"></div>\r\n";
                     printhtml += "<div id=\"resultTxtShow\"></div>\r\n";
                     //printhtml += "</body>\r\n";

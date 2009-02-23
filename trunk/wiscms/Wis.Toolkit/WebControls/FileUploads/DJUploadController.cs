@@ -143,7 +143,11 @@ namespace Wis.Toolkit.WebControls.FileUploads
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            
+
+            if (string.IsNullOrEmpty(this.ReferencePath))
+            {
+                throw new ArgumentNullException("ReferencePath，例如：<FileUploads:DJUploadController ID=\"DJUploadController1\" runat=\"server\" ReferencePath=\"Backend/images/HtmlEditor/Dialogs/InsertPhotos/\" />");
+            }
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath.TrimEnd('/');
             string referencePath = this.ReferencePath.TrimStart('/').TrimEnd('/');
 

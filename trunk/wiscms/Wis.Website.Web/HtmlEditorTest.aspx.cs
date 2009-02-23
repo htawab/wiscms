@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
 using Wis.Website.DataManager;
+using Wis.Toolkit.WebControls.FileUploads;
 
 namespace Wis.Website.Web
 {
@@ -34,8 +35,34 @@ namespace Wis.Website.Web
 
             ReleaseManager releaseManager = new ReleaseManager();
             Response.Write(releaseManager.ReleasePager(3, 100, 19));
+
+            // Set the default processor
+            FileSystemProcessor fs = new FileSystemProcessor();
+            fs.OutputPath = Server.MapPath("~/Uploads/default");
+            DJUploadController1.DefaultFileProcessor = fs;
         }
 
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            if (Page.IsPostBack && DJUploadController1.Status != null)
+            {
+                foreach (UploadedFile f in DJUploadController1.Status.UploadedFiles)
+                {
+                    // f.FileName "E:\\Tools\\visualxpath.zip"
+                    string fileName = f.FileName;
+                    int charIndex = fileName.LastIndexOf("\\");
+                    if (charIndex > -1 && charIndex < fileName.Length)
+                    {
+                        // 上传的文件
+                        fileName = fileName.Substring(charIndex + 1);
+                        Response.Write(fileName);
+                        // WinFullOpen('');
+                    }
+                    // /Uploads/default/visualxpath.zip
+                }
+            }
+        }
         // 从视频中抓图
         //public void CatchImg(string vFileName)
         //{

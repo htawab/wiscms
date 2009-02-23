@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cutimg.aspx.cs" Inherits="Wis.Website.Web.Backend.dialog.Cutimg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Thumbnail.aspx.cs" Inherits="Wis.Website.Web.Backend.dialog.Cutimg" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,7 +6,6 @@
     <title></title>
 
     <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
-
     <link href="../../sysImages/default/css/css.css" rel="stylesheet" type="text/css" />
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
 <style type="text/css">

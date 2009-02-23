@@ -8,19 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wis.Website.Web {
+namespace Wis.Website.Web.Backend.Article {
     
     
-    public partial class HtmlEditorTest {
-        
-        /// <summary>
-        /// PageHeader 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead PageHeader;
+    public partial class ThumbnailUpload {
         
         /// <summary>
         /// form1 控件。
@@ -32,24 +23,6 @@ namespace Wis.Website.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ContentHtml 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.HtmlEditorControls.HtmlEditor ContentHtml;
-        
-        /// <summary>
-        /// SiteMapPath1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPath1;
-        
-        /// <summary>
         /// DJUploadController1 控件。
         /// </summary>
         /// <remarks>
@@ -59,21 +32,21 @@ namespace Wis.Website.Web {
         protected global::Wis.Toolkit.WebControls.FileUploads.DJUploadController DJUploadController1;
         
         /// <summary>
-        /// fuTest 控件。
+        /// ThumbnailImage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuTest;
+        protected global::System.Web.UI.WebControls.FileUpload ThumbnailImage;
         
         /// <summary>
-        /// btnSubmit 控件。
+        /// ImageButtonSubmit 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonSubmit;
     }
 }
