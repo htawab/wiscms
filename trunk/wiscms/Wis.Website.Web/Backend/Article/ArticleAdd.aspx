@@ -182,12 +182,10 @@
             <input id="SubTitle" runat="server" class="title" type="text" name="SubTitle" />
         </div>
         <div id="divTabloidPath" style="display: none;" class="box">
-            <label class="articleLabel">图片尺寸：</label>
-            宽<input type="text" runat="server" size="50" id="ImageWidth" name="ImageWidth" readonly />&nbsp;&nbsp;高<input type="text" runat="server" size="50" id="ImageHeight" name="ImageHeight" readonly />
-            <br />
-            <label class="articleLabel">图片地址：</label>
-            <input type="text" runat="server" size="50" id="ImagePath" name="ImagePath" />
-            <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" />
+            <label class="articleLabel">缩 略 图：</label><div class="slt"><div class="Preview"><img src="" /></div><div><label>宽</label><input type="text" runat="server" size="4" id="ImageWidth" name="ImageWidth" readonly /><label>高</label><input type="text" runat="server" size="4" id="ImageHeight" name="ImageHeight" readonly /> <img alt="" src="../images/createthumb.png" border="0" style="cursor: pointer;" onclick="selectFile('cutimg',document.form1.ImagePath,500,800);document.form1.ImagePath.focus();" /></div></div>
+        
+           
+            
             <br />
         </div>
         <div id="divTabloidPathVideo" style="display: none;" class="box">
@@ -212,17 +210,18 @@
             <textarea name="Summary" runat="server" id="Summary" rows="4" cols="70"></textarea>
             <br />
         </div>
-        <div id="divAuthor" class="box">
+   
+        <div id="divContentHtml">
+            <label class="articleLabel">内 容：</label>
+            <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
+        </div>
+             <div id="divAuthor" class="box">
             <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" value="" />
             <br />
         </div>
         <div id="divOriginal" class="box">
             <label class="articleLabel">来 源：</label><input id="Original" type="text" runat="server" size="30" name="Original" value="" />
             <br />
-        </div>
-        <div id="divContentHtml">
-            <label class="articleLabel">内 容：</label>
-            <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
         </div>
         <div id="divTag">
             <label class="articleLabel" title="不同于一般的目录结构的分类方法，以较少的代价细化分类">主 题：</label><input id="Tags" type="text" runat="server" size="30" name="Tags" value="行业新闻" /> 
@@ -233,8 +232,5 @@
         </div>
     </div>
     </form>
-    <script>
-    imgUpLoadBox.init("oK");
-    </script>
 </body>
 </html>
