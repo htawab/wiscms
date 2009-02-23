@@ -4,6 +4,7 @@
 	font-size: 12px;
 	line-height: 22px;
 	margin: 0;
+	padding: 0;
 }
 a
 {
@@ -20,6 +21,8 @@ ul, li
 {
 	clear: both;
 }
+
+
 #shadow
 {
 	position: absolute;
@@ -32,14 +35,35 @@ ul, li
 	-moz-opacity: .2;
 	filter: alpha(opacity=20);
 }
-#window
+
+#upLoadwindow
 {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 500px;
+	width: 620px;
 	border: 1px solid #8fa7c6;
 }
+
+
+#windowBoxIn
+{
+	border: 1px solid #fff;
+}
+#windowTitle
+{
+	height: 24px;
+	line-height: 24px;
+	background: url(../images/top-bottom.png) left -3px repeat-x;
+}
+
+
+
+
+
+
+
+/* #window{	position: absolute;	left: 50%;	top: 50%;width: 500px;border: 1px solid #8fa7c6;} */
 .widowBox
 {
 	border: 1px solid #8fa7c6;
@@ -58,7 +82,7 @@ ul, li
 #windowTitle h2
 {
 	float: left;
-	width: 470px;
+	width: 590px;
 	height: 16px;
 	overflow: hidden;
 	padding: 4px 0 4px 0;
@@ -74,7 +98,8 @@ ul, li
 	display: inline;
 	vertical-align: middle;
 }
-#closebar
+
+#closebar1
 {
 	float: left;
 	width: 15px;
@@ -83,21 +108,37 @@ ul, li
 	padding: 5px 4px 4px 0;
 	overflow: hidden;
 }
-#closebar a:link, #closebar a:visited
+#closebar1 a:link, #closebar1 a:visited
 {
-	width: 255px;
+	width: 25px;
 	height: 15px;
 	overflow: hidden;
 	display: block;
 	margin-left: 4px;
 	text-indent: -420px;
-	color: transparent;
 	background: url(tool-sprites.gif) 0 0 no-repeat;
 }
-#closebar a:hover, #closebar a:active
+#closebar1 a:hover, #closebar a:active
 {
 	background: url(tool-sprites.gif) -15px 0 no-repeat;
 }
+
+#oIframe
+{
+	width: 100%;
+	height: 380px;
+	_height:383px;
+	border: 1px solid #ff1;
+	overflow: hidden;
+	border: 0;
+	border-style: none;
+}
+.widowBox
+{
+	border: 1px solid #8fa7c6;
+	margin: 0 auto;
+}
+
 #tab
 {
 	height: 23px;
@@ -128,6 +169,7 @@ ul, li
 	line-height: 26px;
 	background: url(tabCurrent.gif) repeat-x;
 }
+
 #box1
 {
 	clear: both;
@@ -150,7 +192,8 @@ ul, li
 	border-top: 1px solid #a8b5c8;
 	background: #f6f8fa;
 	overflow-y: scroll;
-	height: 322px;
+	height: 318px;
+	height: 317px;
 }
 #allPics img
 {
@@ -170,46 +213,33 @@ ul, li
 #picShow
 {
 	background: #f6f8fa;
-	
-	
-	margin: 6px 4px;
 	border: 1px solid #a8b5c8;
 	float: left;
 	text-align: center;
+	 background:#f8f8f8;
+	 margin-top:6px;
+	 height:347px;
+	 _height:345px;
+	 width:302px;
+	 overflow:hidden;
+
 }
 #picShow #divPreview
 {
-	margin: 6px auto 0 auto;
+	margin: 3px auto 3px auto;
 	border: 2px solid #e8e8e8;
-	width: 160px;
-	height: 160px;
+	width: 165px;
+	height: 165px;
 	overflow: hidden;
 	text-align: center;
+	
 }
 #picShow #divPreview img
 {
 	vertical-align: middle;
 }
-.imgRename
-{
-	margin: 6px 4px 0 4px;
-	text-align: left;
-}
-.imgRename input
-{
-	width: 160px;
-	height: 14px;
-}
-.imgDes
-{
-	height: 30px;
-	margin: 2px 4px 0 4px;
-	text-align: left;
-}
-.imgDes textarea
-{
-	width: 160px;
-	height: 48px; *margin-left:-4px;}
+
+
 #box2
 {
 	display: none;
@@ -228,16 +258,18 @@ img
 .picupLoad
 {
 	text-align: center;
+	margin-top:60px;
+	height:300px;
 }
 .picupLoad input
 {
-	margin-top: 140px;
+	margin-top: 10px;
 }
 #btns
 {
 	background: #dfe8f7;
 	text-align: center;
-	padding-bottom: 4px;
+	padding: 4px 0;
 }
 #btns a:link, #btns a:visited
 {
@@ -256,6 +288,19 @@ img
 }
 
 
-.imgInputA, .imgInputB {text-align:left;}
-.imgInputA input {width:130px;}
-.imgInputB input {width:60px;}
+
+
+
+
+.imgInputA, .imgInputB
+{
+	text-align: left; padding:2px 0 2px 2px; background:#f0f0f0; border-top:solid 1px #e0e0e0;
+}
+.imgInputA input
+{
+	width: 130px;
+}
+.imgInputB input
+{
+	width: 60px;
+}
