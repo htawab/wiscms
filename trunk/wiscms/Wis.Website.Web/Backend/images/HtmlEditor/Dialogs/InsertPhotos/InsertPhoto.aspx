@@ -299,18 +299,22 @@ function picShow(obj) {
                 <div class="imgInputB">
                     图片宽度：<input style="width:80px" type=text id=ImageWidth size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=4 />                    图片高度：<input style="width:80px" type=text id=ImageHeight size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=4 />                </div>
                 <div class="imgInputB">
-                    上下间距：<input style="width:80px" type=text id=ImageVspace size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=2>                    左右间距：<input style="width:80px" type=text id=ImageHspace size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=2>                </div>                        </div>
-            <div class="clear">
-            </div>
+                    上下间距：<input style="width:80px" type=text id=ImageVspace size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=2>                    左右间距：<input style="width:80px" type=text id=ImageHspace size=10 value="" ONKEYPRESS="event.returnValue=IsDigit();" maxlength=2>                </div>                        
+                
+              </div>
+              <div id="btns"><a href="#"></a></div>
+            <div class="clear"></div>
+            
         </div>
         <div id="Box2" style="display:none">
             <div class="picupLoad">
                 <FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
                 <FileUploads:DJAccessibleProgressBar ID="DJAccessibleProgrssBar1" runat="server" />
                 <FileUploads:DJFileUpload ID="DJFileUpload1" runat="server" ShowAddButton="true" ShowUploadButton="true" AllowedFileExtensions=".pdf,.xls,.doc,.zip,.rar,.iso,.png,.jpg,.gif,.ppt" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
-                <br />
+                <div id="btns2"><a href="#"></a></div>
                 <asp:Literal runat="server" ID="ltResults"></asp:Literal>
             </div>
+            
         </div>
     </div></form>
 </body>
