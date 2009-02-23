@@ -15,6 +15,11 @@
     <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
     <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
     <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
+    
+    <script src="../images/HtmlEditor/Dialogs/InsertImg/InsertImg.js" language="javascript" type="text/javascript"></script>
+    <link href="../images/HtmlEditor/Dialogs/InsertImg/InsertImg.css" rel="stylesheet" type="text/css" />
+    
+    
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
     <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript" src="../../editor/fckeditor.js"></script>
@@ -229,7 +234,7 @@
     </div>
     </form>
     <script>
-    
+    imgUpLoadBox.init("oK");
     </script>
 </body>
 </html>
