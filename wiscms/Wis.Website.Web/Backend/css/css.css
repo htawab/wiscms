@@ -203,7 +203,7 @@ div.addBox input.back {margin:4px 5px 6px 2px;}
 
 
 div.right div {clear:both; margin:4px 0 4px 0;}
-div.right div.box {float:left; margin:4px 0 4px 0; width:800px;}
+div.right div.box {margin:4px 0 4px 0; width:800px;}
 div.right div.dropdownmenu { margin:0;}
 div.right div input {float:left;}
 div.right div label {float:left;}
