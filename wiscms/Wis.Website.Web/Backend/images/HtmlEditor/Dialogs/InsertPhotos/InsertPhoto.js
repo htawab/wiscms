@@ -95,7 +95,7 @@ var picUpLoadBox = {
 	       closeBar1.setAttribute('id','closebar1');
 
 	       var A = document.createElement('a');
-	       A.innerHTML='关闭窗口';
+	       A.innerHTML='';
 	       A.setAttribute('href','#1');
 	       A.setAttribute('id','btnclose1');
 	       A.setAttribute('title','关闭窗口');
@@ -112,9 +112,9 @@ var picUpLoadBox = {
 		   windowContent.innerHTML='<iframe id="oIframe" name="oIframe" src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.aspx" frameborder="0" scrolling="no"></iframe>'	   
 		   //widowContent over
 		   
-		   var btnOut = document.createElement('div');
-		   btnOut.setAttribute('id','btns');
-		   btnOut.innerHTML = '<a href="#"></a>'
+		   //var btnOut = document.createElement('div');
+		   //btnOut.setAttribute('id','btns');
+		   //btnOut.innerHTML = '<a href="#"></a>'
 		   
 	      
 
@@ -125,7 +125,7 @@ var picUpLoadBox = {
 	       obj.appendChild(windowBoxIn);
 		   windowBoxIn.appendChild(divTitle);
 	       windowBoxIn.appendChild(windowContent);
-		   windowBoxIn.appendChild(btnOut);
+		   //windowBoxIn.appendChild(btnOut);
 	       document.body.appendChild(obj);
 	       
 	       this.oUpLoadWindow=obj;
