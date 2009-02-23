@@ -16,8 +16,7 @@
     <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
     <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
     
-    <script src="../images/HtmlEditor/Dialogs/InsertImg/InsertImg.js" language="javascript" type="text/javascript"></script>
-    <link href="../images/HtmlEditor/Dialogs/InsertImg/InsertImg.css" rel="stylesheet" type="text/css" />
+
     
     
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
