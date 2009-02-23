@@ -203,17 +203,25 @@ div.addBox input.back {margin:4px 5px 6px 2px;}
 
 
 div.right div {clear:both; margin:4px 0 4px 0;}
-div.right div.box {float:left; margin:4px 0 4px 0;}
+div.right div.box {float:left; margin:4px 0 4px 0; width:800px;}
 div.right div.dropdownmenu { margin:0;}
 div.right div input {float:left;}
+div.right div label {float:left;}
+div.right div textarea {float:left;width:580px; }
 div.right div#divArticleType input {float:none;}
     
 div.right div#divCategory {height:22px; clear:none;}
 div.right div#divCategory div.dropdownmenu {line-height:23px; height:20px; width:200px; float:left; clear:none; font-size:12px; font-family:"宋体";}
-div.right textarea {width:680px; float:left;}
+
 label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; text-align:right; height:22px; line-height:22px;}
 #divTitle {clear:both;}
 #divShortcut {text-indent:68px;}
+
+div.right div.slt {clear:none; float:left;}
+div.right div.slt div.Preview img {width:500px; height:190px;}
+div.right div.slt div label {width:20px;  margin:0 3px 3px 3px; float:none;}
+div.right div.slt div input {float:none;}
+
     
   
 #ContentHtmlContainer {margin:0; float:left;}
