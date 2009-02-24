@@ -333,6 +333,9 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .listBox ul li.listUser { width:80px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
 .listBox ul li.listOperate {width:100px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
 
+.listBox ul li.listOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+.listBox ul li.listOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
 .listBox ul.top li {border-top:solid 1px #a3b5cd;}
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
@@ -354,6 +357,10 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .picListBox ul li.picUser { width:80px; border-left:0;}
 .picListBox ul li.picOperate {width:100px; border-left:0;}
 
+.listBox ul li.picOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+.listBox ul li.picOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
+
 .picListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
@@ -373,6 +380,10 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .FileListBox ul li.fileAddTime {width:140px; border-left:0;}
 .FileListBox ul li.fileUser { width:80px; border-left:0;}
 .FileListBox ul li.fileOperate {width:100px; border-left:0;}
+
+.listBox ul li.fileOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+.listBox ul li.fileOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
 
 .FileListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
@@ -394,6 +405,10 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .LinkListBox ul li.LinkAddTime {width:140px; border-left:0;}
 .LinkListBox ul li.LinkUser { width:80px; border-left:0;}
 .LinkListBox ul li.LinkOperate {width:100px; border-left:0;}
+
+.listBox ul li.LinkOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+.listBox ul li.LinkOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
 
 .LinkListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
