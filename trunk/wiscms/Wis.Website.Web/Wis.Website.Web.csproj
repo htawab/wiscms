@@ -547,10 +547,8 @@
     <Content Include="Templates\tdedu0201\images\zytabbg1.gif" />
     <Content Include="Templates\tdedu0201\images\zytabbg2.gif" />
     <Content Include="Templates\tdedu0201\Default.htm" />
-    <Content Include="Templates\tdedu0201\js\accordion.js" />
     <Content Include="Templates\tdedu0201\js\cycle.js" />
     <Content Include="Templates\tdedu0201\js\indexTab.js" />
-    <Content Include="Templates\tdedu0201\js\jquery.js" />
     <Content Include="Templates\tdedu0201\js\picNews.js" />
     <Content Include="Templates\tdedu0201\jxyjList.html" />
     <Content Include="Templates\tdedu0201\ArticleItem.htm" />
@@ -654,6 +652,7 @@
     <Content Include="play.swf" />
     <Content Include="pthreadGC2.dll" />
     <Content Include="Templates\tdedu0201\images\annexDown.gif" />
+    <Content Include="Templates\tdedu0201\js\videoShow.js" />
     <Content Include="Templates\tdedu0201\js\w.js" />
     <Content Include="vcastr3.swf" />
     <Content Include="Web\Default.htm" />
