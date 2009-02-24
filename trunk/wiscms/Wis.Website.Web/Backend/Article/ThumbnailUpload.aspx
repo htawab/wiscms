@@ -7,10 +7,15 @@
 <head runat="server">
     <title>上传文件</title>
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
+<style>
+body {background:#d6e7f7;}
+</style>
+
 </head>
+
 <body>
     <form id="form1" runat="server">
-		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" /><asp:FileUpload ID="ThumbnailImage" runat="server"  /><asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/createthumb.png" />
+		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" /><asp:FileUpload ID="ThumbnailImage" runat="server"  /> <asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/createthumb.png" />
     </form>
 </body>
 </html>
