@@ -489,10 +489,7 @@
     <Content Include="Templates\tdedu0201\css\picNewsList.css" />
     <Content Include="Templates\tdedu0201\css\style.css" />
     <Content Include="Templates\tdedu0201\down.html" />
-    <Content Include="Templates\tdedu0201\flash\12.30 vv_new.swf" />
     <Content Include="Templates\tdedu0201\flash\vv_new.swf" />
-    <Content Include="Templates\tdedu0201\flash\~vv_new.swf" />
-    <Content Include="Templates\tdedu0201\flash\复件 vv_new.swf" />
     <Content Include="Templates\tdedu0201\images\01.jpg" />
     <Content Include="Templates\tdedu0201\images\02.jpg" />
     <Content Include="Templates\tdedu0201\images\03.jpg" />
@@ -573,7 +570,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
-    <None Include="Templates\tdedu0201\flash\~vv_new.fla" />
     <Content Include="Backend\Article\ThumbnailUpload.aspx" />
     <Content Include="Backend\Article\wis.js" />
     <Content Include="Backend\Article\ArticleList.htm" />
