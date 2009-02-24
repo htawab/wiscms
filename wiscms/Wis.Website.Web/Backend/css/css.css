@@ -218,9 +218,13 @@ label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; tex
 #divShortcut {text-indent:68px;}
 
 div.right div.slt {clear:none; float:left;}
+div.right div.slt div {width:480px;}
+div.right div.slt div.Preview {width:500px;}
 div.right div.slt div.Preview img {width:500px; height:190px;}
+
 div.right div.slt div label {width:20px;  margin:0 3px 3px 3px; float:none;}
 div.right div.slt div input {float:none;}
+div.right div.slt iframe {height:26px; float:right;}
 
     
   
