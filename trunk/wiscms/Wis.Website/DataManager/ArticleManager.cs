@@ -77,13 +77,14 @@ namespace Wis.Website.DataManager
         {
             DbProviderHelper.GetConnection();
 
-            // TODO:对 categoryName 进行注入式攻击防范
-
             List<Article> articles = new List<Article>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "View_Article"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryGuid='{0}'", categoryGuid)));
+            if(categoryGuid == null || categoryGuid.Equals(Guid.Empty))
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, "1=1"));
+            else
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CategoryGuid='{0}'", categoryGuid)));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
@@ -91,6 +92,104 @@ namespace Wis.Website.DataManager
             return GetArticles(dataReader);
         }
 
+
+        public static List<Article> GetArticlesByKeywords(string keywords, Guid categoryGuid, int pageIndex, int pageSize)
+        {
+            if (string.IsNullOrEmpty(keywords))
+                return GetArticlesByCategoryGuid(categoryGuid, pageIndex, pageSize);
+
+            keywords = keywords.Replace("\"", "").Replace("'", ""); // 做进一步的注入式攻击防范
+
+            // 获取分类的字典集合
+            SortedList<Guid, Category> categoryDictionaries = new SortedList<Guid, Category>();
+            CategoryManager categoryManager = new CategoryManager();
+            categoryDictionaries = categoryManager.GetCategoryDictionaries(); 
+
+            DbProviderHelper.GetConnection();
+
+            DbCommand command = DbProviderHelper.CreateCommand("SelectObjects", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TableName", DbType.String, "Article"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ColumnList", DbType.String, "*"));
+            if (categoryGuid == null || categoryGuid.Equals(Guid.Empty))
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CONTAINS(*, N'\" * {0} * \"') ", keywords)));
+            else
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@SearchCondition", DbType.String, string.Format("CONTAINS(*, N'\" * {0} * \"') and CategoryGuid='{1}'", keywords, categoryGuid)));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            List<Article> articles = new List<Article>();
+            while (dataReader.Read())
+            {
+                Article article = new Article();
+                article.ArticleId = Convert.ToInt32(dataReader["ArticleId"]);
+                article.ArticleGuid = (Guid)dataReader["ArticleGuid"];
+
+                // 获取 Category 对象
+                article.Category = categoryDictionaries[(Guid)dataReader["CategoryGuid"]];
+
+                if (dataReader["TemplatePath"] != DBNull.Value)
+                    article.Category.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+
+                if (dataReader["ReleasePath"] != DBNull.Value)
+                    article.Category.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+
+                article.ArticleType = (ArticleType)System.Enum.Parse(typeof(ArticleType), dataReader["ArticleType"].ToString(), true);
+
+                if (dataReader["ImagePath"] != DBNull.Value)
+                    article.ImagePath = Convert.ToString(dataReader["ImagePath"]);
+
+                if (dataReader["ImageWidth"] != DBNull.Value)
+                    article.ImageWidth = Convert.ToInt32(dataReader["ImageWidth"]);
+
+                if (dataReader["ImageHeight"] != DBNull.Value)
+                    article.ImageHeight = Convert.ToInt32(dataReader["ImageHeight"]);
+
+                if (dataReader["MetaKeywords"] != DBNull.Value)
+                    article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
+
+                if (dataReader["MetaDesc"] != DBNull.Value)
+                    article.MetaDesc = Convert.ToString(dataReader["MetaDesc"]);
+
+                article.Title = Convert.ToString(dataReader["Title"]);
+
+                if (dataReader["TitleColor"] != DBNull.Value)
+                    article.TitleColor = Convert.ToString(dataReader["TitleColor"]);
+
+                if (dataReader["SubTitle"] != DBNull.Value)
+                    article.SubTitle = Convert.ToString(dataReader["SubTitle"]);
+
+                if (dataReader["Summary"] != DBNull.Value)
+                    article.Summary = Convert.ToString(dataReader["Summary"]);
+
+                if (dataReader["ContentHtml"] != DBNull.Value)
+                    article.ContentHtml = Convert.ToString(dataReader["ContentHtml"]);
+
+                if (dataReader["Editor"] != DBNull.Value)
+                    article.Editor = (Guid)dataReader["Editor"];
+
+                if (dataReader["Author"] != DBNull.Value)
+                    article.Author = Convert.ToString(dataReader["Author"]);
+
+                if (dataReader["Original"] != DBNull.Value)
+                    article.Original = Convert.ToString(dataReader["Original"]);
+
+                article.Rank = Convert.ToInt32(dataReader["Rank"]);
+
+                if (dataReader["SpecialGuid"] != DBNull.Value)
+                    article.SpecialGuid = (Guid)dataReader["SpecialGuid"];
+
+                //article.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+                //article.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+                article.Hits = Convert.ToInt32(dataReader["Hits"]);
+                article.Comments = Convert.ToInt32(dataReader["Comments"]);
+                article.Votes = Convert.ToInt32(dataReader["Votes"]);
+                article.DateCreated = Convert.ToDateTime(dataReader["DateCreated"]);
+                articles.Add(article);
+            }
+            dataReader.Close();
+            return articles;
+        }
 
         public static List<Article> GetArticlesByTag(Guid articleGuid, int size)
         {
@@ -204,13 +303,33 @@ namespace Wis.Website.DataManager
 
         public int CountArticlesByCategoryGuid(Guid categoryGuid)
         {
-            DbCommand command = DbProviderHelper.CreateCommand("CountArticlesByCategoryGuid", CommandType.StoredProcedure);
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, categoryGuid));
+            DbCommand command;
+            if (categoryGuid.Equals(Guid.Empty))
+                command = DbProviderHelper.CreateCommand("COUNTArticles", CommandType.StoredProcedure);
+            else
+            {
+                command = DbProviderHelper.CreateCommand("CountArticlesByCategoryGuid", CommandType.StoredProcedure);
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, categoryGuid));
+            }
             object o = DbProviderHelper.ExecuteScalar(command);
             command.Dispose();
             return (int)o;
         }
 
+
+        public int CountArticlesByKeywords(string keywords, Guid categoryGuid)
+        {
+            if (string.IsNullOrEmpty(keywords))
+                return CountArticlesByCategoryGuid(categoryGuid);
+
+            DbCommand command;
+            command = DbProviderHelper.CreateCommand("CountArticlesByKeywords", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Keywords", DbType.String, keywords));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, categoryGuid)); // Guid.Empty在存储过程中判断了
+            object o = DbProviderHelper.ExecuteScalar(command);
+            command.Dispose();
+            return (int)o;
+        }
 
         public Article GetArticle(int ArticleId)
         {

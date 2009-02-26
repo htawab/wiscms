@@ -572,7 +572,6 @@
     <None Include="flash\~vv_new.fla" />
     <Content Include="Backend\Article\ThumbnailUpload.aspx" />
     <Content Include="Backend\Article\wis.js" />
-    <Content Include="Backend\Article\ArticleList.htm" />
     <Content Include="Backend\Article\FileList.htm" />
     <Content Include="Backend\Article\LinkList.htm" />
     <Content Include="Backend\Article\picList.htm" />

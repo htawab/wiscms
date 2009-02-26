@@ -5,55 +5,13 @@
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls.HtmlEditorControls" tagprefix="HtmlEditorControls" %>
 <%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.FileUploads" TagPrefix="FileUploads" %>
 
+<%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="cc1" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="PageHeader" runat="server">
     <title></title>
-<style type="text/css">
-#Pager 
-{
-	color:#222;
-	font-family:宋体;
-	font-size:12px;
-	line-height:14px;
-	height:26px;
-	}  
-#Pager span 
-{
-	border:1px solid #ddd;
-	padding:2px 6px;
-	margin:0 2px;
-	float:left;
-	}
-#Pager span.noLink
-{
-	color:#b9b9b9;
-	}
-#Pager a 	
-{
-	border:1px solid #ddd;
-	text-decoration:none;
-	padding:2px 6px;
-	margin:0 2px;
-	color:#886db4;
-	float:left;
-	background:#fcfcfc;
-	}
-#Pager a:hover	
-{
-	border:1px solid #999;
-	color:#fff;
-	background:#c48c4b;
-	}
-
-#Pager span.currentPager
-{
-	border:1px solid #faa;
-	background:#fff;
-	color:#f00;
-	}	
-</style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -65,6 +23,9 @@
     <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
     <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
    </asp:SiteMapPath>
+   
+    <cc1:MiniPager ID="MiniPager1" runat="server" >
+    </cc1:MiniPager>
    
    <br />
    Video Play
@@ -138,5 +99,8 @@
 		<asp:FileUpload ID="fuTest" runat="server"  />
 		<asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="upButtonNormal" ajaxcall="none" />
     </form>
+    
+    <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN lang="EN-US" 
+            style="font-size: 14pt; line-height: 250%; font-family: 仿宋_GB2312; mso-bidi-font-size: 12.0pt"><p></p></SPAN></P>
 </body>
 </html>

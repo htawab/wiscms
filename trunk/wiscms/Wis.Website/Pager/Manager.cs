@@ -19,7 +19,7 @@ namespace Wis.Website.Pager
         /// <param name="searchCondition">查询条件。</param>
         /// <param name="orderList">排序列表。</param>
         /// <param name="pageSize">页大小。</param>
-        /// <param name="pageIndex">当前页码。</param>
+        /// <param name="PageIndex">当前页码。</param>
         /// <returns>返回 DataSet 数据集。</returns>
         public DataSet Query(Entity entity)
         {
@@ -83,7 +83,7 @@ namespace Wis.Website.Pager
         /// <param name="searchCondition">查询条件。</param>
         /// <param name="orderList">排序列表。</param>
         /// <param name="pageSize">页大小。</param>
-        /// <param name="pageIndex">当前页码。</param>
+        /// <param name="PageIndex">当前页码。</param>
         /// <returns>返回 DataSet 数据集。</returns>
         public DataSet QueryMeeting(Entity entity)
         {

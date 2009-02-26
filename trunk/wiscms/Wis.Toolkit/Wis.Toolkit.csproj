@@ -333,6 +333,7 @@
     <Compile Include="WebControls\FileUploads\UploadProgressHandler.cs" />
     <Compile Include="WebControls\FileUploads\UploadStatus.cs" />
     <Compile Include="WebControls\FileUploads\UploadWorkerRequest.cs" />
+    <Compile Include="WebControls\MiniPagerControlDesigner.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditor.cs" />
     <Compile Include="WebControls\HtmlEditorControls\HtmlEditorControlDesigner.cs" />
     <Compile Include="WebControls\HtmlEditorControls\ResourceHandler.cs" />
@@ -342,6 +343,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebControls\MessageBox.cs" />
+    <Compile Include="WebControls\MiniPager.cs" />
     <Compile Include="WebControls\Pager\Pager.cs" />
     <Compile Include="WebControls\Popup.cs">
       <SubType>Code</SubType>

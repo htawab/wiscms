@@ -1,77 +1,93 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
 
+<%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="Wis" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title></title>
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
+    <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
+    <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
+    <script src="wis.js" language="javascript" type="text/javascript"></script>
+    <script type="text/javascript">
+        function Search_ClientClick(IsKey) {
+            var args = location.search;
+            var reg = new RegExp('[\?&]?CategoryGuid=([^&]*)[&$]?', 'gi');
+            var chk = args.match(reg);
+            var categoryGuid = RegExp.$1;
 
-    <script src="../../JavaScript/Website.js" language="javascript" type="text/javascript"></script>
-
-    <script src="../../JavaScript/Ajax.js" language="javascript" type="text/javascript"></script>
-
-    <script src="../../JavaScript/Pager.js" language="javascript" type="text/javascript"></script>
-
-    <script src="../../JavaScript/Prototype.js" language="javascript" type="text/javascript"></script>
-
-    <script src="../../JavaScript/Article.js" language="javascript" type="text/javascript"></script>
-
-    <script src="../../JavaScript/Public.js" language="javascript" type="text/javascript"></script>
-
+            var keywords = $('SearchKeywords');
+            if(keywords.value=="")
+            {
+                alert("请输入关键字");
+                return false;
+            }
+            var targetpath = location.protocol + "//" + location.host + location.pathname;
+            var queryPath = targetpath + '?CategoryGuid=' + categoryGuid +  '&Keywords=' + escape(keywords.value);
+            if(!IsKey)
+                window.location = queryPath;
+            else{    
+                var link = $("Search");
+                link.href = queryPath;
+                link.click();
+            }
+        }  
+    </script>
 </head>
-<body onload="WebsiteObj.Article.CategoryId(<%=ViewState["CategoryId"]%>),WebsiteObj.Article.LoadData(1)">
-    <form id="form1" runat="server">
-    <div class="right" id="divright">
+<body style="background: #d6e7f7">
+<form runat="server" id="ArticleListForm">
+    <div class="right">
         <div class="position">
-            内容管理 » <span class="red" runat="server" id="daohang"></span>
+            所在位置：
+            <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
+                <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                <CurrentNodeStyle ForeColor="#333333" />
+                <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+                <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            </asp:SiteMapPath>
         </div>
-        <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
-                <td width="10">
-                    &nbsp;
-                </td>
-                <td width="46%">
-                    <div class="command" onclick="WebsiteObj.Article.AllShow();">
-                        全部显示</div>
-                    <div class="command" onclick="WebsiteObj.Article.ArticleAdd()">
-                        添加新闻</div>
-                    <div class="command" onclick="WebsiteObj.Article.ArticleDelAll()">
-                        删除新闻</div>
-                    <div class="command">
-                        生成静态页面</div>
-                    <div class="command" id="CategoryHtml" onclick='WebsiteObj.Article.CategoryHtml()'>
-                        生成栏目</div>
-                </td>
-                <td>
-                    <div class="schBox">
-                        <label>
-                            关键字：</label><input type="text" size="10" id="keysword" name="keysword" />
-                        <select id="type" runat="server">
-                            <option value="Title">标题</option>
-                            <option value="ContentHtml">内容</option>
-                            <option value="Author">作者</option>
-                        </select>
-                        栏目：<input id="CategoryId" runat="server" type="text" name="CategoryId" style="display: none;" /><input
-                            id="CategoryName" runat="server" readonly type="text" size="8" name="CategoryName" /><img
-                                src="../../images/folder.gif" alt="选择已有标签" border="0" style="cursor: pointer;"
-                                onclick="selectFile('CategoryList',new Array(document.form1.CategoryId,document.form1.CategoryName),250,500);document.form1.CategoryName.focus();" /><input
-                                    type="button" onclick="WebsiteObj.Article.Seacrh()" value="" class="schbtn" title="搜索" />
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <div id="BetArticle">
-            <center>
-                <img src="../../images/ajaxing.gif" align="absmiddle" border="0" />
-                数据装载中，请稍候...</center>
-        </div>
-        <div class="page" id="contentpane">
-            <div id="DataHolder">
+        <div class="listBox" id="listBox">
+            <div class="AticleSch">
+                搜索内容：<input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="../images/schbtn.gif" /></A>
+                <a href="ArticleAdd.aspx">添加新闻</a>
             </div>
-            <div id="PagerHolder">
+            <asp:Repeater ID="RepeaterArticleList" runat="server">
+            <HeaderTemplate>
+                <ul class="top" style="background-color:#c6daed">
+                    <li class="listSort">分类(<a href='ArticleList.aspx'>所有</a>)</li>
+                    <li class="listTitle">标题</li>
+                    <li class="listTime">时间</li>
+                    <li class="listUser">作者</li>
+                    <li class="listOperate">操作</li>
+                </ul>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <ul style="background-color:#e0e9f5">
+                    <li class="listSort"><a href='ArticleList.aspx?CategoryGuid=<%# DataBinder.Eval(Container.DataItem, "Category.CategoryGuid")%>'><%# DataBinder.Eval(Container.DataItem, "Category.CategoryName")%></a></li>
+                    <li class="listTitle"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'><%# DataBinder.Eval(Container.DataItem, "Title")%></a></li>
+                    <li class="listTime"><%# DataBinder.Eval(Container.DataItem, "DateCreated")%></li>
+                    <li class="listUser"><%# DataBinder.Eval(Container.DataItem, "Author")%></li>
+                    <li class="listOperate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton></li>
+                </ul>
+            </ItemTemplate>
+            <AlternatingItemTemplate>
+                <ul style="background-color:#f1f6fc">
+                    <li class="listSort"><a href='ArticleList.aspx?CategoryGuid=<%# DataBinder.Eval(Container.DataItem, "Category.CategoryGuid")%>'><%# DataBinder.Eval(Container.DataItem, "Category.CategoryName")%></a></li>
+                    <li class="listTitle"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'><%# DataBinder.Eval(Container.DataItem, "Title")%></a></li>
+                    <li class="listTime"><%# DataBinder.Eval(Container.DataItem, "DateCreated")%></li>
+                    <li class="listUser"><%# DataBinder.Eval(Container.DataItem, "Author")%></li>
+                    <li class="listOperate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton></li>
+                </ul>
+            </AlternatingItemTemplate>
+            </asp:Repeater>
+            <div class="clear">
+            </div>
+            <div class="page" style="width: 786px;">
+                <Wis:MiniPager ID="MiniPager1" runat="server"></Wis:MiniPager>
             </div>
         </div>
     </div>
-    </form>
+</form>    
 </body>
 </html>

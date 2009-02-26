@@ -33,8 +33,10 @@ namespace Wis.Website.Web
             nodes.Add(new KeyValuePair<string, Uri>(Request["id"], Request.Url));
             ((Wis.Toolkit.SiteMapDataProvider)SiteMap.Provider).Stack(nodes);
 
-            ReleaseManager releaseManager = new ReleaseManager();
-            Response.Write(releaseManager.ReleasePager(3, 100, 19));
+            MiniPager1.RecordCount = 1000;
+            MiniPager1.PageIndex = 10;
+            MiniPager1.PageSize = 20;
+            MiniPager1.UrlPattern = Request.Path + "?PageIndex={0}";
 
             // Set the default processor
             FileSystemProcessor fs = new FileSystemProcessor();
