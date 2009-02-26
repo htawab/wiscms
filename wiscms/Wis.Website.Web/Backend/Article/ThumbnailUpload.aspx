@@ -15,7 +15,7 @@ body {background:#d6e7f7;}
 
 <body>
     <form id="form1" runat="server">
-		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" /><asp:FileUpload ID="ThumbnailImage" runat="server"  /> <asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/createthumb.png" />
+		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" /><asp:FileUpload ID="ThumbnailImage" runat="server"  /> <asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/upLoadImg.gif" />
     </form>
 </body>
 </html>
