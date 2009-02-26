@@ -40,7 +40,6 @@ namespace Wis.Toolkit.WebControls
 	border:1px solid #ddd;
 	text-decoration:none;
 	padding:3px 6px;
-	margin:0 2px;
 	color:#886db4;
 }}
 #{0} a:hover	
@@ -48,7 +47,6 @@ namespace Wis.Toolkit.WebControls
 	border:1px solid #999;
 	text-decoration:none;
 	padding:3px 6px;
-	margin:0 2px;
 	color:#fff;
 	background:#c48c4b;
 }}
