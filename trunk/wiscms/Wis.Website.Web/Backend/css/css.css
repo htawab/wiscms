@@ -214,17 +214,19 @@ div.right div#divCategory {height:22px; clear:none;}
 div.right div#divCategory div.dropdownmenu {line-height:23px; height:20px; width:200px; float:left; clear:none; font-size:12px; font-family:"宋体";}
 
 label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; text-align:right; height:22px; line-height:22px;}
+label.articleLabel label {padding-left:5px; margin-top:20px;}
+label.articleLabel label span {font-family:"Arial"; line-height:22px;}
 #divTitle {clear:both;}
 #divShortcut {text-indent:68px;}
 
 div.right div.slt {clear:none; float:left;}
 div.right div.slt div {width:480px;}
-div.right div.slt div.Preview {width:500px;}
-div.right div.slt div.Preview img {width:500px; height:190px;}
+div.right div.slt div.Preview {width:466px; border:solid 1px #fff;}
+div.right div.slt div.Preview img {width:466px; height:190px; display:inline;}
 
 div.right div.slt div label {width:20px;  margin:0 3px 3px 3px; float:none;}
 div.right div.slt div input {float:none;}
-div.right div.slt iframe {height:26px; float:right;}
+div.right div.slt iframe {height:26px;}
 
     
   
@@ -321,9 +323,7 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 /* 新闻列表 */
 .listBox {padding-left:8px;}
 
-div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
-div.right div.AticleSch input {float:none; margin:0; padding:0;}
-div.right div.AticleSch select {margin:0; padding:0;}
+
 
 .listBox ul {float:left;}
 .listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px;}
@@ -411,9 +411,21 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 
 .LinkListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
-.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
-.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
 
 
 a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3px 6px 2px 6px;}
 
+/* 列表页搜索和分页 */
+
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 3px 9px 12px; width:769px;}
+div.right div.AticleSch label {float:left; height:22px; line-height:22px; margin:0; padding:0; display:inline-block;}
+div.right div.AticleSch input {float:left; height:18px;  margin:0; padding:0; display:inline-block;}
+div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; padding:0; display:inline-block; height:22px; width:57px; line-height:22px;}
+div.right div.AticleSch a.addNews {float:right; text-decoration:underline;}
+div.right div.AticleSch select {margin:0; padding:0;}
+
+.page {text-align:right; padding:0;}
+.page div {text-align:right;}
+.page div.MiniPager1 a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; margin:0; overflow:hidden; padding:3px 4px 2px 4px;}
+.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
