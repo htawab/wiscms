@@ -71,7 +71,7 @@ namespace Wis.Website.Web.Admin.UserControls
                 this.lastpage.Text = "βҳ";
 
             }
-           // this.pagerSummary.InnerHtml = string.Format(pagerSummary, PageCount, CurrentPage);
+           // this.pagerSummary.InnerHtml = string.Format(pagerSummary, pageCount, CurrentPage);
             
         }
         protected void Page_PreRender(object sender, EventArgs e)

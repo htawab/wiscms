@@ -19,6 +19,42 @@ namespace Wis.Website.DataManager
             DbProviderHelper.GetConnection();
         }
 
+        /// <summary>
+        /// 获取分类的字典集合。
+        /// </summary>
+        /// <returns></returns>
+        public SortedList<Guid, Category> GetCategoryDictionaries()
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectCategorys", CommandType.StoredProcedure);
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            SortedList<Guid, Category> categorys = new SortedList<Guid, Category>();
+            while (dataReader.Read())
+            {
+                Category category = new Category();
+                category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
+                category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
+                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
+                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
+                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
+                category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
+                category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
+                category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString(); // 父分类名称
+                category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+
+                if (dataReader[CategoryField.TemplatePath] != DBNull.Value)
+                    category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
+
+                if (dataReader[CategoryField.ReleasePath] != DBNull.Value)
+                    category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
+
+                categorys.Add(category.CategoryGuid, category);
+            }
+            dataReader.Close();
+            return categorys;
+        }
+
 
         public static string GetSiteMapPath(string releaseDirectory, Guid categoryGuid, string pathSeparator)
         {
@@ -116,7 +152,7 @@ namespace Wis.Website.DataManager
                 Category category = new Category();
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
                 if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
                     category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
                 if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
@@ -147,7 +183,7 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
                 if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
                     category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
                 if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
@@ -206,7 +242,7 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (int)dataReader[CategoryField.ArticleType];
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
                 if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
                     category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
                 if (dataReader[CategoryField.ImageHeight] != DBNull.Value)

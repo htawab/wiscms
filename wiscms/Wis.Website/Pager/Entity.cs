@@ -25,7 +25,7 @@ namespace Wis.Website.Pager
         /// <param name="pagerColumnSort"></param>
         /// <param name="columnList"></param>
         /// <param name="pageSize"></param>
-        /// <param name="pageIndex"></param>
+        /// <param name="PageIndex"></param>
         /// <param name="searchCondition"></param>
         public Entity(System.String tableName, System.String pagerColumn, System.Boolean pagerColumnSort, System.String columnList, System.Int32 pageSize, System.Int32 pageIndex, System.String searchCondition)
         {

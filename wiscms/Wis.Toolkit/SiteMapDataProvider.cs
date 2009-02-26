@@ -36,7 +36,7 @@ namespace Wis.Toolkit
 
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
             if (!applicationPath.EndsWith("/")) applicationPath += "/";
-            string url = string.Format("{0}Default.aspx", applicationPath);
+            string url = string.Format("{0}", applicationPath);
             _RootNode = new SiteMapNode(this, "首页", url, "首页");
             AddNode(_RootNode);
         }

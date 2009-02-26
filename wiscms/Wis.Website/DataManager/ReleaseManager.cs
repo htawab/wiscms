@@ -110,14 +110,10 @@ namespace Wis.Website.DataManager
             string applicationPath = System.Web.HttpContext.Current.Request.ApplicationPath;
             if (!applicationPath.EndsWith("/")) applicationPath += "/"; // 前后导都有 /
 
-            string templateDirectory = System.Configuration.ConfigurationManager.AppSettings["TemplateRootDirectory"];
-            if (templateDirectory.StartsWith("/")) templateDirectory = templateDirectory.Remove(1, 1);
-            if (templateDirectory.EndsWith("/")) templateDirectory = templateDirectory.Remove(templateDirectory.Length - 1);
+            string templateDirectory = System.Configuration.ConfigurationManager.AppSettings["TemplateRootDirectory"].Trim('/');
             templateDirectory = string.Format("{0}{1}", applicationPath, templateDirectory);
 
-            string releaseDirectory = System.Configuration.ConfigurationManager.AppSettings["ReleaseRootDirectory"]; // 不要有前后导的间隔符号
-            if (releaseDirectory.StartsWith("/")) releaseDirectory = releaseDirectory.Remove(1, 1);
-            if (releaseDirectory.EndsWith("/")) releaseDirectory = releaseDirectory.Remove(releaseDirectory.Length - 1);
+            string releaseDirectory = System.Configuration.ConfigurationManager.AppSettings["ReleaseRootDirectory"].Trim('/'); // 不要有前后导的间隔符号
             releaseDirectory = string.Format("{0}{1}", applicationPath, releaseDirectory);
 
             foreach (Release release in releases)
@@ -164,7 +160,7 @@ namespace Wis.Website.DataManager
                     int recordCount = (int)articleManager.CountArticlesByCategoryGuid(article.Category.CategoryGuid);
                     templateManager.SetVariable("RecordCount", recordCount);
 
-                    // 求页总数 PageCount
+                    // 求页总数 pageCount
                     int pageCount;
                     pageCount = recordCount / pageSize;
                     if (recordCount % pageSize != 0)

@@ -32,7 +32,7 @@ namespace Wis.Website.DataManager
             set { _CategoryGuid = value; }
         }
 
-        private int _ArticleType;
+        private byte _ArticleType;
         /// <summary>
         /// 文章类型
         /// 1 普通新闻
@@ -40,7 +40,7 @@ namespace Wis.Website.DataManager
         /// 3 视频新闻
         /// 4 软件
         /// </summary>
-        public int ArticleType
+        public byte ArticleType
         {
             get { return _ArticleType; }
             set { _ArticleType = value; }

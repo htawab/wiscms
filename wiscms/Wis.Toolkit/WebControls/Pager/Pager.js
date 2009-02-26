@@ -1,27 +1,22 @@
 ﻿/// <summary>
-/// 初始化属性。
-/// </summary>
+/// 初始化属性。/// </summary>
 function Pager(name) {
 	this.Name = name;      //对象名称
 	this.RecordCount = 0;  // 总记录数(必需项)
-	this.PageSize = 10;    // 每页显示记录数
-	this.ArgumentName = 'PageIndex'; //参数名
-	
-	this.ShowTimes = 1;    //打印次数
+	this.PageSize = 10;    // 每页显示记录数	this.ArgumentName = 'PageIndex'; //参数名	this.ShowTimes = 1;    //打印次数
 }
 
 /// <summary>
-/// 总页数。
-/// </summary>
+/// 总页数。/// </summary>
 Pager.prototype.GetPageCount = function(){
     var pageCount = this.RecordCount / this.PageSize + ((this.RecordCount % this.PageSize == 0) ? 0 : 1);
     if (isNaN(parseInt(pageCount))) pageCount = 1;
     if (pageCount < 1) pageCount = 1;
 	return parseInt(pageCount);
 }
+
 /// <summary>
-/// 当前页数。
-/// </summary>
+/// 当前页数。/// </summary>
 Pager.prototype.GetPageIndex = function(){
 	var args = location.search;
 	var reg = new RegExp('[\?&]?' + this.ArgumentName + '=([^&]*)[&$]?', 'gi');
@@ -40,8 +35,7 @@ Pager.prototype.GetPageIndex = function(){
 }
 
 /// <summary>
-/// 生成html代码。
-/// </summary>
+/// 生成html代码。/// </summary>
 Pager.prototype.CreateHtml = function(mode){
 	var pageIndex = this.GetPageIndex();
 	var pageCount = this.GetPageCount();
@@ -233,8 +227,7 @@ Pager.prototype.CreateHtml = function(mode){
 }
 
 /// <summary>
-/// 生成页面跳转url。
-/// </summary>
+/// 生成页面跳转url。/// </summary>
 Pager.prototype.CreateUrl = function (pageIndex) {
 	if (isNaN(parseInt(pageIndex))) pageIndex = 1;
 	if (pageIndex < 1) pageIndex = 1;
@@ -263,8 +256,7 @@ Pager.prototype.CreateUrl = function (pageIndex) {
 }
 
 /// <summary>
-/// 跳转页面。
-/// </summary>
+/// 跳转页面。/// </summary>
 Pager.prototype.GoPage = function(pageIndex){ //页面跳转
 	var turnTo = 1;
 	if (typeof(pageIndex) == 'object') {
@@ -276,8 +268,7 @@ Pager.prototype.GoPage = function(pageIndex){ //页面跳转
 }
 
 /// <summary>
-/// 限定输入页数格式。
-/// </summary>
+/// 限定输入页数格式。/// </summary>
 Pager.prototype.FormatInputPage = function(e){
     var key;
 	var ie = navigator.appName=="Microsoft Internet Explorer"?true:false;

@@ -250,29 +250,29 @@ namespace Wis.Website
 
         //        ///输出分页html
         //        html += "function " + tagEntity.TagName + "getPageHtml(){\r\n";
-        //        html += "var pageIndex =" + tagEntity.TagName + "CurPage;\r\n";
+        //        html += "var PageIndex =" + tagEntity.TagName + "CurPage;\r\n";
         //        html += " var pageCount =" + tagEntity.TagName + "pageCount;\r\n";
         //        html += " var RecordCount =" + tagEntity.TagName + "vNum;\r\n";
-        //        html += "var html = '',prevPage = pageIndex - 1, nextPage = pageIndex + 1;;\r\n";
+        //        html += "var html = '',prevPage = PageIndex - 1, nextPage = PageIndex + 1;;\r\n";
         //        html += "if (pageCount <= 1)\r\n";
         //        html += "{\r\n";
         //        html += "     return \"\";\r\n";
         //        html += "}\r\n";
-        //        html += " html += '<span><span class=\"Pager\">共' + RecordCount + '条记录&nbsp;第' + pageIndex + '页/共' + pageCount + '页</span>';\r\n";
+        //        html += " html += '<span><span class=\"Pager\">共' + RecordCount + '条记录&nbsp;第' + PageIndex + '页/共' + pageCount + '页</span>';\r\n";
         //        html += "  if (prevPage < 1) {\r\n";
         //        html += "} else {\r\n";
         //        html += "  html += '<a href=\"javascript:" + tagEntity.TagName + "draw(1)\" title=\"首页\" class=\"Pager\">首页</a>';\r\n";
         //        html += " html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+prevPage+')\" title=\"上一页\" class=\"Pager\">上一页</a>';\r\n";
         //        html += "  }\r\n";
-        //        html += " if (pageIndex % 10 == 0) {\r\n";
-        //        html += "    var startPage = pageIndex - 9;\r\n";
+        //        html += " if (PageIndex % 10 == 0) {\r\n";
+        //        html += "    var startPage = PageIndex - 9;\r\n";
         //        html += "   } else {\r\n";
-        //        html += "      var startPage = pageIndex - pageIndex % 10 + 1;\r\n";
+        //        html += "      var startPage = PageIndex - PageIndex % 10 + 1;\r\n";
         //        html += "   }\r\n";
         //        html += "   if (startPage > 10) html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+(startPage - 1)+')\" title=\"前10页\" class=\"Pager\">...</a>';\r\n";
         //        html += "   for (var i = startPage; i < startPage + 10; i++) {\r\n";
         //        html += "  if (i > pageCount) break;\r\n";
-        //        html += "  if (i == pageIndex) {\r\n";
+        //        html += "  if (i == PageIndex) {\r\n";
         //        html += "       html += '<span title=\"第' + i + '页\" class=\"Current\">' + i + '</span>';\r\n";
         //        html += "   } else {\r\n";
         //        html += "        html += '<a href=\"javascript:" + tagEntity.TagName + "draw('+i+')\" title=\"第' + i + '页\" class=\"Pager\">' + i + '</a>';\r\n";
