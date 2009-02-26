@@ -165,6 +165,7 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
                 ul.{0} * {{margin:0; padding:0; cursor: pointer;}}
                 ul.{0} a {{display:block; color:#000; text-decoration:none; height:22px;}}
                 ul.{0} li {{background:url({1}header.gif); position:relative; float:left; margin-right:2px; overflow:visible;}}
+                ul.{0} iframe {{position:absolute; width:169px; height:23px; top:0; left:-1px; z-index:-1; }}
                 ul.{0} ul {{position:absolute; top:23px; left:0; background:#d1d1d1;  display:none; *opacity:0; list-style:none;}}
                 ul.{0} ul li {{position:relative; border:1px solid #aaa; width:167px; border-top:none;  margin:0}}
                 ul.{0} ul li a {{display:block; padding:0px 7px; height:22px; background-color:#d1d1d1}}
@@ -217,7 +218,7 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
             writer.WriteEndTag("ul");
 
             writer.Write("<input name=\"" + this.ClientID + "_Text\" type=\"hidden\" id=\"" + this.ClientID + "_Text\" value=\"" + this.Text + "\" />");
-            writer.Write("<input name=\"" + this.ClientID + "_Value\" type=\"hidden\" id=\"" + this.ClientID + "_Value\" value=\"" + this.Value + "\" />"); 
+            writer.Write("<input name=\"" + this.ClientID + "_Value\" type=\"hidden\" id=\"" + this.ClientID + "_Value\" value=\"" + this.Value + "\" />");
 
             string scriptBlock = string.Format(@"
 <script type='text/javascript'>
@@ -256,6 +257,7 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
                 writer.WriteBeginTag("li");
                 writer.Write(">");
 
+
                 writer.WriteBeginTag("a");
                 writer.WriteAttribute("href", "#");
 
@@ -277,11 +279,19 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
 
                 writer.WriteEndTag("a");
 
+                //iframe
+                writer.WriteBeginTag("iframe");
+                writer.WriteAttribute("frameborder", "0");
+                writer.WriteAttribute("scrolling", "no");
+                writer.WriteAttribute("src", "a.html");
+                writer.Write(">");//
+                writer.WriteEndTag("iframe");
                 // 递归生成ul
                 if (menuItem.SubMenuItems.Count > 0)
                     WriteMenuItem(writer, menuItem.SubMenuItems);
 
                 // </li>
+
                 writer.WriteEndTag("li");
             }
 
