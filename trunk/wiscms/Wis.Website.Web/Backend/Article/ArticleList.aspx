@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
+﻿0 @ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
 
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="Wis" %>
 
@@ -17,7 +17,7 @@
             var chk = args.match(reg);
             var categoryGuid = RegExp.$1;
 
-            var keywords = $('SearchKeywords');
+            var keywords = $('SearchKeywords');4
             if(keywords.value=="")
             {
                 alert("请输入关键字");
@@ -37,7 +37,7 @@
 </head>
 <body style="background: #d6e7f7">
 <form runat="server" id="ArticleListForm">
-    <div class="right">
+    <div class="right">1
         <div class="position">
             所在位置：
             <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
