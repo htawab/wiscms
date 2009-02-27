@@ -28,36 +28,55 @@ namespace Wis.Toolkit.WebControls
 	color:#222;
 	font-family:宋体;
 	font-size:12px;
-}}
-#{0} span 
-{{
-	border:1px solid #ddd;
-	padding:3px 6px;
-	margin:0 2px;
+    line-height:22px;
+    text-align:right;
 }}
 #{0} a 	
 {{
 	border:1px solid #ddd;
 	text-decoration:none;
-	padding:3px 6px;
+	padding:0 6px;
 	color:#886db4;
+    display:inline-block;
+    height:22px;
+    background:#fafafa;
+    margin-left:2px;
 }}
 #{0} a:hover	
 {{
 	border:1px solid #999;
-	text-decoration:none;
-	padding:3px 6px;
+	text-decoration:underline;
 	color:#fff;
 	background:#c48c4b;
 }}
 
-#{0} span.currentPager
+#{0} a.currentPager
 {{
-	border:1px solid #ddd;
+	border:1px solid #fcc;
 	text-decoration:none;
-	padding:3px 6px;
-	margin:0 2px;
+	background:#f0f0f0;
+    color:#f00;
+    cursor:default;
+}}
+#{0} a.currentPager:hover
+{{
+	border:1px solid #fcc;
+	text-decoration:none;
 	background:#fafafa;
+}}
+#{0} a.noLink
+{{
+	border:1px solid #fcc;
+	text-decoration:none;
+	
+    color:#a0a0a0;
+    cursor:default;
+}}
+#{0} a.currentPager:hover
+{{
+	border:1px solid #fcc;
+	text-decoration:none;
+	
 }}
                         </style>", this.ClientID));
             }
@@ -109,12 +128,12 @@ namespace Wis.Toolkit.WebControls
             int nextPage = PageIndex + 1;
             StringBuilder sb = new StringBuilder();
             sb.Append(string.Format("<div id='{0}'>", this.ClientID));
-            sb.Append(string.Format("<span>共{0}条记录&nbsp;第{1}页/共{2}页</span>", RecordCount, PageIndex, pageCount));
+            sb.Append(string.Format("<a>共{0}条记录&nbsp;第{1}页/共{2}页</a>", RecordCount, PageIndex, pageCount));
 
             if (prevPage < 1)
             {
-                sb.Append("<span>首页</span>");
-                sb.Append("<span>上一页</span>");
+                sb.Append("<a class='noLink'>首页</a>");
+                sb.Append("<a class='noLink'>上一页</a>");
             }
             else
             {
@@ -145,13 +164,13 @@ namespace Wis.Toolkit.WebControls
                 if (index > pageCount) break;
                 if (index == PageIndex)
                 {
-                    sb.Append(string.Format("<span title='第{0}页' class='currentPager'>{0}</span>", index));
+                    sb.Append(string.Format("<a title='第{0}页' class='currentPager'>[{0}]</a>", index));
                 }
                 else
                 {
                     sb.Append("<a href='");
                     sb.Append(string.Format(UrlPattern, index));
-                    sb.Append(string.Format("' title='第{0}页'>{0}</a>", index));
+                    sb.Append(string.Format("' title='第{0}页'>[{0}]</a>", index));
                 }
             }
             if (pageCount >= startPage + 10)
