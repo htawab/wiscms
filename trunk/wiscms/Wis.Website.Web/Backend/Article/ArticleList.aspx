@@ -51,6 +51,7 @@
             <div class="AticleSch">
                 <label>搜索内容：</label><input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="../images/schbtn.gif" /></A>
                 <a href="ArticleAdd.aspx" class="addNews">添加新闻</a>
+             <div class="clear"></div>
             </div>
             <asp:Repeater ID="RepeaterArticleList" runat="server">
             <HeaderTemplate>
