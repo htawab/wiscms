@@ -328,10 +328,10 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 .listBox ul {float:left;}
 .listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px;}
 .listBox ul li.listSort {width:80px; border:solid 1px #a3b5cd; border-top:0;}
-.listBox ul li.listTitle {width:380px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+.listBox ul li.listTitle {width:348px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
 .listBox ul li.listTime {width:140px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
 .listBox ul li.listUser { width:80px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
-.listBox ul li.listOperate {width:100px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
+.listBox ul li.listOperate {width:132px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
 
 .listBox ul li.listOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
 .listBox ul li.listOperate a:hover {background:#f6f6f6; color:#5281ab;}
@@ -362,11 +362,10 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 
 .picListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
-.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
-.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
 
 /* 附件管理列表 */
-.FileListBox {padding-left:8px;}
+.FileListBox {padding-left:8px; width:800px;}
 
 div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
 div.right div.AticleSch input {float:none; margin:0; padding:0;}
@@ -386,8 +385,7 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 
 .FileListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
-.page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
-.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
 
 
 /* 友情链接管理列表 */
@@ -425,7 +423,12 @@ div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; paddi
 div.right div.AticleSch a.addNews {float:right; text-decoration:underline;}
 div.right div.AticleSch select {margin:0; padding:0;}
 
+/*
 .page {text-align:right; padding:0;}
 .page div {text-align:right;}
-.page div.MiniPager1 a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; margin:0; overflow:hidden; padding:3px 4px 2px 4px;}
+.page div.MiniPager1 a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; margin:0; overflow:hidden; x}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+*/
+
+
+
