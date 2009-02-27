@@ -1,4 +1,4 @@
-﻿0 @ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
 
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="Wis" %>
 
@@ -37,7 +37,7 @@
 </head>
 <body style="background: #d6e7f7">
 <form runat="server" id="ArticleListForm">
-    <div class="right">1
+    <div class="right">
         <div class="position">
             所在位置：
             <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
