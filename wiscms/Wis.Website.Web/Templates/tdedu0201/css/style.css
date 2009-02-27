@@ -150,7 +150,8 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 /* 学校链接 */
 .link {margin-bottom:6px;}
 .link a {float:left; width:92px; height:42px; margin:3px 0 3px 6px;}
-.link a img {width:92px; height:42px; }
+.link a img {width:92px; height:42px;}
+
 
 .bottom {padding-top:3px; height:auto; background:#f2f2f2 url(../images/bottombg.gif); text-align:center; line-height:18px; color:#7c7879;}
 .bottom a {color:#7c7879}
