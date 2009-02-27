@@ -49,6 +49,17 @@ namespace Wis.Toolkit.WebControls
 	color:#fff;
 	background:#c48c4b;
 }}
+#{0} a.pageLeft:hover	
+{{
+	border:1px solid #ddd;
+	text-decoration:none;
+	padding:0 6px;
+	color:#886db4;
+    display:inline-block;
+    height:22px;
+    background:#fafafa;
+    margin-left:2px;
+}}
 
 #{0} a.currentPager
 {{
@@ -58,24 +69,29 @@ namespace Wis.Toolkit.WebControls
     color:#f00;
     cursor:default;
 }}
-#{0} a.currentPager:hover
+#{0} a:hover.currentPager
 {{
 	border:1px solid #fcc;
 	text-decoration:none;
-	background:#fafafa;
+	background:#f0f0f0;
+    color:#f00;
+    cursor:default;
 }}
 #{0} a.noLink
 {{
 	border:1px solid #fcc;
 	text-decoration:none;
-	
-    color:#a0a0a0;
+    background:#fafafa;
+    color:#999;
     cursor:default;
 }}
-#{0} a.currentPager:hover
+#{0} a.noLink:hover
 {{
 	border:1px solid #fcc;
 	text-decoration:none;
+    background:#fafafa;
+    color:#999;
+    cursor:default;
 	
 }}
                         </style>", this.ClientID));
@@ -128,11 +144,11 @@ namespace Wis.Toolkit.WebControls
             int nextPage = PageIndex + 1;
             StringBuilder sb = new StringBuilder();
             sb.Append(string.Format("<div id='{0}'>", this.ClientID));
-            sb.Append(string.Format("<a>共{0}条记录&nbsp;第{1}页/共{2}页</a>", RecordCount, PageIndex, pageCount));
+            sb.Append(string.Format("<a class='pageLeft'>共{0}条记录&nbsp;第{1}页/共{2}页</a>", RecordCount, PageIndex, pageCount));
 
             if (prevPage < 1)
             {
-                sb.Append("<a class='noLink'>首页</a>");
+                sb.Append("<a class='noLink' href='javascript:()'>首页</a>");
                 sb.Append("<a class='noLink'>上一页</a>");
             }
             else
