@@ -146,7 +146,7 @@ a.menu11 {
 
 div.right {background:#d6e7f7; margin-left:0px; _margin-left:4px;}
 .position {
-	padding:4px 0; margin:3px; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
+	padding:4px 0; width:100%; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
 }
 div.viewvdieo {background:#ffffff;border:1px solid #9fb5d2; height:100%; margin:4px 4px 4px 4px;}
 div.right .schBox {line-height:20px;}
@@ -416,7 +416,7 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 
 /* 列表页搜索和分页 */
 
-div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 3px 9px 12px; width:769px;}
+div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 3px 4px 12px; width:769px;}
 div.right div.AticleSch label {float:left; height:22px; line-height:22px; margin:0; padding:0; display:inline-block;}
 div.right div.AticleSch input {float:left; height:18px;  margin:0; padding:0; display:inline-block;}
 div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; padding:0; display:inline-block; height:22px; width:57px; line-height:22px;}
