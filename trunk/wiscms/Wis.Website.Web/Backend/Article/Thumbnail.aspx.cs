@@ -15,8 +15,45 @@ namespace Wis.Website.Web.Backend.dialog
     {
         private Wis.Website.DataManager.Category category = null;
         private Wis.Website.DataManager.CategoryManager categoryManager = null;
+
+        private int _ImageWidth;
+        /// <summary>
+        /// 缩略图高度。
+        /// </summary>
+        protected int ImageWidth
+        {
+            get { return _ImageWidth; }
+            set { _ImageWidth = value; }
+        }
+
+        private int _ImageHeight;
+        /// <summary>
+        /// 缩略图高度。
+        /// </summary>
+        protected int ImageHeight
+        {
+            get { return _ImageHeight; }
+            set { _ImageHeight = value; }
+        }
+
+        private string _ImagePath;
+        protected string ImagePath
+        {
+            get { return _ImagePath; }
+            set { _ImagePath = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // 图片保存的路径 /Uploads/Files/年-月-日/文件编号.htm
+            this.ImagePath = Request["ImagePath"];
+            if (System.IO.File.Exists(this.ImagePath) == false)
+            {
+                Wis.Toolkit.ClientScript.Window.Alert("图片不存在");
+                Wis.Toolkit.ClientScript.Window.Close();
+                return;
+            }
+
             // 获取分类编号
             string requestCategoryGuid = Request.QueryString["CategoryGuid"];
             if (categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
@@ -42,20 +79,19 @@ namespace Wis.Website.Web.Backend.dialog
                     this.MessageBox("配置不全", "分类编号为 {0} 的分类需要配置缩略图的宽度和高度");
                     return;
                 }
+
+                this.ImageWidth = category.ImageWidth.Value;
+                this.ImageHeight = category.ImageHeight.Value;
             }
 
-            // 图片保存的路径 /Uploads/Files/年-月-日/文件编号.htm
 
             if (!Page.IsPostBack)
             {
-                string sh = Request.QueryString["heights"];
-                string imagePath = Request["ImagePath"];
-                string ToWidth = "360";//从数据库中读取需要切图的大小
-                string ToHeight = "270";
-                this.w.Text = this.tow.Value = ToWidth;
-                this.h.Text = this.toh.Value = ToHeight;
-                this.PhotoUrl.Value = imagePath;
-                select_iframe.InnerHtml = "<iframe src=\"ThumbnailPreview.aspx?ImagePath=" + imagePath + "&ToWidth=" + ToWidth + "&ToHeight=" + ToHeight + "\" frameborder=\"0\" id=\"select_main\" scrolling=\"yes\" name=\"select_main\" width=\"100%\" height=\"" + sh + "px\" />";
+                //string ToWidth = "360";//从数据库中读取需要切图的大小
+                //string ToHeight = "270";
+                //this.w.Text = this.tow.Value = ToWidth;
+                //this.h.Text = this.toh.Value = ToHeight;
+                //this.PhotoUrl.Value = imagePath;
             }    
         }
         
@@ -70,7 +106,8 @@ namespace Wis.Website.Web.Backend.dialog
             w = Convert.ToInt16(this.w.Text);
             h = Convert.ToInt16(this.h.Text);
 
-            file = Server.MapPath(this.PhotoUrl.Value.ToString());
+            string imagePath = Request["ImagePath"];
+            file = Server.MapPath(imagePath);
             MakeMyThumbPhoto(file, tow, toh, x, y, w, h);
         }
 
@@ -138,13 +175,12 @@ namespace Wis.Website.Web.Backend.dialog
 
                 //以jpg格式保存缩略图
                 bitmap.Save(thumbnailPath, System.Drawing.Imaging.ImageFormat.Jpeg);
-                //WriteJs("-1", "parent.opener.document.getElementById('txtImg').value='" + DirectoryPath + "/" + sFileName + "';parent.close();");
-                ViewState["javescript"] = "ReturnValue('" + DirectoryPath + "/" + sFileName + "');closefDiv();";
+                ViewState["javescript"] = "ReturnValue('" + DirectoryPath + "/" + sFileName + "');";
                 return;
             }
             catch (System.Exception e)
             {
-                //throw e;
+                throw e;
             }
             finally
             {

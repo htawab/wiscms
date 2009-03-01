@@ -3,13 +3,12 @@
 
 <%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.HtmlEditorControls" TagPrefix="HtmlEditorControls" %>
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls.DropdownMenus" tagprefix="DropdownMenus" %>
+<%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.FileUploads" TagPrefix="FileUploads" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <title></title>
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
-    <script src="../images/picUpLoad/upLoadWin.js" language="javascript" type="text/javascript"></script>
-    <script src="../images/annexUpLoad/annexUpLoadWin.js" language="javascript" type="text/javascript"></script>
     <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
     <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
@@ -135,7 +134,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="right">
+    <div class="right" id="Right">
         <div class="position">
             所在位置：
             <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
@@ -175,8 +174,19 @@
         </div>
         <div id="divTabloidPath" style="display: none;" class="box">
             <label class="articleLabel">缩 略 图：<label><span id="PreviewWidth">233</span>×<span id="PreviewHeight">22</span></label></label>
-           
-            <div class="slt"><div class="Preview"><img src="../images/noimg2.gif" /></div><div><iframe src="ThumbnailUpload.aspx" frameborder="0" scrolling="no" width="320"></iframe></div></div>
+            <div class="slt">
+                <div class="Preview" id="ImagePreview"></div>
+                <div>
+                    <asp:HiddenField ID="PointX" runat="server" />
+                    <asp:HiddenField ID="PointY" runat="server" />
+                    <asp:HiddenField ID="CropperWidth" runat="server" />
+                    <asp:HiddenField ID="CropperHeight" runat="server" />
+                    <div id="Loading" style="display: none;"><img src='../images/loading.gif' align='absmiddle' /> 上传中...</div>
+                    <FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/"  />
+                    <input id='Photo' type='file' name='Photo' value='' style="display: none;" onchange="SelectImage();" />
+                    <img src="../images/upLoadImg.gif" alt="选择图片" onclick='Photo_Load(event);' />
+                </div>
+            </div>
             <br />
         </div>
         <div id="divTabloidPathVideo" style="display: none;" class="box">
@@ -222,6 +232,114 @@
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
         </div>
     </div>
+<style type="text/css">
+#ImageCroppeImageCropperRightDown,#ImageCroppeImageCropperLeftDown,#ImageCroppeImageCropperLeftUp,#ImageCroppeImageCropperRightUp,#ImageCropperRight,#ImageCropperLeft,#ImageCropperUp,#ImageCropperDown{
+	position:absolute;
+	background:#FFF;
+	border: 1px solid #333;
+	width: 6px;
+	height: 6px;
+	z-index:500;
+	font-size:0;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+}
+
+#ImageCroppeImageCropperLeftDown,#ImageCroppeImageCropperRightUp{cursor:ne-resize;}
+#ImageCroppeImageCropperRightDown,#ImageCroppeImageCropperLeftUp{cursor:nw-resize;}
+#ImageCropperRight,#ImageCropperLeft{cursor:e-resize;}
+#ImageCropperUp,#ImageCropperDown{cursor:n-resize;}
+
+#ImageCroppeImageCropperLeftDown{left:0px;bottom:0px;}
+#ImageCroppeImageCropperRightUp{right:0px;top:0px;}
+#ImageCroppeImageCropperRightDown{right:0px;bottom:0px;background-color:#00F;}
+#ImageCroppeImageCropperLeftUp{left:0px;top:0px;}
+#ImageCropperRight{right:0px;top:50%;margin-top:-4px;}
+#ImageCropperLeft{left:0px;top:50%;margin-top:-4px;}
+#ImageCropperUp{top:0px;left:50%;margin-left:-4px;}
+#ImageCropperDown{bottom:0px;left:50%;margin-left:-4px;}
+
+#ImageCropperBackground{border:1px solid #666666; position:absolute;}
+#ImageCropperDrag {border:1px dashed #fff; width:100px; height:60px; top:10px; left:10px; cursor:move; }
+#ImagePreview {border:1px dashed #fff; width:100px; height:60px; overflow:hidden; position:relative;}
+</style>
+<div id="ImageCropperBackground" style="display:none">
+    <div id="ImageCropperDrag">
+      <div id="ImageCroppeImageCropperRightDown"></div>
+      <div id="ImageCroppeImageCropperLeftDown"></div>
+      <div id="ImageCroppeImageCropperRightUp"></div>
+      <div id="ImageCroppeImageCropperLeftUp"></div>
+      <div id="ImageCropperRight"></div>
+      <div id="ImageCropperLeft"></div>
+      <div id="ImageCropperUp"></div>
+      <div id="ImageCropperDown"></div>
+    </div>
+    <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;filter:alpha(opacity=0);"></iframe>
+</div>
+<br />
+<script type="text/javascript">
+function Photo_Load(e){
+    e = e || window.event;
+    $("ImageCropperBackground").style.left = e.clientX + "px";
+    $("ImageCropperBackground").style.top = e.clientY + "px";
+    
+    $("Photo").click();
+    if(/msie/i.test(navigator.userAgent))
+    {   // IE浏览器
+        $("Photo").attachEvent("onpropertychange", SelectImage);
+    } 
+    else 
+    {   // 非ie浏览器，比如Firefox 
+        $("Photo").addEventListener("input", SelectImage, false); 
+    }
+}
+
+function SelectImage(){
+    if ($("ImageCropperBackground").style.display == "none")
+    {
+        var url = $("Photo").value;
+        
+        var ic = new ImageCropper("ImageCropperBackground", "ImageCropperDrag", url, {
+            Color: "#000",
+            Resize: false,
+            Right: "ImageCropperRight", Left: "ImageCropperLeft", Up:	"ImageCropperUp", Down: "ImageCropperDown",
+            RightDown: "ImageCroppeImageCropperRightDown", LeftDown: "ImageCroppeImageCropperLeftDown", RightUp: "ImageCroppeImageCropperRightUp", LeftUp: "ImageCroppeImageCropperLeftUp",
+            Preview: "ImagePreview"
+        })
+        
+        $("ImageCropperBackground").style.zIndex = $("Right").style.zIndex + 1;
+        $("ImageCropperBackground").style.display = "";
+        //$("ImageCropperDrag").style.width = "100px";
+        //$("ImageCropperDrag").style.height = "60px";
+
+        $("ImageCropperBackground").ondblclick = function(){
+            var p = ic.Url;
+            var o = ic.GetPos();
+            $('PointX').value = o.Left;
+            $('PointY').value = o.Top;
+            $('CropperWidth').value = o.Width;
+            $('CropperHeight').value = o.Height;
+            //alert("Left:" + o.Left + " Top:" + o.Top + " Width:" + o.Width + " Top:" + o.Height + " BaseWidth:" + ic._layBase.width + " BaseHeight:" + ic._layBase.height);
+            //pw = ic._layBase.width; // 原图宽
+            //ph = ic._layBase.height;
+	        ic.Close();
+            var selects = document.getElementsByTagName('select');
+            for(index = 0; index < selects.length; index++){
+                selects[index].style.display = ($("ImageCropperBackground").style.display == '') ? 'none':'';
+            }
+   	    	
+            //var dest = "1_small.jpg";
+            //$("ImageCropperCreat").onload = function(){ this.style.display = ""; }
+            //$("ImageCropperCreat").src = "ImageCropper.ashx?source=" + p + "&dest=" + dest + "&x=" + x + "&y=" + y + "&w=" + w + "&h=" + h + "&pw=" + pw + "&ph=" + ph + "&" + Math.random();
+        }
+                
+        var selects = document.getElementsByTagName('select');
+        for(index = 0; index < selects.length; index++){
+            selects[index].style.display = ($("ImageCropperBackground").style.display == '') ? 'none':'';
+        }
+    }
+}
+</script>
     </form>
 </body>
 </html>

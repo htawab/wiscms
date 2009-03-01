@@ -13,162 +13,184 @@ namespace Wis.Website.Web.Backend.dialog
 {
     public partial class Cutimg_view : System.Web.UI.Page
     {
+        private int _TopX = 100;
+        /// <summary>
+        /// X。
+        /// </summary>
+        protected int TopX
+        {
+            get { return _TopX; }
+            set { _TopX = value; }
+        }
+
+        private int _TopY = 100;
+        /// <summary>
+        /// Y。
+        /// </summary>
+        protected int TopY
+        {
+            get { return _TopY; }
+            set { _TopY = value; }
+        }
+
+        private int _ThumbnailWidth = 100;
+        /// <summary>
+        /// 缩略图宽度。
+        /// </summary>
+        protected int ThumbnailWidth
+        {
+            get { return _ThumbnailWidth; }
+            set { _ThumbnailWidth = value; }
+        }
+
+        private int _ThumbnailHeight = 100;
+        /// <summary>
+        /// 缩略图高度。
+        /// </summary>
+        protected int ThumbnailHeight
+        {
+            get { return _ThumbnailHeight; }
+            set { _ThumbnailHeight = value; }
+        }
+
+        private int _ImageWidth = 500;
+        /// <summary>
+        /// 原图宽度。
+        /// </summary>
+        protected int ImageWidth
+        {
+            get { return _ImageWidth; }
+            set { _ImageWidth = value; }
+        }
+
+        private int _ImageHeight = 500;
+        /// <summary>
+        /// 原图高度。
+        /// </summary>
+        protected int ImageHeight
+        {
+            get { return _ImageHeight; }
+            set { _ImageHeight = value; }
+        }
+
+        private string _ImagePath = "/Uploads/Photos/2009-02-21/1708138d.jpg";
+        /// <summary>
+        /// 图片路径。
+        /// </summary>
+        protected string ImagePath
+        {
+            get { return _ImagePath; }
+            set { _ImagePath = value; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Drawing.Image originalImage = System.Drawing.Image.FromFile(Server.MapPath(this.ImagePath));
+            this.ImageWidth = originalImage.Width;
+            this.ImageHeight = originalImage.Height;
+            originalImage.Dispose();
+
             if (!Page.IsPostBack)
             {
-                string imagePath = Request["ImagePath"];
-                try
-                {
-                    System.Drawing.Image originalImage = System.Drawing.Image.FromFile(Server.MapPath(imagePath));
-                    int imgWidth = originalImage.Width;
-                    int imgHeight = originalImage.Height;
-                    originalImage.Dispose();
-                    string ToWidth = Request["ToWidth"]; ;//从数据库中读取需要切图的大小
-                    string ToHeight = Request["ToHeight"]; ;
-                    string printhtml = "";
-                    printhtml += "<html xmlns:v>\r\n";
-                    printhtml += "<body>\r\n";
-                    printhtml += "<style>\r\n";
-                    //printhtml += "#tbHole td{background:black;-moz-opacity:.5}\r\n";
-                    printhtml += "#tbHole img{width:1;height:1;}\r\n";
-                    printhtml += "v\\:*{Behavior:url(#default#VML)}\r\n";
-                    printhtml += "</style>\r\n";
-                    printhtml += "<div id=\"bxHole\" onselectstart=\"return(false)\" ondragstart=\"return(false)\" onmousedown=\"return(false)\" oncontextmenu=\"return(false)\" style=\"position:absolute;left:0;top:0;width:" + Convert.ToString(imgWidth + 4) + ";height:" + Convert.ToString(imgHeight + 4) + ";border:1px solid #808080;background:url('" + imagePath + "')\">\r\n";
-                    printhtml += "    <table id=\"tbHole\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" height=\"100%\" style=\"position:absolute\">\r\n";
-                    printhtml += "        <tr height=\"" + Convert.ToString((imgHeight - Convert.ToInt32(ToHeight)) / 2) + "\"><!--高度为0时居中，否则top为其值-->\r\n";
-                    printhtml += "            <td width=\"" + Convert.ToString((imgWidth - Convert.ToInt32(ToWidth)) / 2) + "\"><img></td><!--宽度为0时居中，否则left为其值-->\r\n";
-                    printhtml += "            <td width=\"" + ToWidth + "\"><img></td>\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "        </tr>\r\n";
-                    printhtml += "        <tr height=\"" + ToHeight + "\">\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "            <td onmousedown=\"$('bxHole').dragStart(event,0)\" style=\"background:transparent;filter:;-moz-opacity:1;cursor:move;border:1px solid white !important\"><img></td>\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "        </tr>\r\n";
-                    printhtml += "        <tr>\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "            <td><img></td>\r\n";
-                    printhtml += "        </tr>\r\n";
-                    printhtml += "    </table>\r\n";
-                    printhtml += "    <img id=\"bxHoleMove1\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,1) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove2\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,2) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove3\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,3) style=\"cursor:nw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\">\r\n";
-                    printhtml += "    <img id=\"bxHoleMove4\" src=\"../images/41_ie7ub8xprga8.gif\" onmousedown=$('bxHole').dragStart(event,4) style=\"cursor:sw-resize;position:absolute;width:5;height:5;border:1px solid white;background:#BCBCBC\"> </div>\r\n";
-                    //printhtml += "<div id=\"bxImgHoleShow\" style=\"position:absolute;left:" + Convert.ToString(imgWidth + 20) + ";top:20;width:" + ToWidth + ";height:" + ToHeight + ";border:1px solid #808080;overflow:hidden\"></div>\r\n";
-                    printhtml += "<div id=\"resultTxtShow\"></div>\r\n";
-                    //printhtml += "</body>\r\n";
-                    //printhtml += "</html>\r\n";
-                    printhtml += "<script>\r\n";
-                    printhtml += "function $(obj){\r\n";
-                    printhtml += "    return typeof(obj)==\"object\"?\"obj\":document.getElementById(obj);\r\n";
-                    printhtml += "}\r\n";
-                    printhtml += "bxHole_ini();\r\n";
-                    printhtml += "function bxHole_ini(){\r\n";
-                    printhtml += "    var bx=$(\"bxHole\"),tb=$(\"tbHole\")\r\n";
-                    //printhtml += "    $(\"bxImgHoleShow\").innerHTML=\"<\"+(document.all?\"v:image\":\"img\")+\" id='imgHoleShow' src='" + TempPhoto + "' style='position:absolute;left:0;top:0;width:" + Convert.ToString(imgWidth) + ";height:" + Convert.ToString(imgHeight) + "' />\";\r\n";
-                    printhtml += "    bx.w0=tb.rows[0].cells[1].offsetWidth;\r\n";
-                    printhtml += "    bx.h0=tb.rows[1].offsetHeight;\r\n";
-                    //printhtml += "    bx.w_img=$(\"imgHoleShow\").offsetWidth;\r\n";
-                    //printhtml += "    bx.h_img=$(\"imgHoleShow\").offsetHeight;\r\n";
-                    printhtml += "    bx.w_img=" + ToWidth + ";\r\n";
-                    printhtml += "    bx.h_img=" + ToHeight + ";\r\n";
-                    printhtml += "    bx.dragStart=function(e,dragType){\r\n";
-                    printhtml += "        bx.dragType=dragType;\r\n";
-                    printhtml += "        bx.px=tb.rows[0].cells[0].offsetWidth;\r\n";
-                    printhtml += "        bx.py=tb.rows[0].offsetHeight;\r\n";
-                    printhtml += "        bx.pw=tb.rows[0].cells[1].offsetWidth;\r\n";
-                    printhtml += "        bx.ph=tb.rows[1].offsetHeight;\r\n";
-                    printhtml += "        bx.sx=e.screenX;\r\n";
-                    printhtml += "        bx.sy=e.screenY;\r\n";
-                    printhtml += "    }\r\n";
-                    printhtml += "    bx.onmouseup=function(){\r\n";
-                    printhtml += "        if(bx.dragType==null)\r\n";
-                    printhtml += "            return;\r\n";
-                    printhtml += "        var w=tb.rows[0].cells[1].offsetWidth;\r\n";
-                    printhtml += "        var h=tb.rows[1].offsetHeight;\r\n";
-                    printhtml += "        bx.dragType=null;\r\n";
-                    printhtml += "        if(w/h>bx.w0/bx.h0)\r\n";
-                    printhtml += "            tb.rows[0].cells[1].style.width=h*bx.w0/bx.h0;\r\n";
-                    printhtml += "        else\r\n";
-                    printhtml += "            tb.rows[1].style.height=w*bx.h0/bx.w0;\r\n";
-                    printhtml += "        bx.setTip();\r\n";
-                    printhtml += "    }\r\n";
-                    printhtml += "    bx.onmousemove=function(e){\r\n";
-                    printhtml += "        var x,y,w,h;\r\n";
-                    printhtml += "        if(bx.dragType==null)\r\n";
-                    printhtml += "            return;\r\n";
-                    printhtml += "        if(e==null)\r\n";
-                    printhtml += "            e=event;\r\n";
-                    printhtml += "        x=Math.max(bx.px+e.screenX-bx.sx,1);\r\n";
-                    printhtml += "        y=Math.max(bx.py+e.screenY-bx.sy,1);\r\n";
-                    printhtml += "        w=Math.min(bx.pw+e.screenX-bx.sx,tb.offsetWidth-bx.px-1);\r\n";
-                    printhtml += "        h=Math.min(bx.ph+e.screenY-bx.sy,tb.offsetHeight-bx.py-1);\r\n";
-                    printhtml += "        if(bx.dragType==0){\r\n";
-                    printhtml += "            x=Math.min(x,tb.offsetWidth-bx.pw-1);\r\n";
-                    printhtml += "            y=Math.min(y,tb.offsetHeight-bx.ph-1);\r\n";
-                    printhtml += "            w=bx.pw;\r\n";
-                    printhtml += "            h=bx.ph;\r\n";
-                    printhtml += "        }\r\n";
-                    printhtml += "        if(bx.dragType==1||bx.dragType==4)\r\n";
-                    printhtml += "            w=bx.pw+bx.px-x;\r\n";
-                    printhtml += "        if(bx.dragType==1||bx.dragType==2)\r\n";
-                    printhtml += "            h=bx.ph+bx.py-y;\r\n";
-                    printhtml += "        if(bx.dragType==2||bx.dragType==3)\r\n";
-                    printhtml += "            x=bx.px;\r\n";
-                    printhtml += "        if(bx.dragType==3||bx.dragType==4)\r\n";
-                    printhtml += "            y=bx.py;\r\n";
-                    printhtml += "        w=Math.max(w,bx.w0);//最小宽，bx.w0/2表示一半\r\n";
-                    printhtml += "        h=Math.max(h,bx.h0);//最小高，bx.h0/2表示一半\r\n";
-                    printhtml += "        if(bx.dragType==1||bx.dragType==4)\r\n";
-                    printhtml += "            x=bx.pw+bx.px-w;\r\n";
-                    printhtml += "        if(bx.dragType==1||bx.dragType==2)\r\n";
-                    printhtml += "            y=bx.ph+bx.py-h;\r\n";
-                    printhtml += "        tb.rows[0].cells[0].style.width=x;\r\n";
-                    printhtml += "        tb.rows[0].cells[1].style.width=w;//改变宽\r\n";
-                    printhtml += "        tb.rows[0].style.height=y;\r\n";
-                    printhtml += "        tb.rows[1].style.height=h;//改变高\r\n";
-                    printhtml += "        $(\"bxHole\").setTip();\r\n";
-                    printhtml += "    }\r\n";
-                    printhtml += "    bx.setTip=function(){\r\n";
-                    printhtml += "        var x=tb.rows[0].cells[0].offsetWidth;\r\n";
-                    printhtml += "        var y=tb.rows[0].offsetHeight;\r\n";
-                    printhtml += "        var w=tb.rows[0].cells[1].offsetWidth;\r\n";
-                    printhtml += "        var h=tb.rows[1].offsetHeight;\r\n";
-                    //printhtml += "        var img=$(\"imgHoleShow\");\r\n";
-                    printhtml += "        var per;\r\n";
-
-                    printhtml += "        $(\"bxHoleMove1\").style.left=$(\"bxHoleMove4\").style.left=x-3;\r\n";
-                    printhtml += "        $(\"bxHoleMove1\").style.top=$(\"bxHoleMove2\").style.top=y-3;\r\n";
-                    printhtml += "        $(\"bxHoleMove2\").style.left=$(\"bxHoleMove3\").style.left=x+w-4;\r\n";
-                    printhtml += "        $(\"bxHoleMove3\").style.top=$(\"bxHoleMove4\").style.top=y+h-4;\r\n";
-
-                    printhtml += "        if(w/h>bx.w0/bx.h0)\r\n";
-                    printhtml += "            w=h*bx.w0/bx.h0;\r\n";
-                    printhtml += "        else\r\n";
-                    printhtml += "            h=w*bx.h0/bx.w0;\r\n";
-                    printhtml += "        per=bx.h0/h;\r\n";
-                    //printhtml += "        img.style.width=per*bx.w_img;\r\n";
-                    //printhtml += "        img.style.height=per*bx.h_img;\r\n";
-                    //printhtml += "        img.style.left=-x*per;\r\n";
-                    //printhtml += "        img.style.top=-y*per;\r\n";
-                    printhtml += "        parent.$(\"x\").value = Math.round((x-1));\r\n";
-                    printhtml += "        parent.$(\"y\").value = Math.round((y-1));\r\n";
-                    printhtml += "        parent.$(\"w\").value = Math.round(w);\r\n";
-                    printhtml += "        parent.$(\"h\").value = Math.round(h);\r\n";
-                    printhtml += "    }\r\n";
-                    printhtml += "    //bx.setTip();\r\n";
-                    printhtml += "}\r\n";
-                    printhtml += "</script>\r\n";
-                    Response.Write(printhtml);
-                }
-                catch
-                {
-                    Response.Write("图片文件错误！！");
-                    return;
-                }
+                this.TopX = (ImageWidth - ThumbnailWidth) / 2;
+                this.TopY = (ImageHeight - ThumbnailHeight) / 2;
             }
         }
+
+        /// <summary>
+        /// 裁剪图片。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void LinkButtonCut_Click(object sender, EventArgs e)
+        {
+            int tow, toh, x, y, w, h;
+            string file;
+            tow = this.ThumbnailWidth;
+            toh = this.ThumbnailHeight;
+            x = Convert.ToInt16(this.x.Text);
+            y = Convert.ToInt16(this.y.Text);
+
+            string imagePath = Request["ImagePath"];
+            file = Server.MapPath(imagePath);
+            MakeMyThumbPhoto(file, tow, toh, x, y, this.ThumbnailWidth, this.ThumbnailHeight); 
+        }
+
+        /// <summary>
+        /// 生成缩略图
+        /// </summary>
+        /// <param name="originalImagePath">源图路径（物理路径）</param>
+        /// <param name="thumbnailPath">缩略图路径（物理路径）</param>
+        /// <param name="width">缩略图宽度</param>
+        /// <param name="height">缩略图高度</param>
+        /// <param name="mode">生成缩略图的方式</param>    
+        protected void MakeMyThumbPhoto(string originalImagePath, int toW, int toH, int X, int Y, int W, int H)
+        {
+            System.Drawing.Image originalImage = System.Drawing.Image.FromFile(originalImagePath);
+            int towidth = toW;
+            int toheight = toH;
+            int x = X;
+            int y = Y;
+            int ow = W;
+            int oh = H;
+
+            // 新建一个bmp图片
+            System.Drawing.Image bitmap = new System.Drawing.Bitmap(towidth, toheight);
+
+            // 新建一个画板
+            System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap);
+
+            // 设置高质量插值法
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+
+            // 设置高质量,低速度呈现平滑程度
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+            // 清空画布并以透明背景色填充
+            g.Clear(System.Drawing.Color.Transparent);
+
+            // 在指定位置并且按指定大小绘制原图片的指定部分
+            g.DrawImage(originalImage, new System.Drawing.Rectangle(0, 0, towidth, toheight),
+                new System.Drawing.Rectangle(x, y, ow, oh),
+                System.Drawing.GraphicsUnit.Pixel);
+            try
+            {
+                Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
+                Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
+                file.CreatedBy = string.Empty; // TODO:填写当前登录用户的UserName
+                file.CreationDate = System.DateTime.Now;
+                file.Description = string.Empty; // TODO：如何提供描述？
+                file.FileGuid = Guid.NewGuid();
+                file.Hits = 0;
+                file.OriginalFileName = "";
+                file.Rank = 0;
+                string fileExtension = ".jpg"; //缩略图后缀名
+
+                string sUserUploadPath = "/Uploads/Photos";
+                string DirectoryPath = sUserUploadPath + "/" + DateTime.Now.ToShortDateString();
+                if (!System.IO.Directory.Exists(Server.MapPath(DirectoryPath)))
+                {
+                    System.IO.Directory.CreateDirectory(Server.MapPath(DirectoryPath));
+                }
+                string sFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff") + fileExtension;  // 文件名称
+                string thumbnailPath = Server.MapPath(DirectoryPath + "/" + sFileName);        // 服务器端文件路径
+
+                //以jpg格式保存缩略图
+                bitmap.Save(thumbnailPath, System.Drawing.Imaging.ImageFormat.Jpeg);
+                ViewState["javescript"] = "ReturnValue('" + DirectoryPath + "/" + sFileName + "');";
+                return;
+            }
+            catch (System.Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                originalImage.Dispose();
+                bitmap.Dispose();
+                g.Dispose();
+            }
+        }
+
     }
 }

@@ -104,6 +104,51 @@ namespace Wis.Website.Web.Backend.Article {
         protected global::System.Web.UI.HtmlControls.HtmlInputText SubTitle;
         
         /// <summary>
+        /// PointX 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField PointX;
+        
+        /// <summary>
+        /// PointY 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField PointY;
+        
+        /// <summary>
+        /// CropperWidth 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CropperWidth;
+        
+        /// <summary>
+        /// CropperHeight 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField CropperHeight;
+        
+        /// <summary>
+        /// DJUploadController1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wis.Toolkit.WebControls.FileUploads.DJUploadController DJUploadController1;
+        
+        /// <summary>
         /// TabloidPathVideo 控件。
         /// </summary>
         /// <remarks>

@@ -46,9 +46,9 @@ namespace Wis.Website.DataManager
 			set { _SaveAsFileName = value; }
 		}
 
-		private int _Size;
+        private long _Size;
 
-		public int Size
+		public long Size
 		{
 			get { return _Size; }
 			set { _Size = value; }

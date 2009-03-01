@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
 using Wis.Toolkit;
 using Wis.Website.DataManager;
+using Wis.Toolkit.WebControls.FileUploads;
 
 namespace Wis.Website.Web.Backend.Article
 { 
@@ -32,10 +33,97 @@ namespace Wis.Website.Web.Backend.Article
             }
         }
 
+        private Guid articleGuid = Guid.NewGuid();
+        /// <summary>
+        /// 文章编号。
+        /// </summary>
+        public Guid ArticleGuid
+        {
+            get { return articleGuid; }
+        }
+
+        private string OutputPath
+        {
+            get
+            {
+                string outputPath = string.Format("~/Uploads/Thumbnail/{0}/", System.DateTime.Now.ToShortDateString());
+                string physicalOutputPath = Server.MapPath(outputPath);
+                if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
+                return outputPath;
+            }
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            if (Page.IsPostBack && DJUploadController1.Status != null)
+            {
+                string applicationPath = string.Format("{0}/{1}",
+                    Page.Request.Url.AbsoluteUri.Substring(0, Page.Request.Url.AbsoluteUri.IndexOf(Page.Request.Path)).TrimEnd('/'),
+                    this.Page.Request.ApplicationPath.TrimStart('/')).TrimEnd('/');
+
+                foreach (UploadedFile f in DJUploadController1.Status.UploadedFiles)
+                {
+                    // f.FileName "E:\\Tools\\visualxpath.zip"
+                    string fileName = f.FileName;
+                    int charIndex = fileName.LastIndexOf("\\");
+                    if (charIndex > -1 && charIndex < fileName.Length)
+                    {
+                        // 切割图片
+                        string requestPointX = Request["PointX"];
+                        string requestPointY = Request["PointY"];//Image
+                        if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
+                        {
+                            // 上传的文件
+                            fileName = fileName.Substring(charIndex + 1);
+                            
+                            // TODO:文件格式判断
+
+                            string srcFilename = string.Format("{1}{2}", this.OutputPath.TrimStart('~'), fileName);
+                            string destFilename = "";
+
+                            // PointX 和 PointY都不为空，则进行图片裁剪
+                            int pointX;
+                            int pointY;
+                            if (int.TryParse(requestPointX, out pointX) == false || int.TryParse(requestPointY, out pointY) == false)
+                            {
+                                MessageBox("错误提示", "缩略图的PointX和PointY不为整数");
+                                return;
+                            }
+
+                            // 裁剪图片
+                            int cropperWidth = category.ImageWidth.Value;
+                            int cropperHeight = category.ImageHeight.Value;
+                            Wis.Toolkit.Drawings.ImageCropper.Crop(srcFilename, destFilename, pointX, pointY, cropperWidth, cropperHeight);
+
+                            Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
+                            Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
+                            file.CreatedBy = string.Empty; // TODO:填写当前登录用户的UserName
+                            file.CreationDate = System.DateTime.Now;
+                            file.Description = string.Empty; // TODO：如何提供描述？
+                            file.FileGuid = Guid.NewGuid();
+                            file.Hits = 0;
+                            file.OriginalFileName = fileName;
+                            file.Rank = 0;
+                            file.SaveAsFileName = string.Format("{1}{2}", this.OutputPath.TrimStart('~'), fileName);
+                            System.IO.FileInfo saveAsFileInfo = new FileInfo(Server.MapPath(file.SaveAsFileName));
+                            file.Size = saveAsFileInfo.Length;
+                            file.SubmissionGuid = this.ArticleGuid;
+                            fileManager.AddNew(file);
+                        }
+                    }
+                }
+            }
+        }
+
         private Wis.Website.DataManager.Category category = null;
         private Wis.Website.DataManager.CategoryManager categoryManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            FileSystemProcessor fs = new FileSystemProcessor();
+            fs.OutputPath = Server.MapPath(this.OutputPath);
+            DJUploadController1.DefaultFileProcessor = fs;
+
             string requestCategoryGuid = Request.QueryString["CategoryGuid"];
             if(categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
             DropdownMenuCategory.MenuItems = categoryManager.GetCategoryMenuItems();
@@ -92,8 +180,14 @@ namespace Wis.Website.Web.Backend.Article
             // 内容类型 ArticleType
             // TODO:支持图片、视频和软件
             if (ArticleType0.Checked) article.ArticleType = Wis.Website.DataManager.ArticleType.Normal;
-            if (ArticleType1.Checked)
+            if (ArticleType1.Checked) // 图片新闻
             {
+                string requestPhoto = Request["Photo"];
+                if (string.IsNullOrEmpty(requestPhoto))
+                {
+                    MessageBox("错误提示", "未读取到缩略图信息");
+                    return;
+                }
                 //article.ImagePath = this.ImagePath.Value;
                 article.ArticleType = Wis.Website.DataManager.ArticleType.Image;
             }
@@ -147,7 +241,7 @@ namespace Wis.Website.Web.Backend.Article
 
             // TODO:验表单中各录入项的值的长度判断，如果内容过长，数据库会截断或抛异常
             // 可以参考：http://www.china-aspx.com/ShowArticle.aspx?ArticleID=181
-            article.ArticleGuid = Guid.NewGuid();
+            article.ArticleGuid = this.ArticleGuid;
             article.Author = Author.Value.Replace("'", "\"");
             article.Category = category;
             article.Comments = 0;
