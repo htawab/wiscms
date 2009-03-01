@@ -28,12 +28,10 @@ namespace Wis.Toolkit.WebControls.FileUploads
 
         int _initialFileUploads;
         int _maxFileUploads;
-        bool _showUploadButton = true;
-        bool _showAddButton = true;
         bool _requiredField;
         bool _applyStyles = false;
         string _requiredMessage = "至少选择一个文件";
-        string _invalidExtensionMessage = "文件类型只允许：";// + AllowedFileExtensions;
+        string _invalidExtensionMessage = "文件类型不允许：";// + _AllowedFileExtensions;
         string _AllowedFileExtensions = string.Empty;
         IFileProcessor _processor;
 
@@ -137,6 +135,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             set { _maxFileUploads = value; }
         }
 
+        bool _showUploadButton = false;
         /// <summary>
         /// Gets or sets a value indicating whether the upload button should be shown.
         /// </summary>
@@ -147,6 +146,30 @@ namespace Wis.Toolkit.WebControls.FileUploads
             set { _showUploadButton = value; }
         }
 
+        bool showContainer = false;
+        /// <summary>
+        /// 是否显示容器边框。
+        /// </summary>
+        /// <value><c>true</c> if the upload button should be shown; otherwise, <c>false</c>.</value>
+        public bool ShowContainer
+        {
+            get { return showContainer; }
+            set { showContainer = value; }
+        }
+
+        bool showRemoveButton = false;
+        /// <summary>
+        /// 是否显示移除按钮。
+        /// </summary>
+        /// <value><c>true</c> if the upload button should be shown; otherwise, <c>false</c>.</value>
+        public bool ShowRemoveButton
+        {
+            get { return showRemoveButton; }
+            set { showRemoveButton = value; }
+        }
+
+        
+        bool _showAddButton = false;
         /// <summary>
         /// Gets or sets a value indicating whether the add button should be shown.
         /// </summary>
@@ -215,9 +238,9 @@ namespace Wis.Toolkit.WebControls.FileUploads
 
             // Create the container
             Panel outerContainer = new Panel();
-            outerContainer.CssClass = "upUploadBox";
+            if(this.ShowContainer) outerContainer.CssClass = "upUploadBox";
             Controls.Add(outerContainer);
-
+            
             // Create the file uploads
             for (int i = 0; i < MaxFileUploads; i++)
             {
@@ -247,6 +270,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
                     btnRemove.ImageUrl = _controller.ImagePath + "removebutton.gif";
                     btnRemove.OnClientClick = "up_RemoveUpload(this); return false;";
                     btnRemove.CssClass = "upRemoveButton upShowDynamic";
+                    btnRemove.Visible = ShowRemoveButton;
                 }
                 else
                 {
@@ -255,6 +279,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
                     btnRemove.OnClientClick = "up_RemoveUpload(this); return false;";
                     btnRemove.Text = "移除";
                     btnRemove.CssClass = "upButtonNormal upShowDynamic";
+                    btnRemove.Visible = ShowRemoveButton;
                 }
 
                 if (i >= InitialFileUploads)
@@ -271,7 +296,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             {
                 ImageButton btnGo = new ImageButton();
                 buttonContainer.Controls.Add(btnGo);
-                btnGo.AlternateText = "Upload now";
+                btnGo.AlternateText = "上传";
                 btnGo.ImageUrl = _controller.ImagePath + "uploadbutton.gif";
                 btnGo.Visible = ShowUploadButton;
                 btnGo.CausesValidation = true;
@@ -325,7 +350,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             CustomValidator valExtensions = new CustomValidator();
             valExtensions.ClientValidationFunction = "up_ValidateUploadExtensions";
             valExtensions.ErrorMessage = InvalidExtensionMessage;
-            valExtensions.EnableClientScript = valExtensions.EnableClientScript = (AllowedFileExtensions != null);
+            valExtensions.EnableClientScript = valExtensions.EnableClientScript = !string.IsNullOrEmpty(AllowedFileExtensions);
             valExtensions.Display = ValidatorDisplay.Dynamic;
             Controls.Add(valExtensions);
 

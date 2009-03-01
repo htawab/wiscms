@@ -15,7 +15,10 @@ body {background:#d6e7f7;}
 
 <body>
     <form id="form1" runat="server">
-		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" /><asp:FileUpload ID="ThumbnailImage" runat="server"  /> <asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/upLoadImg.gif" />
+		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/"  />
+		<asp:FileUpload ID="ThumbnailImage" runat="server" /> 
+		<br />测试：<input id='Photo' type='file' name='Photo' value='' />
+		<asp:ImageButton ID="ImageButtonSubmit" runat="server" ImageUrl="../images/upLoadImg.gif" />
     </form>
 </body>
 </html>

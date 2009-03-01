@@ -68,13 +68,22 @@ namespace Wis.Website.Web {
         protected global::Wis.Toolkit.WebControls.FileUploads.DJUploadController DJUploadController1;
         
         /// <summary>
-        /// fuTest 控件。
+        /// DJFileUpload1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuTest;
+        protected global::Wis.Toolkit.WebControls.FileUploads.DJFileUpload DJFileUpload1;
+        
+        /// <summary>
+        /// DJAccessibleProgrssBar1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wis.Toolkit.WebControls.FileUploads.DJAccessibleProgressBar DJAccessibleProgrssBar1;
         
         /// <summary>
         /// btnSubmit 控件。

@@ -26,7 +26,7 @@ namespace Wis.Website.DataManager
 				file.SubmissionGuid = (Guid) dataReader["SubmissionGuid"];
 				file.OriginalFileName = Convert.ToString(dataReader["OriginalFileName"]);
 				file.SaveAsFileName = Convert.ToString(dataReader["SaveAsFileName"]);
-				file.Size = Convert.ToInt32(dataReader["Size"]);
+                file.Size = Convert.ToInt64(dataReader["Size"]);
 				file.Rank = Convert.ToInt32(dataReader["Rank"]);
 
 				if(dataReader["CreatedBy"] != DBNull.Value)
@@ -58,7 +58,7 @@ namespace Wis.Website.DataManager
                 file.SubmissionGuid = (Guid)dataReader["SubmissionGuid"];
                 file.OriginalFileName = Convert.ToString(dataReader["OriginalFileName"]);
                 file.SaveAsFileName = Convert.ToString(dataReader["SaveAsFileName"]);
-                file.Size = Convert.ToInt32(dataReader["Size"]);
+                file.Size = Convert.ToInt64(dataReader["Size"]);
                 file.Rank = Convert.ToInt32(dataReader["Rank"]);
 
                 if (dataReader["CreatedBy"] != DBNull.Value)
@@ -87,7 +87,7 @@ namespace Wis.Website.DataManager
 				oFile.SubmissionGuid = (Guid) oDbDataReader["SubmissionGuid"];
 				oFile.OriginalFileName = Convert.ToString(oDbDataReader["OriginalFileName"]);
 				oFile.SaveAsFileName = Convert.ToString(oDbDataReader["SaveAsFileName"]);
-				oFile.Size = Convert.ToInt32(oDbDataReader["Size"]);
+                oFile.Size = Convert.ToInt64(oDbDataReader["Size"]);
 				oFile.Rank = Convert.ToInt32(oDbDataReader["Rank"]);
 
 				if(oDbDataReader["CreatedBy"] != DBNull.Value)
@@ -115,7 +115,7 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@SubmissionGuid", DbType.Guid, file.SubmissionGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OriginalFileName", DbType.String, file.OriginalFileName));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@SaveAsFileName", DbType.String, file.SaveAsFileName));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int32, file.Size));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int64, file.Size));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, file.Rank));
             if (!string.IsNullOrEmpty(file.CreatedBy))
                 command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, file.CreatedBy));
@@ -139,7 +139,7 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@SubmissionGuid", DbType.Guid, file.SubmissionGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OriginalFileName", DbType.String, file.OriginalFileName));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@SaveAsFileName", DbType.String, file.SaveAsFileName));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int32, file.Size));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int64, file.Size));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, file.Rank));
             if (!string.IsNullOrEmpty(file.CreatedBy))
                 command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, file.CreatedBy));

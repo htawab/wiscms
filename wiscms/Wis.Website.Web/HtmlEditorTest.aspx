@@ -96,8 +96,10 @@
 		
 		<br />
 		<FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/" />
-		<asp:FileUpload ID="fuTest" runat="server"  />
-		<asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="upButtonNormal" ajaxcall="none" />
+		<FileUploads:DJFileUpload ID="DJFileUpload1" runat="server" AllowedFileExtensions=".png,.jpg,.gif" />
+		<FileUploads:DJAccessibleProgressBar ID="DJAccessibleProgrssBar1" runat="server" />
+		<asp:Button runat="server" ID="btnSubmit" Text="Submit" CssClass="upButtonNormal" ajaxcall="none" Visible="false" />
+    <%=DJFileUpload1.ClientID%>
     </form>
     
     <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <SPAN lang="EN-US" 
