@@ -81,6 +81,13 @@
     <Compile Include="Backend\Article\ArticleMenu.aspx.designer.cs">
       <DependentUpon>ArticleMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\Article\ArticleSelectCategory.aspx.cs">
+      <DependentUpon>ArticleSelectCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Article\ArticleSelectCategory.aspx.designer.cs">
+      <DependentUpon>ArticleSelectCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\Article\ArticleUpdate.aspx.cs">
       <DependentUpon>ArticleUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -570,6 +577,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
+    <Content Include="Backend\Article\ArticleSelectCategory.aspx" />
     <Content Include="Backend\Article\ThumbnailUpload.aspx" />
     <Content Include="Backend\Article\wis.js" />
     <Content Include="Backend\Article\FileList.htm" />
