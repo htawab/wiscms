@@ -337,3 +337,37 @@ a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; backgr
 
 .annexDown a {background:url(../images/annexDown.gif) no-repeat 4px center; display: inline-block; padding:3px 0 3px 24px; color:red; margin-right:13px; text-decoration:none;}
 .annexDown a:hover {text-decoration:underline;}
+
+
+/* 专题 */
+.ztcenter {width:987px; background:#fff; margin:0 auto; margin-bottom:3px; font-family:"宋体";}
+.ztcenter a {color:#912d2d;}
+.ztcenter a:hover {text-decoration:underline; color:#f50628;}
+
+.zhuantiPic {width:987px; height:180px; background:#f00;}
+.ztLeft {float:left; width:270px; text-align:center; margin-top:20px; border-right:solid 1px #ccc; background:#fff;}
+.ztLeft h3 {padding:6px; margin-bottom:12px; line-height:22px; font-size:13px; font-weight:normal;}
+.ztLeft img {width:240px; height:180px;}
+.ztRight {float:left; width:510px; margin-top:20px; background:#fff; border-right:solid 1px #ccc; }
+.ztRight div {border:dashed 1px #ccc; margin:0 12px; margin-bottom:6px; background:#f8f8f8;}
+.ztRight h2 {font-size:16px; line-height:26px; margin:0 6px;}
+.ztRight h2 a {color:#da2222;}
+.ztRight p {text-indent:2em; font-size:13px; line-height:150%; margin:0 6px;}
+.ztRight ul li {font-size:14px; background:url(../images/listIco_ZT.gif) left center no-repeat; line-height:22px; padding-left:8px; margin-left:12px; color:#666;}
+.ztRight ul li a {margin-right:4px;}
+
+.ztRight_right {float:left; text-align:center; width:205px; margin-top:20px; background:#fff;}
+.ztTitle {text-align:left; height:22px; background:url(../images/boxTop.gif) top repeat-x; border:solid 1px #eee; line-height:22px; margin-bottom:6px; text-indent:6px;}
+.ztRight_right img { width:180px; height:160px;}
+.ztRight_right h4 {font-size:13px; font-weight:normal; line-height:22px; margin:0 6px;}
+
+.ztRight_right ul li {line-height:150%; text-align:left; margin:0 6px; padding-left:6px; background:url(../images/listIco1.gif) 1px 9px no-repeat;}
+
+
+.main .listtab_2 {height:auto; margin-bottom:3px;}
+.list_2 {border:solid 1px #ddd; margin:0 8px; margin-bottom:4px; padding-bottom:4px;}
+.list_2 div {background:#ccc url(../images/mainbg.gif) left -10px repeat-x; margin-top:1px; border-bottom:solid 1px #ddd; line-height:22px; padding:0 5px; font-size:13px; font-weight:bold; color:#666;}
+.list_2 div a {float:right; font-family:"宋体"; color:#f00; font-weight:normal;}
+.list_2 div a:hover {text-decoration:underline;}
+.main .list_2 ul.list li {margin:0 12px 0 10px;}
+.main .right_2 {width:322px; float:right; background:#fff url(../images/rightBG.gif) 0 -848px repeat-x; _background:#fff url(../images/rightBG.gif) 0 -845px repeat-x;}
