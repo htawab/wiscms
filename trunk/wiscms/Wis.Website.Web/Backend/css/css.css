@@ -217,7 +217,7 @@ label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; tex
 label.articleLabel label {padding-left:5px; margin-top:20px;}
 label.articleLabel label span {font-family:"Arial"; line-height:22px;}
 #divTitle {clear:both;}
-#divShortcut {text-indent:68px;}
+
 
 div.right div.slt {clear:none; float:left;}
 div.right div.slt div {width:480px;}
@@ -438,19 +438,31 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_step ul li.current_step {background:url(../images/step1.gif) center top no-repeat; color:#fff;}
 
 
-.add_main {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px;}
+.add_main {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
+.add_main div {padding:2px 0;}
 
 .add_button {text-align:center; width:800px; margin-top:4px;}
 .add_button a img {border:0;}
-
+.add_step3 div {padding:3px 0;}
+.add_step4 {padding-left:8px; width:792px; padding-top:12px;}
 
 .add_main div label {width:86px; padding-top:4px; text-align:right; float:left;}
+.add_main div.step1 {padding:8px 22px;}
+.add_main div.step1 select {float:left; width:160px; height:220px; text-align:right;}
+.add_main div.step1 option {float:right; text-align:right;}
+.add_main div.step1 span {float:left; text-align:center; font-family:"宋体"; height:220px; line-height:200px; width:30px;}
 
 .add_main div.addInfoLink {padding:6px 0 6px 88px;}
 .add_main div.addInfoLink a {margin-right:8px; text-decoration:underline;}
 
 
-.add_main ul {float:left; border:solid 1px #ccc; border-bottom:0; margin-left:8px; width:560px;}
-.add_main ul li {float:left; margin-right:6px; width:126px;}
+.add_main ul {float:left; border:solid 1px #ccc; border-top:0; border-left:0; width:680px; background:#f5f5fe;}
+.add_main ul.top {border-top:solid 1px #ccc; margin-top:4px;}
+.add_main ul li {float:left; text-indent:6px; line-height:22px; border-left:solid 1px #ccc; margin-right:6px;}
+.add_main ul li.step4_li1 {width:220px; overflow:hidden;}
+.add_main ul li.step4_li2 {width:220px; overflow:hidden;}
+.add_main ul li.step4_li3 {width:210px; overflow:hidden;}
+
+.warning {width:750px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 
 
