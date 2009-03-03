@@ -444,6 +444,13 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_button {text-align:center; width:800px; margin-top:4px;}
 .add_button a img {border:0;}
 .add_step3 div {padding:3px 0;}
+
+.checked, .unCheck {height:22px; padding:0 4px 0 0; display:inline-block; cursor:pointer;}
+.checked {background:#e7f5ff url(../images/checked.gif) 1px center no-repeat; border:solid 1px #a2b4c8; color:#009900;}
+.unCheck {background:#cee1f4 url(../images/unchecked.gif) 1px center no-repeat;; border:solid 1px #b9c7d6; color:#222;}
+
+.checked input, .unCheck input {visibility:hidden;}
+
 .add_step4 {padding-left:8px; width:792px; padding-top:12px;}
 
 .add_main div label {width:86px; padding-top:4px; text-align:right; float:left;}
