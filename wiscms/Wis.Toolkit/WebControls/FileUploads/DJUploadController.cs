@@ -169,12 +169,24 @@ namespace Wis.Toolkit.WebControls.FileUploads
         /// <param name="name">The name of the file to link.</param>
         void AddStyleLink(string name)
         {
-            HtmlLink link = new HtmlLink();
-            link.Attributes.Add("type", "text/css");
-            link.Attributes.Add("rel", "stylesheet");
-            link.Attributes.Add("href", CSSPath + name);
-            Page.Header.Controls.Add(link);
+            //HtmlLink link = new HtmlLink();
+            //link.Attributes.Add("type", "text/css");
+            //link.Attributes.Add("rel", "stylesheet");
+            //link.Attributes.Add("href", CSSPath + name);
+            //Page.Header.Controls.Add(link);
+            RegisterClientStyleBlock(name, CSSPath + name);
         }
+
+        private void RegisterClientStyleBlock(string key, string path)
+        {
+            string styleBlock;
+            styleBlock = string.Format("<link href='{0}' rel='stylesheet' type='text/css' />", path);
+            if (!Page.ClientScript.IsClientScriptBlockRegistered(key))
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), key, styleBlock);
+            }
+        }
+
 
         /// <summary>
         /// Raises the <see cref="E:System.Web.UI.Control.Load"/> event.

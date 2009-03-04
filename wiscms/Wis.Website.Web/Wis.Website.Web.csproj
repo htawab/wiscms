@@ -60,12 +60,47 @@
     <Content Include="Templates\Meeting\MeetingList.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backend\Article\ArticleAdd.aspx.cs">
-      <DependentUpon>ArticleAdd.aspx</DependentUpon>
+    <Compile Include="Backend\ArticleAddPhoto.aspx.cs">
+      <DependentUpon>ArticleAddPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backend\Article\ArticleAdd.aspx.designer.cs">
-      <DependentUpon>ArticleAdd.aspx</DependentUpon>
+    <Compile Include="Backend\ArticleAddPhoto.aspx.designer.cs">
+      <DependentUpon>ArticleAddPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\ArticleAddSoft.aspx.cs">
+      <DependentUpon>ArticleAddSoft.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleAddSoft.aspx.designer.cs">
+      <DependentUpon>ArticleAddSoft.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\ArticleAddNew.aspx.cs">
+      <DependentUpon>ArticleAddNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleAddNew.aspx.designer.cs">
+      <DependentUpon>ArticleAddNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\ArticleRelease.aspx.cs">
+      <DependentUpon>ArticleRelease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleRelease.aspx.designer.cs">
+      <DependentUpon>ArticleRelease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\ArticleUpdate.aspx.cs">
+      <DependentUpon>ArticleUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleUpdate.aspx.designer.cs">
+      <DependentUpon>ArticleUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\Article\ArticleAddNew1.aspx.cs">
+      <DependentUpon>ArticleAddNew1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\Article\ArticleAddNew1.aspx.designer.cs">
+      <DependentUpon>ArticleAddNew1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\Article\ArticleList.aspx.cs">
       <DependentUpon>ArticleList.aspx</DependentUpon>
@@ -81,11 +116,11 @@
     <Compile Include="Backend\Article\ArticleMenu.aspx.designer.cs">
       <DependentUpon>ArticleMenu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Backend\Article\ArticleSelectCategory.aspx.cs">
+    <Compile Include="Backend\ArticleSelectCategory.aspx.cs">
       <DependentUpon>ArticleSelectCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backend\Article\ArticleSelectCategory.aspx.designer.cs">
+    <Compile Include="Backend\ArticleSelectCategory.aspx.designer.cs">
       <DependentUpon>ArticleSelectCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\Article\ArticleUpdate.aspx.cs">
@@ -332,7 +367,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Backend\Article\ArticleAdd.aspx" />
+    <Content Include="Backend\Article\ArticleAddNew1.aspx" />
     <Content Include="Backend\Article\ArticleList.aspx" />
     <Content Include="Backend\Article\ArticleMenu.aspx" />
     <Content Include="Backend\Article\ArticleUpdate.aspx" />
@@ -577,7 +612,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
-    <Content Include="Backend\Article\ArticleSelectCategory.aspx" />
+    <Content Include="Backend\ArticleAddPhoto.aspx" />
+    <Content Include="Backend\ArticleAddSoft.aspx" />
+    <Content Include="Backend\ArticleAddNew.aspx" />
+    <Content Include="Backend\ArticleRelease.aspx" />
+    <Content Include="Backend\ArticleSelectCategory.aspx" />
+    <Content Include="Backend\ArticleUpdate.aspx" />
     <Content Include="Backend\Article\ThumbnailUpload.aspx" />
     <Content Include="Backend\Article\wis.js" />
     <Content Include="Backend\Article\FileList.htm" />

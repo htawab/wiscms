@@ -9,9 +9,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace Wis.Website.Web.Backend.Article
+namespace Wis.Website.Web.Backend
 {
-    public partial class ArticleSelectCategory : System.Web.UI.Page
+    public partial class ArticleRelease : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -158,22 +158,7 @@ namespace Wis.Website.Web.Backend.Article
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
-            // 获取分类的信息
-            if (string.IsNullOrEmpty(DropdownMenuCategory.Value) || !Wis.Toolkit.Validator.IsGuid(DropdownMenuCategory.Value))
-            {
-                MessageBox("错误提示", "请输入分类信息");
-                return;
-            }
-
-            Guid categoryGuid = new Guid(DropdownMenuCategory.Value);
-            category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
-            if (string.IsNullOrEmpty(category.CategoryName))// 没有读取到分类信息
-            {
-                MessageBox("错误提示", "未读取到分类信息");
-                return;
-            }
-
-            // TODO:判断并校验表单中各录入项的值
+            // TODO:
             Wis.Website.DataManager.Article article = new Wis.Website.DataManager.Article();
             // article.ArticleId 数据库自动生成
 
@@ -202,82 +187,22 @@ namespace Wis.Website.Web.Backend.Article
                 article.ArticleType = Wis.Website.DataManager.ArticleType.Soft;
             }
 
-            // 注入式脚本处理
-            article.Title = RequestManager.Request("Title");
-            if (string.IsNullOrEmpty(article.Title))
-            {
-                MessageBox("错误提示", "标题不能为空");
-                return;
-            }
-            if (article.Title.Length > 128)
-            {
-                MessageBox("错误提示", string.Format("标题最大长度为128个字符,当前为 {0} 个字符", article.Title.Length));
-                return;
-            }
-            if (article.Title.IndexOf("　") != -1)
-            {
-                MessageBox("错误提示", "标题不能包含全角空格符");
-                return;
-            }
-            // 判断标题是否重复
-            Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
-            int count = articleManager.CountArticlesByTitle(article.Title);
-            if (count > 0)
-            {
-                MessageBox("错误提示", "标题不能重复");
-                return;
-            }
-            // TODO:过滤非法字符和脏字词语
-            //if (ArticleManager.HasBannedWord(article.Title) || ArticleManager.HasBannedWord(article.ContentHtml))
-            //{
-            //    MessageBox("错误提示", "对不起, 您提交的内容包含不良信息, 因此无法提交, 请返回修改!");
-            //    return;
-            //}
-
-
-            // TODO:事务处理
-            //articleManager.BeginTransaction();
-
-
-            // TODO:验表单中各录入项的值的长度判断，如果内容过长，数据库会截断或抛异常
-            // 可以参考：http://www.china-aspx.com/ShowArticle.aspx?ArticleID=181
-            article.ArticleGuid = this.ArticleGuid;
-            article.Author = Author.Value.Replace("'", "\"");
-            article.Category = category;
-            article.Comments = 0;
-            article.ContentHtml = ContentHtml.Text;
-            article.DateCreated = System.DateTime.Now;
-            article.Editor = Guid.Empty; // TODO: 当前登录用户
-            article.Hits = 0;
-            // article.ImageHeight
-            // article.ImagePath
-            // article.ImageWidth
-            article.MetaDesc = MetaDesc.Value.Replace("'", "\"");
-            article.MetaKeywords = MetaKeywords.Value.Replace("'", "\"");
-            article.Original = Original.Value.Replace("'", "\"");
-            article.Rank = 0;
-            article.SpecialGuid = Guid.Empty; // TODO:
-            article.SubTitle = SubTitle.Value;
-            article.Summary = Summary.Value;
-            article.TitleColor = TitleColor.Value;
-            article.Votes = 0;
-
-            // article 入库，获取 ArticleId ，补全了 article 对象的ArticleId
-            article.ArticleId = articleManager.AddNew(article);
+            // 
             
-            // 添加标记
-            string requestTags = RequestManager.Request("Tags"); // 获取标记
-            TagManager tagManager = new TagManager();
-            tagManager.AddNew(article.ArticleGuid, requestTags);
+            // TODO:
+
+
+            
+            
+
+
+            
 
             // TODO:需要事务处理，如果生成页面失败，那新增新闻也失败
             // 生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
             releaseManager.ReleaseRelation(article);
 
-            // 添加操作日志
-            DataManager.LogManager logManager = new DataManager.LogManager();
-            logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 
             // 跳转
             Response.Redirect("ArticleAdd.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
