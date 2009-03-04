@@ -1,129 +1,63 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>tep1</title>
-    <link href="../css/css.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" language="javascript">
-    function S(id, win) {
-        try {
-            return ( win || window ).document.getElementById(id);
-        }
-        catch( e ) {
-            return null;
-        }
-    }
-    
-    function Show(a, o, t, f) {
-        a = (typeof(a) == "string" ? S(a) : a);
-        o = (typeof(o) == "string" ? S(o) : o);
-        f = (typeof(f) == "string" ? S(f) : f);
-        
-        if (o) o.style.display = ((o.style.display == "none") ? "" : "none");
-        a.innerHTML = ((o.style.display == "") ? "删除" : "添加") + t;
-        if((o.style.display == ""))f.focus();
-    }
-
-    function Switch(o, bShow) {
-        o = (typeof(o) == "string" ? S(o) : o);
-        if (o) o.style.display= (bShow ? "" : "none");
-    }
-
-    function CheckFile() {
-        var c = S( 'filecell' ).childNodes.length > 1 || ( S( 'exist_file' ) && S( 'exist_file' ).childNodes.length > 0 )
-	    var s = [ [ true, false ],[ false, true ] ][ c > 0 ? 1 : 0 ];
-	    Switch( 'sAddAtt1', s[ 0 ] );
-	    Switch( 'sAddAtt2', s[ 1 ] );
-	    Switch( 'Files', s[ 1 ] );
-    }
-
-    function DelFile( Name ) {
-        var FileCell = S('filecell');
-        var FileObj  = S( Name );
-        FileCell.removeChild( FileObj.parentNode );
-        CheckFile();
-    }
-
-    var AttachID = 1;
-    function AddFile() {
-	    document.getElementById("Uploader" + (AttachID-1)).click();
-	    CheckFile();
-    }
-
-    function AddFileCell() {
-        var FileCell = S('filecell');
-
-        var Name = "Uploader" + AttachID;
-        AttachID++;
-        
-        if(S(Name)) return;
-
-        var template = "<input class='ico_att' style='margin: 0px 3px 2px 0px' type='button' value='' />&nbsp;";
-        template += "<input class='file upload' id='" + Name + "' type='file' onchange='AfterAddFile(\"" + Name + "\")' name='" + Name + "' value='' />&nbsp;";
-        template += "<span id='S" + Name + "'></span>&nbsp;";
-        template += "<span>&nbsp;&nbsp;</span><a onclick=\"DelFile(\'" + Name + "\')\">删除</a>";
-        
-        var Div       = document.createElement("div");
-        Div.className = "attsep upload";
-        Div.id        = "D" + Name;
-        Div.innerHTML = template;
-
-        Switch( Div, true);
-        FileCell.appendChild( Div );
-    }
-
-    function AfterAddFile( id ) {
-        var filename = S( id ).value;
-        var pos      = filename.lastIndexOf("\\");
-        S( "D" + id ).className = "attsep";
-        S( "S" + id ).innerText = ( pos == -1 ? filename : filename.substr( pos + 1 ) );
-        Switch( "D" + id, true);
-        
-        AddFileCell();
-    }
-    </script>
+    <title></title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="background:#d6e7f7">
- <div>
-  <div class="position">当前位置：添加新闻</div>
-  <div class="add_step">
-   <ul>
-    <li>第一步：选择分类</li><li class="current_step">第二步：基本信息</li>
-    <li>第三步：扩展信息</li><li>第四步：发布静态页</li>
-   </ul>
-  </div>
-  
-  <div class="add_main">
-   <div><label>标题：</label><input type="text" size="74" /></div>
-   <div class="addInfoLink"  id="divShortcut">
-   <a id="aSubTitle" href="javascript:Show('aSubTitle', 'divSubTitle', '副标题', 'SubTitle');">添加副标题</a>
-    <a id="aSummary" href="####" onclick="javascript:Show('aSummary', 'divSummary', '摘要', 'Summary');">添加摘要</a>
-    <a id="aMeta" title="什么是Meta信息：meta标签是内嵌在你网页中的特殊html标签，包含着你有关于你网页的一些隐藏信息。Meat标签的作用是向搜索引擎解释你的网页是有关哪方面信息的。" href="javascript:Show('aMeta', 'divMeta', 'Meta信息', 'MetaKeywords');">添加meta信息</a>
-   </div>
-   <div id="divSubTitle" style="display:none;"><label>副标题：</label><input type="text" size="74" id="SubTitle" /></div>
-   <div id="divSummary" style="display:none;"><label>摘要：</label><textarea name="MetaKeywords" rows="4" cols="70" id="Summary"></textarea></div>
-   <div id="divMeta" style="display:none;">
-   <div>
-     <label>meta关键字：</label><textarea name="MetaKeywords" rows="4" cols="70" id="MetaKeywords"></textarea>
-   </div>
-   <div>
-     <label>meta描述：</label><textarea name="MetaKeywords" rows="4" cols="70"></textarea>
-   </div>
-   </div>
-   <div>
-     <label>内 容：</label><textarea rows="4" cols="70"></textarea>
-     <!--<HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>-->
+<body style="background: #d6e7f7">
+    <div>
+        <div class="position">
+            当前位置：添加新闻</div>
+        <div class="add_step">
+            <ul>
+                <li>第一步：选择分类</li><li class="current_step">第二步：基本信息</li>
+                <li>第三步：扩展信息</li><li>第四步：发布静态页</li>
+            </ul>
+        </div>
+        <div class="add_main">
+            <div>
+                <label>
+                    标题：</label><input type="text" size="74" /></div>
+            <div class="addInfoLink" id="divShortcut">
+                <a id="aSubTitle" href="javascript:Show('aSubTitle', 'divSubTitle', '副标题', 'SubTitle');">
+                    添加副标题</a> <a id="aSummary" href="####" onclick="javascript:Show('aSummary', 'divSummary', '摘要', 'Summary');">
+                        添加摘要</a> <a id="aMeta" title="什么是Meta信息：meta标签是内嵌在你网页中的特殊html标签，包含着你有关于你网页的一些隐藏信息。Meat标签的作用是向搜索引擎解释你的网页是有关哪方面信息的。"
+                            href="javascript:Show('aMeta', 'divMeta', 'Meta信息', 'MetaKeywords');">添加meta信息</a>
+            </div>
+            <div id="divSubTitle" style="display: none;">
+                <label>
+                    副标题：</label><input type="text" size="74" id="SubTitle" /></div>
+            <div id="divSummary" style="display: none;">
+                <label>
+                    摘要：</label><textarea name="MetaKeywords" rows="4" cols="70" id="Summary"></textarea></div>
+            <div id="divMeta" style="display: none;">
+                <div>
+                    <label>
+                        meta关键字：</label><textarea name="MetaKeywords" rows="4" cols="70" id="MetaKeywords"></textarea>
+                </div>
+                <div>
+                    <label>
+                        meta描述：</label><textarea name="MetaKeywords" rows="4" cols="70"></textarea>
+                </div>
+            </div>
+            <div>
+                <label>
+                    内 容：</label><textarea rows="4" cols="70"></textarea>
+                <!--<HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>-->
+            </div>
+            <div>
+                <label>
+                    作者：</label><input type="text" size="18" /></div>
+            <div>
+                <label>
+                    来源：</label><input type="text" size="18" /></div>
+            <div>
+                <label>
+                    标签：</label><input type="text" size="32" /></div>
+        </div>
+        <div class="add_button">
+            <a href="aticaladd3.htm">
+                <img src="../images/nextStep.gif" /></a></div>
     </div>
-    
-   <div><label>作者：</label><input type="text" size="18" /></div>
-   <div><label>来源：</label><input type="text"  size="18" /></div>
-   <div><label>标签：</label><input type="text"  size="32" /></div>
-   
-   
-  </div>
-  
-  <div class="add_button"><a href="aticaladd3.htm"><img src="../images/nextStep.gif" /></a></div>
-  
- </div>
 </body>
-
 </html>

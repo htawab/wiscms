@@ -207,6 +207,13 @@ jpg: ffmpeg -i asf.flv -y -f image2 -tableImages 1 asf.jpg
 gif: ffmpeg -i test.asf -vframes 30 -y -f gif a.gif
 参考3 参考2(http://www.killflash.net/blog/article.asp?id=77)
 
+把视频文件导出成jpg序列帧：
+$ ffmpeg -i bc-cinematic-en.avi example.%d.jpg
+http://blog.chinaunix.net/u/16166/showart_239248.html
+
+http://ken.bokele.com/?ArticleID=24738
+使用flvtools处理flv文件 flash文件支持拖放
+http://www.cnblogs.com/niuniu502/archive/2007/06/17/786112.html
 
          * 获取视频信息
          * http://www.codeproject.com/KB/aspnet/ffmpeg_csharp.aspx
