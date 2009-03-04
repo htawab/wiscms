@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wis.Website.Web.Backend.Article {
+namespace Wis.Website.Web.Backend {
     
     
-    public partial class ArticleSelectCategory {
+    public partial class ArticleAddPhoto {
         
         /// <summary>
         /// form1 控件。

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="ArticleAdd.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="ArticleAddNew1.aspx.cs"
     Inherits="Wis.Website.Web.Backend.Article.ArticleAdd" %>
 
 <%@ Register Assembly="Wis.Toolkit" Namespace="Wis.Toolkit.WebControls.HtmlEditorControls" TagPrefix="HtmlEditorControls" %>
@@ -216,7 +216,7 @@
             <label class="articleLabel">内 容：</label>
             <HtmlEditorControls:HtmlEditor ID="ContentHtml" runat="server" DialogsPath="../images/HtmlEditor/"></HtmlEditorControls:HtmlEditor>
         </div>
-             <div id="divAuthor" class="box">
+        <div id="divAuthor" class="box">
             <label class="articleLabel">作 者：</label><input id="Author" type="text" size="30" runat="server" name="Author" value="" />
             <br />
         </div>
