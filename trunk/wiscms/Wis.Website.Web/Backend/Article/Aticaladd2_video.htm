@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background: #d6e7f7">
+    <div>
+        <div class="position">
+            当前位置：添加新闻</div>
+        <div class="add_step">
+            <ul>
+                <li>第一步：选择分类</li><li class="current_step">第二步：基本信息</li>
+                <li>第三步：扩展信息</li><li>第四步：发布静态页</li>
+            </ul>
+        </div>
+        <div class="add_main">
+            <div>
+                <label>星级：</label><select><option>★★★★★</option><option>★★★★</option>
+                        <option>★★★</option><option>★★</option><option>★</option>
+                    </select></div>
+            <div>
+                <label>
+                    作者：</label><input type="text" size="22" /></div>
+            <div>
+                <label>
+                    来源：</label><input type="text" size="32" />
+                
+            <div>
+                <label>
+                    缩略图预览：<br />
+                    (93*74) &nbsp;&nbsp;</label><img src="../images/noimg1.gif" /></div>
+            
+            <div>
+                <label>
+                    制作缩略图：</label><span class="checked" id="span1" onclick="checkRadio(this,1)"><input
+                        checked="checked" name="aaa" type="radio" value="1" />图片自动缩放</span> <span class="unCheck"
+                            id="span2" onclick="checkRadio(this,2)">
+                            <input name="aaa" type="radio" value="1" />在大图中截取</span></div>
+            <div>
+                <label>
+                </label>
+                <input type="image" src="../images/uploadimg2.gif" /></div>
+            
+            
+            <div>
+                <label>
+                    更新时间：</label><input type="text" size="18" /></div>
+            <div>
+                <label>
+                    视频文件：</label><div style="float:left;"><input type="radio" name="videoChoose" />本地上传 <input id='' type='file' name='' value='' /><br /><input type="radio" name="videoChoose" />网络选择 <input id='File1' type='file' name='' value='' /></div>
+            </div>
+            
+            <div style="clear:both;">
+                <label>
+                    标签：</label><input type="text" size="32" /></div>
+        </div>
+        
+    </div>
+    <div class="add_button">
+            <a href="aticaladd3.htm">
+                <img src="../images/nextStep.gif" /></a></div>
+
+</body>
+<script>
+var span1 = document.getElementById("span1");
+var span2 = document.getElementById("span2");
+var radio1 = span1.getElementsByTagName("input")[0];
+var radio2 = span2.getElementsByTagName("input")[0];
+function checkRadio(iobj,icheck) {
+if (icheck==1) {
+span1.className = "checked"
+span2.className = "unCheck"
+radio1.checked = true;
+radio2.checked = false;
+}
+else {
+span1.className = "unCheck"
+span2.className = "checked"
+radio1.checked = false;
+radio2.checked = true;
+}
+}
+</script>
+</html>
