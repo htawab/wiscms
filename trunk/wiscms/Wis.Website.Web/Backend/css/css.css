@@ -471,6 +471,6 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_main ul li.step4_li3 {width:210px; overflow:hidden;}
 .add_main ul li.step4_li4 {width:32px; overflow:hidden;}
 
-#Warning {width:750px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
+#Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 
 
