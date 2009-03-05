@@ -34,29 +34,46 @@ namespace Wis.Website.Web.Backend
             set { _ThumbnailHeight = value; }
         }
 
+        private Guid _ArticleGuid;
+        /// <summary>
+        /// 文章编号
+        /// </summary>
+        protected Guid ArticleGuid
+        {
+            get { return _ArticleGuid; }
+            set { _ArticleGuid = value; }
+        }
+
         Wis.Website.DataManager.Article article = null;
         Wis.Website.DataManager.ArticleManager articleManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string outputPath = "~/Uploads/Temp/";
+            string physicalOutputPath = Server.MapPath(outputPath);
+            if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
+
             FileSystemProcessor fs = new FileSystemProcessor();
-            fs.OutputPath = Server.MapPath(this.OutputPath);
+            fs.OutputPath = outputPath;
             DJUploadController1.DefaultFileProcessor = fs;
+            Photo.FileProcessor = fs;
 
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
-            requestArticleGuid = "f6f21612-7973-451a-be29-26f15700b36a";
             if (string.IsNullOrEmpty(requestArticleGuid) || !Wis.Toolkit.Validator.IsGuid(requestArticleGuid))
             {
                 Warning.InnerHtml = "不正确的文章编号，请<a href='ArticleSelectCategory.aspx'>点击这里</a>重新操作";
                 return;
             }
+            this.ArticleGuid = new Guid(requestArticleGuid);
 
             if (article == null)
             {
                 if (articleManager == null) articleManager = new Wis.Website.DataManager.ArticleManager();
-                Guid articleGuid = new Guid(requestArticleGuid);
-                article = articleManager.GetArticleByArticleGuid(articleGuid);
+                article = articleManager.GetArticleByArticleGuid(this.ArticleGuid);
             }
+
+            HyperLinkCategory.Text = article.Category.CategoryName;
+            HyperLinkCategory.NavigateUrl = string.Format("ArticleList.aspx?CategoryGuid={0}", article.Category.CategoryGuid);
 
             if (!article.Category.ThumbnailWidth.HasValue || !article.Category.ThumbnailHeight.HasValue)
             {
@@ -69,84 +86,79 @@ namespace Wis.Website.Web.Backend
 
         protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
         {
+#warning 如何先上传，后录入数据库?
+
             // 录入图片信息，进入下一步
-
-            // TODO:确保上传了缩略图
-
-        }
-
-        protected override void OnPreRender(EventArgs e)
-        {
-            base.OnPreRender(e);
-            if (Page.IsPostBack && DJUploadController1.Status != null)
+            if (DJUploadController1.Status == null || DJUploadController1.Status.UploadedFiles.Count != 1)
             {
-                string applicationPath = string.Format("{0}/{1}",
-                    Page.Request.Url.AbsoluteUri.Substring(0, Page.Request.Url.AbsoluteUri.IndexOf(Page.Request.Path)).TrimEnd('/'),
-                    this.Page.Request.ApplicationPath.TrimStart('/')).TrimEnd('/');
+                return;
+            }
+            UploadedFile f = DJUploadController1.Status.UploadedFiles[0];
+            // f.FileName "E:\\Tools\\visualxpath.zip"
+            string fileName = f.FileName;
+            int charIndex = fileName.LastIndexOf("\\");
+            if (charIndex == -1 || charIndex >= fileName.Length)
+            {
+                return;
+            }
+            fileName = fileName.Substring(charIndex + 1);
 
-                foreach (UploadedFile f in DJUploadController1.Status.UploadedFiles)
+            string outputPath = "~/Uploads/Temp/";
+            string physicalOutputPath = Server.MapPath(outputPath);
+            if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
+            string srcFilename = Server.MapPath(string.Format("{0}{1}", outputPath, fileName));
+            System.IO.FileInfo thumbnail = new System.IO.FileInfo(srcFilename);
+
+            Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
+            Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
+            file.FileGuid = Guid.NewGuid();
+            string destFilename = Server.MapPath(string.Format("~/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), file.FileGuid, thumbnail.Extension));
+
+#warning TODO:填写当前登录用户的UserName
+            file.CreatedBy = string.Empty;
+            file.CreationDate = System.DateTime.Now;
+#warning TODO：如何提供描述？
+            file.Description = string.Empty;
+            file.Hits = 0;
+            file.OriginalFileName = fileName;
+            file.Rank = 0;
+            file.SaveAsFileName = destFilename;
+            file.Size = thumbnail.Length;
+            file.SubmissionGuid = this.ArticleGuid;
+            file.FileId = fileManager.AddNew(file);
+
+            // 缩略图操作
+            
+            // PointX 和 PointY都不为空，则进行图片裁剪
+            string requestPointX = Request["PointX"];
+            string requestPointY = Request["PointY"];
+            if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
+            {
+                int pointX;
+                int pointY;
+                if (int.TryParse(requestPointX, out pointX) == false || int.TryParse(requestPointY, out pointY) == false)
                 {
-                    // f.FileName "E:\\Tools\\visualxpath.zip"
-                    string fileName = f.FileName;
-                    int charIndex = fileName.LastIndexOf("\\");
-                    if (charIndex > -1 && charIndex < fileName.Length)
-                    {
-                        // 切割图片
-                        string requestPointX = Request["PointX"];
-                        string requestPointY = Request["PointY"];//Photo
-                        if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
-                        {
-                            // 上传的文件
-                            fileName = fileName.Substring(charIndex + 1);
-
-                            // TODO:文件格式判断
-
-                            string srcFilename = string.Format("{1}{2}", this.OutputPath.TrimStart('~'), fileName);
-                            string destFilename = "";
-
-                            // PointX 和 PointY都不为空，则进行图片裁剪
-                            int pointX;
-                            int pointY;
-                            if (int.TryParse(requestPointX, out pointX) == false || int.TryParse(requestPointY, out pointY) == false)
-                            {
-                                //MessageBox("错误提示", "缩略图的PointX和PointY不为整数");
-                                return;
-                            }
-
-                            // 裁剪图片
-                            int cropperWidth = article.Category.ThumbnailWidth.Value;
-                            int cropperHeight = article.Category.ThumbnailHeight.Value;
-                            Wis.Toolkit.Drawings.ImageCropper.Crop(srcFilename, destFilename, pointX, pointY, cropperWidth, cropperHeight);
-
-                            Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
-                            Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
-                            file.CreatedBy = string.Empty; // TODO:填写当前登录用户的UserName
-                            file.CreationDate = System.DateTime.Now;
-                            file.Description = string.Empty; // TODO：如何提供描述？
-                            file.FileGuid = Guid.NewGuid();
-                            file.Hits = 0;
-                            file.OriginalFileName = fileName;
-                            file.Rank = 0;
-                            file.SaveAsFileName = string.Format("{1}{2}", this.OutputPath.TrimStart('~'), fileName);
-                            System.IO.FileInfo saveAsFileInfo = new System.IO.FileInfo(Server.MapPath(file.SaveAsFileName));
-                            file.Size = saveAsFileInfo.Length;
-                            //file.SubmissionGuid = this.ArticleGuid;
-                            fileManager.AddNew(file);
-                        }
-                    }
+                    Warning.InnerHtml = "缩略图的PointX和PointY不为整数";
+                    return;
                 }
-            }
-        }
 
-        private string OutputPath
-        {
-            get
-            {
-                string outputPath = string.Format("~/Uploads/Thumbnail/{0}/", System.DateTime.Now.ToShortDateString());
-                string physicalOutputPath = Server.MapPath(outputPath);
-                if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
-                return outputPath;
+                // 裁剪图片
+                Wis.Toolkit.Drawings.Imager.Crop(srcFilename, destFilename, pointX, pointY, this.ThumbnailWidth, this.ThumbnailHeight);
             }
+            else
+            {
+                bool stretch = !string.IsNullOrEmpty(Request["Stretch"]);
+                bool beveled = !string.IsNullOrEmpty(Request["Beveled"]);
+
+                Wis.Toolkit.Drawings.Imager.Thumbnail(srcFilename, destFilename, this.ThumbnailWidth, this.ThumbnailHeight, stretch, beveled);
+            }
+
+            // 移除临时文件
+#warning 移除临时文件
+            //if (System.IO.File.Exists(srcFilename)) System.IO.File.Delete(srcFilename);
+
+            // 下一步
+            Response.Redirect(string.Format("ArticleRelease.aspx?ArticleGuid={0}", this.ArticleGuid));
         }
     }
 }

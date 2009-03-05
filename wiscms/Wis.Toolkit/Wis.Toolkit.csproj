@@ -155,7 +155,7 @@
     <Compile Include="DataAccess\OleDbDataAccess.cs" />
     <Compile Include="DataAccess\OracleDataAccess.cs" />
     <Compile Include="DataAccess\SqlServerDataAccess.cs" />
-    <Compile Include="Drawings\ImageCropper.cs" />
+    <Compile Include="Drawings\Imager.cs" />
     <Compile Include="Drawings\TextToImage.cs" />
     <Compile Include="Formats.cs" />
     <Compile Include="HttpModules\HttpCompressionModule.cs" />
