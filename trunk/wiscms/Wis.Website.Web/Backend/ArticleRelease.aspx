@@ -51,6 +51,7 @@
             <div class="clear">
             </div>
         </div>
+        <div id="Warning" runat="server"></div>
         <div class="add_button">
             <a href="#">
                 <img src="../images/StepDone.gif" /></a></div>

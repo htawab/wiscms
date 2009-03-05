@@ -55,9 +55,10 @@ radio2.checked = true;
             </script>
 
         </div>
+        <div id="Warning" runat="server"></div>
         <div class="add_button">
-            <a href="aticaladd4.htm">
-                <img src="../images/nextStep.gif" /></a></div>
+            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" />
+        </div>
     </div></form>
 </body>
 </html>
