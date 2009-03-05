@@ -46,7 +46,7 @@ namespace Wis.Website.Web.Backend.Article
                         fileName = fileName.Substring(charIndex + 1);
                         if (!this.Page.ClientScript.IsStartupScriptRegistered(OpenScriptKey))
                         {
-                            // http://localhost:3419//Backend/Article/Thumbnail.aspx?ImagePath=~/Uploads/Thumbnail/2009-2-24/1708138d.jpg
+                            // http://localhost:3419//Backend/Article/Thumbnail.aspx?ThumbnailPath=~/Uploads/Thumbnail/2009-2-24/1708138d.jpg
                             string scriptBlock = string.Format("\n<script language='JavaScript' type='text/javascript'><!--\nparent.OpenFull('{0}/Backend/Article/Thumbnail.aspx?ImagePath={1}{2}');\n//--></script>\n", applicationPath, this.OutputPath.TrimStart('~'), fileName);
                             this.Page.ClientScript.RegisterStartupScript(this.GetType(), OpenScriptKey, scriptBlock);
                         }

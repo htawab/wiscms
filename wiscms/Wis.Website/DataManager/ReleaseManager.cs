@@ -217,9 +217,9 @@ namespace Wis.Website.DataManager
                     lock (this)
                     {
                         // TODO:失败了如何回滚? 将已经删除的网页恢复
-                        if (System.IO.File.Exists(article.ReleasePath))
+                        if (System.IO.File.Exists(release.ReleasePath))
                         {
-                            System.IO.File.Delete(article.ReleasePath);
+                            System.IO.File.Delete(release.ReleasePath);
                             System.Threading.Thread.Sleep(100);
                         }
 
@@ -314,9 +314,9 @@ namespace Wis.Website.DataManager
                 lock (this)
                 {
                     // TODO:失败了如何回滚? 将已经删除的网页恢复
-                    if (System.IO.File.Exists(article.ReleasePath))
+                    if (System.IO.File.Exists(release.ReleasePath))
                     {
-                        System.IO.File.Delete(article.ReleasePath);
+                        System.IO.File.Delete(release.ReleasePath);
                         System.Threading.Thread.Sleep(100);
                     }
 
@@ -395,8 +395,8 @@ namespace Wis.Website.DataManager
             DbCommand command = DbProviderHelper.CreateCommand("INSERTRelease", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, article.TemplatePath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, article.ReleasePath));
+            //command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, article.TemplatePath));
+            //command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, article.ReleasePath));
             return Convert.ToInt32(DbProviderHelper.ExecuteScalar(command));
         }
 

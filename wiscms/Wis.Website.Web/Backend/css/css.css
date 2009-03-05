@@ -145,9 +145,6 @@ a.menu11 {
 .leftbar div.Parent{line-height:22px; height:22px; vertical-align:middle; text-indent:6px; background:#e1f5fd; border-bottom:1px solid #fff;}
 
 div.right {background:#d6e7f7; margin-left:0px; _margin-left:4px;}
-.position {
-	padding:4px 0; width:100%; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;
-}
 div.viewvdieo {background:#ffffff;border:1px solid #9fb5d2; height:100%; margin:4px 4px 4px 4px;}
 div.right .schBox {line-height:20px;}
 div.right .schBox label {width:80px; display:inline-block; text-align:right; vertical-align:middle; margin-left:2px;}
@@ -471,6 +468,7 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_main ul li.step4_li3 {width:210px; overflow:hidden;}
 .add_main ul li.step4_li4 {width:32px; overflow:hidden;}
 
+#Position {padding:4px 0; width:100%; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
 #Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 
 

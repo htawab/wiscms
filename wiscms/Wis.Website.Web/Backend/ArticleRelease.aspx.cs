@@ -15,7 +15,17 @@ namespace Wis.Website.Web.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
+        {
+            // 生成静态页面和关联页面
+            //DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
+            //releaseManager.ReleaseRelation(article);
+
+            // 跳转
+            // TODO:继续添加新闻，还是返回新闻列表页？可以在页面上放一个选项框，让用户选择
+            //Response.Redirect("ArticleAdd.aspx?CategoryGuid=" + DropdownMenuCategory.Value);
         }
     }
 }

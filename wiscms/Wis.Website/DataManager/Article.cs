@@ -44,37 +44,17 @@ namespace Wis.Website.DataManager
             set { _Category = value; }
 		}
 
-        private ArticleType _ArticleType;
 
-        public ArticleType ArticleType
+		private string _ThumbnailPath;
+        /// <summary>
+        /// ËõÂÔÍ¼Â·¾¶
+        /// </summary>
+		public string ThumbnailPath
 		{
-			get { return _ArticleType; }
-			set { _ArticleType = value; }
+			get { return _ThumbnailPath; }
+			set { _ThumbnailPath = value; }
 		}
 
-		private string _ImagePath;
-
-		public string ImagePath
-		{
-			get { return _ImagePath; }
-			set { _ImagePath = value; }
-		}
-
-		private Nullable<int> _ImageWidth;
-
-		public Nullable<int> ImageWidth
-		{
-			get { return _ImageWidth; }
-			set { _ImageWidth = value; }
-		}
-
-		private Nullable<int> _ImageHeight;
-
-		public Nullable<int> ImageHeight
-		{
-			get { return _ImageHeight; }
-			set { _ImageHeight = value; }
-		}
 
 		private string _MetaKeywords;
 
@@ -164,29 +144,6 @@ namespace Wis.Website.DataManager
 			set { _Rank = value; }
 		}
 
-		private Nullable<Guid> _SpecialGuid;
-
-		public Nullable<Guid> SpecialGuid
-		{
-			get { return _SpecialGuid; }
-			set { _SpecialGuid = value; }
-		}
-
-		private string _TemplatePath;
-
-		public string TemplatePath
-		{
-			get { return _TemplatePath; }
-			set { _TemplatePath = value; }
-		}
-
-		private string _ReleasePath;
-
-		public string ReleasePath
-		{
-			get { return _ReleasePath; }
-			set { _ReleasePath = value; }
-		}
 
 		private int _Hits;
 
@@ -223,15 +180,12 @@ namespace Wis.Website.DataManager
 		public Article()
 		{ }
 
-        public Article(int ArticleId, Guid ArticleGuid, Category category, ArticleType articleType, string ImagePath, Nullable<int> ImageWidth, Nullable<int> ImageHeight, string MetaKeywords, string MetaDesc, string Title, string TitleColor, string SubTitle, string Summary, string ContentHtml, Nullable<Guid> Editor, string Author, string Original, int Rank, Nullable<Guid> SpecialGuid, string TemplatePath, string ReleasePath, int Hits, int Comments, int Votes, DateTime DateCreated)
+        public Article(int ArticleId, Guid ArticleGuid, Category category, string thumbnailPath, string MetaKeywords, string MetaDesc, string Title, string TitleColor, string SubTitle, string Summary, string ContentHtml, Nullable<Guid> Editor, string Author, string Original, int Rank, int Hits, int Comments, int Votes, DateTime DateCreated)
 		{
 			this.ArticleId = ArticleId;
 			this.ArticleGuid = ArticleGuid;
             this.Category = category;
-			this.ArticleType = articleType;
-			this.ImagePath = ImagePath;
-			this.ImageWidth = ImageWidth;
-			this.ImageHeight = ImageHeight;
+            this.ThumbnailPath = thumbnailPath;
 			this.MetaKeywords = MetaKeywords;
 			this.MetaDesc = MetaDesc;
 			this.Title = Title;
@@ -243,9 +197,6 @@ namespace Wis.Website.DataManager
 			this.Author = Author;
 			this.Original = Original;
 			this.Rank = Rank;
-			this.SpecialGuid = SpecialGuid;
-			this.TemplatePath = TemplatePath;
-			this.ReleasePath = ReleasePath;
 			this.Hits = Hits;
 			this.Comments = Comments;
 			this.Votes = Votes;
@@ -254,7 +205,7 @@ namespace Wis.Website.DataManager
 
 		public override string ToString()
 		{
-            return "ArticleId = " + ArticleId.ToString() + ",ArticleGuid = " + ArticleGuid.ToString() + ",CategoryGuid = " + Category.CategoryGuid.ToString() + ",CategoryId = " + Category.CategoryId.ToString() + ",CategoryName = " + Category.CategoryName.ToString() + ",ArticleType = " + ArticleType.ToString() + ",ImagePath = " + ImagePath + ",ImageWidth = " + ImageWidth.ToString() + ",ImageHeight = " + ImageHeight.ToString() + ",MetaKeywords = " + MetaKeywords + ",MetaDesc = " + MetaDesc + ",Title = " + Title + ",TitleColor = " + TitleColor + ",SubTitle = " + SubTitle + ",Summary = " + Summary + ",ContentHtml = " + ContentHtml + ",Editor = " + Editor.ToString() + ",Author = " + Author + ",Original = " + Original + ",Rank = " + Rank.ToString() + ",SpecialGuid = " + SpecialGuid.ToString() + ",TemplatePath = " + TemplatePath + ",ReleasePath = " + ReleasePath + ",Hits = " + Hits.ToString() + ",Comments = " + Comments.ToString() + ",Votes = " + Votes.ToString() + ",DateCreated = " + DateCreated.ToString();
+            return "ArticleId = " + ArticleId.ToString() + ",ArticleGuid = " + ArticleGuid.ToString() + ",CategoryGuid = " + Category.CategoryGuid.ToString() + ",CategoryId = " + Category.CategoryId.ToString() + ",CategoryName = " + Category.CategoryName.ToString() + ",ArticleType = " + Category.ArticleType.ToString() + ",ThumbnailPath = " + ThumbnailPath + ",ImageWidth = " + Category.ThumbnailWidth.ToString() + ",ImageHeight = " + Category.ThumbnailHeight.ToString() + ",MetaKeywords = " + MetaKeywords + ",MetaDesc = " + MetaDesc + ",Title = " + Title + ",TitleColor = " + TitleColor + ",SubTitle = " + SubTitle + ",Summary = " + Summary + ",ContentHtml = " + ContentHtml + ",Editor = " + Editor.ToString() + ",Author = " + Author + ",Original = " + Original + ",Rank = " + Rank.ToString() + ",Hits = " + Hits.ToString() + ",Comments = " + Comments.ToString() + ",Votes = " + Votes.ToString() + ",DateCreated = " + DateCreated.ToString();
 		}
 
 		public class ArticleIdComparer : System.Collections.Generic.IComparer<Article>
@@ -280,123 +231,7 @@ namespace Wis.Website.DataManager
 			}
 			#endregion
 		}
-		public class ArticleGuidComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public ArticleGuidComparer()
-			{ }
-			public ArticleGuidComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.ArticleGuid.CompareTo(x.ArticleGuid);
-				}
-				else
-				{
-					return x.ArticleGuid.CompareTo(y.ArticleGuid);
-				}
-			}
-			#endregion
-		}
 
-		public class ArticleTypeComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public ArticleTypeComparer()
-			{ }
-			public ArticleTypeComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.ArticleType.CompareTo(x.ArticleType);
-				}
-				else
-				{
-					return x.ArticleType.CompareTo(y.ArticleType);
-				}
-			}
-			#endregion
-		}
-
-		public class ImagePathComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public ImagePathComparer()
-			{ }
-			public ImagePathComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.ImagePath.CompareTo(x.ImagePath);
-				}
-				else
-				{
-					return x.ImagePath.CompareTo(y.ImagePath);
-				}
-			}
-			#endregion
-		}
-		public class MetaKeywordsComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public MetaKeywordsComparer()
-			{ }
-			public MetaKeywordsComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.MetaKeywords.CompareTo(x.MetaKeywords);
-				}
-				else
-				{
-					return x.MetaKeywords.CompareTo(y.MetaKeywords);
-				}
-			}
-			#endregion
-		}
-		public class MetaDescComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public MetaDescComparer()
-			{ }
-			public MetaDescComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.MetaDesc.CompareTo(x.MetaDesc);
-				}
-				else
-				{
-					return x.MetaDesc.CompareTo(y.MetaDesc);
-				}
-			}
-			#endregion
-		}
 		public class TitleComparer : System.Collections.Generic.IComparer<Article>
 		{
 			public SorterMode SorterMode;
@@ -416,98 +251,6 @@ namespace Wis.Website.DataManager
 				else
 				{
 					return x.Title.CompareTo(y.Title);
-				}
-			}
-			#endregion
-		}
-		public class TitleColorComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public TitleColorComparer()
-			{ }
-			public TitleColorComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.TitleColor.CompareTo(x.TitleColor);
-				}
-				else
-				{
-					return x.TitleColor.CompareTo(y.TitleColor);
-				}
-			}
-			#endregion
-		}
-		public class SubTitleComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public SubTitleComparer()
-			{ }
-			public SubTitleComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.SubTitle.CompareTo(x.SubTitle);
-				}
-				else
-				{
-					return x.SubTitle.CompareTo(y.SubTitle);
-				}
-			}
-			#endregion
-		}
-		public class SummaryComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public SummaryComparer()
-			{ }
-			public SummaryComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.Summary.CompareTo(x.Summary);
-				}
-				else
-				{
-					return x.Summary.CompareTo(y.Summary);
-				}
-			}
-			#endregion
-		}
-		public class ContentHtmlComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public ContentHtmlComparer()
-			{ }
-			public ContentHtmlComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.ContentHtml.CompareTo(x.ContentHtml);
-				}
-				else
-				{
-					return x.ContentHtml.CompareTo(y.ContentHtml);
 				}
 			}
 			#endregion
@@ -577,52 +320,6 @@ namespace Wis.Website.DataManager
 				else
 				{
 					return x.Rank.CompareTo(y.Rank);
-				}
-			}
-			#endregion
-		}
-		public class TemplatePathComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public TemplatePathComparer()
-			{ }
-			public TemplatePathComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.TemplatePath.CompareTo(x.TemplatePath);
-				}
-				else
-				{
-					return x.TemplatePath.CompareTo(y.TemplatePath);
-				}
-			}
-			#endregion
-		}
-		public class ReleasePathComparer : System.Collections.Generic.IComparer<Article>
-		{
-			public SorterMode SorterMode;
-			public ReleasePathComparer()
-			{ }
-			public ReleasePathComparer(SorterMode SorterMode)
-			{
-				this.SorterMode = SorterMode;
-			}
-			#region IComparer<Article> Membres
-			int System.Collections.Generic.IComparer<Article>.Compare(Article x, Article y)
-			{
-				if (SorterMode == SorterMode.Ascending)
-				{
-					return y.ReleasePath.CompareTo(x.ReleasePath);
-				}
-				else
-				{
-					return x.ReleasePath.CompareTo(y.ReleasePath);
 				}
 			}
 			#endregion

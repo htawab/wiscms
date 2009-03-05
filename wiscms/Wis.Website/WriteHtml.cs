@@ -109,7 +109,7 @@ namespace Wis.Website
         {
             //转换新闻页面的标签
             string pattern = @"\$#_[^\$]+\$";
-            tempcontent = ReadHtml(article.TemplatePath);
+            //tempcontent = ReadHtml(article.TemplatePath);
             Regex reg = new Regex(pattern, RegexOptions.Compiled);
             MatchCollection m = reg.Matches(tempcontent);
             for(int i = 0 ;i< m.Count;i++)
@@ -302,7 +302,7 @@ namespace Wis.Website
         //            string texts2 = "";
         //            for (int i = 0; i < dt.Rows.Count; i++)
         //            {
-        //                pics += dt.Rows[i]["ImagePath"].ToString();
+        //                pics += dt.Rows[i]["ThumbnailPath"].ToString();
         //                mylinks += dt.Rows[i]["ReleasePath"].ToString();
         //                texts += dt.Rows[i]["Summary"].ToString();
         //                texts2 += dt.Rows[i]["Title"].ToString();
@@ -655,7 +655,7 @@ namespace Wis.Website
                     myLabelName = article.Category.CategoryName;
                     break;
                 case "TabloidPath":
-                    myLabelName = article.ImagePath;
+                    myLabelName = article.ThumbnailPath;
                     break;
                 case "MetaKeywords":
                     myLabelName = article.MetaKeywords.ToString();
@@ -685,10 +685,10 @@ namespace Wis.Website
                     myLabelName = article.Original.ToString();
                     break;
                 case "TemplatePath":
-                    myLabelName = article.TemplatePath.ToString();
+                    //myLabelName = article.TemplatePath.ToString();
                     break;
                 case "ReleasePath":
-                    myLabelName = article.ReleasePath.ToString();
+                    //myLabelName = article.ReleasePath.ToString();
                     break;
                 case "Hits":
                     myLabelName = article.Hits.ToString();
@@ -700,7 +700,7 @@ namespace Wis.Website
                     myLabelName = article.Votes.ToString();
                     break;
                 case "ArticleType":
-                    myLabelName = article.ArticleType.ToString();
+                    //myLabelName = article.ArticleType.ToString();
                     break;
                 case "DateCreated":
                     myLabelName = article.DateCreated.ToShortDateString();
@@ -749,7 +749,7 @@ namespace Wis.Website
         public static bool RedTemplate(Wis.Website.DataManager.Article article)
         {
             ReplaceNewsLabels(article);
-            WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
+            //WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
             GetListhtml(article);
             return true;
         }
@@ -757,7 +757,7 @@ namespace Wis.Website
         public static void Build(Wis.Website.DataManager.Article article)
         {
             ReplaceNewsLabels(article);
-            WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
+            //WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
             GetListhtml(article);
         }
 
@@ -770,7 +770,7 @@ namespace Wis.Website
         public static bool NewsHtml(Wis.Website.DataManager.Article article)
         {
             ReplaceNewsLabels(article);
-            WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
+            //WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.ReleasePath + "\\" + article.ArticleId.ToString() + ".htm");
             return true;
         }
 
@@ -782,9 +782,9 @@ namespace Wis.Website
         /// <returns></returns>
         public static void GetListhtml(Wis.Website.DataManager.Article article)
         {
-            tempcontent = ReadHtml(article.Category.TemplatePath);
+            //tempcontent = ReadHtml(article.Category.TemplatePath);
             ReplacelistLabels();
-            WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.Category.ReleasePath + "\\" + article.Category.CategoryId.ToString() + ".htm");
+            //WriteHtmls(tempcontent, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + article.Category.ReleasePath + "\\" + article.Category.CategoryId.ToString() + ".htm");
             ///生成关联页面
             GetTemplateHtml(article.Category.CategoryId);
         }

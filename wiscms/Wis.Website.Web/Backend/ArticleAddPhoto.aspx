@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>录入图片信息 - 内容管理 - 常智内容管理系统</title>
+    <script src="Article/wis.js" language="javascript" type="text/javascript"></script>
     <link href="css/css.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #ImageCroppeImageCropperRightDown,#ImageCroppeImageCropperLeftDown,#ImageCroppeImageCropperLeftUp,#ImageCroppeImageCropperRightUp,#ImageCropperRight,#ImageCropperLeft,#ImageCropperUp,#ImageCropperDown{
@@ -35,13 +36,13 @@
         #ImageCropperDown{bottom:0px;left:50%;margin-left:-4px;}
 
         #ImageCropperBackground{border:1px solid #666666; position:absolute;}
-        #ImageCropperDrag {border:1px dashed #fff; width:<%=ThumbnailWidth %>; height:<%=ThumbnailHeight %>; top:10px; left:10px; cursor:move; }
-        #ImagePreview {border:1px dashed #fff; width:<%=ThumbnailWidth %>; height:<%=ThumbnailHeight %>; overflow:hidden; position:relative;}
+        #ImageCropperDrag {border:1px dashed #fff; width:<%=ThumbnailWidth %>px; height:<%=ThumbnailHeight %>px; top:10px; left:10px; cursor:move; }
+        #ImagePreview {border:1px dashed #fff; width:<%=ThumbnailWidth %>px; height:<%=ThumbnailHeight %>px; overflow:hidden; position:relative;}
     </style>    
 </head>
 <body style="background: #d6e7f7"><form id="form1" runat="server">
     <div>
-        <div class="position">当前位置：<asp:HyperLink ID="HyperLinkCategory" runat="server"></asp:HyperLink> » <a href="ArticleUpdate.aspx?ArticleGuid=<%=Request["ArticleGuid"] %>">录入内容</a> » 录入图片信息</div>
+        <div id="Position">当前位置：<asp:HyperLink ID="HyperLinkCategory" runat="server"></asp:HyperLink> » <a href="ArticleUpdate.aspx?ArticleGuid=<%=Request["ArticleGuid"] %>">录入内容</a> » 录入图片信息</div>
         <div class="add_step">
             <ul>
                 <li>第一步：选择分类</li>
@@ -51,10 +52,7 @@
             </ul>
         </div>
         <div class="add_main add_step3">
-            <div>
-                <label>缩略图预览：<br />(<%=ThumbnailWidth %>*<%=ThumbnailHeight %>) &nbsp;&nbsp;</label>
-                <div class="Preview" id="ImagePreview"><img src="images/noimg2.gif" alt="缩略图预览" /></div>
-            </div>
+            <div><label>浏览图片：</label><input id='Photo' type='file' name='Photo' value='' /></div>
             <div>
                 <label>制作缩略图：</label>
                 <asp:HiddenField ID="PointX" runat="server" />
@@ -62,9 +60,8 @@
                 <asp:HiddenField ID="CropperWidth" runat="server" />
                 <asp:HiddenField ID="CropperHeight" runat="server" />
                 <FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/"  />
-                <span id='PhotoFilename'></span><input id='Photo' type='file' name='Photo' value='' style="display: none;" onchange="SelectImage();" />
-                <span class="checked" id="ThumbnailSpan1" onclick="Thumbnail_Load(event, 1);"><input name="Thumbnail" type="radio" value="Thumb" checked="checked" />按高度宽度最佳缩放</span> 
-                <span class="unCheck" id="ThumbnailSpan2" onclick="Thumbnail_Load(event, 2);"><input name="Thumbnail" type="radio" value="Cropper" />在大图中手工裁剪</span></div>
+                <span class="unCheck" id="ThumbnailSpan1" onclick="Thumbnail_Load(event, 1);"><input name="Thumbnail" type="radio" value="Thumb" />按高度宽度最佳缩放</span> 
+                <span class="unCheck" id="ThumbnailSpan2" onclick="Thumbnail_Load(event, 2);"><input name="Thumbnail" type="radio" value="Cropper" />在大图中手工裁剪</span>
                 <div id="ImageCropperBackground" style="display:none">
                     <div id="ImageCropperDrag">
                       <div id="ImageCroppeImageCropperRightDown"></div>
@@ -78,13 +75,24 @@
                     </div>
                     <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;filter:alpha(opacity=0);"></iframe>
                 </div>
+            </div>
+            <div>
+                <label>缩略图预览：<br />(<%=ThumbnailWidth %>*<%=ThumbnailHeight %>) &nbsp;&nbsp;</label>
+                <div id="ImagePreview"><img src="images/noimg2.gif" alt="缩略图预览" /></div>
+            </div>
                 <script type="text/javascript" language="javascript">
-
                     var span1 = $("ThumbnailSpan1");
                     var span2 = $("ThumbnailSpan2");
                     var radio1 = span1.getElementsByTagName("input")[0];
                     var radio2 = span2.getElementsByTagName("input")[0];
                     function Thumbnail_Load(e, index){
+                        var url = $("Photo").value;
+                        if(url == "")
+                        {
+                            alert("请先浏览图片");
+                            return;
+                        }
+                        
                         if (index == 1) {
                             span1.className = "checked"
                             span2.className = "unCheck"
@@ -96,30 +104,14 @@
                             span2.className = "checked"
                             radio1.checked = false;
                             radio2.checked = true;
-                        }
-                        
-                        e = e || window.event;
-                        $("ImageCropperBackground").style.left = e.clientX + "px";
-                        $("ImageCropperBackground").style.top = e.clientY + "px";
-                        
-                        $("Photo").click();
-                        if(/msie/i.test(navigator.userAgent))
-                        {   // IE浏览器
-                            $("Photo").attachEvent("onpropertychange", SelectImage);
-                        } 
-                        else 
-                        {   // 非ie浏览器，比如Firefox 
-                            $("Photo").addEventListener("input", SelectImage, false); 
-                        }
-                    }
-
-                    function SelectImage(){
-                        var url = $("Photo").value;
-                        var pos      = url.lastIndexOf("\\");
-                        $("PhotoFilename").innerHtml = ( pos == -1 ? url : url.substr( pos + 1 ) );
+                        }                      
                         
                         if ($("ImageCropperBackground").style.display == "none" && radio2.checked)
                         {
+                            e = e || window.event;
+                            $("ImageCropperBackground").style.left = e.clientX + "px";
+                            $("ImageCropperBackground").style.top = e.clientY + "px";
+                        
                             var ic = new ImageCropper("ImageCropperBackground", "ImageCropperDrag", url, {
                                 Color: "#000",
                                 Resize: false,
@@ -128,11 +120,8 @@
                                 Preview: "ImagePreview"
                             })
                             
-                            $("ImageCropperBackground").style.zIndex = $("Right").style.zIndex + 1;
+                            $("ImageCropperBackground").style.zIndex = $("Position").style.zIndex + 1;
                             $("ImageCropperBackground").style.display = "";
-                            //$("ImageCropperDrag").style.width = "100px";
-                            //$("ImageCropperDrag").style.height = "60px";
-
                             $("ImageCropperBackground").ondblclick = function(){
                                 var p = ic.Url;
                                 var o = ic.GetPos();
@@ -140,18 +129,11 @@
                                 $('PointY').value = o.Top;
                                 $('CropperWidth').value = o.Width;
                                 $('CropperHeight').value = o.Height;
-                                //alert("Left:" + o.Left + " Top:" + o.Top + " Width:" + o.Width + " Top:" + o.Height + " BaseWidth:" + ic._layBase.width + " BaseHeight:" + ic._layBase.height);
-                                //pw = ic._layBase.width; // 原图宽
-                                //ph = ic._layBase.height;
                                 ic.Close();
                                 var selects = document.getElementsByTagName('select');
                                 for(index = 0; index < selects.length; index++){
                                     selects[index].style.display = ($("ImageCropperBackground").style.display == '') ? 'none':'';
                                 }
-                       	    	
-                                //var dest = "1_small.jpg";
-                                //$("ImageCropperCreat").onload = function(){ this.style.display = ""; }
-                                //$("ImageCropperCreat").src = "ImageCropper.ashx?source=" + p + "&dest=" + dest + "&x=" + x + "&y=" + y + "&w=" + w + "&h=" + h + "&pw=" + pw + "&ph=" + ph + "&" + Math.random();
                             }
                                     
                             var selects = document.getElementsByTagName('select');
@@ -163,9 +145,6 @@
 
                 </script>
             <div>
-                <label></label>
-                <input type="image" src="images/uploadimg2.gif" /></div>
-
         </div>
         <div id="Warning" runat="server"></div><div id="Loading" style="display: none;"><img src='../images/loading.gif' align='absmiddle' /> 上传中...</div>
         <div class="add_button">

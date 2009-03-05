@@ -53,8 +53,8 @@
         </div>
         <div id="Warning" runat="server"></div>
         <div class="add_button">
-            <a href="#">
-                <img src="../images/StepDone.gif" /></a></div>
+            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" />
+        </div>
     </div></form>
 </body>
 </html>
