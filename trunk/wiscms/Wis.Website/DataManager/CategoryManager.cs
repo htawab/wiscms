@@ -33,21 +33,15 @@ namespace Wis.Website.DataManager
                 Category category = new Category();
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
-                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
-                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
-                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
-                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString(); // ∏∏∑÷¿‡√˚≥∆
                 category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
-
-                if (dataReader[CategoryField.TemplatePath] != DBNull.Value)
-                    category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
-
-                if (dataReader[CategoryField.ReleasePath] != DBNull.Value)
-                    category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ThumbnailWidth] != DBNull.Value)
+                    category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
+                if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
+                    category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
 
                 categorys.Add(category.CategoryGuid, category);
             }
@@ -152,21 +146,16 @@ namespace Wis.Website.DataManager
                 Category category = new Category();
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
-                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
-                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
-                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
-                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
                 category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ThumbnailWidth] != DBNull.Value)
+                    category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
+                if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
+                    category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
 
-                if (dataReader[CategoryField.TemplatePath] != DBNull.Value)
-                    category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
-
-                if (dataReader[CategoryField.ReleasePath] != DBNull.Value)
-                    category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
                 categorys.Add(category);
             }
             dataReader.Close();
@@ -183,21 +172,15 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
-                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
-                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
-                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
-                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
                 category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
-
-                if (dataReader[CategoryField.TemplatePath] != DBNull.Value)
-                    category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
-
-                if (dataReader[CategoryField.ReleasePath] != DBNull.Value)
-                    category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ThumbnailWidth] != DBNull.Value)
+                    category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
+                if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
+                    category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
             }
             dataReader.Close();
             return category;
@@ -242,64 +225,59 @@ namespace Wis.Website.DataManager
             {
                 category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
                 category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
-                if (dataReader[CategoryField.ImageWidth] != DBNull.Value)
-                    category.ImageWidth = (int)dataReader[CategoryField.ImageWidth];
-                if (dataReader[CategoryField.ImageHeight] != DBNull.Value)
-                    category.ImageHeight = (int)dataReader[CategoryField.ImageHeight];
                 category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 category.ParentCategoryName = dataReader[CategoryField.ParentCategoryName].ToString();
                 category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
-
-                if (dataReader[CategoryField.TemplatePath] != DBNull.Value)
-                    category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
-
-                if (dataReader[CategoryField.ReleasePath] != DBNull.Value)
-                    category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
+                category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
+                if (dataReader[CategoryField.ThumbnailWidth] != DBNull.Value)
+                    category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
+                if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
+                    category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
             }
             dataReader.Close();
             return category;
         }
 
 
-        public int AddNew(Guid CategoryGuid, string CategoryName, Guid ParentGuid, int Rank, string TemplatePath, string ReleasePath)
+        public int AddNew(Category category)
         {
-            DbCommand oDbCommand = DbProviderHelper.CreateCommand("INSERTCategory", CommandType.StoredProcedure);
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, CategoryGuid));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryName", DbType.String, CategoryName));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ParentGuid", DbType.Guid, ParentGuid));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, Rank));
-            if (TemplatePath != null)
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, TemplatePath));
+            DbCommand command = DbProviderHelper.CreateCommand("INSERTCategory", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, category.CategoryGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryName", DbType.String, category.CategoryName));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ParentGuid", DbType.Guid, category.ParentGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, category.Rank));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType", DbType.String, category.ArticleType));
+            if (category.ThumbnailWidth != null)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailWidth", DbType.String, category.ThumbnailWidth));
             else
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, DBNull.Value));
-            if (ReleasePath != null)
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, ReleasePath));
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailWidth", DbType.String, DBNull.Value));
+            if (category.ThumbnailHeight != null)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailHeight", DbType.String, category.ThumbnailHeight));
             else
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, DBNull.Value));
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailHeight", DbType.String, DBNull.Value));
 
-            return Convert.ToInt32(DbProviderHelper.ExecuteScalar(oDbCommand));
+            return Convert.ToInt32(DbProviderHelper.ExecuteScalar(command));
         }
 
-        public int Update(int CategoryId, Guid CategoryGuid, string CategoryName, Guid ParentGuid, int Rank, string TemplatePath, string ReleasePath)
+        public int Update(Category category)
         {
-
-            DbCommand oDbCommand = DbProviderHelper.CreateCommand("UPDATECategory", CommandType.StoredProcedure);
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, CategoryGuid));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryName", DbType.String, CategoryName));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ParentGuid", DbType.Guid, ParentGuid));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, Rank));
-            if (TemplatePath != null)
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, TemplatePath));
+            DbCommand command = DbProviderHelper.CreateCommand("UPDATECategory", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryId", DbType.Int32, category.CategoryId));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, category.CategoryGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryName", DbType.String, category.CategoryName));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ParentGuid", DbType.Guid, category.ParentGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Int32, category.Rank));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType", DbType.String, category.ArticleType));
+            if (category.ThumbnailWidth != null)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailWidth", DbType.String, category.ThumbnailWidth));
             else
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath", DbType.String, DBNull.Value));
-            if (ReleasePath != null)
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, ReleasePath));
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailWidth", DbType.String, DBNull.Value));
+            if (category.ThumbnailHeight != null)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailHeight", DbType.String, category.ThumbnailHeight));
             else
-                oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath", DbType.String, DBNull.Value));
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryId", DbType.Int32, CategoryId));
-            return DbProviderHelper.ExecuteNonQuery(oDbCommand);
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailHeight", DbType.String, DBNull.Value));
+            return DbProviderHelper.ExecuteNonQuery(command);
         }
 
         public int Remove(int CategoryId)

@@ -69,10 +69,10 @@ namespace Wis.Website.Web.Backend.dialog
                     this.MessageBox("缺少参数", "未传递分类编号");
                     return;
                 }
-                if(category.ImageWidth.HasValue)
-                    this.w.Text = category.ImageWidth.ToString();
-                if (category.ImageHeight.HasValue)
-                    this.h.Text = category.ImageHeight.ToString();
+                if(category.ThumbnailWidth.HasValue)
+                    this.w.Text = category.ThumbnailWidth.ToString();
+                if (category.ThumbnailHeight.HasValue)
+                    this.h.Text = category.ThumbnailHeight.ToString();
 
                 if (this.w.Text.Trim() == "" || this.h.Text.Trim() == "")
                 {
@@ -80,8 +80,8 @@ namespace Wis.Website.Web.Backend.dialog
                     return;
                 }
 
-                this.ImageWidth = category.ImageWidth.Value;
-                this.ImageHeight = category.ImageHeight.Value;
+                this.ImageWidth = category.ThumbnailWidth.Value;
+                this.ImageHeight = category.ThumbnailHeight.Value;
             }
 
 

@@ -46,24 +46,24 @@ namespace Wis.Website.DataManager
             set { _ArticleType = value; }
         }
 
-        private Nullable<int> _ImageWidth;
+        private Nullable<int> _ThumbnailWidth;
         /// <summary>
-        /// ±Í ∂Õº∆¨øÌ
+        /// Àı¬‘Õº∆¨øÌ
         /// </summary>
-        public Nullable<int> ImageWidth
+        public Nullable<int> ThumbnailWidth
         {
-            get { return _ImageWidth; }
-            set { _ImageWidth = value; }
+            get { return _ThumbnailWidth; }
+            set { _ThumbnailWidth = value; }
         }
 
-        private Nullable<int> _ImageHeight;
+        private Nullable<int> _ThumbnailHeight;
         /// <summary>
-        /// ±Í ∂Õº∆¨∏ﬂ
+        /// Àı¬‘Õº∆¨∏ﬂ
         /// </summary>
-        public Nullable<int> ImageHeight
+        public Nullable<int> ThumbnailHeight
         {
-            get { return _ImageHeight; }
-            set { _ImageHeight = value; }
+            get { return _ThumbnailHeight; }
+            set { _ThumbnailHeight = value; }
         }
 
         private string _CategoryName;
@@ -106,31 +106,11 @@ namespace Wis.Website.DataManager
             set { _Rank = value; }
         }
 
-        private string _TemplatePath;
-        /// <summary>
-        /// 
-        /// </summary>
-        public string TemplatePath
-        {
-            get { return _TemplatePath; }
-            set { _TemplatePath = value; }
-        }
-
-        private string _ReleasePath;
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ReleasePath
-        {
-            get { return _ReleasePath; }
-            set { _ReleasePath = value; }
-        }
-
         public Category()
         { }
 
 
-        public Category(int categoryId, Guid categoryGuid, string categoryName, Guid parentGuid, string parentCategoryName, int rank, string TemplatePath, string ReleasePath)
+        public Category(int categoryId, Guid categoryGuid, string categoryName, Guid parentGuid, string parentCategoryName, int rank, byte articleType, int thumbnailWidth, int thumbnailHeight)
         {
             this.CategoryId = categoryId;
             this.CategoryGuid = categoryGuid;
@@ -138,13 +118,14 @@ namespace Wis.Website.DataManager
             this.ParentGuid = parentGuid;
             this.ParentCategoryName = parentCategoryName;
             this.Rank = rank;
-            this.TemplatePath = TemplatePath;
-            this.ReleasePath = ReleasePath;
+            this.ArticleType = articleType;
+            this.ThumbnailWidth = thumbnailWidth;
+            this.ThumbnailHeight = thumbnailHeight;
         }
 
         public override string ToString()
         {
-            return "CategoryId = " + CategoryId.ToString() + ",CategoryGuid = " + CategoryGuid.ToString() + ",CategoryName = " + CategoryName + ", ParentGuid = " + ParentGuid.ToString() + ", ParentCategoryName = " + this.ParentCategoryName.ToString() + ",Rank = " + Rank.ToString() + ",TemplatePath = " + TemplatePath + ",ReleasePath = " + ReleasePath;
+            return "CategoryId = " + CategoryId.ToString() + ",CategoryGuid = " + CategoryGuid.ToString() + ",CategoryName = " + CategoryName + ", ParentGuid = " + ParentGuid.ToString() + ", ParentCategoryName = " + this.ParentCategoryName.ToString() + ",Rank = " + Rank.ToString() + ",ArticleType = " + ArticleType.ToString() + ",thumbnailWidth = " + ThumbnailWidth + ",ThumbnailHeight = " + ThumbnailHeight;
         }
 
         public class CategoryIdComparer : System.Collections.Generic.IComparer<Category>
