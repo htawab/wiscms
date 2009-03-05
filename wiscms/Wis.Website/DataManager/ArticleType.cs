@@ -7,24 +7,24 @@
 namespace Wis.Website.DataManager
 {
     /// <summary>
-    /// 内容类型。
+    /// 内容类型。
     /// </summary>
     public enum ArticleType
     {
         /// <summary>
-        /// 普通新闻。
+        /// 普通新闻。
         /// </summary>
         Normal,
         /// <summary>
-        /// 图片。
+        /// 图片新闻。
         /// </summary>
-        Image,
+        Photo,
         /// <summary>
-        /// 视频。
+        /// 视频新闻。
         /// </summary>
         Video,
         /// <summary>
-        /// 软件。
+        /// 软件。
         /// </summary>
         Soft
     }

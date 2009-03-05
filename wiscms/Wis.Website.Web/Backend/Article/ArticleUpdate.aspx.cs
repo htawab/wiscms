@@ -73,7 +73,7 @@ namespace Wis.Website.Web.Backend.Article
             {
                 this.ArticleType0.Checked = true;
             }
-            else if (articleType == Wis.Website.DataManager.ArticleType.Image)
+            else if (articleType == Wis.Website.DataManager.ArticleType.Photo)
             {
                 this.TabloidPath.Value = drow["ImagePath"].ToString();
                 this.ArticleType1.Checked = true;

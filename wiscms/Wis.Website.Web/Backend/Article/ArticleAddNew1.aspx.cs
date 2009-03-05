@@ -71,7 +71,7 @@ namespace Wis.Website.Web.Backend.Article
                     {
                         // 切割图片
                         string requestPointX = Request["PointX"];
-                        string requestPointY = Request["PointY"];//Image
+                        string requestPointY = Request["PointY"];//Photo
                         if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
                         {
                             // 上传的文件
@@ -174,7 +174,7 @@ namespace Wis.Website.Web.Backend.Article
                     return;
                 }
                 //article.ImagePath = this.ImagePath.Value;
-                article.ArticleType = Wis.Website.DataManager.ArticleType.Image;
+                article.ArticleType = Wis.Website.DataManager.ArticleType.Photo;
             }
             if (ArticleType2.Checked)
             {
