@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.Article.ArticleList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleList.aspx.cs" Inherits="Wis.Website.Web.Backend.ArticleList" %>
 
 <%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="Wis" %>
 

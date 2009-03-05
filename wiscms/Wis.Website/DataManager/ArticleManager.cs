@@ -347,6 +347,7 @@ namespace Wis.Website.DataManager
                 article.Category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
                 article.Category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 article.Category.ParentGuid = (Guid) dataReader[CategoryField.ParentGuid];
+                article.Category.ParentCategoryName = (string)dataReader[CategoryField.ParentCategoryName];
                 article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
                 if (dataReader["TemplatePath"] != DBNull.Value)
                     article.Category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
@@ -406,6 +407,81 @@ namespace Wis.Website.DataManager
             return article;
         }
 
+        /// <summary>
+        /// 根据文章编号获取文章实体类
+        /// </summary>
+        /// <param name="articleGuid">文章分类</param>
+        /// <returns>返回文章实体类</returns>
+        public Article GetArticleByArticleGuid(Guid articleGuid)
+        {
+            Article article = new Article();
+            article.ArticleGuid = articleGuid;
+
+            DbCommand command = DbProviderHelper.CreateCommand("SelectArticleByArticleGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            while (dataReader.Read())
+            {
+                article.ArticleId = Convert.ToInt32(dataReader["ArticleId"]);                
+
+                // 获取 Category 对象
+                article.Category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
+                article.Category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
+                article.Category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
+                article.Category.ParentGuid = (Guid) dataReader[CategoryField.ParentGuid];
+                article.Category.ParentCategoryName = (string)dataReader[CategoryField.ParentCategoryName];
+                article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                if (dataReader["TemplatePath"] != DBNull.Value)
+                    article.Category.TemplatePath = Convert.ToString(dataReader[CategoryField.TemplatePath]);
+                if (dataReader["ReleasePath"] != DBNull.Value)
+                    article.Category.ReleasePath = Convert.ToString(dataReader[CategoryField.ReleasePath]);
+
+                article.ArticleType = (ArticleType)System.Enum.Parse(typeof(ArticleType), dataReader["ArticleType"].ToString(), true);
+
+                if (dataReader["ImagePath"] != DBNull.Value)
+                    article.ImagePath = Convert.ToString(dataReader["ImagePath"]);
+
+                if (dataReader["MetaKeywords"] != DBNull.Value)
+                    article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
+
+                if (dataReader["MetaDesc"] != DBNull.Value)
+                    article.MetaDesc = Convert.ToString(dataReader["MetaDesc"]);
+                article.Title = Convert.ToString(dataReader["Title"]);
+
+                if (dataReader["TitleColor"] != DBNull.Value)
+                    article.TitleColor = Convert.ToString(dataReader["TitleColor"]);
+
+                if (dataReader["SubTitle"] != DBNull.Value)
+                    article.SubTitle = Convert.ToString(dataReader["SubTitle"]);
+
+                if (dataReader["Summary"] != DBNull.Value)
+                    article.Summary = Convert.ToString(dataReader["Summary"]);
+
+                if (dataReader["ContentHtml"] != DBNull.Value)
+                    article.ContentHtml = Convert.ToString(dataReader["ContentHtml"]);
+
+                if (dataReader["Editor"] != DBNull.Value)
+                    article.Editor = (Guid)dataReader["Editor"];
+
+                if (dataReader["Author"] != DBNull.Value)
+                    article.Author = Convert.ToString(dataReader["Author"]);
+
+                if (dataReader["Original"] != DBNull.Value)
+                    article.Original = Convert.ToString(dataReader["Original"]);
+                article.Rank = Convert.ToInt32(dataReader["Rank"]);
+
+                if (dataReader["SpecialGuid"] != DBNull.Value)
+                    article.SpecialGuid = (Guid)dataReader["SpecialGuid"];
+
+                article.Hits = Convert.ToInt32(dataReader["Hits"]);
+                article.Comments = Convert.ToInt32(dataReader["Comments"]);
+                article.Votes = Convert.ToInt32(dataReader["Votes"]);
+                article.DateCreated = Convert.ToDateTime(dataReader["DateCreated"]);
+            }
+            dataReader.Close();
+            return article;
+        }
+        
         public int AddNew(Article article)
         {
             // 写入数据库
