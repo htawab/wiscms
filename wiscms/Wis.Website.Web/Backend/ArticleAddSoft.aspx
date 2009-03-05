@@ -59,10 +59,9 @@
             <div><label>更新时间：</label><INPUT id="SoftTime" size="25" name="SoftTime" value="2009-3-4 23:21:52" /></div>
             <div><label>所需积分：</label><INPUT size="10" name="Point" value="1" /></div>
         </div>
+        <div id="Warning" runat="server"></div>
         <div class="add_button">
-            <asp:ImageButton ID="ImageButtonNext" runat="server" 
-                ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" 
-                style="width: 14px" />
+            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" style="width: 14px" />
         </div>
     </div></form>
 </body>
