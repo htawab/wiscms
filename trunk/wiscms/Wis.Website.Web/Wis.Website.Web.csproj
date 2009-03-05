@@ -81,6 +81,13 @@
     <Compile Include="Backend\ArticleAddNew.aspx.designer.cs">
       <DependentUpon>ArticleAddNew.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\ArticleAddVideo.aspx.cs">
+      <DependentUpon>ArticleAddVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleAddVideo.aspx.designer.cs">
+      <DependentUpon>ArticleAddVideo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\ArticleRelease.aspx.cs">
       <DependentUpon>ArticleRelease.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -615,6 +622,7 @@
     <Content Include="Backend\ArticleAddPhoto.aspx" />
     <Content Include="Backend\ArticleAddSoft.aspx" />
     <Content Include="Backend\ArticleAddNew.aspx" />
+    <Content Include="Backend\ArticleAddVideo.aspx" />
     <Content Include="Backend\ArticleRelease.aspx" />
     <Content Include="Backend\ArticleSelectCategory.aspx" />
     <Content Include="Backend\ArticleUpdate.aspx" />

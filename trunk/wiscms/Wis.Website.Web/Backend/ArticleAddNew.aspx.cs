@@ -128,7 +128,25 @@ namespace Wis.Website.Web.Backend
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "添加新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
 
             // 6 下一步
-            Response.Redirect("ArticleAddMore.aspx?ArticleGuid=" + article.ArticleGuid);
+            // TODO:创建 ArticleType 表，扩展文章类型 
+            switch (category.ArticleType)
+            {
+                case 1: // 普通新闻
+                    Response.Redirect("ArticleRelease.aspx?ArticleGuid=" + article.ArticleGuid);
+                    break;
+                case 2:// 图片新闻
+                    Response.Redirect("ArticleAddPhoto.aspx?ArticleGuid=" + article.ArticleGuid);
+                    break;
+                case 3:// 视频新闻
+                    Response.Redirect("ArticleAddVideo.aspx?ArticleGuid=" + article.ArticleGuid);
+                    break;
+                case 4:// 软件
+                    Response.Redirect("ArticleAddSoft.aspx?ArticleGuid=" + article.ArticleGuid);
+                    break;
+                default:
+                    Response.Redirect("ArticleRelease.aspx?ArticleGuid=" + article.ArticleGuid);
+                    break;
+            }
         }
     }
 }
