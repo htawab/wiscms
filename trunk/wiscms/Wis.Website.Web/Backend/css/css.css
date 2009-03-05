@@ -426,7 +426,7 @@ div.right div.AticleSch select {margin:0; padding:0;}
 /* 添加文章 */
 .add_step {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px;}
 .add_step ul {height:25px; padding-left:6px;}
-.add_step ul li {width:142px; height:25px; line-height:25px; *line-height:27px; margin-right:-6px; float:left; background:url(../images/step2.gif) center top no-repeat; text-indent:22px; overflow:hidden; color:#444;}
+.add_step ul li {width:152px; height:25px; line-height:25px; *line-height:27px; margin-right:-8px; float:left; background:url(../images/step2.gif) center top no-repeat; text-indent:18px; overflow:hidden; color:#444;}
 .add_step ul li.current_step {background:url(../images/step1.gif) center top no-repeat; color:#fff;}
 
 
