@@ -96,9 +96,12 @@ ImageCropper.prototype = {
 		if(!!this.options.viewWidth) this.viewWidth = Math.round(this.options.viewWidth);
 		if(!!this.options.viewHeight) this.viewHeight = Math.round(this.options.viewHeight);
 		// 预览图片对象
-		this._view = this.Preview.appendChild(document.createElement("img"));
+		if(!!this.Preview.getElementsByTagName("img"))
+		    this._view = this.Preview.getElementsByTagName("img")[0];
+		else
+		    this._view = this.Preview.appendChild(document.createElement("img"));
 		this._view.style.position = "absolute";
-		this._view.onload = Bind(this, this.SetPreview);
+		this._view.onload = this.SetPreview;
 	}
 	//设置拖放
 	this._drag = new Drag(this._layHandle, { Limit: true, onMove: Bind(this, this.SetPos), Transparent: true });
@@ -106,7 +109,6 @@ ImageCropper.prototype = {
 	//设置缩放
 	this.Resize = !!this.options.Resize;
 	if(this.Resize){
-	    alert(this._layHandle.style.height);
 		var op = this.options, _resize = new Resize(this._layHandle, { Max: true, onResize: Bind(this, this.SetPos) });
 		//设置缩放触发对象
 		op.RightDown && (_resize.Set(op.RightDown, "right-down"));
@@ -168,6 +170,7 @@ ImageCropper.prototype = {
 	//设置背景色
 	this.Color && (this._Container.style.backgroundColor = this.Color);
 	//设置图片
+	this._tempImg.src = "";
 	this._tempImg.src = this._layBase.src = this._layCropper.src = this.Url;	
 	//设置透明
 	if(isIE){
@@ -205,11 +208,18 @@ ImageCropper.prototype = {
 		var s = this.GetSize(p.Width, p.Height, this.viewWidth, this.viewHeight);
 		var scale = s.Height / p.Height;
 		//按比例设置参数
-		var pHeight = this._layBase.height * scale, pWidth = this._layBase.width * scale, pTop = p.Top * scale, pLeft = p.Left * scale;
+		if(this._layBase.style.width == "" || this._layBase.style.height == "") return;
+		var pHeight = parseInt(this._layBase.style.height) * scale, pWidth = parseInt(this._layBase.style.width) * scale, pTop = p.Top * scale, pLeft = p.Left * scale;
+		if( pWidth == NaN || pHeight == NaN) return;
+		
 		//设置预览对象
 		with(this._view.style){
 			// 设置样式
-			width = pWidth + "px"; height = pHeight + "px"; top = - pTop + "px "; left = - pLeft + "px";
+			width = parseInt(pWidth) + "px";
+			height = parseInt(pHeight) + "px";
+			//alert(parseInt(pWidth) + " * " + parseInt(pHeight));
+			top = - pTop + "px ";
+			left = - pLeft + "px";
 			// 切割预览图
 			clip = "rect(" + pTop + "px " + (pLeft + s.Width) + "px " + (pTop + s.Height) + "px " + pLeft + "px)";
 		}
@@ -224,8 +234,10 @@ ImageCropper.prototype = {
 	this._Container.style.width = w + "px";
 	this._Container.style.height = h + "px";
 	//设置底图和切割图
-	this._layBase.style.width = this._layCropper.style.width = w + "px";
+	this._layCropper.style.width = this._tempImg.width + "px";
+	this._layBase.style.width = this._tempImg.width + "px";
 	this._layBase.style.height = this._layCropper.style.height = h + "px";
+	
 	//设置拖放范围
 	this._drag.mxRight = w;
 	this._drag.mxBottom = h;

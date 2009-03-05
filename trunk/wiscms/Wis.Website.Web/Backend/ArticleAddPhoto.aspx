@@ -52,7 +52,7 @@
             </ul>
         </div>
         <div class="add_main add_step3">
-            <div><label>浏览图片：</label><input id='Photo' type='file' name='Photo' value='' /></div>
+            <div><label>浏览图片：</label><FileUploads:DJFileUpload ID="Photo" runat="server" AllowedFileExtensions=".png,.jpg,.gif" /><FileUploads:DJAccessibleProgressBar ID="DJAccessibleProgrssBar1" runat="server" /></div>
             <div>
                 <label>制作缩略图：</label>
                 <asp:HiddenField ID="PointX" runat="server" />
@@ -76,6 +76,11 @@
                     <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;filter:alpha(opacity=0);"></iframe>
                 </div>
             </div>
+            <div id="ThumbConfig" style="display:none">
+                <label>参数设置：</label>
+                <span><input name="Stretch" type="checkbox" value="1" />拉伸</span>
+                <span><input name="Beveled" type="checkbox" value="1" />斜角</span>
+            </div>
             <div>
                 <label>缩略图预览：<br />(<%=ThumbnailWidth %>*<%=ThumbnailHeight %>) &nbsp;&nbsp;</label>
                 <div id="ImagePreview"><img src="images/noimg2.gif" alt="缩略图预览" /></div>
@@ -86,7 +91,7 @@
                     var radio1 = span1.getElementsByTagName("input")[0];
                     var radio2 = span2.getElementsByTagName("input")[0];
                     function Thumbnail_Load(e, index){
-                        var url = $("Photo").value;
+                        var url = $("Photo$ctl03").value;
                         if(url == "")
                         {
                             alert("请先浏览图片");
@@ -97,14 +102,41 @@
                             span1.className = "checked"
                             span2.className = "unCheck"
                             radio1.checked = true;
-                            radio2.checked = false;
+                            radio2.checked = false;                            
+                            $("ThumbConfig").style.display == "";
                         }
                         else {
                             span1.className = "unCheck"
                             span2.className = "checked"
                             radio1.checked = false;
                             radio2.checked = true;
+                            $("ThumbConfig").style.display == "none";
                         }                      
+                        
+                        if(radio1.checked)
+                        {
+                            var tempImg = document.createElement("img");
+                            tempImg.src = url;
+	                        var iWidth = tempImg.width, iHeight = tempImg.height, scale = iWidth / iHeight;
+	                        
+	                        //按比例设置
+                            var fixWidth = <%=ThumbnailWidth %>;
+                            var fixHeight = <%=ThumbnailHeight %>;
+	                        if(fixHeight){ iWidth = (iHeight = fixHeight) * scale; }
+	                        if(fixWidth && (!fixHeight || iWidth > fixWidth)){ iHeight = (iWidth = fixWidth) / scale; }
+
+                            var img = $("ImagePreview").getElementsByTagName("img")[0];
+	                        with(img.style){
+		                        // 设置样式
+		                        width = parseInt(iWidth) + "px";
+		                        height = parseInt(iHeight) + "px";
+		                        top = "";
+		                        left = "";
+		                        // 切割预览图
+		                        clip = "rect(0px " + tempImg.width + "px " + tempImg.height + "px 0px)";
+	                        }                            
+                            img.src = url;                        	
+                        }
                         
                         if ($("ImageCropperBackground").style.display == "none" && radio2.checked)
                         {
@@ -112,7 +144,7 @@
                             $("ImageCropperBackground").style.left = e.clientX + "px";
                             $("ImageCropperBackground").style.top = e.clientY + "px";
                         
-                            var ic = new ImageCropper("ImageCropperBackground", "ImageCropperDrag", url, {
+                            var cropper = new ImageCropper("ImageCropperBackground", "ImageCropperDrag", url, {
                                 Color: "#000",
                                 Resize: false,
                                 Right: "ImageCropperRight", Left: "ImageCropperLeft", Up:	"ImageCropperUp", Down: "ImageCropperDown",
@@ -123,13 +155,13 @@
                             $("ImageCropperBackground").style.zIndex = $("Position").style.zIndex + 1;
                             $("ImageCropperBackground").style.display = "";
                             $("ImageCropperBackground").ondblclick = function(){
-                                var p = ic.Url;
-                                var o = ic.GetPos();
+                                var p = cropper.Url;
+                                var o = cropper.GetPos();
                                 $('PointX').value = o.Left;
                                 $('PointY').value = o.Top;
                                 $('CropperWidth').value = o.Width;
                                 $('CropperHeight').value = o.Height;
-                                ic.Close();
+                                cropper.Close();
                                 var selects = document.getElementsByTagName('select');
                                 for(index = 0; index < selects.length; index++){
                                     selects[index].style.display = ($("ImageCropperBackground").style.display == '') ? 'none':'';

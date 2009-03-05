@@ -43,7 +43,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
         #region Properties
 
         /// <summary>
-        /// Gets/sets the output folder path.
+        /// Êä³öÄ¿Â¼.
         /// </summary>
         public string OutputPath
         {
@@ -51,12 +51,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
             set
             {
                 value = value.Trim();
-
-                if (!value.EndsWith(@"\")) value += @"\";
-
-                if (!Directory.Exists(value))
-                    throw new ArgumentException("Directory does not exist:" + value);
-
+                if (!value.EndsWith("/")) value += "/";
                 _outputPath = value;
             }
         }
@@ -94,7 +89,9 @@ namespace Wis.Toolkit.WebControls.FileUploads
             try
             {
                 _fileName = fileName;
-                _fullFileName = _outputPath + Path.GetFileName(fileName);
+                string outputPath = System.Web.HttpContext.Current.Server.MapPath(_outputPath);
+                if (System.IO.Directory.Exists(outputPath)) System.IO.Directory.CreateDirectory(outputPath);
+                _fullFileName = outputPath + Path.GetFileName(fileName);
                 _fs = new FileStream(_fullFileName, FileMode.Create);
             }
             catch (Exception ex)

@@ -49,7 +49,6 @@ namespace Wis.Website.Web.Backend.Article
         private Wis.Website.DataManager.CategoryManager categoryManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string requestCategoryGuid = Request.QueryString["CategoryGuid"];
             if(categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
             DropdownMenuCategory.MenuItems = categoryManager.GetCategoryMenuItems();
