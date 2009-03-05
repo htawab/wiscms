@@ -109,11 +109,11 @@
     <Compile Include="Backend\Article\ArticleAddNew1.aspx.designer.cs">
       <DependentUpon>ArticleAddNew1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Backend\Article\ArticleList.aspx.cs">
+    <Compile Include="Backend\ArticleList.aspx.cs">
       <DependentUpon>ArticleList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backend\Article\ArticleList.aspx.designer.cs">
+    <Compile Include="Backend\ArticleList.aspx.designer.cs">
       <DependentUpon>ArticleList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\Article\ArticleMenu.aspx.cs">
@@ -164,6 +164,27 @@
     </Compile>
     <Compile Include="Backend\Article\ThumbnailPreview.aspx.designer.cs">
       <DependentUpon>ThumbnailPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\CategoryAddNew.aspx.cs">
+      <DependentUpon>CategoryAddNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\CategoryAddNew.aspx.designer.cs">
+      <DependentUpon>CategoryAddNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\CategoryUpdate.aspx.cs">
+      <DependentUpon>CategoryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\CategoryUpdate.aspx.designer.cs">
+      <DependentUpon>CategoryUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx.cs">
       <DependentUpon>AttachFile.aspx</DependentUpon>
@@ -375,7 +396,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backend\Article\ArticleAddNew1.aspx" />
-    <Content Include="Backend\Article\ArticleList.aspx" />
+    <Content Include="Backend\ArticleList.aspx" />
     <Content Include="Backend\Article\ArticleMenu.aspx" />
     <Content Include="Backend\Article\ArticleUpdate.aspx" />
     <Content Include="Backend\Article\PageUpdate.aspx" />
@@ -631,6 +652,9 @@
     <Content Include="Backend\Article\FileList.htm" />
     <Content Include="Backend\Article\LinkList.htm" />
     <Content Include="Backend\Article\picList.htm" />
+    <Content Include="Backend\CategoryAddNew.aspx" />
+    <Content Include="Backend\CategoryList.aspx" />
+    <Content Include="Backend\CategoryUpdate.aspx" />
     <Content Include="Backend\images\annexUpLoad\annexUpload.html" />
     <Content Include="Backend\images\annexUpLoad\annexUpLoadWin.css" />
     <Content Include="Backend\images\annexUpLoad\annexUpLoadWin.js" />

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
-namespace Wis.Website.Web.Backend.Article
+namespace Wis.Website.Web.Backend
 {
     public partial class ArticleList : BackendPage
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wis.Website.Web.Backend.Article {
+namespace Wis.Website.Web.Backend {
     
     
     public partial class ArticleList {
