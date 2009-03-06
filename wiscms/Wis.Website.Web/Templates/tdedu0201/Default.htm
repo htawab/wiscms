@@ -264,13 +264,13 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf","eduFlashID0
     <div class="center">
         <div class="left">
             <div class="left mgnBot"><a href="#" title="#"><img src="$TemplateDirectory$/images/object.gif" width="662" height="84" alt="专题" /></a></div>
-            <div class="indexleft outbox height2">
+            <div class="indexleft outbox height7">
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("教学资源", "")$/1.htm" title="查看更多">更多</a>教学资源</div>
                 <ul class="indexList"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("教学资源", "", 1, 9)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li></tpl:foreach>
                 </ul>
             </div>
-            <div class="indexleft2 outbox height2">
+            <div class="indexleft2 outbox height7">
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("空中课堂", "")$/1.htm" title="查看更多">更多</a>空中课堂</div>
                 <ul class="indexList"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("空中课堂", "", 1, 9)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li></tpl:foreach>
@@ -278,13 +278,13 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf","eduFlashID0
             </div>
             <div class="clear">
             </div>
-            <div class="indexleft outbox height2">
+            <div class="indexleft outbox height8">
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("视频资源", "")$/1.htm" title="查看更多">更多</a>视频资源</div>
-                <ul class="indexList"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("视频资源", "", 1, 9)$" var="Article">
+                <ul class="indexList"><tpl:foreach collection="$ArticleManager.GetArticlesByCategoryName("视频资源", "", 1, 8)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li></tpl:foreach>
                 </ul>
             </div>
-            <div class="indexleft2 outbox height2">
+            <div class="indexleft2 outbox height8">
                 <div class="cap"><a href="#" title="查看更多">更多</a>教育博客</div>
                 <ul class="indexList">
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
@@ -292,7 +292,6 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf","eduFlashID0
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
-                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
