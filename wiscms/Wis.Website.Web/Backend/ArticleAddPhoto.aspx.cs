@@ -112,7 +112,7 @@ namespace Wis.Website.Web.Backend
             Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
             Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
             file.FileGuid = Guid.NewGuid();
-            string destFilename = Server.MapPath(string.Format("~/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), file.FileGuid, thumbnail.Extension));
+            string destFilename = string.Format("~/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), file.FileGuid, thumbnail.Extension);
 
 #warning TODO:填写当前登录用户的UserName
             file.CreatedBy = string.Empty;
@@ -132,6 +132,7 @@ namespace Wis.Website.Web.Backend
             // PointX 和 PointY都不为空，则进行图片裁剪
             string requestPointX = Request["PointX"];
             string requestPointY = Request["PointY"];
+            destFilename = Server.MapPath(destFilename);
             if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
             {
                 int pointX;
