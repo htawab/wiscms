@@ -5,12 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <script src="Article/wis.js" language="javascript" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        function Check() {
+//            if ($("Photo$ctl03").value == "") {
+//                alert("请先浏览图片");
+//                return false;
+//            }
+            $("Loading").style.display = "";
+            return true;
+        }
+    </script>    
 </head>
 <body style="background: #d6e7f7"><form id="form1" runat="server">
     <div>
-        <div class="position">
-            当前位置：添加新闻</div>
+        <div class="position">当前位置：添加新闻</div>
         <div class="add_step">
             <ul>
                 <li>第一步：选择分类</li><li>第二步：基本信息</li>
@@ -20,40 +30,41 @@
         <div class="add_main add_step4">
             信息录入完成，以下相关页面将被重新生成
             <ul class="top">
-                <li class="step4_li1">页面标题</li><li class="step4_li2">模板路径</li><li class="step4_li3">
-                    发布路径</li><li class="step4_li4">
-                        <input type="checkbox" /></li>
+                <li class="step4_li4"><input type="checkbox" checked="checked" /></li>
+                <li class="step4_li1">标题</li>
+                <li class="step4_li2">模板路径</li>
+                <li class="step4_li3">发布路径</li>
             </ul>
             <ul>
+                <li class="step4_li4"><input type="checkbox" /></li>
                 <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li><li class="step4_li3">website/web/web/aa/htm</li><li
-                    class="step4_li4">
-                    <input type="checkbox" /></li>
+                <li class="step4_li2">templete/web/web/aa/htm</li>
+                <li class="step4_li3">website/web/web/aa/htm</li>
             </ul>
             <ul>
+                <li class="step4_li4"><input type="checkbox" /></li>
                 <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li><li class="step4_li3">website/web/web/aa/htm</li><li
-                    class="step4_li4">
-                    <input type="checkbox" /></li>
+                <li class="step4_li2">templete/web/web/aa/htm</li>
+                <li class="step4_li3">website/web/web/aa/htm</li>
             </ul>
             <ul>
+                <li class="step4_li4"><input type="checkbox" /></li>
                 <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li><li class="step4_li3">website/web/web/aa/htm</li><li
-                    class="step4_li4">
-                    <input type="checkbox" /></li>
+                <li class="step4_li2">templete/web/web/aa/htm</li>
+                <li class="step4_li3">website/web/web/aa/htm</li>
             </ul>
             <ul>
+                <li class="step4_li4"><input type="checkbox" /></li>
                 <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li><li class="step4_li3">website/web/web/aa/htm</li><li
-                    class="step4_li4">
-                    <input type="checkbox" /></li>
+                <li class="step4_li2">templete/web/web/aa/htm</li>
+                <li class="step4_li3">website/web/web/aa/htm</li>
             </ul>
-            <div class="clear">
-            </div>
+            <div class="clear"></div>
         </div>
         <div id="Warning" runat="server"></div>
+        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 上传中...</div>
         <div class="add_button">
-            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" />
+            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" OnClientClick="javascript:return Check();" />
         </div>
     </div></form>
 </body>

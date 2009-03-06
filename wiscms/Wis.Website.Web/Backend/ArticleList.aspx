@@ -6,9 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link href="../css/css.css" rel="stylesheet" type="text/css" />
-    <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
-    <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <link href="images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
+    <script src="images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
     <script src="wis.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript">
         function Search_ClientClick(IsKey) {
@@ -49,7 +49,7 @@
         </div>
         <div class="listBox" id="listBox">
             <div class="AticleSch">
-                <label>搜索内容：</label><input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="../images/schbtn.gif" /></A>
+                <label>搜索内容：</label><input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="images/schbtn.gif" /></A>
                 <a href="ArticleAdd.aspx" class="addNews">添加新闻</a>
              <div class="clear"></div>
             </div>

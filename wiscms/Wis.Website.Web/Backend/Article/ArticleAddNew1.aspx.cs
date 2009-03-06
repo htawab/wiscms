@@ -60,15 +60,10 @@ namespace Wis.Website.Web.Backend.Article
                 {
                     Guid categoryGuid = new Guid(requestCategoryGuid);
                     category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
-                    if (!string.IsNullOrEmpty(category.CategoryName))
-                    {
-                        DropdownMenuCategory.Text = category.CategoryName;
-                        DropdownMenuCategory.Value = category.CategoryGuid.ToString();
-                    }
                 }
 
                 // 提交表单前检测
-                this.btnOK.Attributes.Add("onclick", "javascript:return CheckArticle();");
+                this.btnOK.Attributes.Add("onclick", "");
             }
 
             // 管理所在位置 MySiteMapPath

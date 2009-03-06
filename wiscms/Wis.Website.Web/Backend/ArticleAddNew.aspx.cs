@@ -15,15 +15,10 @@ namespace Wis.Website.Web.Backend
 {
     public partial class ArticleAddNew : System.Web.UI.Page
     {
+        Wis.Website.DataManager.Category category = null;
+        Wis.Website.DataManager.CategoryManager categoryManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
-        {
-            // 添加内容，下一步
-
             // 1 获取分类的信息
             string requestCategoryGuid = Request.QueryString["CategoryGuid"];
             if (string.IsNullOrEmpty(requestCategoryGuid) || !Wis.Toolkit.Validator.IsGuid(requestCategoryGuid))
@@ -32,12 +27,23 @@ namespace Wis.Website.Web.Backend
                 return;
             }
 
-            Wis.Website.DataManager.Category category = null;
-            Wis.Website.DataManager.CategoryManager categoryManager = null;
             if (categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
             Guid categoryGuid = new Guid(requestCategoryGuid);
             category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
-            if (!string.IsNullOrEmpty(category.CategoryName))
+            if (string.IsNullOrEmpty(category.CategoryName))
+            {
+                Warning.InnerHtml = "未读取到分类信息，请<a href='ArticleSelectCategory.aspx'>返回</a>选择分类";
+                return;
+            }
+
+            HyperLinkCategory.Text = category.CategoryName;
+            HyperLinkCategory.NavigateUrl = string.Format("ArticleList.aspx?CategoryGuid={0}", category.CategoryGuid);
+        }
+
+        protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
+        {
+            // 添加内容，下一步
+            if (string.IsNullOrEmpty(category.CategoryName))
             {
                 Warning.InnerHtml = "未读取到分类信息，请<a href='ArticleSelectCategory.aspx'>返回</a>选择分类";
                 return;
