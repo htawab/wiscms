@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background:#d6e7f7">
+<div id="Position">
+ <label>所在位置：</label>视频管理
+</div>
+<div class="picListBox" id="picListBox">
+<div class="AticleSch">选择分类：<select><option>新闻分类</option></select> <a href="#">添加图片</a></div>
+ <ul class="top">
+  <li class="picSmall">缩略图</li>
+  <li class="picTitle">视频名称/大小</li>
+  <li class="picDes">视频描述</li>
+  <li class="picAddTime">添加时间</li>
+  <li class="picUser">用户</li>
+  <li class="picOperate">操作</li>
+ </ul>
+ 
+ 
+ <ul>
+  <li class="picSmall">
+   <img src="InsertVideo2.gif" />
+  </li>
+  <li class="picTitle">视频名称/大小</li>
+  <li class="picDes">视频描述</li>
+  <li class="picAddTime">添加时间</li>
+  <li class="picUser">用户</li>
+  <li class="picOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
+ </ul>
+ 
+ <ul>
+  <li class="picSmall">
+   <img src="InsertVideo2.gif" />
+  </li>
+  <li class="picTitle">视频名称/大小</li>
+  <li class="picDes">视频描述</li>
+  <li class="picAddTime">添加时间</li>
+  <li class="picUser">用户</li>
+  <li class="picOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
+ </ul>
+ 
+ <ul>
+  <li class="picSmall">
+   <img src="InsertVideo2.gif" />
+  </li>
+  <li class="picTitle">视频名称/大小</li>
+  <li class="picDes">视频描述</li>
+  <li class="picAddTime">添加时间</li>
+  <li class="picUser">用户</li>
+  <li class="picOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
+ </ul>
+
+ 
+ 
+<script type="text/javascript">
+var picListBox = document.getElementById("picListBox");
+var picListBox_ul = picListBox.getElementsByTagName("ul");
+for (var i=0;i<picListBox_ul.length;i++){
+if (i%2==0){
+picListBox_ul[i].style.background="#e0e9f5";
+}
+else {
+picListBox_ul[i].style.background="#f1f6fc";
+}
+picListBox_ul[0].style.background="#c6daed";
+}
+</script>
+
+
+<div class="clear"></div>
+<div class="page" style="width:800px;"><a href="####" class="noLink">共 8 页 当前第 2 页</a> <a href="#">首页</a> <a href="#">上一页</a> <a href="">下一页</a> <a href="#">尾页</a></div>
+</div>
+
+</body>
+</html>
