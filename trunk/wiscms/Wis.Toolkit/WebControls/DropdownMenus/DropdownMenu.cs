@@ -161,12 +161,12 @@ namespace Wis.Toolkit.WebControls.DropdownMenus
             string styleKey = string.Format("DropdownMenuCss_{0}", base.ClientID);
             string styleBlock = string.Format(@"
             <style type='text/css'>
-                ul.{0} {{list-style:none; margin:0; padding:0; width:200px; overflow:visible; line-height:23px;}}
+                ul.{0} {{list-style:none; margin:0; padding:0; width:169px; overflow:visible; line-height:23px;}}
                 ul.{0} * {{margin:0; padding:0; cursor: pointer;}}
                 ul.{0} a {{display:block; color:#000; text-decoration:none; height:22px;}}
                 ul.{0} li {{background:url({1}header.gif); position:relative; float:left; margin-right:2px; overflow:visible;}}
                 ul.{0} iframe {{position:absolute; width:169px; height:23px; top:0; left:-1px; z-index:-1; }}
-                ul.{0} ul {{position:absolute; top:23px; left:0; background:#d1d1d1;  display:none; *opacity:0; list-style:none;}}
+                ul.{0} ul {{position:absolute; top:23px; left:0; width:169px; display:none; *opacity:0; list-style:none;}}
                 ul.{0} ul li {{position:relative; border:1px solid #aaa; width:167px; border-top:none;  margin:0}}
                 ul.{0} ul li a {{display:block; padding:0px 7px; height:22px; background-color:#d1d1d1}}
                 ul.{0} ul li a:hover {{background-color:#c5c5c5}}
