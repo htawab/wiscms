@@ -5,12 +5,12 @@
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background:#d6e7f7">
-<div class="right">
-<div class="position">
- 所在位置：附件管理
+
+<div id="Position">
+ 所在位置：文件管理
 </div>
-<div class="FileListBox" id="FileListBox">
-<div class="AticleSch">选择分类：<select><option>附件分类</option></select> <a href="#" class="addFiles">添加附件</a></div>
+<div class="FileListBox" id="ListBox">
+<div class="AticleSch">选择分类：<select><option>文件管理</option></select> <a href="#" class="addFiles">添加文件</a></div>
  <ul class="top">
   <li class="fileTitle">附件名称</li>
   <li class="fileSize">附件大小</li>
@@ -26,7 +26,7 @@
   <li class="fileDes">附件描述</li>
   <li class="fileAddTime">添加时间</li>
   <li class="fileUser">用户</li>
-  <li class="fileOperate"><a href="#">修改</a><a href="#">删除</a></li>
+  <li class="fileOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
  </ul>
  
  <ul>
@@ -35,7 +35,7 @@
   <li class="fileDes">附件描述</li>
   <li class="fileAddTime">添加时间</li>
   <li class="fileUser">用户</li>
-  <li class="fileOperate"><a href="#">修改</a><a href="#">删除</a></li>
+  <li class="fileOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
  </ul>
  <ul>
   <li class="fileTitle">附件名称</li>
@@ -43,7 +43,7 @@
   <li class="fileDes">附件描述</li>
   <li class="fileAddTime">添加时间</li>
   <li class="fileUser">用户</li>
-  <li class="fileOperate"><a href="#">修改</a><a href="#">删除</a></li>
+  <li class="fileOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
  </ul>
  <ul>
   <li class="fileTitle">附件名称</li>
@@ -51,35 +51,40 @@
   <li class="fileDes">附件描述</li>
   <li class="fileAddTime">添加时间</li>
   <li class="fileUser">用户</li>
-  <li class="fileOperate"><a href="#">修改</a><a href="#">删除</a></li>
+  <li class="fileOperate Operate"><a href="#">修改</a><a href="#">删除</a></li>
  </ul>
+ 
+ 
+ 
+ 
  
   
   
  
  
 <script type="text/javascript">
-var FileListBox = document.getElementById("FileListBox");
-var FileListBox_ul = FileListBox.getElementsByTagName("ul");
-for (var i=0;i<FileListBox_ul.length;i++){
+var LinkListBox = document.getElementById("ListBox");
+var LinkListBox_ul = LinkListBox.getElementsByTagName("ul");
+for (var i=0;i<LinkListBox_ul.length;i++){
 if (i%2==0){
-FileListBox_ul[i].style.background="#e0e9f5";
+LinkListBox_ul[i].style.background="#e0e9f5";
 }
 else {
-FileListBox_ul[i].style.background="#f1f6fc";
+LinkListBox_ul[i].style.background="#f1f6fc";
 }
-FileListBox_ul[0].style.background="#c6daed";
+LinkListBox_ul[0].style.background="#c6daed";
 }
 </script>
 
 
+
 <div class="clear"></div>
-<div class="page" style="width:786px;"><a href="####" class="noLink">共 8 页 当前第 2 页</a> <a href="#">首页</a> <a href="#">上一页</a> <a href="">下一页</a> <a href="#">尾页</a></div>
+<div class="page" style="width:800px;"><a href="####" class="noLink">共 8 页 当前第 2 页</a> <a href="#">首页</a> <a href="#">上一页</a> <a href="">下一页</a> <a href="#">尾页</a></div>
 </div>
 
 
 
-</div>
+
 
 </body>
 </html>
