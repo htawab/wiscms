@@ -336,41 +336,32 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
 
 /* 图片管理列表 */
-.picListBox {padding-left:8px;}
+.picListBox {padding-left:8px; width:810px;}
 
-div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
-div.right div.AticleSch input {float:none; margin:0; padding:0;}
-div.right div.AticleSch select {margin:0; padding:0;}
+
 
 .picListBox ul {float:left; width:auto;}
 .picListBox ul li {float:left; height:24px; line-height:24px; height:120px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
 .picListBox ul li.picSmall {width:120px; line-height:120px;}
 .picListBox ul li.picSmall img {width:100px;}
-.picListBox ul li.picTitle {width:159px; border-left:0;}
+.picListBox ul li.picTitle {width:160px; border-left:0;}
 .picListBox ul li.picDes {width:180px; border-left:0;}
 .picListBox ul li.picAddTime {width:140px; border-left:0;}
-.picListBox ul li.picUser { width:80px; border-left:0;}
-.picListBox ul li.picOperate {width:100px; border-left:0;}
-
-.listBox ul li.picOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
-.listBox ul li.picOperate a:hover {background:#f6f6f6; color:#5281ab;}
-
+.picListBox ul li.picUser { width:90px; border-left:0;}
+.picListBox ul li.picOperate {width:105px; border-left:0;}
 
 .picListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 
 
 /* 附件管理列表 */
-.FileListBox {padding-left:8px; width:800px;}
+.FileListBox {padding-left:8px; width:810px;}
 
-div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:778px;}
-div.right div.AticleSch input {float:none; margin:0; padding:0;}
-div.right div.AticleSch select {margin:0; padding:0;}
 
 .FileListBox ul {float:left; width:auto;}
 .FileListBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
-.FileListBox ul li.fileTitle {width:159px;}
+.FileListBox ul li.fileTitle {width:160px;}
 .FileListBox ul li.fileSize {width:120px; border-left:0;}
-.FileListBox ul li.fileDes {width:180px; border-left:0;}
+.FileListBox ul li.fileDes {width:195px; border-left:0;}
 .FileListBox ul li.fileAddTime {width:140px; border-left:0;}
 .FileListBox ul li.fileUser { width:80px; border-left:0;}
 .FileListBox ul li.fileOperate {width:100px; border-left:0;}
@@ -488,8 +479,8 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 
 /* 后台列表操作链接样式 */
-li.LinkOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
-li.LinkOperate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+li.Operate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
+li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
 
 
 
