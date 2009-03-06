@@ -9,24 +9,12 @@
 <head runat="server">
 <title></title>
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
-    <script src="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.js" language="javascript" type="text/javascript"></script>
-    <link href="../images/HtmlEditor/Dialogs/InsertPhotos/InsertPhoto.css" rel="stylesheet" type="text/css" />
     <link href="../images/MessageBox/MessageBox.css" rel="stylesheet" type="text/css" />
     <script src="../images/MessageBox/MessageBox.js" language="javascript" type="text/javascript"></script>
     <script src="wis.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript">
     <%=ViewState["javescript"] %>
-    function CheckArticle() {
-        if (document.getElementById("title").value == "") {
-            alert("标题不能为空！");
-            return false;
-        }
-//        if (document.getElementById("CategoryId").value == "") {
-//            alert("栏目不能为空！");
-//            return false;
-//        }
-        return true;
-    }
+
     function slectArticletype()
     {
        var  articleType = document.getElementsByName("ArticleType") 
@@ -57,73 +45,9 @@
         }
     }
     
-    function Show(a, o, t, f) {
-        a = (typeof(a) == "string" ? S(a) : a);
-        o = (typeof(o) == "string" ? S(o) : o);
-        f = (typeof(f) == "string" ? S(f) : f);
-        
-        if (o) o.style.display = ((o.style.display == "none") ? "" : "none");
-        a.innerHTML = ((o.style.display == "") ? "删除" : "添加") + t;
-        if((o.style.display == ""))f.focus();
-    }
 
-    function Switch(o, bShow) {
-        o = (typeof(o) == "string" ? S(o) : o);
-        if (o) o.style.display= (bShow ? "" : "none");
-    }
 
-    function CheckFile() {
-        var c = S( 'filecell' ).childNodes.length > 1 || ( S( 'exist_file' ) && S( 'exist_file' ).childNodes.length > 0 )
-	    var s = [ [ true, false ],[ false, true ] ][ c > 0 ? 1 : 0 ];
-	    Switch( 'sAddAtt1', s[ 0 ] );
-	    Switch( 'sAddAtt2', s[ 1 ] );
-	    Switch( 'Files', s[ 1 ] );
-    }
 
-    function DelFile( Name ) {
-        var FileCell = S('filecell');
-        var FileObj  = S( Name );
-        FileCell.removeChild( FileObj.parentNode );
-        CheckFile();
-    }
-
-    var AttachID = 1;
-    function AddFile() {
-	    document.getElementById("Uploader" + (AttachID-1)).click();
-	    CheckFile();
-    }
-
-    function AddFileCell() {
-        var FileCell = S('filecell');
-
-        var Name = "Uploader" + AttachID;
-        AttachID++;
-        
-        if(S(Name)) return;
-
-        var template = "<input class='ico_att' style='margin: 0px 3px 2px 0px' type='button' value='' />&nbsp;";
-        template += "<input class='file upload' id='" + Name + "' type='file' onchange='AfterAddFile(\"" + Name + "\")' name='" + Name + "' value='' />&nbsp;";
-        template += "<span id='S" + Name + "'></span>&nbsp;";
-        template += "<span>&nbsp;&nbsp;</span><a onclick=\"DelFile(\'" + Name + "\')\">删除</a>";
-        
-        var Div       = document.createElement("div");
-        Div.className = "attsep upload";
-        Div.id        = "D" + Name;
-        Div.innerHTML = template;
-
-        Switch( Div, true);
-        FileCell.appendChild( Div );
-    }
-
-    function AfterAddFile( id ) {
-        var filename = S( id ).value;
-        var pos      = filename.lastIndexOf("\\");
-        S( "D" + id ).className = "attsep";
-        S( "S" + id ).innerText = ( pos == -1 ? filename : filename.substr( pos + 1 ) );
-        Switch( "D" + id, true);
-        
-        AddFileCell();
-    }
     /*
     1、label中的标题不要加&nbsp;，可以固定长度右对齐；
     2、样式根据Id来设计，比如keyText应该是Title；
@@ -181,7 +105,7 @@
                     <asp:HiddenField ID="PointY" runat="server" />
                     <asp:HiddenField ID="CropperWidth" runat="server" />
                     <asp:HiddenField ID="CropperHeight" runat="server" />
-                    <div id="Loading" style="display: none;"><img src='../images/loading.gif' align='absmiddle' /> 上传中...</div>
+                    
                     <FileUploads:DJUploadController ID="DJUploadController1" runat="server" ReferencePath="Backend/images/HtmlEditor/Dialogs/InsertPhotos/"  />
                     <input id='Photo' type='file' name='Photo' value='' style="display: none;" onchange="SelectImage();" />
                     <img src="../images/upLoadImg.gif" alt="选择图片" onclick='Photo_Load(event);' />
@@ -232,11 +156,6 @@
             <asp:Button ID="btnOK" runat="server" Text="" CssClass="saveBtn" OnClick="btnOK_Click" />
         </div>
     </div>
-
-
-<br />
-<script>
-</script>
     </form>
 </body>
 </html>

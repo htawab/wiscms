@@ -18,6 +18,20 @@ namespace Wis.Website.Web.Backend
         {
             if (categoryManager == null) categoryManager = new Wis.Website.DataManager.CategoryManager();
             DropdownMenuCategory.MenuItems = categoryManager.GetCategoryMenuItems();
+            if (!Page.IsPostBack)
+            {
+                string requestCategoryGuid = Request.QueryString["CategoryGuid"];
+                if (!string.IsNullOrEmpty(requestCategoryGuid) && Wis.Toolkit.Validator.IsGuid(requestCategoryGuid))
+                {
+                    Guid categoryGuid = new Guid(requestCategoryGuid);
+                    Wis.Website.DataManager.Category category = categoryManager.GetCategoryByCategoryGuid(categoryGuid);
+                    if (!string.IsNullOrEmpty(category.CategoryName))
+                    {
+                        DropdownMenuCategory.Text = category.CategoryName;
+                        DropdownMenuCategory.Value = category.CategoryGuid.ToString();
+                    }
+                }
+            }
         }
 
         protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)

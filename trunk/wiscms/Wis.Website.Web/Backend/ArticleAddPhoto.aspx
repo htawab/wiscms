@@ -38,7 +38,17 @@
         #ImageCropperBackground{border:1px solid #666666; position:absolute;}
         #ImageCropperDrag {border:1px dashed #fff; width:<%=ThumbnailWidth %>px; height:<%=ThumbnailHeight %>px; top:10px; left:10px; cursor:move; }
         #ImagePreview {border:1px dashed #fff; width:<%=ThumbnailWidth %>px; height:<%=ThumbnailHeight %>px; overflow:hidden; position:relative;}
-    </style>    
+    </style>
+    <script type="text/javascript" language="javascript">
+        function Check() {
+            if ($("Photo$ctl03").value == "") {
+                alert("请先浏览图片");
+                return false;
+            }
+            $("Loading").style.display = "";
+            return true;
+        }
+    </script>
 </head>
 <body style="background: #d6e7f7"><form id="form1" runat="server">
     <div>
@@ -178,9 +188,10 @@
                 </script>
             <div>
         </div>
-        <div id="Warning" runat="server"></div><div id="Loading" style="display: none;"><img src='../images/loading.gif' align='absmiddle' /> 上传中...</div>
+        <div id="Warning" runat="server"></div>
+        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 上传中...</div>
         <div class="add_button">
-            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" />
+            <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" OnClientClick="javascript:return Check();" />
         </div>
     </div></form>
 </body>
