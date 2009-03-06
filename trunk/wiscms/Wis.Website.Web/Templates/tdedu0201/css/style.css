@@ -102,24 +102,16 @@ div.outbox div.cap ul#laws li.active a {color:#fff;}
 
 
 /* 视频新闻 */
-.video {}
-#fW_Content {
-	display: inline; float: left; width:321px; height:258px; text-align:center;}
-#fW_Controls {
-	display: inline; float: left; margin:0px 0px 0px 0px; width: 120px; height:32px; border:1px solid #ff0;}
-#fW_Controls A {
-	FONT-WEIGHT: bold; FONT-SIZE: 14px; background: url(../images/btnFeatureHover.gif) no-repeat; float: left; width: 30px; COLOR: white; PADDING-TOP: 6px; height: 24px; TEXT-ALIGN: center
-}
-#fW_Controls A.activeSlide {
-	background-POSITION: 0px -30px;}
-#fW_Controls A:hover {
-	background-POSITION: 0px -30px;}
-#fW_Content table {margin-left:2px; margin-top:4px;}
-#fW_Content td {line-height:16px;}
-#fW_Content a img {border:3px solid #dbd0d0;}
-#fW_Content a:hover img {border:3px solid #473b3b;}
-#fW_Content a:hover {color:#5f1b2e;}
-#fW_Content td {line-height:150%;}
+
+div#scrollOut {width:320px; height:255px; overflow:hidden; letter-spacing:0;}
+.scrollBox {}
+.scrollBox ul {padding:0; margin:0; width:320px; height:255px; float:left;}
+.scrollBox ul li {width:100px; height:120px; float:left; overflow:hidden; padding:0; margin:0; padding-left:4px; margin-top:5px; }
+.scrollBox ul li a {width:100px; display:block; float:left; white-space:normal; text-align:center;  padding:0; margin:0; margin-top:3px; padding-left:2px;}
+
+.scrollBox ul li a img {border:3px solid #dbd0d0;}
+.scrollBox ul li a:hover img {border:3px solid #473b3b;}
+.scrollBox ul li a:hover {color:#5f1b2e;}
 
 
 /* 铁东教育电子杂志 */
