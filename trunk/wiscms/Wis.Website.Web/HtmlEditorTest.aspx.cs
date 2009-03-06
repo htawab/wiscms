@@ -80,7 +80,7 @@ namespace Wis.Website.Web
         //    Process.Start(startInfo);
         //}
         /*
-thumbnail vedio
+sourceFileInfo vedio
 
 C:\TDDOWNLOAD>ffmpeg -i C:\TDDOWNLOAD\thewitcher12.wmv -tableImages 0.02 -s 480x270 -ss 15
  -y -f image2 C:\TDDOWNLOAD\thewitcher12.jpg

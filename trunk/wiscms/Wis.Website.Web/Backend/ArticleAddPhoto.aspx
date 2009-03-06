@@ -111,17 +111,18 @@
                         if (index == 1) {
                             span1.className = "checked"
                             span2.className = "unCheck"
-                            radio1.checked = true;
-                            radio2.checked = false;                            
-                            $("ThumbConfig").style.display == "";
+//                            radio1.checked = true;
+//                            radio2.checked = false;                            
                         }
                         else {
                             span1.className = "unCheck"
                             span2.className = "checked"
-                            radio1.checked = false;
-                            radio2.checked = true;
-                            $("ThumbConfig").style.display == "none";
-                        }                      
+//                            radio1.checked = false;
+//                            radio2.checked = true;
+                        }
+                        radio1.checked = (index == 1);
+                        radio2.checked = (index == 2);
+                        $("ThumbConfig").style.display = radio1.checked ? "" : "none";             
                         
                         if(radio1.checked)
                         {
