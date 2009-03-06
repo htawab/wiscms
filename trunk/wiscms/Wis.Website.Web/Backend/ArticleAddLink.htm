@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background: #d6e7f7">
+    <div>
+        <div id="Position">
+            当前位置：添加链接</div>
+        <div class="add_step">
+            <ul>
+                <li>第一步：选择分类</li><li class="current_step">第二步：基本信息</li>
+                <li>第三步：扩展信息</li><li>第四步：发布静态页</li>
+            </ul>
+        </div>
+        <div class="add_main">
+            <div>
+                <label>
+                    链接名称：</label><input type="text" size="26" /></div>
+            <div>
+                <label>
+                    链接地址：</label><input type="text" size="74" /></div>
+            <div>
+                <label>
+                    链接描述：</label><textarea rows="12" cols="57"></textarea></div>
+            <div>
+                <label>
+                    制作缩略图：</label><span class="checked" id="span1" onclick="checkRadio(this,1)"><input
+                        checked="checked" name="aaa" type="radio" value="1" />图片自动缩放</span> <span class="unCheck"
+                            id="span2" onclick="checkRadio(this,2)">
+                            <input name="aaa" type="radio" value="1" />在大图中手工截取</span></div>
+            <div>
+                <label>
+                    缩略图预览：<br />
+                    (188*64) &nbsp;&nbsp;</label><img src="images/noimg2.gif" /></div>
+            
+        </div>
+        <div class="add_button">
+            <a href="aticaladd3.htm">
+                <img src="images/nextStep.gif" /></a></div>
+    </div>
+</body>
+</html>
