@@ -638,6 +638,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
+    <Content Include="Backend\ArticleAddLink.htm" />
     <Content Include="Backend\ArticleAddPhoto.aspx" />
     <Content Include="Backend\ArticleAddSoft.aspx" />
     <Content Include="Backend\ArticleAddNew.aspx" />
@@ -645,9 +646,10 @@
     <Content Include="Backend\ArticleRelease.aspx" />
     <Content Include="Backend\ArticleSelectCategory.aspx" />
     <Content Include="Backend\ArticleUpdate.aspx" />
+    <Content Include="Backend\Article\softList.htm" />
     <Content Include="Backend\Article\ThumbnailUpload.aspx" />
+    <Content Include="Backend\Article\videoList.htm" />
     <Content Include="Backend\Article\wis.js" />
-    <Content Include="Backend\Article\FileList.htm" />
     <Content Include="Backend\Article\LinkList.htm" />
     <Content Include="Backend\Article\picList.htm" />
     <Content Include="Backend\CategoryAddNew.aspx" />
