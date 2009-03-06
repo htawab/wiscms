@@ -20,7 +20,7 @@
 </head>
 <body style="background: #d6e7f7"><form id="form1" runat="server">
     <div>
-        <div class="position">当前位置：添加新闻</div>
+        <div id="Position">当前位置：添加新闻</div>
         <div class="add_step">
             <ul>
                 <li>第一步：选择分类</li><li>第二步：基本信息</li>
