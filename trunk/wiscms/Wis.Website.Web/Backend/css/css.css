@@ -468,6 +468,24 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_main ul li.step4_li3 {width:210px; overflow:hidden;}
 .add_main ul li.step4_li4 {width:32px; overflow:hidden;}
 
+/* 分类管理 */
+.CateGoryList {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
+.CateGoryList ul {float:left; padding-left:6px; width:780px;}
+.CateGoryList ul.top li {border-top:solid 1px #ccc;}
+.CateGoryList ul li {float:left; text-indent:6px; line-height:22px; border-left:solid 1px #ccc; border-bottom:solid 1px #ccc;}
+
+.CateGoryList ul li.li1 {width:80px;}
+.CateGoryList ul li.li2 {width:180px;}
+.CateGoryList ul li.li3 {width:180px;}
+.CateGoryList ul li.li4 {width:100px; border-right:solid 1px #ccc;}
+.CateGoryList ul li.li4 a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+.CateGoryList ul li.li4 a:hover {background:#f6f6f6; color:#5281ab;}
+
+
+
+
+
+
 #Position {padding:4px 0; width:100%; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
 #Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 #Warning a {margin:0 2px; text-decoration:underline;}
