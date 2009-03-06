@@ -210,9 +210,12 @@ div.right div#divArticleType input {float:none;}
 div.right div#divCategory {height:22px; clear:none;}
 div.right div#divCategory div.dropdownmenu {line-height:23px; height:20px; width:200px; float:left; clear:none; font-size:12px; font-family:"宋体";}
 
+/*
 label.articleLabel {width:60px; float:left;  margin:3px 0; margin-right:8px; text-align:right; height:22px; line-height:22px;}
 label.articleLabel label {padding-left:5px; margin-top:20px;}
 label.articleLabel label span {font-family:"Arial"; line-height:22px;}
+*/
+
 #divTitle {clear:both;}
 
 
@@ -445,7 +448,7 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 .add_step4 {padding-left:8px; width:792px; padding-top:12px;}
 
-.add_main div label {width:86px; padding-top:4px; text-align:right; float:left;}
+.add_main div label {width:60px; padding-top:4px; text-align:right; float:left;}
 .add_main div.step1 {padding:8px 22px;}
 .add_main div.step1 select {float:left; width:160px; height:220px; text-align:right;}
 .add_main div.step1 option {float:right; text-align:right;}
@@ -453,6 +456,8 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 .add_main div.addInfoLink {padding:6px 0 6px 88px;}
 .add_main div.addInfoLink a {margin-right:8px; text-decoration:underline;}
+.add_main div#divShortcut {padding:6px 0 6px 62px;}
+.add_main div#divShortcut a {margin-right:8px; text-decoration:underline;}
 
 .add_main div.softText {padding:2px 0 4px 84px;}
 .add_main div.softText a {margin:0 4px; text-decoration:none;}
@@ -478,8 +483,8 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .CateGoryList ul li.li2 {width:180px;}
 .CateGoryList ul li.li3 {width:180px;}
 .CateGoryList ul li.li4 {width:100px; border-right:solid 1px #ccc;}
-.CateGoryList ul li.li4 a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
-.CateGoryList ul li.li4 a:hover {background:#f6f6f6; color:#5281ab;}
+.CateGoryList ul li.li4 a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
+.CateGoryList ul li.li4 a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
 
 
 
