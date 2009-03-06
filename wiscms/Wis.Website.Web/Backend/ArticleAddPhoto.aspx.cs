@@ -1,4 +1,10 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="ArticleAddPhoto.aspx.cs" company="Everwis">
+//     Copyright (C) Everwis Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -12,6 +18,9 @@ using Wis.Toolkit.WebControls.FileUploads;
 
 namespace Wis.Website.Web.Backend
 {
+    /// <summary>
+    /// 添加图片信息。
+    /// </summary>
     public partial class ArticleAddPhoto : System.Web.UI.Page
     {
         private int _ThumbnailWidth = 100;
@@ -93,9 +102,10 @@ namespace Wis.Website.Web.Backend
             {
                 return;
             }
+
+            // 1 获得文件名
             UploadedFile f = DJUploadController1.Status.UploadedFiles[0];
-            // f.FileName "E:\\Tools\\visualxpath.zip"
-            string fileName = f.FileName;
+            string fileName = f.FileName;// f.FileName "E:\\Tools\\visualxpath.zip"
             int charIndex = fileName.LastIndexOf("\\");
             if (charIndex == -1 || charIndex >= fileName.Length)
             {
@@ -103,36 +113,29 @@ namespace Wis.Website.Web.Backend
             }
             fileName = fileName.Substring(charIndex + 1);
 
-            string outputPath = "~/Uploads/Temp/";
-            string physicalOutputPath = Server.MapPath(outputPath);
-            if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
-            string srcFilename = Server.MapPath(string.Format("{0}{1}", outputPath, fileName));
-            System.IO.FileInfo thumbnail = new System.IO.FileInfo(srcFilename);
-
-            Wis.Website.DataManager.FileManager fileManager = new Wis.Website.DataManager.FileManager();
-            Wis.Website.DataManager.File file = new Wis.Website.DataManager.File();
-            file.FileGuid = Guid.NewGuid();
-            string destFilename = string.Format("~/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), file.FileGuid, thumbnail.Extension);
-
+            Wis.Website.DataManager.ArticlePhoto articlePhoto = new Wis.Website.DataManager.ArticlePhoto();
+            articlePhoto.Article = article;
+            articlePhoto.ArticlePhotoGuid = Guid.NewGuid();
 #warning TODO:填写当前登录用户的UserName
-            file.CreatedBy = string.Empty;
-            file.CreationDate = System.DateTime.Now;
-#warning TODO：如何提供描述？
-            file.Description = string.Empty;
-            file.Hits = 0;
-            file.OriginalFileName = fileName;
-            file.Rank = 0;
-            file.SaveAsFileName = destFilename;
-            file.Size = thumbnail.Length;
-            file.SubmissionGuid = this.ArticleGuid;
-            file.FileId = fileManager.AddNew(file);
+            articlePhoto.CreatedBy = string.Empty;
+            articlePhoto.CreationDate = System.DateTime.Now;
 
+#warning TODO:Uploads 作为配置项
+
+            // 2 获得源图路径
+            articlePhoto.SourcePath = string.Format("/Uploads/Temp/{0}", fileName);
+            string srcFilename = Server.MapPath(articlePhoto.SourcePath);
+            System.IO.FileInfo sourceFileInfo = new System.IO.FileInfo(srcFilename);
+            if (!sourceFileInfo.Directory.Exists) sourceFileInfo.Directory.Create();
+
+            // 3 获得缩微图路径
+            articlePhoto.ThumbnailPath = string.Format("/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), articlePhoto.ArticlePhotoGuid, sourceFileInfo.Extension);
+            string destFilename = Server.MapPath(articlePhoto.ThumbnailPath);
             // 缩略图操作
-            
+
             // PointX 和 PointY都不为空，则进行图片裁剪
             string requestPointX = Request["PointX"];
             string requestPointY = Request["PointY"];
-            destFilename = Server.MapPath(destFilename);
             if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
             {
                 int pointX;
@@ -143,16 +146,22 @@ namespace Wis.Website.Web.Backend
                     return;
                 }
 
+                articlePhoto.PointX = pointX;
+                articlePhoto.PointY = pointY;
+
                 // 裁剪图片
                 Wis.Toolkit.Drawings.Imager.Crop(srcFilename, destFilename, pointX, pointY, this.ThumbnailWidth, this.ThumbnailHeight);
             }
             else
             {
-                bool stretch = !string.IsNullOrEmpty(Request["Stretch"]);
-                bool beveled = !string.IsNullOrEmpty(Request["Beveled"]);
-
-                Wis.Toolkit.Drawings.Imager.Thumbnail(srcFilename, destFilename, this.ThumbnailWidth, this.ThumbnailHeight, stretch, beveled);
+                articlePhoto.Stretch = !string.IsNullOrEmpty(Request["Stretch"]); // 拉伸
+                articlePhoto.Beveled = !string.IsNullOrEmpty(Request["Beveled"]); // 斜角
+                Wis.Toolkit.Drawings.Imager.Thumbnail(srcFilename, destFilename, this.ThumbnailWidth, this.ThumbnailHeight, articlePhoto.Stretch.Value, articlePhoto.Beveled.Value);
             }
+
+            // 图片信息入库
+            Wis.Website.DataManager.ArticlePhotoManager articlePhotoManager = new Wis.Website.DataManager.ArticlePhotoManager();
+            articlePhoto.ArticlePhotoId = articlePhotoManager.AddNew(articlePhoto);
 
             // 移除临时文件
 #warning 移除临时文件

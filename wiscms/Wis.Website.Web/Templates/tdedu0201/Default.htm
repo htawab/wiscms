@@ -11,8 +11,6 @@
     <link href="$TemplateDirectory$/css/lightbox.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
     <script language="javascript" src="$TemplateDirectory$/js/picNews.js"></script>
-    
-
 </head>
 <body>
     <div class="header">
@@ -45,9 +43,7 @@
     </div>
     <div class="center">
         <div class="picNews">
-            <div id="flashcontent01">
-            </div>
-
+            <div id="flashcontent01"></div>
             <script type="text/javascript">
 // <![CDATA[
 var pics='$TemplateDirectory$/images/01.jpg|$TemplateDirectory$/images/02.jpg|$TemplateDirectory$/images/03.jpg|$TemplateDirectory$/images/04.jpg|$TemplateDirectory$/images/05.jpg';		
@@ -57,7 +53,7 @@ var texts2="图片新闻标题1|图片新闻标题2|图片新闻标题3|图片�
 
 var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf","eduFlashID01","662","180","7","#ffffff");
 	eduFlash2.addParam("quality", "high");
-         eduFlash2.addParam("wmode", "opaque");
+    eduFlash2.addParam("wmode", "opaque");
 	eduFlash2.addParam("salign", "t");	
 	eduFlash2.addVariable("p",pics);
 	eduFlash2.addVariable("l",mylinks);
@@ -66,7 +62,6 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf","eduFlashID0
 	eduFlash2.write("flashcontent01");
 // ]]>
             </script>
-
         </div>
         <div class="meeting outbox">
             <div class="cap">

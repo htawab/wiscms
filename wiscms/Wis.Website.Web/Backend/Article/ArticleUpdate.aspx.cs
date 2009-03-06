@@ -90,7 +90,7 @@ namespace Wis.Website.Web.Backend.Article
             else if (articleType == Wis.Website.DataManager.ArticleType.Soft)
             {
                 //this.ArticleType2.Checked = true;
-                //this.TabloidPathVideo.Value = drow["ThumbnailPath"].ToString();
+                //this.TabloidPathVideo.Value = drow["thumbnailPath"].ToString();
                 //this.TabloidPath.Value = "";
                 //this.divTabloidPathVideo.Style.Value = "display:block;";
             }

@@ -59,6 +59,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CacheManager.cs" />
+    <Compile Include="DataManager\ArticlePhoto.cs" />
+    <Compile Include="DataManager\ArticlePhotoManager.cs" />
     <Compile Include="Label\Entity.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="DataManager\Article.cs" />

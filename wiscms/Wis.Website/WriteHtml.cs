@@ -302,7 +302,7 @@ namespace Wis.Website
         //            string texts2 = "";
         //            for (int i = 0; i < dt.Rows.Count; i++)
         //            {
-        //                pics += dt.Rows[i]["ThumbnailPath"].ToString();
+        //                pics += dt.Rows[i]["thumbnailPath"].ToString();
         //                mylinks += dt.Rows[i]["ReleasePath"].ToString();
         //                texts += dt.Rows[i]["Summary"].ToString();
         //                texts2 += dt.Rows[i]["Title"].ToString();
