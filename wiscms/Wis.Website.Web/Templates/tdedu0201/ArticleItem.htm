@@ -57,7 +57,7 @@
                     <dd>$Comment.ContentHtml$</dd></tpl:foreach>
                 </dl>
             </div></tpl:if>
-            <div class="review3"><iframe height="0" width="0" id="Hidden"></iframe><form id="Comment" action="/A/Comment.aspx" target="Hidden">
+            <div class="review3"><iframe height="0" width="0" id="HiddenIframe" name="HiddenIframe"></iframe><form id="Comment" action="/A/Comment.aspx" target="HiddenIframe" method="post">
                 <dl>
                     <dt>发表评论</dt>
                     <dd><label><a name="review" id="review"></a>标&nbsp;&nbsp;题：</label><input type="text" name="Title" /></dd>

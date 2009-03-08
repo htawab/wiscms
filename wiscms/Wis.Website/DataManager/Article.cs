@@ -45,17 +45,6 @@ namespace Wis.Website.DataManager
 		}
 
 
-		private string _ThumbnailPath;
-        /// <summary>
-        /// ËõÂÔÍ¼Â·¾¶
-        /// </summary>
-		public string ThumbnailPath
-		{
-			get { return _ThumbnailPath; }
-			set { _ThumbnailPath = value; }
-		}
-
-
 		private string _MetaKeywords;
 
 		public string MetaKeywords
@@ -180,12 +169,11 @@ namespace Wis.Website.DataManager
 		public Article()
 		{ }
 
-        public Article(int ArticleId, Guid ArticleGuid, Category category, string thumbnailPath, string MetaKeywords, string MetaDesc, string Title, string TitleColor, string SubTitle, string Summary, string ContentHtml, Nullable<Guid> Editor, string Author, string Original, int Rank, int Hits, int Comments, int Votes, DateTime DateCreated)
+        public Article(int ArticleId, Guid ArticleGuid, Category category, string MetaKeywords, string MetaDesc, string Title, string TitleColor, string SubTitle, string Summary, string ContentHtml, Nullable<Guid> Editor, string Author, string Original, int Rank, int Hits, int Comments, int Votes, DateTime DateCreated)
 		{
 			this.ArticleId = ArticleId;
 			this.ArticleGuid = ArticleGuid;
             this.Category = category;
-            this.ThumbnailPath = thumbnailPath;
 			this.MetaKeywords = MetaKeywords;
 			this.MetaDesc = MetaDesc;
 			this.Title = Title;
@@ -205,7 +193,7 @@ namespace Wis.Website.DataManager
 
 		public override string ToString()
 		{
-            return "ArticleId = " + ArticleId.ToString() + ",ArticleGuid = " + ArticleGuid.ToString() + ",CategoryGuid = " + Category.CategoryGuid.ToString() + ",CategoryId = " + Category.CategoryId.ToString() + ",CategoryName = " + Category.CategoryName.ToString() + ",ArticleType = " + Category.ArticleType.ToString() + ",ThumbnailPath = " + ThumbnailPath + ",ImageWidth = " + Category.ThumbnailWidth.ToString() + ",ImageHeight = " + Category.ThumbnailHeight.ToString() + ",MetaKeywords = " + MetaKeywords + ",MetaDesc = " + MetaDesc + ",Title = " + Title + ",TitleColor = " + TitleColor + ",SubTitle = " + SubTitle + ",Summary = " + Summary + ",ContentHtml = " + ContentHtml + ",Editor = " + Editor.ToString() + ",Author = " + Author + ",Original = " + Original + ",Rank = " + Rank.ToString() + ",Hits = " + Hits.ToString() + ",Comments = " + Comments.ToString() + ",Votes = " + Votes.ToString() + ",DateCreated = " + DateCreated.ToString();
+            return "ArticleId = " + ArticleId.ToString() + ",ArticleGuid = " + ArticleGuid.ToString() + ",CategoryGuid = " + Category.CategoryGuid.ToString() + ",CategoryId = " + Category.CategoryId.ToString() + ",CategoryName = " + Category.CategoryName.ToString() + ",ArticleType = " + Category.ArticleType.ToString() + ", ImageWidth = " + Category.ThumbnailWidth.ToString() + ",ImageHeight = " + Category.ThumbnailHeight.ToString() + ",MetaKeywords = " + MetaKeywords + ",MetaDesc = " + MetaDesc + ",Title = " + Title + ",TitleColor = " + TitleColor + ",SubTitle = " + SubTitle + ",Summary = " + Summary + ",ContentHtml = " + ContentHtml + ",Editor = " + Editor.ToString() + ",Author = " + Author + ",Original = " + Original + ",Rank = " + Rank.ToString() + ",Hits = " + Hits.ToString() + ",Comments = " + Comments.ToString() + ",Votes = " + Votes.ToString() + ",DateCreated = " + DateCreated.ToString();
 		}
 
 		public class ArticleIdComparer : System.Collections.Generic.IComparer<Article>

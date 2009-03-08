@@ -129,7 +129,7 @@ C:\TDDOWNLOAD>ffmpeg  -i C:\TDDOWNLOAD\thewitcher12.wmv -ab 56 -ar 22050 -b 500
          * ms-help://MS.MSDNQTR.2003FEB.2052/cpref/html/frlrfSystemDiagnosticsProcessClassStandardOutputTopic.htm
          * http://www.ffmpeg.com.cn/index.php/.NET_2.0%28C#.29.E4.B8.8B.E8.B0.83.E7.94.A8FFMPEG.E7.9A.84.E6.96.B9.E6.B3.95
          * 
-         * 利用ffmpeg+mencoder视频转换的总结 http://www.yitian130.com/article.asp?id=69
+         * 利用ffmpeg+mencoder视频转换的总结 http://www.yitian130.com/articlePhoto.asp?id=69
          * flv视频转换和flash播放的解决方案笔记 http://blog.verycd.com/dash/showentry=35982
 ffmpeg常见的命令:
 -fromats 显示可用的格式
@@ -205,7 +205,7 @@ ffmpeg -i test2.asf -y -f image2 -ss 08.010 -tableImages 0.001 -s 352×240 b.jpg
 jpg: ffmpeg -i test.asf -y -f image2 -tableImages 0.001 -s 352×240 -ss a.jpg //注意-ss就是要提取视频文件中指定时间的图像
 jpg: ffmpeg -i asf.flv -y -f image2 -tableImages 1 asf.jpg
 gif: ffmpeg -i test.asf -vframes 30 -y -f gif a.gif
-参考3 参考2(http://www.killflash.net/blog/article.asp?id=77)
+参考3 参考2(http://www.killflash.net/blog/articlePhoto.asp?id=77)
 
 把视频文件导出成jpg序列帧：
 $ ffmpeg -i bc-cinematic-en.avi example.%d.jpg

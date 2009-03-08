@@ -47,12 +47,31 @@ namespace Wis.Website.Web.Backend
         {
             // 生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
-            releaseManager.ReleaseRelation(article);
+            switch (article.Category.ArticleType)
+            {
+                case 1: // 普通新闻
+                    releaseManager.ReleaseRelation(article);
+                    break;
+                case 2:// 图片新闻
+                    Wis.Website.DataManager.ArticlePhotoManager articlePhotoManager = new Wis.Website.DataManager.ArticlePhotoManager();
+                    Wis.Website.DataManager.ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(this.ArticleGuid);
+                    releaseManager.ReleaseArticlePhotoRelation(articlePhoto);
+                    break;
+                case 3:// 视频新闻
+                    releaseManager.ReleaseRelation(article);
+                    break;
+                case 4:// 软件
+                    releaseManager.ReleaseRelation(article);
+                    break;
+                default:
+                    releaseManager.ReleaseRelation(article);
+                    break;
+            }
 
             // 提示操作成功
             Warning.InnerHtml = string.Format("发布静态页成功，<a href='ArticleAddNew.aspx?CategoryGuid={0}'>继续添加新闻</a>，还是<a href='ArticleList.aspx?CategoryGuid={0}'>返回新闻列表页</a>？", article.Category.CategoryGuid);
 #warning TODO:继续添加新闻，返回新闻列表页？在页面上放两个按钮，完成的按钮应隐藏
-            //Response.Redirect("ArticleAddNew.aspx?CategoryGuid=" + article.Category.CategoryGuid);
+            //Response.Redirect("ArticleAddNew.aspx?CategoryGuid=" + articlePhoto.Category.CategoryGuid);
         }
     }
 }

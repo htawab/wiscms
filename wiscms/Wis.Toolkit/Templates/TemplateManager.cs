@@ -983,19 +983,47 @@ namespace Wis.Toolkit.Templates
 		protected object EvalMethodCall(object obj, string methodName, object[] args)
 		{
 			Type[] types = new Type[args.Length];
-			for (int i = 0; i < args.Length; i++)
-				types[i] = args[i].GetType();
+            for (int i = 0; i < args.Length; i++)
+                if (args[i] == null)
+                {
+                    args[i] = DBNull.Value;
+                    types[i] = typeof(DBNull);
+                }
+                else
+                    types[i] = args[i].GetType();
 
 			if (obj is StaticTypeReference)
 			{
+                // obj {Name = "CategoryManager" FullName = "Wis.Website.DataManager.CategoryManager"}
 				Type type = (obj as StaticTypeReference).Type;
 				MethodInfo method = type.GetMethod(methodName,
 				                                   BindingFlags.Public | BindingFlags.IgnoreCase | BindingFlags.Static,
 				                                   null, types, null);
 
-				if (method == null)
-                    throw new System.Exception(string.Format("method {0} not found for static object of type {1}", methodName, type.Name));
+                if (method == null)
+                {
+                    MethodInfo[] methodInfos = type.GetMethods();
+                    System.Text.StringBuilder sbMethodNames = new System.Text.StringBuilder();
+                    foreach (MethodInfo m in methodInfos)
+                    {
+                        sbMethodNames.Append(m.Name);
+                        sbMethodNames.Append(" ");
+                    }
+                    string methodNames = sbMethodNames.ToString();
 
+                    System.Text.StringBuilder sbArguments = new System.Text.StringBuilder();
+                    for (int i = 0; i < args.Length; i++)
+                    {
+                        if (args[i] == null)
+                            sbArguments.Append("DBNull");
+                        else
+                            sbArguments.Append(args[i].GetType().ToString());
+                        
+                        sbArguments.Append(", ");
+                    }
+                    string arguments = sbArguments.ToString().TrimEnd(new char[]{',', ' '});
+                    throw new System.Exception(string.Format("类型 {1} 没有找到静态方法 {0}({3})，类型 {1} 支持的静态方法有：{2}", methodName, type.Name, methodNames, arguments));
+                }
 				return method.Invoke(null, args);
 			}
 			else
@@ -1004,8 +1032,17 @@ namespace Wis.Toolkit.Templates
 				                                            BindingFlags.Public | BindingFlags.IgnoreCase | BindingFlags.Instance,
 				                                            null, types, null);
 
-				if (method == null)
-                    throw new System.Exception(string.Format("method {0} not found for object of type {1}", methodName, obj.GetType().Name));
+                if (method == null)
+                {
+                    MethodInfo[] methodInfos = obj.GetType().GetMethods();
+                    System.Text.StringBuilder sbMethodName = new System.Text.StringBuilder();
+                    foreach (MethodInfo m in methodInfos)
+                    {
+                        sbMethodName.Append(m.Name);
+                        sbMethodName.Append(" ");
+                    }
+                    throw new System.Exception(string.Format("类型 {1} 未找到方法 {0}，类型 {1} 支持的方法有：{2}", methodName, obj.GetType().Name, sbMethodName.ToString()));
+                }
 
 				return method.Invoke(obj, args);
 			}

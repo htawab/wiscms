@@ -20,9 +20,9 @@
             return true;
         }
         function Show(a, o, t, f) {
-            a = (typeof(a) == "string" ? S(a) : a);
-            o = (typeof(o) == "string" ? S(o) : o);
-            f = (typeof(f) == "string" ? S(f) : f);
+            a = (typeof(a) == "string" ? $(a) : a);
+            o = (typeof(o) == "string" ? $(o) : o);
+            f = (typeof(f) == "string" ? $(f) : f);
             
             if (o) o.style.display = ((o.style.display == "none") ? "" : "none");
             a.innerHTML = ((o.style.display == "") ? "删除" : "添加") + t;

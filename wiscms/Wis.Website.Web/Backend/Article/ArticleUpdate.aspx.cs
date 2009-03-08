@@ -221,7 +221,7 @@ where FileId ={4}", OriginalFileName[i].Replace("'", "\""), SaveAsFileName[i], s
             }
             //生成静态页面
             //生成列表静态页面
-            //Website.WriteHtml.Build(article);
+            //Website.WriteHtml.Build(articlePhoto);
 
             Wis.Website.Logger.LoggerInsert(Guid.NewGuid(), "修改新闻 " + this.title.Value.Replace("'", "\""), articleGuid, this.ContentHtml.Value.Replace("'", "\""));
             Response.Redirect("ArticleList.aspx?CategoryId=" + CategoryId.Value);

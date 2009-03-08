@@ -73,11 +73,13 @@ namespace Wis.Toolkit
         /// <summary>
         /// ½Ø¶Ï×Ö·û´® 
         /// </summary>
-        /// <param name="text">±»½Ø¶ÏµÄ×Ö·û¡£</param>
+        /// <param name="text">´ý½Ø¶ÏµÄ×Ö·û´®¡£</param>
         /// <param name="length">±»½Ø¶ÏµÄ³¤¶È</param>
         /// <returns>·µ»Ø½Ø¶ÏºóµÄ×Ö·û¡£</returns>
-        public static string TruncateString(string text, int length)
+        public static string TruncateString(object o, int length)
         {
+            if (o is DBNull) return string.Empty;
+            string text = o.ToString();
             if (string.IsNullOrEmpty(text)) return string.Empty;
             text = text.Trim(); // È¥µôÇ°ºó¿Õ¸ñ
             if (text.Length <= length) return text;
