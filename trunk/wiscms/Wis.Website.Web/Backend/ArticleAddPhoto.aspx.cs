@@ -114,7 +114,7 @@ namespace Wis.Website.Web.Backend
             fileName = fileName.Substring(charIndex + 1);
 
             Wis.Website.DataManager.ArticlePhoto articlePhoto = new Wis.Website.DataManager.ArticlePhoto();
-            articlePhoto.Article = article;
+            articlePhoto.ArticleGuid = article.ArticleGuid;
             articlePhoto.ArticlePhotoGuid = Guid.NewGuid();
 #warning TODO:填写当前登录用户的UserName
             articlePhoto.CreatedBy = string.Empty;
@@ -122,14 +122,19 @@ namespace Wis.Website.Web.Backend
 
 #warning TODO:Uploads 作为配置项
 
+            string path = Server.MapPath(string.Format("/Uploads/Photos/{0}/", articlePhoto.CreationDate.ToShortDateString()));
+            if (!System.IO.Directory.Exists(path)) System.IO.Directory.CreateDirectory(path);
+
             // 2 获得源图路径
-            articlePhoto.SourcePath = string.Format("/Uploads/Temp/{0}", fileName);
-            string srcFilename = Server.MapPath(articlePhoto.SourcePath);
+            string srcFilename = Server.MapPath(string.Format("/Uploads/Temp/{0}", fileName));
             System.IO.FileInfo sourceFileInfo = new System.IO.FileInfo(srcFilename);
             if (!sourceFileInfo.Directory.Exists) sourceFileInfo.Directory.Create();
+            articlePhoto.SourcePath = string.Format("/Uploads/Photos/{0}/{1}src{2}", articlePhoto.CreationDate.ToShortDateString(), articlePhoto.ArticlePhotoGuid, sourceFileInfo.Extension);
+            srcFilename = Server.MapPath(articlePhoto.SourcePath);            
+            sourceFileInfo.MoveTo(srcFilename);
 
             // 3 获得缩微图路径
-            articlePhoto.ThumbnailPath = string.Format("/Uploads/Photos/{0}/{1}{2}", System.DateTime.Now.ToShortDateString(), articlePhoto.ArticlePhotoGuid, sourceFileInfo.Extension);
+            articlePhoto.ThumbnailPath = string.Format("/Uploads/Photos/{0}/{1}{2}", articlePhoto.CreationDate.ToShortDateString(), articlePhoto.ArticlePhotoGuid, sourceFileInfo.Extension);
             string destFilename = Server.MapPath(articlePhoto.ThumbnailPath);
             // 缩略图操作
 

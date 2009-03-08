@@ -90,7 +90,8 @@ namespace Wis.Toolkit
         /// <returns>Url或表单参数的值</returns>
         public static string Request(string name)
         {
-            return Request(name, true);
+#warning 修改为true，缺省值要过滤不安全文本
+            return Request(name, false);
         }
 
         /// <summary>
@@ -127,7 +128,7 @@ namespace Wis.Toolkit
         {
             if (string.IsNullOrEmpty(HttpContext.Current.Request.QueryString[name]))
                 return string.Empty;
-
+#warning 有问题 献给网络创业者--101个实用资源 通不过
             if (sqlSafeCheck && !IsSafeSqlString(HttpContext.Current.Request.QueryString[name]))
                 return "含有对数据库不安全的文本";
 

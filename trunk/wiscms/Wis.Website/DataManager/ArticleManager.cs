@@ -19,13 +19,14 @@ namespace Wis.Website.DataManager
             DbProviderHelper.GetConnection();
         }
 
-        public List<Article> GetArticles()
-        {
-            List<Article> articles = new List<Article>();
-            DbCommand command = DbProviderHelper.CreateCommand("SELECTArticles", CommandType.StoredProcedure);
-            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
-            return GetArticles(dataReader);
-        }
+        //public List<Article> GetArticles()
+        //{
+        //    List<Article> articles = new List<Article>();
+        //    DbCommand command = DbProviderHelper.CreateCommand("SELECTArticles", CommandType.StoredProcedure);
+        //    DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+        //    return GetArticles(dataReader);
+        //}
+
 
         public static List<Article> GetArticlesByCategoryName(string categoryName, string parentCategoryName, int pageIndex, int pageSize)
         {
@@ -127,8 +128,6 @@ namespace Wis.Website.DataManager
 
                 // 获取 Category 对象
                 article.Category = categoryDictionaries[(Guid)dataReader["CategoryGuid"]];
-                if (dataReader["ThumbnailPath"] != DBNull.Value)
-                    article.ThumbnailPath = Convert.ToString(dataReader["ThumbnailPath"]);
 
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
@@ -204,9 +203,6 @@ namespace Wis.Website.DataManager
                 article.Category.CategoryName = Convert.ToString(dataReader["CategoryName"]);
                 article.Category.ParentGuid = (Guid)dataReader["ParentGuid"];
                 article.Category.Rank = Convert.ToInt32(dataReader["Rank"]);
-
-                if (dataReader["ThumbnailPath"] != DBNull.Value)
-                    article.ThumbnailPath = Convert.ToString(dataReader["ThumbnailPath"]);
 
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
@@ -309,9 +305,6 @@ namespace Wis.Website.DataManager
                 article.Category.ParentCategoryName = (string)dataReader[CategoryField.ParentCategoryName];
                 article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
 
-                if (dataReader["ThumbnailPath"] != DBNull.Value)
-                    article.ThumbnailPath = Convert.ToString(dataReader["ThumbnailPath"]);
-
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
 
@@ -379,15 +372,12 @@ namespace Wis.Website.DataManager
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     article.Category.ThumbnailHeight = Convert.ToInt32(dataReader[CategoryField.ThumbnailHeight]);
 
-                if (dataReader["ThumbnailPath"] != DBNull.Value)
-                    article.ThumbnailPath = Convert.ToString(dataReader["ThumbnailPath"]);
-
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
 
                 if (dataReader["MetaDesc"] != DBNull.Value)
                     article.MetaDesc = Convert.ToString(dataReader["MetaDesc"]);
-                
+
                 article.Title = Convert.ToString(dataReader["Title"]);
 
                 if (dataReader["TitleColor"] != DBNull.Value)
@@ -410,7 +400,7 @@ namespace Wis.Website.DataManager
 
                 if (dataReader["Original"] != DBNull.Value)
                     article.Original = Convert.ToString(dataReader["Original"]);
-                
+
                 article.Rank = Convert.ToInt32(dataReader["Rank"]);
                 article.Hits = Convert.ToInt32(dataReader["Hits"]);
                 article.Comments = Convert.ToInt32(dataReader["Comments"]);
@@ -427,11 +417,6 @@ namespace Wis.Website.DataManager
             DbCommand command = DbProviderHelper.CreateCommand("INSERTArticle", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, article.ArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
-
-            if (string.IsNullOrEmpty(article.ThumbnailPath))
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, DBNull.Value));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, article.ThumbnailPath));
 
             if (string.IsNullOrEmpty(article.MetaKeywords))
                 command.Parameters.Add(DbProviderHelper.CreateParameter("@MetaKeywords", DbType.String, DBNull.Value));
@@ -535,10 +520,6 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, article.ArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
 
-            if (article.ThumbnailPath != null)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, article.ThumbnailPath));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, DBNull.Value));
             if (article.MetaKeywords != null)
                 command.Parameters.Add(DbProviderHelper.CreateParameter("@MetaKeywords", DbType.String, article.MetaKeywords));
             else

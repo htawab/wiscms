@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<tpl:set name="ArticlePhotoManager" value="$CreateTypeReference("Wis.Website.DataManager.ArticlePhotoManager")$" />
+<tpl:set name="CategoryManager" value="$CreateTypeReference("Wis.Website.DataManager.CategoryManager")$" />
+<tpl:set name="Formats" value="$CreateTypeReference("Wis.Toolkit.Formats")$" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -6,6 +9,7 @@
     <title>图片头条</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
     <link href="$TemplateDirectory$/css/picNewsList.css" rel="stylesheet" type="text/css" />
+    <script src="$TemplateDirectory$/js/w.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="header">
@@ -41,25 +45,27 @@
             <div class="picNewsBox">
 
                 <script language="javascript">
-			var CurrentHotScreen = 0 ;
+			var CurrentHotScreen = 1;
 			function setHotQueryList(screen){
+			    if(!hot_query_td) return;
+			    
 				var Vmotion = "forward" ;
 				var MaxScreen = 18 ;
 				if (screen >= MaxScreen) {
-					screen = 0 ;
+					screen = 1 ;
 					Vmotion = "reverse" ;
 				}
 				cleanallstyle();
-				document.getElementById("focus_"+screen).className = "up" ;
+				if(!!G("focus_"+screen)) G("focus_"+screen).className = "up" ;
 			  
 			  if(null!=hot_query_td.filters){
 				hot_query_td.filters[0].apply();
 				hot_query_td.filters[0].motion = Vmotion;
 			  }
 			  for (i=0;i<MaxScreen;i++) {
-				document.getElementById("switch_"+i).style.display = "none" ;
+				if(!!G("switch_"+i)) G("switch_"+i).style.display = "none" ;
 			  }
-			  document.getElementById("switch_"+screen).style.display = "block" ;
+			  if(!!G("switch_"+screen)) G("switch_"+screen).style.display = "block" ;
 			  if(null!=hot_query_td.filters){
 				hot_query_td.filters[0].play();
 			  }
@@ -77,129 +83,37 @@
                         <tbody>
                             <tr>
                                 <td id="HotSearchList" style="filter: progid:DXImageTransform.Microsoft.GradientWipe(GradientSize=0.25,wipestyle=0,motion=forward)">
-                                    <div id="switch_0">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="1" src="$TemplateDirectory$/images/01.jpg" /></a></div>
-                                    <div id="switch_1">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="2" src="$TemplateDirectory$/images/02.jpg" /></a></div>
-                                    <div id="switch_2">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="3" src="$TemplateDirectory$/images/03.jpg" /></a></div>
-                                    <div id="switch_3">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="4" src="$TemplateDirectory$/images/04.jpg" /></a></div>
-                                    <div id="switch_4">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="5" src="$TemplateDirectory$/images/01.jpg" /></a></div>
-                                    <div id="switch_5">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="6" src="$TemplateDirectory$/images/02.jpg" /></a></div>
-                                    <div id="switch_6">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/03.jpg" /></a></div>
-                                    <div id="switch_7">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/04.jpg" /></a></div>
-                                    <div id="switch_8">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/01.jpg" /></a></div>
-                                    <div id="switch_9">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/02.jpg" /></a></div>
-                                    <div id="switch_10">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/03.jpg" /></a></div>
-                                    <div id="switch_11">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/04.jpg" /></a></div>
-                                    <div id="switch_12">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/01.jpg" /></a></div>
-                                    <div id="switch_13">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/02.jpg" /></a></div>
-                                    <div id="switch_14">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/03.jpg" /></a></div>
-                                    <div id="switch_15">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/04.jpg" /></a></div>
-                                    <div id="switch_16">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/01.jpg" /></a></div>
-                                    <div id="switch_17">
-                                        <a onclick="setClick();" href="#" blockid="931" target="_blank">
-                                            <img alt="7" src="$TemplateDirectory$/images/02.jpg" /></a></div>
+                                    <tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(Category.CategoryGuid, PageIndex, PageSize)$" var="ArticlePhoto" index="Index"><div id="switch_$Index$">
+                                        <a onclick="setClick();" href="$ReleaseDirectory$/$ArticlePhoto.Category.CategoryId$/$ArticlePhoto.DateCreated.Year$-$ArticlePhoto.DateCreated.Month$-$ArticlePhoto.DateCreated.Day$/$ArticlePhoto.ArticleId$.htm" blockid="931" target="_blank"><img alt="$Index$" src="$ArticlePhoto.ThumbnailPath$" /></a></div></tpl:foreach>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="newsList">
-                        <ul>
-                            <li><a class="up" id="focus_0" onmouseover="show_focus_image(0);" title="a" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">信宣传新专辑 与徐静蕾合作很紧张</a> </li>
-                            <li><a id="focus_1" onmouseover="show_focus_image(1);" title="b" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">蒲巴甲北京录新歌 首张EP杀青在即</a> </li>
-                            <li><a id="focus_2" onmouseover="show_focus_image(2);" title="c" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">尚雯婕为演唱会携天价古董拍海报</a> </li>
-                            <li><a id="focus_3" onmouseover="show_focus_image(3);" title="d" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">曹格穿透明装与辣妹热舞 爸妈齐助阵</a> </li>
-                            <li><a id="focus_4" onmouseover="show_focus_image(4);" title="e" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">周杰伦女友江语晨拍MV 邀小朋友助阵</a> </li>
-                            <li><a id="focus_5" onmouseover="show_focus_image(5);" title="f" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">阿朵唱功遭质疑 撩裙露臀卖肉博眼球</a> </li>
-                            <li><a id="focus_6" onmouseover="show_focus_image(6);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_7" onmouseover="show_focus_image(7);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_8" onmouseover="show_focus_image(8);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_9" onmouseover="show_focus_image(9);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_10" onmouseover="show_focus_image(10);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_11" onmouseover="show_focus_image(11);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_12" onmouseover="show_focus_image(12);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_13" onmouseover="show_focus_image(13);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_14" onmouseover="show_focus_image(14);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_15" onmouseover="show_focus_image(15);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_16" onmouseover="show_focus_image(16);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
-                            <li><a id="focus_17" onmouseover="show_focus_image(17);" title="g" onclick="setClick();"
-                                href="#" target="_blank" blockid="931">JL</a></li>
+                        <ul><tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(Category.CategoryGuid, PageIndex, PageSize)$" var="ArticlePhoto" index="Index">
+                            <li><a class="up" id="focus_$Index$" onmouseover="show_focus_image($Index$);" title="a" onclick="setClick();" href="$ReleaseDirectory$/$ArticlePhoto.Category.CategoryId$/$ArticlePhoto.DateCreated.Year$-$ArticlePhoto.DateCreated.Month$-$ArticlePhoto.DateCreated.Day$/$ArticlePhoto.ArticleId$.htm" target="_blank" blockid="931" title="$ArticlePhoto.Title$(<strong>$ArticlePhoto.Hits$</strong>阅 <strong>$ArticlePhoto.Comments$</strong>评)">$Formats.TruncateString(ArticlePhoto.Title, 17)$</a></li></tpl:foreach>
                         </ul>
-                        <div class="fenye">共3页 <a href="#" class="noLink">首页</a> <a href="#" class="noLink">上一页</a> 2 <a href="#">
-                                下一页</a> <a href="#">尾页</a></div>
+                        <div class="fenye">$Pager$</div>
                     </div>
-
-                    <script>
-			
-			function cleanallstyle() {
-				for (i=0;i<18;i++) {
-					document.getElementById("focus_"+i).className = "" ;
-				}
-			}
-			function show_focus_image(index) {
-				clearTimeout(refreshHotQueryTimer);
-				setHotQueryList(index);
-				refreshHotQueryTimer = setTimeout('refreshHotQuery();', 5000);
-			}
-			function setClick() {
-				clearTimeout(refreshHotQueryTimer);
-			}
-		  var refreshHotQueryTimer = null ;
-		  var hot_query_td =  document.getElementById('HotSearchList');
-		  setHotQueryList(CurrentHotScreen);
-		  refreshHotQueryTimer = setTimeout('refreshHotQuery();', 5000);
-
+                    <script>			
+			        function cleanallstyle() {
+				        for (i=1;i<=18;i++) {
+					        if(!!G("focus_"+i)) G("focus_"+i).className = "" ;
+				        }
+			        }
+			        function show_focus_image(index) {
+				        clearTimeout(refreshHotQueryTimer);
+				        setHotQueryList(index);
+				        refreshHotQueryTimer = setTimeout('refreshHotQuery();', 5000);
+			        }
+			        function setClick() {
+				        clearTimeout(refreshHotQueryTimer);
+			        }
+		            var refreshHotQueryTimer = null ;
+		            var hot_query_td = G('HotSearchList');
+		            setHotQueryList(CurrentHotScreen);
+		            refreshHotQueryTimer = setTimeout('refreshHotQuery();', 5000);
                     </script>
-
                 </div>
                 <div class="clear">
                 </div>

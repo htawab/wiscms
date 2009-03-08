@@ -88,7 +88,7 @@ namespace Wis.Website.Web.Backend
             }
 
             // TODO:过滤非法字符和脏字词语
-            //if (ArticleManager.HasBannedWord(article.Title) || ArticleManager.HasBannedWord(article.ContentHtml))
+            //if (ArticleManager.HasBannedWord(articlePhoto.Title) || ArticleManager.HasBannedWord(articlePhoto.ContentHtml))
             //{
             //    Warning.InnerHtml = "对不起, 您提交的内容包含不良信息, 因此无法提交, 请返回修改!";
             //    return;
@@ -120,7 +120,7 @@ namespace Wis.Website.Web.Backend
             article.TitleColor = TitleColor.Value;
             article.Votes = 0;
 
-            // article 入库
+            // articlePhoto 入库
             article.ArticleId = articleManager.AddNew(article);
 
             // 4 添加主题

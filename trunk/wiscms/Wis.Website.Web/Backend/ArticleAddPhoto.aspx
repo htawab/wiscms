@@ -88,7 +88,7 @@
             </div>
             <div id="ThumbConfig" style="display:none">
                 <label>参数设置：</label>
-                <span><input name="Stretch" type="checkbox" value="1" />拉伸</span>
+                <span><input name="Stretch" type="checkbox" value="1" onclick="StretchPreview();" />拉伸</span>
                 <span><input name="Beveled" type="checkbox" value="1" />斜角</span>
             </div>
             <div>
@@ -100,6 +100,42 @@
                     var span2 = $("ThumbnailSpan2");
                     var radio1 = span1.getElementsByTagName("input")[0];
                     var radio2 = span2.getElementsByTagName("input")[0];
+                    function StretchPreview(){
+                        if(radio1.checked == false) return false;
+                        
+                        var tempImg = document.createElement("img");
+                        tempImg.src = $("Photo$ctl03").value;
+                        var iWidth = tempImg.width, iHeight = tempImg.height, scale = iWidth / iHeight;
+
+                        var fixWidth = <%=ThumbnailWidth %>;
+                        var fixHeight = <%=ThumbnailHeight %>;
+                        if($("Stretch").checked)
+                        {
+                            // 不按比例，拉伸效果
+                            iWidth = fixWidth;
+                            iHeight = fixHeight;
+                        }
+                        else
+                        {
+                            //按比例设置
+                            if(fixHeight){ iWidth = (iHeight = fixHeight) * scale; }
+                            if(fixWidth && (!fixHeight || iWidth > fixWidth)){ iHeight = (iWidth = fixWidth) / scale; }
+                        }
+
+                        var img = $("ImagePreview").getElementsByTagName("img")[0];
+                        with(img.style){
+	                        // 设置样式
+	                        width = parseInt(iWidth) + "px";
+	                        height = parseInt(iHeight) + "px";
+	                        top = "";
+	                        left = "";
+	                        // 切割预览图
+	                        clip = "rect(0px " + tempImg.width + "px " + tempImg.height + "px 0px)";
+                        }                            
+                        img.src = $("Photo$ctl03").value;
+                        return true;
+                     }
+
                     function Thumbnail_Load(e, index){
                         var url = $("Photo$ctl03").value;
                         if(url == "")
@@ -126,27 +162,7 @@
                         
                         if(radio1.checked)
                         {
-                            var tempImg = document.createElement("img");
-                            tempImg.src = url;
-	                        var iWidth = tempImg.width, iHeight = tempImg.height, scale = iWidth / iHeight;
-	                        
-	                        //按比例设置
-                            var fixWidth = <%=ThumbnailWidth %>;
-                            var fixHeight = <%=ThumbnailHeight %>;
-	                        if(fixHeight){ iWidth = (iHeight = fixHeight) * scale; }
-	                        if(fixWidth && (!fixHeight || iWidth > fixWidth)){ iHeight = (iWidth = fixWidth) / scale; }
-
-                            var img = $("ImagePreview").getElementsByTagName("img")[0];
-	                        with(img.style){
-		                        // 设置样式
-		                        width = parseInt(iWidth) + "px";
-		                        height = parseInt(iHeight) + "px";
-		                        top = "";
-		                        left = "";
-		                        // 切割预览图
-		                        clip = "rect(0px " + tempImg.width + "px " + tempImg.height + "px 0px)";
-	                        }                            
-                            img.src = url;                        	
+                            return StretchPreview();                      	
                         }
                         
                         if ($("ImageCropperBackground").style.display == "none" && radio2.checked)

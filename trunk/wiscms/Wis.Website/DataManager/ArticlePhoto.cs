@@ -10,10 +10,10 @@ using System.Text;
 namespace Wis.Website.DataManager
 {
     /// <summary>
-    /// 图片新闻的图片信息
+    /// 图片新闻信息
     /// </summary>
 	[Serializable()]
-    public class ArticlePhoto
+    public class ArticlePhoto : Article
 	{
 		private int _ArticlePhotoId;
         /// <summary>
@@ -35,19 +35,10 @@ namespace Wis.Website.DataManager
 			set { _ArticlePhotoGuid = value; }
 		}
 
-        private Article _Article;
-        /// <summary>
-        /// 文章信息
-        /// </summary>
-        public Article Article
-		{
-            get { return _Article; }
-            set { _Article = value; }
-		}
 
 		private string _SourcePath;
         /// <summary>
-        /// 
+        /// 源图路径
         /// </summary>
 		public string SourcePath
 		{
@@ -57,7 +48,7 @@ namespace Wis.Website.DataManager
 
 		private string _ThumbnailPath;
         /// <summary>
-        /// 
+        /// 缩略图路径
         /// </summary>
 		public string ThumbnailPath
 		{
@@ -67,7 +58,7 @@ namespace Wis.Website.DataManager
 
 		private Nullable<int> _PointX;
         /// <summary>
-        /// 
+        /// X坐标
         /// </summary>
 		public Nullable<int> PointX
 		{
@@ -77,7 +68,7 @@ namespace Wis.Website.DataManager
 
 		private Nullable<int> _PointY;
         /// <summary>
-        /// 
+        /// Y坐标
         /// </summary>
 		public Nullable<int> PointY
 		{
@@ -87,7 +78,7 @@ namespace Wis.Website.DataManager
 
 		private Nullable<bool> _Stretch;
         /// <summary>
-        /// 
+        /// 拉伸
         /// </summary>
 		public Nullable<bool> Stretch
 		{
@@ -97,7 +88,7 @@ namespace Wis.Website.DataManager
 
 		private Nullable<bool> _Beveled;
         /// <summary>
-        /// 
+        /// 斜角
         /// </summary>
 		public Nullable<bool> Beveled
 		{
@@ -107,7 +98,7 @@ namespace Wis.Website.DataManager
 
 		private string _CreatedBy;
         /// <summary>
-        /// 
+        /// 创建人
         /// </summary>
 		public string CreatedBy
 		{
@@ -117,7 +108,7 @@ namespace Wis.Website.DataManager
 
 		private DateTime _CreationDate;
         /// <summary>
-        /// 
+        /// 创建时间
         /// </summary>
 		public DateTime CreationDate
 		{
@@ -136,7 +127,7 @@ namespace Wis.Website.DataManager
         /// </summary>
         /// <param name="articlePhotoId"></param>
         /// <param name="articlePhotoGuid"></param>
-        /// <param name="article"></param>
+        /// <param name="articlePhoto"></param>
         /// <param name="sourcePath"></param>
         /// <param name="thumbnailPath"></param>
         /// <param name="pointX"></param>
@@ -145,11 +136,11 @@ namespace Wis.Website.DataManager
         /// <param name="beveled"></param>
         /// <param name="createdBy"></param>
         /// <param name="creationDate"></param>
-        public ArticlePhoto(int articlePhotoId, Guid articlePhotoGuid, Article article, string sourcePath, string thumbnailPath, Nullable<int> PointX, Nullable<int> PointY, Nullable<bool> Stretch, Nullable<bool> Beveled, string CreatedBy, DateTime CreationDate)
+        public ArticlePhoto(int articlePhotoId, Guid articlePhotoGuid, Guid articleGuid, string sourcePath, string thumbnailPath, Nullable<int> PointX, Nullable<int> PointY, Nullable<bool> Stretch, Nullable<bool> Beveled, string CreatedBy, DateTime CreationDate)
 		{
 			this.ArticlePhotoId = articlePhotoId;
 			this.ArticlePhotoGuid = articlePhotoGuid;
-            this.Article = article;
+            this.ArticleGuid = articleGuid;
 			this.SourcePath = sourcePath;
 			this.ThumbnailPath = thumbnailPath;
 			this.PointX = PointX;
@@ -158,16 +149,18 @@ namespace Wis.Website.DataManager
 			this.Beveled = Beveled;
 			this.CreatedBy = CreatedBy;
 			this.CreationDate = CreationDate;
-		}
+        }
 
+#warning ArticlePhoto重载，加入Article对象
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
 		public override string ToString()
 		{
-            return "ArticlePhotoId = " + ArticlePhotoId.ToString() + ",ArticlePhotoGuid = " + ArticlePhotoGuid.ToString() + ",Article = " + Article.ToString() + ",SourcePath = " + SourcePath + ",ThumbnailPath = " + ThumbnailPath + ",PointX = " + PointX.ToString() + ",PointY = " + PointY.ToString() + ",Stretch = " + Stretch.ToString() + ",Beveled = " + Beveled.ToString() + ",CreatedBy = " + CreatedBy + ",CreationDate = " + CreationDate.ToString();
-		}
+            return "ArticlePhotoId = " + ArticlePhotoId.ToString() + ",ArticlePhotoGuid = " + ArticlePhotoGuid.ToString() + ", ArticleGuid=" + ArticleGuid.ToString() + ", SourcePath=" + SourcePath + ", ThumbnailPath=" + ThumbnailPath + ",PointX = " + PointX.ToString() + ",PointY = " + PointY.ToString() + ",Stretch = " + Stretch.ToString() + ",Beveled = " + Beveled.ToString() + ",CreatedBy = " + CreatedBy + ",CreationDate = " + CreationDate.ToString();
+        }
+#warning ToString() 加入Article对象
 
         /// <summary>
         /// 
