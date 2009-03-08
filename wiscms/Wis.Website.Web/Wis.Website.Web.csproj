@@ -721,6 +721,7 @@
     <Content Include="Backend\images\tool-sprites.gif" />
     <Content Include="Backend\images\top-bottom.png" />
     <Content Include="Backend\images\win.png" />
+    <Content Include="Backend\wis.js" />
     <Content Include="Backend\文件存储规则.txt" />
     <Content Include="Logo.swf" />
     <Content Include="logoPlugIn.swf" />
