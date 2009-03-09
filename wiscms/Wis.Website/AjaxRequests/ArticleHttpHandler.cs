@@ -449,7 +449,7 @@ namespace Wis.Website.AjaxRequests
 
             List<Wis.Website.DataManager.Article> articles = null;
             Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
-            //??articles = articleManager.GetArticlesByCategoryName(categoryId);
+            //??videoArticles = articleManager.GetArticlesByCategoryName(categoryId);
             int index = 0;
             foreach (Wis.Website.DataManager.Article article in articles)
             {

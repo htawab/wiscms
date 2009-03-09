@@ -57,7 +57,7 @@
             <ul>
                 <li>第一步：选择分类</li>
                 <li>第二步：录入内容</li>
-                <li class="current_step">第三步：录入更多内容</li>
+                <li class="current_step">第三步：录入图片信息</li>
                 <li>第四步：发布静态页</li>
             </ul>
         </div>
@@ -93,7 +93,7 @@
             </div>
             <div>
                 <label>缩略图预览：<br />(<%=ThumbnailWidth %>*<%=ThumbnailHeight %>) &nbsp;&nbsp;</label>
-                <div id="ImagePreview"><img src="images/noimg2.gif" alt="缩略图预览" /></div>
+                <div id="ImagePreview"><img src="images/<%=ThumbnailWidth %>-<%=ThumbnailHeight %>.gif" alt="缩略图预览" /></div>
             </div>
                 <script type="text/javascript" language="javascript">
                     var span1 = $("ThumbnailSpan1");
@@ -206,7 +206,7 @@
             <div>
         </div>
         <div id="Warning" runat="server"></div>
-        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 上传中...</div>
+        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' alt="上传中" /> 上传中...</div>
         <div class="add_button">
             <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" OnClientClick="javascript:return Check();" />
         </div>

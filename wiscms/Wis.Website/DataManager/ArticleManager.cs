@@ -21,7 +21,7 @@ namespace Wis.Website.DataManager
 
         //public List<Article> GetArticles()
         //{
-        //    List<Article> articles = new List<Article>();
+        //    List<Article> videoArticles = new List<Article>();
         //    DbCommand command = DbProviderHelper.CreateCommand("SELECTArticles", CommandType.StoredProcedure);
         //    DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
         //    return GetArticles(dataReader);

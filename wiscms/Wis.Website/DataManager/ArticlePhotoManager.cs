@@ -163,7 +163,7 @@ namespace Wis.Website.DataManager
             while (dataReader.Read())
             {
                 articlePhoto.ArticleId = (int)dataReader[ArticleField.ArticleId];
-                //articlePhoto.ArticleGuid = (Guid)dataReader[ArticleField.ArticleGuid];
+                articlePhoto.ArticleGuid = (Guid)dataReader[ArticleField.ArticleGuid];
 
                 // 获取 Category 对象
                 articlePhoto.Category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);

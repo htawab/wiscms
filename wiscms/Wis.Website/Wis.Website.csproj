@@ -63,6 +63,10 @@
     <Compile Include="DataManager\ArticlePhotoField.cs" />
     <Compile Include="DataManager\ArticlePhotoManager.cs" />
     <Compile Include="DataManager\ArticleField.cs" />
+    <Compile Include="DataManager\VideoArticle.cs" />
+    <Compile Include="DataManager\VideoArticleField.cs" />
+    <Compile Include="DataManager\VideoArticleManager.cs" />
+    <Compile Include="DataManager\ViewVideoArticleField.cs" />
     <Compile Include="Label\Entity.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="DataManager\Article.cs" />

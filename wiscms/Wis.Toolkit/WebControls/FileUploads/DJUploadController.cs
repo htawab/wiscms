@@ -257,7 +257,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
                         processor.StartNewFile(fu.FileName, fu.PostedFile.ContentType, null, null);
                         processor.Write(fu.FileBytes, 0, fu.FileBytes.Length);
                         processor.EndFile();
-
+                        
                         status.UploadedFiles.Add(new UploadedFile(fu.FileName, processor.GetIdentifier(), null));
                     }
                     catch(Exception ex)
