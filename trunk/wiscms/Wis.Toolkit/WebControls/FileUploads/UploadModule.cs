@@ -119,7 +119,7 @@ namespace Wis.Toolkit.WebControls.FileUploads
                         fs.FileCompleted += new FileEventHandler(fs_FileCompleted);
                         fs.FileCompletedError += new FileErrorEventHandler(fs_FileCompletedError);
                         fs.FileStarted += new FileEventHandler(fs_FileStarted);
-
+                        
                         byte[] data = null;
                         int read = 0;
                         int counter = 0;

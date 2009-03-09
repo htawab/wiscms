@@ -10,11 +10,11 @@ namespace Wis.Website.DataManager
     public class ArticleField
     {
         /// <summary>
-        /// 
+        /// 文章编号
         /// </summary>
         public const string ArticleId = "ArticleId";
         /// <summary>
-        /// 
+        /// 文章编号
         /// </summary>
         public const string ArticleGuid = "ArticleGuid";
         /// <summary>
