@@ -400,6 +400,32 @@ li.LinkOperate a:hover {background:#f6f6f6; color:#5281ab;}
 
 a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3px 6px 2px 6px;}
 
+
+/* 用户管理 */
+.ListBox {padding-left:8px; width:812px;}
+
+
+.UserListBox ul {float:left;}
+.UserListBox ul li {float:left; line-height:22px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
+.UserListBox ul li.a {width:140px;}
+.UserListBox ul li.b {width:195px; border-left:0;}
+.UserListBox ul li.c {width:160px; border-left:0;}
+.UserListBox ul li.d {width:190px; border-left:0;}
+.UserListBox ul li.e {width:111px; border-left:0;}
+
+li.ListOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
+li.ListOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
+.UserListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
+
+.userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:794px; margin:5px 0;}
+.userEdit div {margin:0 0; padding:10px 0; border:solid 1px #ccc; border-bottom:0; background:#fcfcfc; width:600px;}
+.userEdit div.borBot {border:solid 1px #ccc;}
+
+.userEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
+.userEdit div span {margin-left:8px; width:300px;}
+
+
 /* 列表页搜索和分页 */
 
 div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 3px 4px 12px; width:769px;}
@@ -487,7 +513,7 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 
 
-#Position {padding:4px 0; width:100%; text-align:left; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
+#Position {padding:4px 0; width:100%; text-align:left; font-family:宋体; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
 #Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 #Warning a {margin:0 2px; text-decoration:underline;}
 #Warning a:hover {background:#eef852;}
