@@ -23,19 +23,19 @@ namespace Wis.Website.DataManager
 		{
 			List<Template> lstTemplates = new List<Template>();
 			DbCommand oDbCommand = DbProviderHelper.CreateCommand("SELECTTemplates",CommandType.StoredProcedure);
-			DbDataReader oDbDataReader = DbProviderHelper.ExecuteReader(oDbCommand);
-			while (oDbDataReader.Read())
+			DbDataReader dataReader = DbProviderHelper.ExecuteReader(oDbCommand);
+			while (dataReader.Read())
 			{
 				Template oTemplate = new Template();
-				oTemplate.TemplateId = Convert.ToInt32(oDbDataReader["TemplateId"]);
-				oTemplate.TemplateGuid = (Guid) oDbDataReader["TemplateGuid"];
-				oTemplate.Title = Convert.ToString(oDbDataReader["Title"]);
-				oTemplate.TemplatePath = Convert.ToString(oDbDataReader["TemplatePath"]);
-				oTemplate.TemplateType = Convert.ToSByte(oDbDataReader["TemplateType"]);
-				oTemplate.ArticleType = Convert.ToSByte(oDbDataReader["ArticleType"]);
+				oTemplate.TemplateId = Convert.ToInt32(dataReader["TemplateId"]);
+				oTemplate.TemplateGuid = (Guid) dataReader["TemplateGuid"];
+				oTemplate.Title = Convert.ToString(dataReader["Title"]);
+				oTemplate.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+                oTemplate.TemplateType = (TemplateType)System.Enum.Parse(typeof(TemplateType), dataReader[ViewReleaseTemplateField.TemplateType].ToString(), true);
+				oTemplate.ArticleType = Convert.ToSByte(dataReader["ArticleType"]);
 				lstTemplates.Add(oTemplate);
 			}
-			oDbDataReader.Close();
+			dataReader.Close();
 			return lstTemplates;
 		}
 
@@ -54,7 +54,7 @@ namespace Wis.Website.DataManager
                 template.TemplateGuid = (Guid)dataReader["TemplateGuid"];
                 template.Title = Convert.ToString(dataReader["Title"]);
                 template.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
-                template.TemplateType = Convert.ToSByte(dataReader["TemplateType"]);
+                template.TemplateType = (TemplateType)System.Enum.Parse(typeof(TemplateType), dataReader[ViewReleaseTemplateField.TemplateType].ToString(), true);
                 template.ArticleType = Convert.ToSByte(dataReader["ArticleType"]);
                 templates.Add(template);
             }
@@ -68,17 +68,17 @@ namespace Wis.Website.DataManager
 			Template oTemplate = new Template();
 			DbCommand oDbCommand = DbProviderHelper.CreateCommand("SELECTTemplate",CommandType.StoredProcedure);
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateId",DbType.Int32,TemplateId));
-			DbDataReader oDbDataReader = DbProviderHelper.ExecuteReader(oDbCommand);
-			while (oDbDataReader.Read())
+			DbDataReader dataReader = DbProviderHelper.ExecuteReader(oDbCommand);
+			while (dataReader.Read())
 			{
-				oTemplate.TemplateId = Convert.ToInt32(oDbDataReader["TemplateId"]);
-				oTemplate.TemplateGuid = (Guid) oDbDataReader["TemplateGuid"];
-				oTemplate.Title = Convert.ToString(oDbDataReader["Title"]);
-				oTemplate.TemplatePath = Convert.ToString(oDbDataReader["TemplatePath"]);
-				oTemplate.TemplateType = Convert.ToSByte(oDbDataReader["TemplateType"]);
-				oTemplate.ArticleType = Convert.ToSByte(oDbDataReader["ArticleType"]);
+				oTemplate.TemplateId = Convert.ToInt32(dataReader["TemplateId"]);
+				oTemplate.TemplateGuid = (Guid) dataReader["TemplateGuid"];
+				oTemplate.Title = Convert.ToString(dataReader["Title"]);
+				oTemplate.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+                oTemplate.TemplateType = (TemplateType)System.Enum.Parse(typeof(TemplateType), dataReader[ViewReleaseTemplateField.TemplateType].ToString(), true);
+				oTemplate.ArticleType = Convert.ToSByte(dataReader["ArticleType"]);
 			}
-			oDbDataReader.Close();
+			dataReader.Close();
 			return oTemplate;
 		}
 

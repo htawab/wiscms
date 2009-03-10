@@ -8,6 +8,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using Wis.Website.DataManager;
+using System.Collections.Generic;
 
 namespace Wis.Website.Web.Backend
 {
@@ -25,10 +27,12 @@ namespace Wis.Website.Web.Backend
 
         Wis.Website.DataManager.Article article = null;
         Wis.Website.DataManager.ArticleManager articleManager = null;
+        DataManager.ReleaseManager releaseManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
+            requestArticleGuid = "17a86f6c-94b8-494a-84ec-a7efb380b0c5";
             if (string.IsNullOrEmpty(requestArticleGuid) || !Wis.Toolkit.Validator.IsGuid(requestArticleGuid))
             {
                 Warning.InnerHtml = "不正确的文章编号，请<a href='ArticleSelectCategory.aspx'>点击这里</a>重新操作";
@@ -41,12 +45,19 @@ namespace Wis.Website.Web.Backend
                 if (articleManager == null) articleManager = new Wis.Website.DataManager.ArticleManager();
                 article = articleManager.GetArticleByArticleGuid(this.ArticleGuid);
             }
+
+            if (releaseManager == null)
+            {
+                releaseManager = new DataManager.ReleaseManager();
+                List<Release> releases = releaseManager.GetReleasesByCategory(article.Category.CategoryGuid);
+                RepeaterReleaseList.DataSource = releases;
+                RepeaterReleaseList.DataBind();
+            }
         }
 
         protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
         {
             // 生成静态页面和关联页面
-            DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
             switch (article.Category.ArticleType)
             {
                 case 1: // 普通新闻
@@ -58,7 +69,9 @@ namespace Wis.Website.Web.Backend
                     releaseManager.ReleaseArticlePhotoRelation(articlePhoto);
                     break;
                 case 3:// 视频新闻
-                    releaseManager.ReleaseRelation(article);
+                    Wis.Website.DataManager.VideoArticleManager videoArticleManager = new Wis.Website.DataManager.VideoArticleManager();
+                    Wis.Website.DataManager.VideoArticle videoArticle = videoArticleManager.GetVideoArticle(this.ArticleGuid);
+                    releaseManager.ReleaseVideoArticleRelation(videoArticle);
                     break;
                 case 4:// 软件
                     releaseManager.ReleaseRelation(article);

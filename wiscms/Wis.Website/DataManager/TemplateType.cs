@@ -7,21 +7,45 @@
 namespace Wis.Website.DataManager
 {
     /// <summary>
-    /// 模版类型。
+    /// 模版类型。
     /// </summary>
     public enum TemplateType
     {
         /// <summary>
-        /// 单页。
+        /// 单页。
         /// </summary>
         Page,
         /// <summary>
-        /// 列表页。
+        /// 不带分页的索引页
         /// </summary>
-        List,
+        Index,
         /// <summary>
-        /// 详细页。
+        /// 列表页。
         /// </summary>
-        Item
+        ArticleList,
+        /// <summary>
+        /// 详细页。
+        /// </summary>
+        ArticleItem,
+        /// <summary>
+        /// 
+        /// </summary>
+        PhotoArticleList,
+        /// <summary>
+        /// 
+        /// </summary>
+        PhotoArticleItem,
+        /// <summary>
+        /// 
+        /// </summary>
+        VideoArticleList,
+        /// <summary>
+        /// 
+        /// </summary>
+        VideoArticleItem,
+        /// <summary>
+        /// 
+        /// </summary>
+        SpecialList
     }
 }

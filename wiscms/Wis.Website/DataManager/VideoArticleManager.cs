@@ -96,11 +96,11 @@ namespace Wis.Website.DataManager
                 videoArticle.Article.ArticleGuid = (Guid)dataReader[ViewVideoArticleField.ArticleGuid];
 
                 // 获取 Category 对象
-                videoArticle.Article.Category.CategoryId = Convert.ToInt32(dataReader[CategoryField.CategoryId]);
-                videoArticle.Article.Category.CategoryGuid = (Guid)dataReader[CategoryField.CategoryGuid];
-                videoArticle.Article.Category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
-                videoArticle.Article.Category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
-                videoArticle.Article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                videoArticle.Article.Category.CategoryId = Convert.ToInt32(dataReader[ViewVideoArticleField.CategoryId]);
+                videoArticle.Article.Category.CategoryGuid = (Guid)dataReader[ViewVideoArticleField.CategoryGuid];
+                videoArticle.Article.Category.CategoryName = Convert.ToString(dataReader[ViewVideoArticleField.CategoryName]);
+                videoArticle.Article.Category.ParentGuid = (Guid)dataReader[ViewVideoArticleField.ParentGuid];
+                videoArticle.Article.Category.Rank = Convert.ToInt32(dataReader[ViewVideoArticleField.CategoryRank]);
 
                 if (dataReader[ViewVideoArticleField.MetaKeywords] != DBNull.Value)
                     videoArticle.Article.MetaKeywords = Convert.ToString(dataReader[ViewVideoArticleField.MetaKeywords]);
@@ -131,7 +131,7 @@ namespace Wis.Website.DataManager
                 if (dataReader[ViewVideoArticleField.Original] != DBNull.Value)
                     videoArticle.Article.Original = Convert.ToString(dataReader[ViewVideoArticleField.Original]);
 
-                videoArticle.Article.Rank = Convert.ToInt32(dataReader[ViewVideoArticleField.VideoArticleRank]);
+                videoArticle.Article.Rank = Convert.ToInt32(dataReader[ViewVideoArticleField.ArticleRank]);
                 videoArticle.Article.Hits = Convert.ToInt32(dataReader[ViewVideoArticleField.Hits]);
                 videoArticle.Article.Comments = Convert.ToInt32(dataReader[ViewVideoArticleField.Comments]);
                 videoArticle.Article.Votes = Convert.ToInt32(dataReader[ViewVideoArticleField.Votes]);

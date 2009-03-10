@@ -19,26 +19,6 @@ namespace Wis.Website.DataManager
         /// 
         /// </summary>
         public Release() { }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="releaseId"></param>
-        /// <param name="releaseGuid"></param>
-        /// <param name="title"></param>
-        /// <param name="templatePath"></param>
-        /// <param name="releasePath"></param>
-        /// <param name="dateReleased"></param>
-        /// <param name="parentGuid"></param>
-        public Release(int releaseId, Guid releaseGuid, string title, string templatePath, string releasePath, DateTime dateReleased, Guid parentGuid)
-        {
-            this.ReleaseId = releaseId;
-            this.ReleaseGuid = releaseGuid;
-            this.Title = title;
-            this.TemplatePath = templatePath;
-            this.ReleasePath = releasePath;
-            this.DateReleased = dateReleased;
-            this.ParentGuid = parentGuid;
-        }
 
 		private int _ReleaseId;
         /// <summary>
@@ -70,15 +50,21 @@ namespace Wis.Website.DataManager
             set { _Title = value; }
 		}
 
-		private string _TemplatePath;
+        public Template _Template;
         /// <summary>
-        /// 模版路径
+        /// 模版信息
         /// </summary>
-		public string TemplatePath
-		{
-			get { return _TemplatePath; }
-			set { _TemplatePath = value; }
-		}
+        public Template Template
+        {
+            get 
+            {
+                if (_Template == null)
+                    _Template = new Template();
+
+                return _Template;
+            }
+            set { _Template = value; }
+        }
 
 		private string _ReleasePath;
         /// <summary>
@@ -109,16 +95,27 @@ namespace Wis.Website.DataManager
             get { return _ParentGuid; }
             set { _ParentGuid = value; }
         }
-        
+
+        private Nullable<int> _PageSize;
         /// <summary>
-        /// 
+        /// 每页记录数
         /// </summary>
-        /// <returns></returns>
-		public override string ToString()
-		{
-            return string.Format("ReleaseId={0}, ReleaseGuid={1}, Title={2}, TemplatePath={3}, ReleasePath={4}, DateReleased={5}, ParentGuid={6}",
-                this.ReleaseId, this.ReleaseGuid, this.Title, this.TemplatePath, this.ReleasePath, this.DateReleased, this.ParentGuid);
-		}
+        public Nullable<int> PageSize
+        {
+            get { return _PageSize; }
+            set { _PageSize = value; }
+        }
+
+
+        private PagerStyle _PagerStyle;
+        /// <summary>
+        /// 分页样式
+        /// </summary>
+        public PagerStyle PagerStyle
+        {
+            get { return _PagerStyle; }
+            set { _PagerStyle = value; }
+        }
 
         /// <summary>
         /// 根据发布编号进行比较。
@@ -131,9 +128,9 @@ namespace Wis.Website.DataManager
 			public ReleaseIdComparer(SorterMode SorterMode)
 			{
 				this.SorterMode = SorterMode;
-			}
-			#region IComparer<ReleaseRelation> Membres
-			int System.Collections.Generic.IComparer<Release>.Compare(Release x, Release y)
+            }
+            #region IComparer<Release> Membres
+            int System.Collections.Generic.IComparer<Release>.Compare(Release x, Release y)
 			{
 				if (SorterMode == SorterMode.Ascending)
 				{

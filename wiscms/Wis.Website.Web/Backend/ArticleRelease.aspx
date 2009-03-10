@@ -29,36 +29,24 @@
         </div>
         <div class="add_main add_step4">
             信息录入完成，以下相关页面将被重新生成
-            <ul class="top">
-                <li class="step4_li4"><input type="checkbox" checked="checked" /></li>
-                <li class="step4_li1">标题</li>
-                <li class="step4_li2">模板路径</li>
-                <li class="step4_li3">发布路径</li>
-            </ul>
-            <ul>
-                <li class="step4_li4"><input type="checkbox" /></li>
-                <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li>
-                <li class="step4_li3">website/web/web/aa/htm</li>
-            </ul>
-            <ul>
-                <li class="step4_li4"><input type="checkbox" /></li>
-                <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li>
-                <li class="step4_li3">website/web/web/aa/htm</li>
-            </ul>
-            <ul>
-                <li class="step4_li4"><input type="checkbox" /></li>
-                <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li>
-                <li class="step4_li3">website/web/web/aa/htm</li>
-            </ul>
-            <ul>
-                <li class="step4_li4"><input type="checkbox" /></li>
-                <li class="step4_li1">博客（Web2.0）新时代里程碑 </li>
-                <li class="step4_li2">templete/web/web/aa/htm</li>
-                <li class="step4_li3">website/web/web/aa/htm</li>
-            </ul>
+            <asp:Repeater ID="RepeaterReleaseList" runat="server">
+            <HeaderTemplate>
+                <ul class="top">
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li1">标题</li>
+                    <li class="step4_li2">模板路径</li>
+                    <li class="step4_li3">发布路径</li>
+                </ul>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <ul>
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li1"><%# DataBinder.Eval(Container.DataItem, "Title")%></li>
+                    <li class="step4_li2"><%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%></li>
+                    <li class="step4_li3"><%# DataBinder.Eval(Container.DataItem, "ReleasePath")%></li>
+                </ul>
+            </ItemTemplate>
+            </asp:Repeater>
             <div class="clear"></div>
         </div>
         <div id="Warning" runat="server"></div>
