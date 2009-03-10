@@ -61,7 +61,6 @@ namespace Wis.Website.Web.Backend
 
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
-            requestArticleGuid = "17a86f6c-94b8-494a-84ec-a7efb380b0c5";
             if (string.IsNullOrEmpty(requestArticleGuid) || !Wis.Toolkit.Validator.IsGuid(requestArticleGuid))
             {
                 Warning.InnerHtml = "不正确的文章编号，请<a href='ArticleSelectCategory.aspx'>点击这里</a>重新操作";
@@ -91,11 +90,6 @@ namespace Wis.Website.Web.Backend
             }
             this.ThumbnailWidth = article.Category.ThumbnailWidth.Value;
             this.ThumbnailHeight = article.Category.ThumbnailHeight.Value;
-
-            //if (!Page.IsPostBack)
-            //{
-                
-            //}
         }
 
         protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
