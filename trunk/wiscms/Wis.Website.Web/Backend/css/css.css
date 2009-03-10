@@ -337,9 +337,6 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 
 /* 图片管理列表 */
 .picListBox {padding-left:8px; width:810px;}
-
-
-
 .picListBox ul {float:left; width:auto;}
 .picListBox ul li {float:left; height:24px; line-height:24px; height:120px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
 .picListBox ul li.picSmall {width:120px; line-height:120px;}
@@ -349,14 +346,11 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 .picListBox ul li.picAddTime {width:140px; border-left:0;}
 .picListBox ul li.picUser { width:90px; border-left:0;}
 .picListBox ul li.picOperate {width:105px; border-left:0;}
-
 .picListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 
 
 /* 附件管理列表 */
 .FileListBox {padding-left:8px; width:810px;}
-
-
 .FileListBox ul {float:left; width:auto;}
 .FileListBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
 .FileListBox ul li.fileTitle {width:160px;}
@@ -392,11 +386,7 @@ div.AticleSch select {margin:0; padding:0;}
 
 li.LinkOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
 li.LinkOperate a:hover {background:#f6f6f6; color:#5281ab;}
-
-
 .LinkListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
-
-
 
 a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3px 6px 2px 6px;}
 
@@ -413,17 +403,34 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 .UserListBox ul li.d {width:190px; border-left:0;}
 .UserListBox ul li.e {width:111px; border-left:0;}
 
-li.ListOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
-li.ListOperate a:hover {background:#f6f6f6; color:#5281ab;}
-
 .UserListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
 
-.userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:794px; margin:5px 0;}
-.userEdit div {margin:0 0; padding:10px 0; border:solid 1px #ccc; border-bottom:0; background:#fcfcfc; width:600px;}
-.userEdit div.borBot {border:solid 1px #ccc;}
 
+.userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:794px; margin:5px 0;}
+.userEdit div {margin:0 0; padding:10px 0; border:solid 1px #c6d4e3; border-bottom:0; background:#fcfcfc; width:600px;}
+.userEdit div.borBot {border:solid 1px #c6d4e3;}
 .userEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
 .userEdit div span {margin-left:8px; width:300px;}
+
+/* 分类管理 */
+.CateGoryList {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
+.CateGoryList ul {float:left; padding-left:6px; width:780px;}
+.CateGoryList ul.top li {border-top:solid 1px #ccc;}
+.CateGoryList ul li {float:left; text-indent:6px; line-height:22px; border-left:solid 1px #ccc; border-bottom:solid 1px #ccc;}
+
+.CateGoryList ul li.li1 {width:80px;}
+.CateGoryList ul li.li2 {width:180px;}
+.CateGoryList ul li.li3 {width:180px;}
+.CateGoryList ul li.li4 {width:100px; border-right:solid 1px #ccc;}
+.CateGoryList ul li.li4 a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
+.CateGoryList ul li.li4 a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+
+
+/* 后台列表操作链接样式 */
+li.Operate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
+li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+
+
 
 
 /* 列表页搜索和分页 */
@@ -441,6 +448,9 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .page div.MiniPager1 a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; margin:0; overflow:hidden; x}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
 */
+
+
+
 
 
 /* 添加文章 */
@@ -490,28 +500,6 @@ div.right div.AticleSch select {margin:0; padding:0;}
 .add_main ul li.step4_li3 {width:210px; overflow:hidden;}
 .add_main ul li.step4_li4 {width:32px; overflow:hidden; border-left:solid 1px #ccc;}
 
-/* 分类管理 */
-.CateGoryList {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
-.CateGoryList ul {float:left; padding-left:6px; width:780px;}
-.CateGoryList ul.top li {border-top:solid 1px #ccc;}
-.CateGoryList ul li {float:left; text-indent:6px; line-height:22px; border-left:solid 1px #ccc; border-bottom:solid 1px #ccc;}
-
-.CateGoryList ul li.li1 {width:80px;}
-.CateGoryList ul li.li2 {width:180px;}
-.CateGoryList ul li.li3 {width:180px;}
-.CateGoryList ul li.li4 {width:100px; border-right:solid 1px #ccc;}
-.CateGoryList ul li.li4 a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
-.CateGoryList ul li.li4 a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
-
-
-/* 后台列表操作链接样式 */
-li.Operate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
-li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
-
-
-
-
-
 
 #Position {padding:4px 0; width:100%; text-align:left; font-family:宋体; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
 #Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
@@ -519,3 +507,10 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 #Warning a:hover {background:#eef852;}
 
 
+
+/* login */
+.login_pos {position:absolute; left:50%; top:48%; width:400px; height:300px; overflow:visible;}
+.login_out {position:relative; left:-200px; top:-150px; width:400px; height:300px; background:#ecf7f9; border:solid 1px #89b4d2; overflow:hidden;}
+.login_top {height:26px; line-height:26px;}
+.login_box {border:solid 1px #89b4d2; margin:3px; line-height:26px;}
+.login_box label {display:inline-block; width:160px; text-align:right;}
