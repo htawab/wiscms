@@ -32,7 +32,7 @@
 </head>
 <body style="background: #d6e7f7"><form id="form1" runat="server">
     <div>
-        <div id="position">当前位置：<asp:HyperLink ID="HyperLinkCategory" runat="server"></asp:HyperLink> » 录入内容</div>
+        <div id="Position">当前位置：<asp:HyperLink ID="HyperLinkCategory" runat="server"></asp:HyperLink> » 录入内容</div>
         <div class="add_step">
             <ul>
                 <li>第一步：选择分类</li>
