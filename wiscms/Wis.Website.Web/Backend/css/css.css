@@ -318,20 +318,15 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 /* 新闻列表 */
 .listBox {padding-left:8px;}
 
-
-
-.listBox ul {float:left;}
-.listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; text-indent:6px;}
-.listBox ul li.listSort {width:80px; border:solid 1px #a3b5cd; border-top:0;}
-.listBox ul li.listTitle {width:348px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
-.listBox ul li.listTime {width:140px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
-.listBox ul li.listUser { width:80px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
-.listBox ul li.listOperate {width:132px; border:solid 1px #a3b5cd; border-top:0; border-left:0;}
-
-.listBox ul li.listOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
-.listBox ul li.listOperate a:hover {background:#f6f6f6; color:#5281ab;}
-
+.listBox ul {float:left; width:800px;}
+.listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; border-right:solid 1px #a3b5cd; border-bottom:solid 1px #a3b5cd; text-indent:6px;}
+.listBox ul li.listSort {width:88px; border-left:solid 1px #a3b5cd;}
+.listBox ul li.listTitle {width:328px;}
+.listBox ul li.listTime {width:135px;}
+.listBox ul li.listUser { width:110px;}
+.listBox ul li.listOperate {width:132px;}
 .listBox ul.top li {border-top:solid 1px #a3b5cd;}
+
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
 
@@ -371,9 +366,6 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 /* 友情链接管理列表 */
 .LinkListBox {padding-left:8px; width:812px;}
 
-div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:794px; margin:5px 0;}
-div.AticleSch input {float:none; margin:0; padding:0;}
-div.AticleSch select {margin:0; padding:0;}
 
 .LinkListBox ul {float:left;}
 .LinkListBox ul li {float:left; line-height:22px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
@@ -435,12 +427,17 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 /* 列表页搜索和分页 */
 
-div.right div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 3px 4px 12px; width:769px;}
+div.right div.AticleSch {}
 div.right div.AticleSch label {float:left; height:22px; line-height:22px; margin:0; padding:0; display:inline-block;}
 div.right div.AticleSch input {float:left; height:18px;  margin:0; padding:0; display:inline-block;}
 div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; padding:0; display:inline-block; height:22px; width:57px; line-height:22px;}
 div.right div.AticleSch a.addNews {float:right; text-decoration:underline;}
-div.right div.AticleSch select {margin:0; padding:0;}
+
+
+div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 12px 4px 12px; width:774px; margin:5px 0;}
+div.AticleSch input {float:none; margin:0; padding:0;}
+div.AticleSch select {margin:0; padding:0;}
+
 
 /*
 .page {text-align:right; padding:0;}
@@ -494,11 +491,11 @@ div.right div.AticleSch select {margin:0; padding:0;}
 
 .add_main ul {float:left; border-left:0; background:#f5f5fe;}
 .add_main ul.top {border-top:solid 1px #ccc; margin-top:4px;}
-.add_main ul li {float:left; text-indent:6px; line-height:22px; border:solid 1px #ccc; border-top:0; border-left:0;}
-.add_main ul li.step4_li1 {width:220px; overflow:hidden;}
-.add_main ul li.step4_li2 {width:220px; overflow:hidden;}
-.add_main ul li.step4_li3 {width:210px; overflow:hidden;}
-.add_main ul li.step4_li4 {width:32px; overflow:hidden; border-left:solid 1px #ccc;}
+.add_main ul li {float:left; text-indent:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:22px; line-height:22px; border:solid 1px #ccc; border-top:0; border-left:0;}
+.add_main ul li.step4_li1 {width:210px;}
+.add_main ul li.step4_li2 {width:220px;}
+.add_main ul li.step4_li3 {width:300px;}
+.add_main ul li.step4_li4 {width:32px; border-left:solid 1px #ccc;}
 
 
 #Position {padding:4px 0; width:100%; text-align:left; font-family:宋体; text-indent:6px; background:#fff url(../images/bar.gif) repeat-x; border:1px solid #bddef7; overflow:hidden;}
