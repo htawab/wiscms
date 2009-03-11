@@ -214,9 +214,9 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 }
 
 
-.right div.sysLink {background:#f3f1f1; letter-spacing:0; padding:3px 0; padding-left:4px; float:none; border:1px solid #fff;}
-.right div.sysLink a {display:inline-block; width:102px; height:27px; margin:1px 1px; background:#f3f1f1 url(../images/sysbtn.gif); text-align:center; line-height:25px; color:#6c6a68;}
-.right div.sysLink a:hover {color:#f70808; position: relative; left:-1px; top:-1px; background:url(../images/sysbtn2.gif);}
+.right div.sysLink {background:#f3f1f1; background:#fff; letter-spacing:0; overflow:hidden; padding:6px 0 0px 0; padding-left:4px; float:none; border:1px solid #f9cbcb;}
+.right div.sysLink a { color:#fff; display:inline-block; width:102px; height:27px; margin:1px 1px; background:#f8f8f8 url(../images/sysbtn2.gif); text-align:center; line-height:25px;}
+.right div.sysLink a:hover {color:#ffff00;  position:relative; left:1px; top:1px; background:url(../images/sysbtn2.gif);}
 
 .right div.areasch {margin-top:3px;}
 .right div.areasch select {font-size:12px; margin:3px 6px 3px 56px; color:#444;}
