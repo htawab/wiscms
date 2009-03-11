@@ -6,14 +6,15 @@
 <title></title>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <script language=javascript>
-    var menuid = "menuid1";
-    function selectmenu(obj) {
-        if (document.getElementById(menuid))
-            document.getElementById(menuid).className = "";
-        document.getElementById(obj).className = "nav_on";
-        menuid = obj;
-    }
+//    var menuid = "menuid1";
+//    function selectmenu(obj) {
+//        if (document.getElementById(menuid))
+//            document.getElementById(menuid).className = "";
+//        document.getElementById(obj).className = "nav_on";
+//        menuid = obj;
+//    }
 </script>
+
 </head>
 
 <body>
@@ -43,14 +44,54 @@
         <table cellpadding="0"  cellspacing="0" width="100%">
             <tr>
                 <td width="172px" valign="top"  >
-                    <iframe frameborder="0" width="172px"  src="Article/ArticleMenu.aspx" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight);" scrolling="no"></iframe>
+                    <iframe frameborder="0" width="172px"  src="Article/ArticleMenu.aspx" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight); height:660px;"  scrolling="no"></iframe>
                 </td>
                 <td    valign="top">
-                    <iframe frameborder="0" width="100%"  src="Article/userEdit.htm"  name="main"  style="height:660px; border:1px solid #9fb5d2; width:99%;"  scrolling="no"></iframe>
+                    <iframe frameborder="0" width="100%"  src="ArticleList.aspx"  name="main"  style=" border:1px solid #9fb5d2; width:99%;" id="oIframe" scrolling="no"></iframe>
                 </td>
             </tr>
         </table> <div class="clear"></div>
 </div>
 <div class="bottom">Copyright©2002-2008 EVERWIS Inc. All Rights Reserved <a href="http://www.everwis.com" title="北京东方常智科技有限公司" target="_blank">北京东方常智科技有限公司</a>版权所有 【本系统适用于1024*768及以上分辨率】</div>
 </body>
+
+<script type="text/javascript" language="javascript">
+function setIFrameHeight(_iframeId)
+{    
+    if (window.addEventListener) //firefox
+     {          
+        var _action=function()
+         {       
+            var _iframe=document.getElementById(_iframeId);
+            alert(_iframe);
+            if (!_iframe) return;
+             _iframe.height=_iframe.contentDocument.body.scrollHeight;
+             _iframe.onload=function()
+             {
+                this.height=this.contentDocument.body.offsetHeight+16;
+             }
+         }
+         window.addEventListener("load", _action, false);
+     }
+    else if (window.attachEvent) //IE
+     {
+        var _action=function()
+         {        
+            if (!document.getElementById(_iframeId)) return;
+             document.getElementById(_iframeId).height=document.frames[_iframeId].document.body.scrollHeight;
+             document.getElementById(_iframeId).onreadystatechange=function()
+             {
+                if (this.readyState=="complete")
+                 {
+                    this.height=document.frames[_iframeId].document.body.scrollHeight;
+                 }
+             }
+         }
+         window.attachEvent("onload", _action);
+     }
+}
+
+
+setIFrameHeight("oIframe");
+</script>
 </html>
