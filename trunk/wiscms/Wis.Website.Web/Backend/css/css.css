@@ -315,20 +315,98 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 
 #divTag {line-height:24px;}
 
-/* 新闻列表 */
-.listBox {padding-left:8px;}
 
-.listBox ul {float:left; width:800px;}
-.listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; border-right:solid 1px #a3b5cd; border-bottom:solid 1px #a3b5cd; text-indent:6px;}
-.listBox ul li.listSort {width:88px; border-left:solid 1px #a3b5cd;}
-.listBox ul li.listTitle {width:328px;}
-.listBox ul li.listTime {width:135px;}
-.listBox ul li.listUser { width:110px;}
-.listBox ul li.listOperate {width:132px;}
-.listBox ul.top li {border-top:solid 1px #a3b5cd;}
+/* 列表页搜索和分页 */
+
+div.right div.AticleSch {}
+div.right div.AticleSch label {float:left; height:22px; line-height:22px; margin:0; padding:0; display:inline-block;}
+div.right div.AticleSch input {float:left; height:18px;  margin:0; padding:0; display:inline-block;}
+div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; padding:0; display:inline-block; height:22px; width:57px; line-height:22px;}
+div.right div.AticleSch a.addNews {float:right; text-decoration:underline;}
+
+
+div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 12px 4px 12px; width:774px; margin:5px 0;}
+div.AticleSch input {float:none; margin:0; padding:0;}
+div.AticleSch select {margin:0; padding:0;}
+
+div.rightBox_in {border:solid 1px #a3b5cd; background:#f7fbfe; padding:6px 12px 6px 12px; width:774px; margin:5px 0;}
+div.rightBox_in label {margin-right:2px; display:inline-block; height:22px; line-height:22px; float:left;}
+div.rightBox_in input {height:16px; line-height:16px; float:left; margin-right:6px;}
+div.rightBox_in a {float:right; border:solid 1px #a3b5cd; padding:2px 5px 2px 5px; *padding:2px 5px 2px 5px; background:#f7fbfe; }
+
+div.rightBox_in .clear {margin:0; *display:none;}
+
+
+
+
+/* 列表通用 */
+.listBox {padding-left:8px; width:800px; padding-top:4px;}
+
+.listBox ul {float:left; border-bottom:solid 1px #a3b5cd; border-right:solid 1px #a3b5cd;  width:100%;}
+.listBox ul.top {border-top:solid 1px #a3b5cd;}
+.listBox ul li {float:left; height:24px; line-height:24px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; border-left:solid 1px #a3b5cd; text-indent:6px;}
+
+/* 后台列表操作链接样式 */
+li.Operate a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
+li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+
+
+
+
+/* 用户管理 */
+.ListBox {padding-left:8px; width:812px;}
+
+.UserListBox ul {}
+.UserListBox ul li {}
+.UserListBox ul li.a {width:112px;}
+.UserListBox ul li.b {width:90px;}
+.UserListBox ul li.c {width:60px;}
+.UserListBox ul li.d {width:110px;}
+.UserListBox ul li.e {width:110px;}
+.UserListBox ul li.f {}
+.UserListBox ul li span.online {padding-left:12px; display:inline-block; background:url(../images/online_icon.gif) left center no-repeat; *background:url(../images/online_icon.gif) left 3px no-repeat;}
+.UserListBox ul li span.offline {padding-left:12px; display:inline-block; background:url(../images/offline_icon.gif) left center no-repeat; *background:url(../images/offline_icon.gif) left 3px no-repeat;}
+
+.UserListBox ul li.b a {margin-left:4px; border:solid 1px #a3b5cd; background:#f8f8f8; padding:2px 4px; *padding-bottom:0;}
+.UserListBox ul li.b a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+
+.UserListBox ul li.d {position:relative;}
+.UserListBox ul li.d a {margin-left:4px; border:solid 1px #a3b5cd; background:#f8f8f8; padding:2px 4px; *padding-bottom:0; float:right; height:12px; padding:2px 4px; text-indent:0; margin-top:3px; margin-right:3px; _margin-right:1px; line-height:12px; *line-height:14px;}
+.UserListBox ul li.d a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
+
+
+.userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px; margin:5px 0; position:relative;}
+.userEdit div {margin:0 0; padding:10px 0; border:solid 1px #c6d4e3; border-bottom:0; background:#fcfcfc; width:600px;}
+.userEdit div.borBot {border:solid 1px #c6d4e3;}
+.userEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
+.userEdit span.moreInfo {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo2.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
+.userEdit span.moreInfo2 {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
+
+
+
+moreInfo
+
+/* 新闻列表 */
+.artcleList ul li.listSort {width:88px; border-left:solid 1px #a3b5cd;}
+.artcleList ul li.listTitle {width:328px;}
+.artcleList ul li.listTime {width:128px;}
+.artcleList ul li.listUser { width:110px;}
+.artcleList ul li.listOperate {width:132px;}
+.artcleList ul.top li {}
 
 .page a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px;}
 .page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
+
+
+/* 博客分类 */
+.blogList {background:#f2f7fb; padding:6px 272px 6px 6px; width:520px; border:solid 1px #aab3c2; margin-top:4px; font-family:"宋体";}
+.blogList li.li1 {width:150px;}
+.blogList li.li2 {width:40px;}
+.blogList li.li3 {width:25px; border-left:0; text-indent:0;}
+
+
+
+
 
 /* 图片管理列表 */
 .picListBox {padding-left:8px; width:810px;}
@@ -355,8 +433,7 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 .FileListBox ul li.fileUser { width:80px; border-left:0;}
 .FileListBox ul li.fileOperate {width:100px; border-left:0;}
 
-.listBox ul li.fileOperate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; height:22px; overflow:hidden; padding:3px 4px 2px 4px; margin:0 2px;}
-.listBox ul li.fileOperate a:hover {background:#f6f6f6; color:#5281ab;}
+
 
 
 .FileListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
@@ -368,7 +445,7 @@ BORDER-RIGHT: #2A5991 1px solid; BORDER-TOP: #2A5991 1px solid; BACKGROUND: #80d
 
 
 .LinkListBox ul {float:left;}
-.LinkListBox ul li {float:left; line-height:22px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
+.LinkListBox ul li {float:left; line-height:24px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
 .LinkListBox ul li.LinkTitle {width:130px;}
 .LinkListBox ul li.LinkUrl {width:195px; border-left:0;}
 .LinkListBox ul li.LinkDes {width:150px; border-left:0;}
@@ -383,26 +460,7 @@ li.LinkOperate a:hover {background:#f6f6f6; color:#5281ab;}
 a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3px 6px 2px 6px;}
 
 
-/* 用户管理 */
-.ListBox {padding-left:8px; width:812px;}
 
-
-.UserListBox ul {float:left;}
-.UserListBox ul li {float:left; line-height:22px; overflow:hidden; text-indent:6px; border:solid 1px #a3b5cd; border-top:0;}
-.UserListBox ul li.a {width:140px;}
-.UserListBox ul li.b {width:195px; border-left:0;}
-.UserListBox ul li.c {width:160px; border-left:0;}
-.UserListBox ul li.d {width:190px; border-left:0;}
-.UserListBox ul li.e {width:111px; border-left:0;}
-
-.UserListBox ul.top li {height:24px; line-height:24px; border-top:solid 1px #a3b5cd;}
-
-
-.userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px 3px; width:794px; margin:5px 0;}
-.userEdit div {margin:0 0; padding:10px 0; border:solid 1px #c6d4e3; border-bottom:0; background:#fcfcfc; width:600px;}
-.userEdit div.borBot {border:solid 1px #c6d4e3;}
-.userEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
-.userEdit div span {margin-left:8px; width:300px;}
 
 /* 分类管理 */
 .CateGoryList {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
@@ -418,25 +476,11 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 .CateGoryList ul li.li4 a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
 
 
-/* 后台列表操作链接样式 */
-li.Operate a {border:solid 1px #a3b5cd; background:#e6edf5; color:#6f6f6f; font-family:宋体; overflow:hidden; padding:2px 4px 1px 4px; margin-right:4px;}
-li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#fff;}
 
 
 
 
-/* 列表页搜索和分页 */
 
-div.right div.AticleSch {}
-div.right div.AticleSch label {float:left; height:22px; line-height:22px; margin:0; padding:0; display:inline-block;}
-div.right div.AticleSch input {float:left; height:18px;  margin:0; padding:0; display:inline-block;}
-div.right div.AticleSch a {float:left; text-align:center; margin-left:3px; padding:0; display:inline-block; height:22px; width:57px; line-height:22px;}
-div.right div.AticleSch a.addNews {float:right; text-decoration:underline;}
-
-
-div.AticleSch {border:solid 1px #a3b5cd; background:#f7fbfe; padding:11px 12px 4px 12px; width:774px; margin:5px 0;}
-div.AticleSch input {float:none; margin:0; padding:0;}
-div.AticleSch select {margin:0; padding:0;}
 
 
 /*
