@@ -1,56 +1,76 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <title>Untitled Page</title>
+    <title>userList</title>
     <link href="../css/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background:#d6e7f7">
 
 <div id="Position">
- 所在位置：友情链接管理
+ 所在位置：用户管理
 </div>
-<div class="UserListBox ListBox" id="LinkListBox">
-<div class="AticleSch">选择分类：<select><option>链接分类</option></select> <a href="#" class="addFiles">添加用户</a></div>
+<div class="UserListBox listBox" id="LinkListBox">
+ <div class="rightBox_in"><label>选择分类：</label><label><select><option>选择用户组</option></select></label><a href="#">新增用户</a><div class="clear"></div></div>
  <ul class="top">
   <li class="a">用户名称</li>
-  <li class="b">登入帐号</li>
-  <li class="c">用户级别</li>
-  <li class="d">所属部门</li>
-  <li class="e Operate">操作</li>
+  <li class="a">登入帐号</li>
+  <li class="b">用户状态</li>
+  <li class="c">是否在线</li>
+  <li class="d">角色指派</li>
+  <li class="e">创建日期</li>
+  <li class="f Operate">操作</li>
+ </ul>
+ 
+ 
+ <ul>
+  <li class="a">用户名称</li>
+  <li class="a">登入帐号</li>
+  <li class="b">己激活<a href="#">停用</a></li>
+  <li class="c"><span class="online">在线</span></li>
+  <li class="d"><a href="#">修改</a>普通用户</li>
+  <li class="e">2008-8-26 15:55</li>
+  <li class="f Operate"><a href="#">修改密码</a><a href="#">修改用户信息</a><a href="#">删除</a></li>
  </ul>
  
  <ul>
   <li class="a">用户名称</li>
-  <li class="b">登入帐号</li>
-  <li class="c">用户级别</li>
-  <li class="d">所属部门</li>
-  <li class="e Operate"><a href="#">编辑</a><a href="#">删除</a></li>
+  <li class="a">登入帐号</li>
+  <li class="b">己激活<a href="#">停用</a></li>
+  <li class="c"><span class="offline">离线</span></li>
+  <li class="d"><a href="#">修改</a>普通用户</li>
+  <li class="e">2008-8-26 15:55</li>
+  <li class="f Operate"><a href="#">修改密码</a><a href="#">修改用户信息</a><a href="#">删除</a></li>
  </ul>
  
  <ul>
   <li class="a">用户名称</li>
-  <li class="b">登入帐号</li>
-  <li class="c">用户级别</li>
-  <li class="d">所属部门</li>
-  <li class="e Operate"><a href="#">编辑</a><a href="#">删除</a></li>
+  <li class="a">登入帐号</li>
+  <li class="b">己停用<a href="#">激活</a></li>
+  <li class="c"><span class="offline">离线</span></li>
+  <li class="d"><a href="#">修改</a>系统管理员</li>
+  <li class="e">2008-8-26 15:55</li>
+  <li class="f Operate"><a href="#">修改密码</a><a href="#">修改用户信息</a><a href="#">删除</a></li>
  </ul>
  
  <ul>
   <li class="a">用户名称</li>
-  <li class="b">登入帐号</li>
-  <li class="c">用户级别</li>
-  <li class="d">所属部门</li>
-  <li class="e Operate"><a href="#">编辑</a><a href="#">删除</a></li>
+  <li class="a">登入帐号</li>
+  <li class="b">己停用<a href="#">激活</a></li>
+  <li class="c"><span class="offline">离线</span></li>
+  <li class="d"><a href="#">修改</a>超级管理员</li>
+  <li class="e">2008-8-26 15:55</li>
+  <li class="f Operate"><a href="#">修改密码</a><a href="#">修改用户信息</a><a href="#">删除</a></li>
  </ul>
  
- 
- 
- 
- 
- 
-  
-  
- 
+ <ul>
+  <li class="a">用户名称</li>
+  <li class="a">登入帐号</li>
+  <li class="b">己停用<a href="#">激活</a></li>
+  <li class="c"><span class="offline">离线</span></li>
+  <li class="d"><a href="#">修改</a>管理员</li>
+  <li class="e">2008-8-26 15:55</li>
+  <li class="f Operate"><a href="#">修改密码</a><a href="#">修改用户信息</a><a href="#">删除</a></li>
+ </ul> 
  
 <script type="text/javascript">
 var LinkListBox = document.getElementById("LinkListBox");
