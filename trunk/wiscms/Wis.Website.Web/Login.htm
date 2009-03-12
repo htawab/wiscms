@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login</title>
+<style type="text/css">
+body {
+    margin:0;
+	padding:0;
+	background:#000 url(images/bodybg.jpg) top repeat-x;
+	font-family:"宋体";
+	font-size:12px;
+}
+a {color:#ccc; }
+.out {
+    width:472px;
+	height:268px;
+	margin:200px auto 0 auto;
+	background:#447198 url(images/out_bg.gif) top repeat-x;
+	border:2px solid #c3ccd5;
+}
+.title {
+	height:61px;
+	background:url(images/title.gif) left top no-repeat;
+}
+.in_1 {
+	width:451px;
+	margin:0 auto;
+	background:#e0f1fb;
+	border:1px solid #b3c1ce;
+}
+.in_2 {
+	height:175px;
+	margin:0 auto;
+	background:#e0f1fb url(images/human.gif) left no-repeat;
+	border:1px solid #fff;
+}
+.userName, .psw, .code, .safecode {
+	margin-left:180px;
+	margin-top:8px;
+	height:20px;
+}
+.userName {
+	margin-top:20px;
+}
+
+div.clear {clear:both;}
+div.text {
+	width:52px;
+	height:20px;
+	line-height:22px!important;
+	line-height:26px;
+	float:left;
+	overflow:hidden;
+}
+input.text {
+	width:126px;
+	height:16px;
+	border:1px solid #76a3c2;
+}
+div.code input.text {
+	width:50px;
+}
+div.code img {
+	margin-left:4px;
+	margin-bottom:-6px;
+	*margin-bottom:-4px;
+}
+div.button {
+	height:32px;
+	margin-top:15px;
+	margin-bottom:5px;
+	padding-left:166px;
+}
+input.submite {
+	border:0;
+	width:75px;
+	height:32px;
+	margin-left:33px;
+	background:url(images/login.gif) center center no-repeat;
+	cursor:pointer;
+}
+input.cancel {
+	border:0;
+	width:75px;
+	height:32px;
+	margin-left:33px;
+	background:url(images/cancel.gif) center center no-repeat;
+	cursor:pointer;
+}
+
+.bottom {
+   width:499px;
+   height:27px;
+   line-height:27px;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:10px;
+   margin:7px auto 0 auto;
+   background:url(images/bottom.gif) center center no-repeat;
+   text-align:center;
+   color:#ccc;
+}
+.bottom span {
+	font-size:12px;
+	font-family:"宋体";
+}
+</style>
+</head>
+
+<body>
+
+ <div class="out">
+   <div class="title"></div>
+   <div class="in_1">
+    <div class="in_2">
+      <div class="userName">
+        <div class="text" >用户名：</div>
+        <input  type="text" class="text" value="" maxlength="22" />
+        <div class="clear"></div>
+      </div>
+      <div class="psw">
+        <div class="text" >密&nbsp;&nbsp;码：</div>
+        <input  type="password" class="text" value=""  maxlength="22" />
+        <div class="clear"></div>
+      </div>
+      <div class="safecode">
+        <div class="text" >安全码：</div>
+        <input  type="text" class="text" value=""  maxlength="22" />（区分大小写）
+        <div class="clear"></div>
+      </div>
+      <div class="code">
+        <div class="text" >验证码：</div>
+        <input  type="text" class="text" value=""  maxlength="22" />
+        <img height="20px" width="66px" src="images/ImageValidateCode.gif" />
+        <div class="clear"></div>
+      </div>
+      <div class="button">
+        <input type="button" class="submite" value="" />
+        <input type="button" class="cancel" value="" />        
+      </div>
+    </div>
+   </div>
+ </div>
+ <div class="bottom">鞍山市铁东区教育局版权所有   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.everwis.com/">北京东方常智科技有限公司</a>提供技术支持</div>
+</body>
+</html>
