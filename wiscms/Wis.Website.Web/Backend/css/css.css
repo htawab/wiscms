@@ -383,8 +383,18 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .userEdit span.moreInfo2 {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
 
 
+/* 权限列表 */
 
-moreInfo
+.limitListBox ul li.a {width:112px;}
+.limitListBox ul li.b {width:490px;}
+
+
+/* 角色列表 */
+.roleListBox ul li.a {width:112px;}
+.roleListBox ul li.b {width:290px;}
+.roleListBox ul li.c {width:100px;}
+.roleListBox ul li.d {width:100px;}
+
 
 /* 新闻列表 */
 .artcleList ul li.listSort {width:88px; border-left:solid 1px #a3b5cd;}
@@ -403,9 +413,6 @@ moreInfo
 .blogList li.li1 {width:150px;}
 .blogList li.li2 {width:40px;}
 .blogList li.li3 {width:25px; border-left:0; text-indent:0;}
-
-
-
 
 
 /* 图片管理列表 */
