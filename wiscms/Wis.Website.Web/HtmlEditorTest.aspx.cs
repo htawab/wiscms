@@ -189,7 +189,7 @@ ffmpeg常见的命令:
               还有-an和-vn参数,分别从多媒体文件中提取出纯粹视频和音频.
               另,如果你是用shell批量处理,请使用-y参数覆盖生成flv.
 
-   2.截取图片:ffmpeg -i infile.* -y (-ss second_offset) -tableImages 0.001 -s msize (-f image_fmt) outfile.jpg
+   2.截取图片:ffmpeg -i infile.* -y (-ss second_offset) -s msize (-f image_fmt) outfile.jpg
             其中second_offset同上,msize同vsize,图片大小.image_fmt=image2强制使用jpg,image_fmt=gif,强制使用gif格式.
             还可以用-vframes fn指定截取某帧图片,fn=1,2,3,...         
 
@@ -201,7 +201,7 @@ ffmpeg -vcodec mpeg4 -b 1000 -r 10 -g 300 -vd x11:0,0 -s 1024×768 ~/test.avi
 参考5(http://linuxtoy.org/archives/ffmpeg.html)
 
 使用ffmpeg抓图
-ffmpeg -i test2.asf -y -f image2 -ss 08.010 -tableImages 0.001 -s 352×240 b.jpg
+ffmpeg -i test2.asf -y -f image2 -ss 08.010 -s 352×240 b.jpg
 jpg: ffmpeg -i test.asf -y -f image2 -tableImages 0.001 -s 352×240 -ss a.jpg //注意-ss就是要提取视频文件中指定时间的图像
 jpg: ffmpeg -i asf.flv -y -f image2 -tableImages 1 asf.jpg
 gif: ffmpeg -i test.asf -vframes 30 -y -f gif a.gif

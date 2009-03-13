@@ -325,72 +325,18 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf", "eduFlashID
         <div class="right">
             <div class="outbox height3">
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("视频新闻", "")$/1.htm" title="查看更多">更多</a>视频新闻</div>
-                <div id="scrollOut">
-    <div class="scrollBox">
-      <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">0《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
+                <div>
+    <div class="scrollBox"><tpl:set name="VideoArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.VideoArticleManager")$" />
+      <ul><tpl:foreach collection="$VideoArticleManager.GetVideoArticles("工作会议", "视频新闻", 1, 6)$" var="VideoArticle">
+		  <li>
+		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)">
+		        <img src="$VideoArticle.ThumbnailPath$" height="74" width="93" />
+		    </a>    
+		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)">
+		        <tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$Formats.TruncateString(VideoArticle.Article.Title, 10)$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$Formats.TruncateString(VideoArticle.Article.Title, 10)$</font></tpl:if>
+		    </a>
+		   </li></tpl:foreach>  
        </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">1《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">2《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">3《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">4《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">5《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">6《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-     
-     
     </div>
    </div>
   </div>

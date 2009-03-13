@@ -159,6 +159,7 @@
     <Compile Include="Drawings\TextToImage.cs" />
     <Compile Include="Formats.cs" />
     <Compile Include="HttpModules\HttpCompressionModule.cs" />
+    <Compile Include="HttpModules\UserAgentLogModule.cs" />
     <Compile Include="IO\Directory.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -590,7 +590,6 @@
     <Content Include="Templates\tdedu0201\images\navbgleft.gif" />
     <Content Include="Templates\tdedu0201\images\navbgright.gif" />
     <Content Include="Templates\tdedu0201\images\object.gif" />
-    <Content Include="Templates\tdedu0201\images\picNews1.gif" />
     <Content Include="Templates\tdedu0201\images\picNewsArrow.gif" />
     <Content Include="Templates\tdedu0201\images\plbtn.gif" />
     <Content Include="Templates\tdedu0201\images\positionbg.gif" />
@@ -742,6 +741,7 @@
     <Content Include="Backend\images\win.png" />
     <Content Include="Backend\wis.js" />
     <Content Include="Backend\文件存储规则.txt" />
+    <Content Include="Login.htm" />
     <Content Include="Logo.swf" />
     <Content Include="logoPlugIn.swf" />
     <Content Include="play.swf" />
