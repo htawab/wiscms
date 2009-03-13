@@ -1,7 +1,7 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 body {margin:0;	padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
-ul,li {margin:0; padding:0; list-style:none;}
+ul,li, dl, dt, dd {margin:0; padding:0; list-style:none;}
 a {
 	text-decoration:none;
 	color:#00429c;
@@ -332,6 +332,7 @@ div.AticleSch select {margin:0; padding:0;}
 div.rightBox_in {border:solid 1px #a3b5cd; background:#f7fbfe; padding:6px 12px 6px 12px; width:774px; margin:5px 0;}
 div.rightBox_in label {margin-right:2px; display:inline-block; height:22px; line-height:22px; float:left;}
 div.rightBox_in input {height:16px; line-height:16px; float:left; margin-right:6px;}
+div.rightBox_in input.button {height:20px;  line-height:16px; padding:0 6px; float:left; margin-right:6px;}
 div.rightBox_in a {float:right; border:solid 1px #a3b5cd; padding:2px 5px 2px 5px; *padding:2px 5px 2px 5px; background:#f7fbfe; }
 
 div.rightBox_in .clear {margin:0; *display:none;}
@@ -361,7 +362,8 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .UserListBox ul li.a {width:112px;}
 .UserListBox ul li.b {width:90px;}
 .UserListBox ul li.c {width:60px;}
-.UserListBox ul li.d {width:110px;}
+.UserListBox ul li.d {width:120px;}
+.UserListBox ul li.d1 {width:125px;}
 .UserListBox ul li.e {width:110px;}
 .UserListBox ul li.f {}
 .UserListBox ul li span.online {padding-left:12px; display:inline-block; background:url(../images/online_icon.gif) left center no-repeat; *background:url(../images/online_icon.gif) left 3px no-repeat;}
@@ -389,11 +391,17 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .limitListBox ul li.b {width:490px;}
 
 
-/* 角色列表 */
+/* 角色管理 */
 .roleListBox ul li.a {width:112px;}
 .roleListBox ul li.b {width:290px;}
 .roleListBox ul li.c {width:100px;}
 .roleListBox ul li.d {width:100px;}
+
+/* 用户组管理 */
+.groupListBox ul li.a {width:103px;}
+.groupListBox ul li.b {width:290px;}
+.groupListBox ul li.c {width:80px;}
+.groupListBox ul li.d {width:110px;}
 
 
 /* 新闻列表 */
@@ -413,6 +421,30 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .blogList li.li1 {width:150px;}
 .blogList li.li2 {width:40px;}
 .blogList li.li3 {width:25px; border-left:0; text-indent:0;}
+
+/* 博客管理 */
+.blogManageList {}
+.blogManageList li.a {width:255px;}
+.blogManageList li.b {width:150px;}
+.blogManageList li.c {width:110px;}
+.blogManageList li.d {width:60px;}
+.blogManageList li.e {width:45px; border-left:0;}
+.blogManageList li.f {}
+
+/* 开通博客 */
+.openBlog {}
+.openBlog label {float:left;}
+.openBlog div.clear {clear:both; border:0; font-size:0; padding:0;}
+.openBlog dl {float:left; margin:0; padding:0; width:510px;}
+.openBlog dl dd {float:left; width:76px; margin-right:8px; overflow:hidden; margin-bottom:8px;}
+.openBlog dl dd a img {padding:1px; border:solid 3px #c0c0c0; background:#fff; width:68px; height:68px;}
+.openBlog dl dd a:hover img {padding:1px; border:solid 3px #ca8c34; background:#fff; width:68px; height:68px;}
+
+/* 博客链接管理 */
+.blogLinkList {background:#f2f7fb; padding:6px 187px 6px 6px; width:605px; border:solid 1px #aab3c2; margin-top:4px; font-family:"宋体";}
+.blogLinkList li.li1 {width:190px;}
+.blogLinkList li.li2 {width:320px;}
+.blogLinkList li.li3 {}
 
 
 /* 图片管理列表 */
@@ -486,21 +518,6 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 
 
 
-
-
-
-
-/*
-.page {text-align:right; padding:0;}
-.page div {text-align:right;}
-.page div.MiniPager1 a {border:solid 1px #a3b5cd; background:#f8f8f8; font-family:宋体; height:22px; margin:0; overflow:hidden; x}
-.page a.noLink {color:#666; cursor:default; Background:#f8f8f8;}
-*/
-
-
-
-
-
 /* 添加文章 */
 .add_step {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px;}
 .add_step ul {height:25px; padding-left:6px;}
@@ -511,7 +528,7 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 .add_main {background:#f2f7fb; width:800px; margin-left:4px; border:solid 1px #aab3c2; padding:6px 0; margin-top:4px; font-family:"宋体";}
 .add_main div {padding:2px 0;}
 
-.add_button {text-align:center; width:800px; margin-top:4px;}
+.add_button {text-align:center; width:800px; margin-top:4px; padding-bottom:4px;}
 .add_button a img {border:0;}
 .add_step3 div {padding:3px 0;}
 
@@ -553,12 +570,3 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 #Warning {width:750px; min-height:20px; border:solid 1px #a3b5c9; margin:4px; background:#f9f8e4 url(../images/warning.gif) 7px center no-repeat; padding:8px 8px 8px 42px;}
 #Warning a {margin:0 2px; text-decoration:underline;}
 #Warning a:hover {background:#eef852;}
-
-
-
-/* login */
-.login_pos {position:absolute; left:50%; top:48%; width:400px; height:300px; overflow:visible;}
-.login_out {position:relative; left:-200px; top:-150px; width:400px; height:300px; background:#ecf7f9; border:solid 1px #89b4d2; overflow:hidden;}
-.login_top {height:26px; line-height:26px;}
-.login_box {border:solid 1px #89b4d2; margin:3px; line-height:26px;}
-.login_box label {display:inline-block; width:160px; text-align:right;}
