@@ -111,12 +111,10 @@ div#scrollOut {width:320px; height:255px; overflow:hidden; letter-spacing:0;}
 .scrollBox {}
 .scrollBox ul {padding:0; margin:0; width:320px; height:255px; float:left;}
 .scrollBox ul li {width:100px; height:120px; float:left; overflow:hidden; padding:0; margin:0; padding-left:4px; margin-top:5px; }
-.scrollBox ul li a {width:100px; display:block; float:left; white-space:normal; text-align:center;  padding:0; margin:0; margin-top:3px; padding-left:2px;}
-
-.scrollBox ul li a img {border:3px solid #dbd0d0;}
-.scrollBox ul li a:hover img {border:3px solid #473b3b;}
+.scrollBox ul li a {width:100px; display:block; float:left; white-space:normal; text-align:center;  padding:0; margin:0; margin-top:5px; padding-left:2px;}
+.scrollBox ul li a img {border:3px solid #dbd0d0; padding:1px; background:#eee;}
+.scrollBox ul li a:hover img {border:3px solid #473b3b; padding:1px; background:#fff;}
 .scrollBox ul li a:hover {color:#5f1b2e;}
-
 
 /* 铁东教育电子杂志 */
 div.tdjy {height:84px; background:#f0f0f0 url(../images/tdjyBg.gif) repeat-x; border-top:1px solid #ddd;}
@@ -147,7 +145,6 @@ input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-re
 .link {margin-bottom:6px;}
 .link a {float:left; width:92px; height:42px; margin:3px 0 3px 6px;}
 .link a img {width:92px; height:42px;}
-
 
 .bottom {padding-top:3px; height:auto; background:#f2f2f2 url(../images/bottombg.gif); text-align:center; line-height:18px; color:#7c7879;}
 .bottom a {color:#7c7879}
