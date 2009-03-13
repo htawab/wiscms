@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>添加用户组</title>
+    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background:#d6e7f7">
+ <div>
+  <div id="Position">当前位置：添加用户组</div>
+  
+  <div class="listBox">
+   <div class="userEdit">
+    <div><label>用户组名称：</label><input type="text" onfocus="cb(this)" onblur="cb2(this)" /><span>4-12位（英文或数字）</span></div>
+    <div><label>用户组描述：</label><textarea cols="28" rows="3" onfocus="cb(this)" onblur="cb2(this)"></textarea><span>4-12位（英文或数字）</span></div>
+    
+    
+    <div><label>指派角色：</label><select onfocus="cb(this)" onblur="cb2(this)"><option>普通用户</option><option>管理员</option><option>超级管理员</option></select><span>4-12位（英文或数字）</span></div>
+    <div class="borBot"><label>指派成员：</label><select onfocus="cb(this)" onblur="cb2(this)"><option>普通用户</option><option>管理员</option><option>超级管理员</option></select><span>4-12位（英文或数字）</span></div>
+   </div>
+   
+<script>
+//改变背景色
+function cb(iobj) {
+var iDiv = iobj.parentNode;
+iDiv.style.background="#f5f5ff";
+}
+function cb2(iobj) {
+var iDiv = iobj.parentNode;
+iDiv.style.background="#fafafa";
+}
+</script>
+
+
+   
+   
+   
+  
+  
+   
+   
+  </div>
+ 
+  
+ 
+  
+  <div class="add_button"><a href="#"><img src="../images/StepDone.gif" /></a></div>
+  
+ </div>
+</body>
+</html>
