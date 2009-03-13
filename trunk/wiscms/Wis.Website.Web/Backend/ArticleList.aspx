@@ -47,7 +47,7 @@
                 <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
             </asp:SiteMapPath>
         </div>
-        <div class="listBox" id="listBox">
+        <div class="listBox artcleList" id="listBox">
             <div class="AticleSch">
                 <label>搜索内容：</label><input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="images/schbtn.gif" /></A>
                 <a href="ArticleAdd.aspx" class="addNews">添加新闻</a>
