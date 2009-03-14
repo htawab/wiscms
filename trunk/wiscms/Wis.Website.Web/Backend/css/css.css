@@ -463,7 +463,17 @@ div.blgInfo div.clear {border:0; margin:0; padding:0; font-size:0;}
 .blogEdit div.borBot {}
 .blogEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
 
-
+/* 皮肤管理 */
+.skinList {}
+.skinList ul li {height:78px; padding-top:4px; white-space:normal; line-height:18px;}
+.skinList ul.top li {height:24px; line-height:24px;}
+.skinList ul li img {border:solid 1px #aaa; background:#fff; padding:2px; }
+.skinList li.a {width:85px;}
+.skinList li.b {width:150px;}
+.skinList li.c {width:110px;}
+.skinList li.d {width:130px;}
+.skinList li.e {width:205px;}
+.skinList li.f {}
 
 /* 图片管理列表 */
 .picListBox {padding-left:8px; width:810px;}
