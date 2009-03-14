@@ -417,7 +417,6 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 
 /* 博客分类 */
-.blogList {background:#f2f7fb; padding:6px 272px 6px 6px; width:520px; border:solid 1px #aab3c2; margin-top:4px; font-family:"宋体";}
 .blogList li.li1 {width:150px;}
 .blogList li.li2 {width:40px;}
 .blogList li.li3 {width:25px; border-left:0; text-indent:0;}
@@ -440,11 +439,30 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .openBlog dl dd a img {padding:1px; border:solid 3px #c0c0c0; background:#fff; width:68px; height:68px;}
 .openBlog dl dd a:hover img {padding:1px; border:solid 3px #ca8c34; background:#fff; width:68px; height:68px;}
 
+/* 博客信息修改 */
+div.blgInfo {margin-top:4px; padding-top:0; padding-bottom:0; color:#444;}
+div.blgInfo ul {border:0;}
+div.blgInfo li {margin:0 38px 0 4px; text-align:left; border:0; overflow:visible;}
+div.blgInfo div.clear {border:0; margin:0; padding:0; font-size:0;}
+
+
 /* 博客链接管理 */
-.blogLinkList {background:#f2f7fb; padding:6px 187px 6px 6px; width:605px; border:solid 1px #aab3c2; margin-top:4px; font-family:"宋体";}
 .blogLinkList li.li1 {width:190px;}
 .blogLinkList li.li2 {width:320px;}
 .blogLinkList li.li3 {}
+
+/* 博客文章管理 */
+.blogArticleList li.a {width:345px;}
+.blogArticleList li.b {width:98px;}
+.blogArticleList li.c {width:70px;}
+
+/* 发表博客 */
+
+.blogEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px; margin:5px 0; position:relative;}
+.blogEdit div {margin:0 0; padding:3px 0; border:0; background:#fcfcfc;}
+.blogEdit div.borBot {}
+.blogEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
+
 
 
 /* 图片管理列表 */
