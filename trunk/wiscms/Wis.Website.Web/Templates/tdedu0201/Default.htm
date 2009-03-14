@@ -177,14 +177,14 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf", "eduFlashID
                         <li onmouseover="tabsShow(this,2)"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("规章制度", "政策法规")$/1.htm" target="_blank">规章制度</a></li>
                     </ul>
                 </div>
-                <ul class="indexList" id="lawsconList0"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("法律法规", 1, 11)$" var="Article">
+                <ul class="indexList lowList" id="lawsconList0"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("法律法规", 1, 11)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li>
                 </tpl:foreach><li class="more">【<a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("国家", "法律法规")$/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
-                <ul class="indexList disnone" id="lawsconList1"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("政策文件", 1, 11)$" var="Article">
+                <ul class="indexList lowList disnone" id="lawsconList1"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("政策文件", 1, 11)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li>
                 </tpl:foreach><li class="more">【<a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("国家", "政策文件")$/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
                 </ul>
-                <ul class="indexList disnone" id="lawsconList2"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("规章制度", 1, 11)$" var="Article">
+                <ul class="indexList lowList disnone" id="lawsconList2"><tpl:foreach collection="$ArticleManager.GetArticlesByParentCategoryName("规章制度", 1, 11)$" var="Article">
                     <li><span class="date">$Article.DateCreated.ToString("MM-dd hh:mm")$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$($Article.Hits$阅 $Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Formats.TruncateString(Article.Title, 15)$<tpl:else><font color="$Article.TitleColor$">$Formats.TruncateString(Article.Title, 15)$</font></tpl:if></a></li>
                 </tpl:foreach><li class="more">【<a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("国家", "规章制度")$/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
             </div>
@@ -265,7 +265,6 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf", "eduFlashID
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
                     <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
-                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
                 </ul>
             </div>
         </div>
