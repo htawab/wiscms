@@ -372,7 +372,7 @@ a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; backgr
 
 
 /* 视频新闻 */
-.videoBox {width:400px; height:400px; margin:0 auto; background:#000;}
+.videoBox {margin:0 auto; background:#000;}
 .videoSummary {margin:6px 14px; border-top:1px solid #dce1e5; border-bottom:1px solid #dce1e5; background:#f7fcff; line-height:1.8em; font-size:14px; text-indent:1.5em; padding:3px;}
 /* 视频新闻列表 */
 .videoList1 {}
