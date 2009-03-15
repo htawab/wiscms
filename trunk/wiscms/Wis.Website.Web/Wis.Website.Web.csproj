@@ -774,7 +774,6 @@
     <Content Include="Logo.swf" />
     <Content Include="logoPlugIn.swf" />
     <Content Include="play.swf" />
-    <Content Include="pthreadGC2.dll" />
     <Content Include="Templates\tdedu0201\ArticleIndex.htm" />
     <Content Include="Templates\tdedu0201\images\annexDown.gif" />
     <Content Include="Templates\tdedu0201\js\videoShow.js" />
