@@ -16,7 +16,7 @@ namespace Wis.Toolkit
         private const string Name = "Bet";
 
         /// <summary>
-        /// 写 Cookie 值。
+        /// 写 Cookie 值。
         /// </summary>
         /// <param cookieName="cookieName">项</param>
         /// <param cookieName="cookieValue">值</param>
@@ -48,7 +48,7 @@ namespace Wis.Toolkit
         }
 
         /// <summary>
-        /// 获得论坛cookie值
+        /// 获得论坛cookie值
         /// </summary>
         /// <param cookieName="cookieName">项</param>
         /// <returns>值</returns>
@@ -62,6 +62,9 @@ namespace Wis.Toolkit
             return string.Empty;
         }
 
+        /// <summary>
+        /// 清除 Cookie
+        /// </summary>
         public static void ClearCookie()
         {
             HttpCookie cookie = new HttpCookie(Name);

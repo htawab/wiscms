@@ -173,7 +173,6 @@ namespace Wis.Website.DataManager
         {
             DbProviderHelper.GetConnection();
 
-            List<Article> articles = new List<Article>();
             DbCommand command = DbProviderHelper.CreateCommand("SelectArticlesByTag", CommandType.StoredProcedure);
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int32, size));
@@ -181,6 +180,13 @@ namespace Wis.Website.DataManager
             return GetArticles(dataReader);
         }
 
+        public List<Article> GetArticlesByReleaseGuid(Guid releaseGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectArticlesByReleaseGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticles(dataReader);
+        }
 
         /// <summary>
         /// 获取内容集合。
@@ -371,6 +377,8 @@ namespace Wis.Website.DataManager
                     article.Category.ThumbnailWidth = Convert.ToInt32(dataReader[CategoryField.ThumbnailWidth]);
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     article.Category.ThumbnailHeight = Convert.ToInt32(dataReader[CategoryField.ThumbnailHeight]);
+                
+                article.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);

@@ -88,6 +88,13 @@
     <Compile Include="Backend\ArticleAddVideo.aspx.designer.cs">
       <DependentUpon>ArticleAddVideo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\ArticleConvertingVideo.aspx.cs">
+      <DependentUpon>ArticleConvertingVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\ArticleConvertingVideo.aspx.designer.cs">
+      <DependentUpon>ArticleConvertingVideo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\ArticleRelease.aspx.cs">
       <DependentUpon>ArticleRelease.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -642,6 +649,7 @@
     <Content Include="Backend\ArticleAddSoft.aspx" />
     <Content Include="Backend\ArticleAddNew.aspx" />
     <Content Include="Backend\ArticleAddVideo.aspx" />
+    <Content Include="Backend\ArticleConvertingVideo.aspx" />
     <Content Include="Backend\ArticleRelease.aspx" />
     <Content Include="Backend\ArticleSelectCategory.aspx" />
     <Content Include="Backend\ArticleUpdate.aspx" />
@@ -739,8 +747,29 @@
     <Content Include="Backend\images\upLoadImg2.gif" />
     <Content Include="Backend\images\warning.gif" />
     <Content Include="Backend\images\win.png" />
+    <Content Include="Backend\Progressbar.htm" />
+    <Content Include="Backend\Tools\ffmpeg.exe" />
+    <Content Include="Backend\Tools\ffmpeg.txt" />
+    <Content Include="Backend\Tools\ffplay.exe" />
+    <Content Include="Backend\Tools\flvtool2.exe" />
+    <Content Include="Backend\Tools\formats.txt" />
+    <Content Include="Backend\Tools\pthreadGC2.dll" />
     <Content Include="Backend\wis.js" />
     <Content Include="Backend\文件存储规则.txt" />
+    <Content Include="images\bodybg.gif" />
+    <Content Include="images\bodybg.jpg" />
+    <Content Include="images\bottom.gif" />
+    <Content Include="images\cancel.gif" />
+    <Content Include="images\human.gif" />
+    <Content Include="images\ImageValidateCode.gif" />
+    <Content Include="images\login.gif" />
+    <Content Include="images\out_bg.gif" />
+    <Content Include="images\pgb_bottom.gif" />
+    <Content Include="images\pgb_left.gif" />
+    <Content Include="images\pgb_right.gif" />
+    <Content Include="images\pgb_top.gif" />
+    <Content Include="images\Spacer.gif" />
+    <Content Include="images\title.gif" />
     <Content Include="Login.htm" />
     <Content Include="Logo.swf" />
     <Content Include="logoPlugIn.swf" />
@@ -752,6 +781,7 @@
     <Content Include="Templates\tdedu0201\js\w.js" />
     <Content Include="Templates\tdedu0201\PhotoArticleItem.htm" />
     <Content Include="Templates\tdedu0201\PhotoArticleList.htm" />
+    <Content Include="Templates\tdedu0201\VideoArticleIndex.htm" />
     <Content Include="Templates\tdedu0201\VideoArticleItem.htm" />
     <Content Include="Templates\tdedu0201\VideoArticleList.htm" />
     <Content Include="vcastr3.swf" />

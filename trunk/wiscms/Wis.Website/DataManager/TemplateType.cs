@@ -14,38 +14,58 @@ namespace Wis.Website.DataManager
         /// <summary>
         /// 单页。
         /// </summary>
-        Page,
+        Page = 1,
         /// <summary>
         /// 不带分页的索引页
         /// </summary>
-        Index,
+        Index = 2,
         /// <summary>
-        /// 列表页。
+        /// 普通文章详细页。
         /// </summary>
-        ArticleList,
+        ArticleItem = 3,
         /// <summary>
-        /// 详细页。
+        /// 普通文章列表页。
         /// </summary>
-        ArticleItem,
+        ArticleList = 4,
         /// <summary>
-        /// 
+        /// 普通文章索引页。
         /// </summary>
-        PhotoArticleList,
+        ArticleIndex = 5,
         /// <summary>
-        /// 
+        /// 图片文章详细页
         /// </summary>
-        PhotoArticleItem,
+        PhotoArticleItem = 6,
         /// <summary>
-        /// 
+        /// 图片文章列表页
         /// </summary>
-        VideoArticleList,
+        PhotoArticleList = 7,
         /// <summary>
-        /// 
+        /// 图片文章列表页
         /// </summary>
-        VideoArticleItem,
+        PhotoArticleIndex = 8,
         /// <summary>
-        /// 
+        /// 视频新闻详细页
         /// </summary>
-        SpecialList
+        VideoArticleItem = 9,
+        /// <summary>
+        /// 视频新闻列表页
+        /// </summary>
+        VideoArticleList = 10,
+        /// <summary>
+        /// 视频新闻索引页
+        /// </summary>
+        VideoArticleIndex = 11,
+        /// <summary>
+        /// 专题列表页
+        /// </summary>
+        SpecialItem = 12,
+        /// <summary>
+        /// 专题列表页
+        /// </summary>
+        SpecialList = 13,
+        /// <summary>
+        /// 专题列表页
+        /// </summary>
+        SpecialIndex = 14
     }
 }

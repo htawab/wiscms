@@ -42,6 +42,7 @@ namespace Wis.Website.DataManager
                     category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
+                category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 categorys.Add(category.CategoryGuid, category);
             }
@@ -155,6 +156,7 @@ namespace Wis.Website.DataManager
                     category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
+                category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 categorys.Add(category);
             }
@@ -181,6 +183,7 @@ namespace Wis.Website.DataManager
                     category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
+                category.RecordCount = (int)dataReader[CategoryField.RecordCount];
             }
             dataReader.Close();
             return category;
@@ -209,6 +212,13 @@ namespace Wis.Website.DataManager
             return -1;
         }
 
+        public List<Category> GetCategorysByReleaseGuid(Guid releaseGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectCategorysByReleaseGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetCategorys(dataReader);
+        }
 
         /// <summary>
         /// 根据分类编号获取分类实体对象。
@@ -234,6 +244,7 @@ namespace Wis.Website.DataManager
                     category.ThumbnailWidth = (int)dataReader[CategoryField.ThumbnailWidth];
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     category.ThumbnailHeight = (int)dataReader[CategoryField.ThumbnailHeight];
+                category.RecordCount = (int)dataReader[CategoryField.RecordCount];
             }
             dataReader.Close();
             return category;

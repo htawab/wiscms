@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>视频新闻详细页</title>
+    <title>$VideoArticle.Article.Title$ - 鞍山市铁东区教育局</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -39,7 +39,7 @@
     </div>
     <div class="main">
         <div class="left mgnBot" id="left">
-            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;$CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
+            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;$CategoryManager.GetSiteMapPath(ReleaseDirectory, VideoArticleCategory.CategoryGuid, " >> ")$</div>
             <h1><tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$VideoArticle.Article.Title$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$VideoArticle.Article.Title$</font></tpl:if></h1>
             <tpl:if test="$IsNotEmpty(VideoArticle.Article.SubTitle)$"><h2>$VideoArticle.Article.SubTitle$</h2></tpl:if>
             <div class="h1bot">
@@ -47,6 +47,7 @@
                 $VideoArticle.Article.DateCreated$&nbsp;&nbsp;
                 <tpl:if test="$IsNotEmpty(VideoArticle.Article.Author)$">作者：$VideoArticle.Article.Author$&nbsp;&nbsp;</tpl:if>
                 <tpl:if test="$IsNotEmpty(VideoArticle.Article.Original)$">来源：$VideoArticle.Article.Original$</tpl:if>
+                <tpl:if test="$IsNotEmpty(VideoArticle.Star)$">星级：$VideoArticle.Star$</tpl:if>
             </div>
             <div class="videoBox">
 		        <object type="application/x-shockwave-flash" data="vcastr3.swf" width="650" height="500" id="vcastr3">
@@ -56,7 +57,7 @@
 				        <vcastr>
 					        <channel>
 						        <item>
-							        <source>$VideoArticle.VideoPath$</source>
+							        <source>$VideoArticle.FlvVideoPath$</source>
 							        <duration></duration>
 							        <title></title>
 						        </item>

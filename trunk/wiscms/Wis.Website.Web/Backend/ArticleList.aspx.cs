@@ -144,7 +144,7 @@ namespace Wis.Website.Web.Backend
 
             // 重新生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
-            releaseManager.ReleaseRelation(article);
+            releaseManager.ReleasingRelatedReleasesByArticle(article);
 
             // 添加操作日志
             DataManager.LogManager logManager = new DataManager.LogManager();

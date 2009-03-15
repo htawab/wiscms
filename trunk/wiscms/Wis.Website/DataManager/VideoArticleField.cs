@@ -24,48 +24,24 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string VideoArticleGuid = "VideoArticleGuid";
         /// <summary>
+        /// 文章编号。
+        /// </summary>
+        public const string ArticleGuid = "ArticleGuid";
+        /// <summary>
         /// 视频路径。
         /// </summary>
         public const string VideoPath = "VideoPath";
         /// <summary>
-        /// 文件尺寸。
+        /// Flv视频路径。
         /// </summary>
-        public const string Size = "Size";
-        /// <summary>
-        /// 星级。
-        /// </summary>
-        public const string Rank = "Rank";
-        /// <summary>
-        /// 源图路径。
-        /// </summary>
-        public const string SourceImagePath = "SourceImagePath";
+        public const string FlvVideoPath = "FlvVideoPath";
         /// <summary>
         /// 缩略图路径。
         /// </summary>
-        public const string ThumbnailPath = "ThumbnailPath";
+        public const string PreviewFramePath = "PreviewFramePath";
         /// <summary>
-        /// X坐标
+        /// 星级。
         /// </summary>
-        public const string PointX = "PointX";
-        /// <summary>
-        /// Y坐标
-        /// </summary>
-        public const string PointY = "PointY";
-        /// <summary>
-        /// 拉伸
-        /// </summary>
-        public const string Stretch = "Stretch";
-        /// <summary>
-        /// 斜角
-        /// </summary>
-        public const string Beveled = "Beveled";
-        /// <summary>
-        /// 创建人
-        /// </summary>
-        public const string CreatedBy = "CreatedBy";
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public const string CreationDate = "CreationDate";
+        public const string Star = "Star";
     }
 }

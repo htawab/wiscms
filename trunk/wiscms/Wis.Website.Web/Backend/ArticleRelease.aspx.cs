@@ -48,7 +48,7 @@ namespace Wis.Website.Web.Backend
             if (releaseManager == null)
             {
                 releaseManager = new DataManager.ReleaseManager();
-                List<Release> releases = releaseManager.GetReleasesByCategory(article.Category.CategoryGuid);
+                List<Release> releases = releaseManager.GetRelatedReleases(article.Category.CategoryGuid);
                 RepeaterReleaseList.DataSource = releases;
                 RepeaterReleaseList.DataBind();
             }
@@ -60,23 +60,23 @@ namespace Wis.Website.Web.Backend
             switch (article.Category.ArticleType)
             {
                 case 1: // 普通新闻
-                    releaseManager.ReleaseRelation(article);
+                    releaseManager.ReleasingRelatedReleasesByArticle(article);
                     break;
                 case 2:// 图片新闻
                     Wis.Website.DataManager.ArticlePhotoManager articlePhotoManager = new Wis.Website.DataManager.ArticlePhotoManager();
                     Wis.Website.DataManager.ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(this.ArticleGuid);
-                    releaseManager.ReleaseArticlePhotoRelation(articlePhoto);
+                    releaseManager.ReleasingRelatedReleasesByArticlePhoto(articlePhoto);
                     break;
                 case 3:// 视频新闻
                     Wis.Website.DataManager.VideoArticleManager videoArticleManager = new Wis.Website.DataManager.VideoArticleManager();
                     Wis.Website.DataManager.VideoArticle videoArticle = videoArticleManager.GetVideoArticle(this.ArticleGuid);
-                    releaseManager.ReleaseVideoArticleRelation(videoArticle);
+                    releaseManager.ReleasingVideoArticle(videoArticle);
                     break;
                 case 4:// 软件
-                    releaseManager.ReleaseRelation(article);
+                    releaseManager.ReleasingRelatedReleasesByArticle(article);
                     break;
                 default:
-                    releaseManager.ReleaseRelation(article);
+                    releaseManager.ReleasingRelatedReleasesByArticle(article);
                     break;
             }
 

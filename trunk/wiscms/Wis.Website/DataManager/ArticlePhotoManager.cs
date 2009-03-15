@@ -64,6 +64,15 @@ namespace Wis.Website.DataManager
         }
 
 
+        public List<ArticlePhoto> GetPhotoArticlesByReleaseGuid(Guid releaseGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectPhotoArticlesByReleaseGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticlePhotos(dataReader);
+        }
+
+
         /// <summary>
         /// 获取内容集合。
         /// </summary>

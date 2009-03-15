@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// <copyright file="AbstractQueryer.cs" company="Everwis">
+// <copyright file="DataProvider.cs" company="Everwis">
 //     Copyright (C) Everwis Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------

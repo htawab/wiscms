@@ -121,7 +121,7 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string Votes = "Votes";
         /// <summary>
-        /// 
+        /// 创建日期
         /// </summary>
         public const string DateCreated = "DateCreated";
 
@@ -140,44 +140,16 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string VideoPath = "VideoPath";
         /// <summary>
-        /// 文件尺寸。
+        /// Flv视频路径。
         /// </summary>
-        public const string Size = "Size";
-        /// <summary>
-        /// 视频星级。
-        /// </summary>
-        public const string VideoArticleRank = "VideoArticleRank";
-        /// <summary>
-        /// 源图路径。
-        /// </summary>
-        public const string SourceImagePath = "SourceImagePath";
+        public const string FlvVideoPath = "FlvVideoPath";
         /// <summary>
         /// 缩略图路径。
         /// </summary>
-        public const string ThumbnailPath = "ThumbnailPath";
+        public const string PreviewFramePath = "PreviewFramePath";
         /// <summary>
-        /// X坐标
+        /// 视频星级。
         /// </summary>
-        public const string PointX = "PointX";
-        /// <summary>
-        /// Y坐标
-        /// </summary>
-        public const string PointY = "PointY";
-        /// <summary>
-        /// 拉伸
-        /// </summary>
-        public const string Stretch = "Stretch";
-        /// <summary>
-        /// 斜角
-        /// </summary>
-        public const string Beveled = "Beveled";
-        /// <summary>
-        /// 创建人
-        /// </summary>
-        public const string CreatedBy = "CreatedBy";
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public const string CreationDate = "CreationDate";
+        public const string Star = "Star";
     }
 }

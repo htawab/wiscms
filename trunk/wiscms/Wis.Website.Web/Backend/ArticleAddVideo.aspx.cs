@@ -7,9 +7,10 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using Wis.Toolkit.WebControls.FileUploads;
 using Wis.Toolkit;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Wis.Website.Web.Backend
 {
@@ -49,15 +50,17 @@ namespace Wis.Website.Web.Backend
         Wis.Website.DataManager.ArticleManager articleManager = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // 临时目录不存在，则创建
             string outputPath = "~/Uploads/Temp/";
             string physicalOutputPath = Server.MapPath(outputPath);
-            if (!System.IO.Directory.Exists(physicalOutputPath)) System.IO.Directory.CreateDirectory(physicalOutputPath);
+            if (!System.IO.Directory.Exists(physicalOutputPath))
+                System.IO.Directory.CreateDirectory(physicalOutputPath);
 
+#warning 在aspx中配置临时目录
             FileSystemProcessor fs = new FileSystemProcessor();
             fs.OutputPath = outputPath;
             DJUploadController1.DefaultFileProcessor = fs;
-            Video.FileProcessor = fs;
-            SourceImage.FileProcessor = fs;
+            VideoFile.FileProcessor = fs;
 
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
@@ -94,8 +97,7 @@ namespace Wis.Website.Web.Backend
 
         protected void ImageButtonNext_Click(object sender, ImageClickEventArgs e)
         {
-#warning 如何先上传，后录入数据库?
-
+#warning 最大允许上传的文件尺寸
             // DJUploadController1.Status.LengthExceeded
             // The maximum upload size was exceeded
 
@@ -107,129 +109,129 @@ namespace Wis.Website.Web.Backend
             }
 
             // Files uploaded
-            // DJUploadController1.Status.UploadedFiles
-            // 录入图片信息，进入下一步
             if (DJUploadController1.Status == null ||
                 DJUploadController1.Status.ErrorFiles.Count > 0 ||  // Files with errors
-                DJUploadController1.Status.UploadedFiles.Count != 2)
+                DJUploadController1.Status.UploadedFiles.Count != 1)
             {
                 Warning.InnerHtml = "上传文件错误";
                 return;
             }
-            
+
             // 获得文件名
             UploadedFile videoUploadedFile = DJUploadController1.Status.UploadedFiles[0];
-            UploadedFile sourceImageUploadedFile = DJUploadController1.Status.UploadedFiles[1];
             //// Exception
             //if (f.Exception != null)
             //{
             //    Warning.InnerHtml = string.Format("文件上传发生异常：{0}", f.Exception.Message);
             //    return;
             //}
-            if (videoUploadedFile == null || sourceImageUploadedFile == null)
+            if (videoUploadedFile == null)
             {
-                Warning.InnerHtml = "未正确获取上传的控件，请检查页面上传控件是否正确命名，视频文件上传控件的ID得为Video，图片文件上传控件的ID得为SourceImage";
+                Warning.InnerHtml = "未正确获取上传的控件对象";
                 return;
             }
 
-            //string fileName = f.FileName;// f.FileName "E:\\Tools\\visualxpath.zip"
-            //int charIndex = fileName.LastIndexOf("\\");
-            //if (charIndex == -1 || charIndex >= fileName.Length)
-            //{
-            //    return;
-            //}
-            //fileName = fileName.Substring(charIndex + 1);
-
-            Wis.Website.DataManager.VideoArticle videoArticle = new Wis.Website.DataManager.VideoArticle();
-            videoArticle.VideoArticleGuid = Guid.NewGuid();
-            videoArticle.Article.ArticleGuid = article.ArticleGuid;
-
-#warning TODO:填写当前登录用户的UserName
-            // 获得 CreatedBy
-            videoArticle.CreatedBy = string.Empty;
-
-            // 获得 CreationDate
-            DateTime creationDate = System.DateTime.Now;
-            string requestCreationDate = Request["CreationDate"];
-            if(!string.IsNullOrEmpty(requestCreationDate)) DateTime.TryParse(requestCreationDate, out creationDate);
-            videoArticle.CreationDate = creationDate;
-
 #warning TODO:Uploads 作为配置项
+            string uploadsDirectory = "Uploads";
+            uploadsDirectory.Trim('/'); // 去除前后的 /
 
-            string path = Server.MapPath(string.Format("/Uploads/Videos/{0}/", videoArticle.CreationDate.ToShortDateString()));
-            if (!System.IO.Directory.Exists(path)) System.IO.Directory.CreateDirectory(path);
-
-            // 1 获得视频路径
-            string videoFilename = System.IO.Path.GetFileName(videoUploadedFile.FileName);
-            string videoExtension = System.IO.Path.GetExtension(videoUploadedFile.FileName);
-            videoFilename = Server.MapPath(string.Format("/Uploads/Temp/{0}", videoFilename));
-            System.IO.FileInfo videoFileInfo = new System.IO.FileInfo(videoFilename);
-            if (!videoFileInfo.Directory.Exists) videoFileInfo.Directory.Create();
-            videoArticle.VideoPath = string.Format("/Uploads/Videos/{0}/{1}video{2}", videoArticle.CreationDate.ToShortDateString(), videoArticle.VideoArticleGuid, videoExtension);
-            videoFilename = Server.MapPath(videoArticle.VideoPath);
-            videoFileInfo.MoveTo(videoFilename);
-
-            // 2 文件大小
-            videoArticle.Size = videoFileInfo.Length; 
-
-            // 4 获得 Rank
-            byte rank;
-            if (byte.TryParse(RequestManager.Request("Rank"), out rank))
+            // 获得视频临时路径
+            string inFile = Server.MapPath(string.Format("/{0}/Temp/{1}", uploadsDirectory, System.IO.Path.GetFileName(videoUploadedFile.FileName)));
+            System.IO.FileInfo tempFileInfo = new System.IO.FileInfo(inFile);
+            if (!tempFileInfo.Exists)
             {
-                if(rank != 0) videoArticle.Rank = rank;
+                Warning.InnerHtml = "上传文件错误，请重新上传";
+                return;
             }
 
-            // 3 获得源图路径
-            string srcFilename = System.IO.Path.GetFileName(sourceImageUploadedFile.FileName);
-            string srcExtension = System.IO.Path.GetExtension(sourceImageUploadedFile.FileName);
-            srcFilename = Server.MapPath(string.Format("/Uploads/Temp/{0}", srcFilename));
-            System.IO.FileInfo srcFileInfo = new System.IO.FileInfo(srcFilename);
-            if (!srcFileInfo.Directory.Exists) srcFileInfo.Directory.Create();
-            videoArticle.SourceImagePath = string.Format("/Uploads/Videos/{0}/{1}src{2}", videoArticle.CreationDate.ToShortDateString(), videoArticle.VideoArticleGuid, srcExtension);
-            srcFilename = Server.MapPath(videoArticle.SourceImagePath);
-            srcFileInfo.MoveTo(srcFilename);
-
-            // 3 获得缩微图路径
-            videoArticle.ThumbnailPath = string.Format("/Uploads/Videos/{0}/{1}{2}", videoArticle.CreationDate.ToShortDateString(), videoArticle.VideoArticleGuid, srcExtension);
-            string destFilename = Server.MapPath(videoArticle.ThumbnailPath);
-            // 缩略图操作
-
-            // PointX 和 PointY都不为空，则进行图片裁剪
-            string requestPointX = Request["PointX"];
-            string requestPointY = Request["PointY"];
-            if (!string.IsNullOrEmpty(requestPointX) && !string.IsNullOrEmpty(requestPointY))
+            // 视频信息
+            Wis.Website.DataManager.VideoArticle videoArticle = null;
+            Wis.Website.DataManager.VideoArticleManager videoArticleManager = new Wis.Website.DataManager.VideoArticleManager();
+            int videoArticleCount = videoArticleManager.Count(this.ArticleGuid);
+            if (videoArticleCount == 0)
             {
-                int pointX;
-                int pointY;
-                if (int.TryParse(requestPointX, out pointX) == false || int.TryParse(requestPointY, out pointY) == false)
-                {
-                    Warning.InnerHtml = "缩略图的PointX和PointY不为整数";
-                    return;
-                }
-
-                videoArticle.PointX = pointX;
-                videoArticle.PointY = pointY;
-
-                // 裁剪图片
-                Wis.Toolkit.Drawings.Imager.Crop(srcFilename, destFilename, pointX, pointY, this.ThumbnailWidth, this.ThumbnailHeight);
+                videoArticle = new Wis.Website.DataManager.VideoArticle();
+                videoArticle.VideoArticleGuid = Guid.NewGuid();
+                videoArticle.Article.ArticleGuid = article.ArticleGuid;
             }
             else
             {
-                videoArticle.Stretch = !string.IsNullOrEmpty(Request["Stretch"]); // 拉伸
-                videoArticle.Beveled = !string.IsNullOrEmpty(Request["Beveled"]); // 斜角
-                Wis.Toolkit.Drawings.Imager.Thumbnail(srcFilename, destFilename, this.ThumbnailWidth, this.ThumbnailHeight, videoArticle.Stretch.Value, videoArticle.Beveled.Value);
+                videoArticle = videoArticleManager.GetVideoArticle(this.ArticleGuid);
+
+                // 删除已存在的文件
+                if(System.IO.File.Exists(Page.MapPath(videoArticle.VideoPath)))
+                    System.IO.File.Delete(Page.MapPath(videoArticle.VideoPath));
+                if(System.IO.File.Exists(Page.MapPath(videoArticle.FlvVideoPath)))
+                    System.IO.File.Delete(Page.MapPath(videoArticle.FlvVideoPath));
+                if(System.IO.File.Exists(Page.MapPath(videoArticle.PreviewFramePath)))
+                    System.IO.File.Delete(Page.MapPath(videoArticle.PreviewFramePath));
             }
-            
-            // 图片信息入库
-            Wis.Website.DataManager.VideoArticleManager videoArticleManager = new Wis.Website.DataManager.VideoArticleManager();
-            videoArticle.VideoArticleId = videoArticleManager.AddNew(videoArticle);
 
-            // 移除临时文件
-#warning 移除临时文件
-            //if (System.IO.File.Exists(srcFilename)) System.IO.File.Delete(srcFilename);
+            // 视频星级 Star
+            byte star;
+            if (byte.TryParse(RequestManager.Request("Star"), out star))
+                if (star != 0) videoArticle.Star = star;
 
-            // 下一步
-            Response.Redirect(string.Format("ArticleRelease.aspx?ArticleGuid={0}", this.ArticleGuid));
+            // Videos 目录
+            string path = Server.MapPath(string.Format("/{0}/Videos/{1}/", uploadsDirectory, article.DateCreated.ToShortDateString()));
+            if (!System.IO.Directory.Exists(path)) System.IO.Directory.CreateDirectory(path);
+
+            // 视频，Flv视频，预览帧 路径
+            videoArticle.VideoPath = string.Format("/{0}/Videos/{1}/{2}{3}", uploadsDirectory, article.DateCreated.ToShortDateString(), this.ArticleGuid, tempFileInfo.Extension);
+            videoArticle.FlvVideoPath = Regex.Replace(videoArticle.VideoPath, tempFileInfo.Extension, ".swf", RegexOptions.IgnoreCase);
+            videoArticle.PreviewFramePath = Regex.Replace(videoArticle.VideoPath, tempFileInfo.Extension, ".jpg", RegexOptions.IgnoreCase);
+
+            // 3 创建缩微图 88x66
+            string ffmpegFile = Page.MapPath("Tools/ffmpeg.exe");
+            MediaHandler mediaHandler = new MediaHandler();
+            this.TotalSeconds = mediaHandler.GetTotalSeconds(ffmpegFile, inFile);
+            int timeOffset = (this.TotalSeconds % 2 == 0) ? (int)(this.TotalSeconds / 2) : ((int)(this.TotalSeconds / 2) + 1);
+            string outFile = Page.MapPath(videoArticle.PreviewFramePath);
+            mediaHandler.CreatePreviewFrame(ffmpegFile, timeOffset, inFile, outFile, this.ThumbnailWidth, this.ThumbnailHeight, new DataReceivedEventHandler(MediaHandler_DataReceived));
+
+            // 视频文件转移到 Videos 目录
+            tempFileInfo.MoveTo(Server.MapPath(videoArticle.VideoPath));
+
+            // 转换视频
+            if (tempFileInfo.Extension.ToLower() == ".flv" || tempFileInfo.Extension.ToLower() == ".swf")
+            {
+                outFile = Page.MapPath(videoArticle.FlvVideoPath);
+                if (tempFileInfo.Extension.ToLower() == ".flv")
+                {
+                    tempFileInfo.MoveTo(outFile);
+                    videoArticle.VideoPath = videoArticle.FlvVideoPath;
+                }
+                // 添加 Meta Data信息 InjectMetadata
+                string flvtool2File = Page.MapPath("Tools/flvtool2.exe");
+                mediaHandler.InjectMetadata(flvtool2File, outFile, new DataReceivedEventHandler(MediaHandler_DataReceived));
+
+                // 视频信息入库
+                if (videoArticleCount == 0)
+                    videoArticle.VideoArticleId = videoArticleManager.AddNew(videoArticle);
+                else
+                    videoArticle.VideoArticleId = videoArticleManager.Update(videoArticle);
+
+                // 下一步
+                //Wis.Toolkit.ClientScript.Window.Redirect(string.Format("ArticleRelease.aspx?ArticleGuid={0}", this.ArticleGuid));
+                Response.Redirect(string.Format("ArticleRelease.aspx?ArticleGuid={0}", this.ArticleGuid));
+            }
+            else
+            {
+                System.Web.HttpContext.Current.Items.Add("VideoArticle", videoArticle);
+                Server.Transfer(string.Format("ArticleConvertingVideo.aspx?ArticleGuid={0}", this.ArticleGuid));
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 视频总时长
+        /// </summary>
+        private double TotalSeconds;
+
+        private void MediaHandler_DataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(e.Data)) return;
+            Warning.InnerHtml = e.Data;
         }
     }
 }
