@@ -37,12 +37,16 @@
     </div>
     <div class="main">
         <div class="left listtab">
-            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
+            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, VideoArticleCategory.CategoryGuid, " >> ")$</div>
             <div class="clear">
             </div>
             <div class="videoList1">
-                <dl><tpl:foreach collection="$VideoArticleManager.GetVideoArticles(Category.CategoryGuid, PageIndex, PageSize)$" var="VideoArticle" index="Index">
-                    <dt><a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank"><img src="$VideoArticle.ThumbnailPath$" width="93" height="74" alt="$VideoArticle.Article.Title$(<strong>$VideoArticle.Article.Hits$</strong>阅 <strong>$VideoArticle.Article.Comments$</strong>评)" /></a></dt>
+                <dl><tpl:foreach collection="$VideoArticleManager.GetVideoArticles(VideoArticleCategory.CategoryGuid, PageIndex, PageSize)$" var="VideoArticle" index="Index">
+                    <dt>
+                        <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$(<strong>$VideoArticle.Article.Hits$</strong>阅 <strong>$VideoArticle.Article.Comments$</strong>评)">
+                            <img src="$VideoArticle.PreviewFramePath$" width="88" height="66" alt="$VideoArticle.Article.Title$(<strong>$VideoArticle.Article.Hits$</strong>阅 <strong>$VideoArticle.Article.Comments$</strong>评)" />
+                        </a>
+                    </dt>
                     <dd>
                         <h2><a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" title="$VideoArticle.Article.Title$(<strong>$VideoArticle.Article.Hits$</strong>阅 <strong>$VideoArticle.Article.Comments$</strong>评)" target="_blank">$Formats.TruncateString(VideoArticle.Article.Title, 11)$</a></h2>
                         <p><tpl:if test="$IsNotEmpty(VideoArticle.Article.Summary)$"><a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank">$VideoArticle.Article.Summary$</a></tpl:if></p>

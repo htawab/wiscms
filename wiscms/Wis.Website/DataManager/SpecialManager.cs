@@ -15,133 +15,169 @@ namespace Wis.Website.DataManager
 
 		public List<Special> GetSpecials()
 		{
-			List<Special> lstSpecials = new List<Special>();
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("SELECTSpecials",CommandType.StoredProcedure);
-			DbDataReader oDbDataReader = DbProviderHelper.ExecuteReader(oDbCommand);
-			while (oDbDataReader.Read())
+			List<Special> specials = new List<Special>();
+			DbCommand command = DbProviderHelper.CreateCommand("SELECTSpecials",CommandType.StoredProcedure);
+			DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+			while (dataReader.Read())
 			{
-				Special oSpecial = new Special();
-				oSpecial.SpecialId = Convert.ToInt32(oDbDataReader["SpecialId"]);
-				oSpecial.SpecialGuid = (Guid) oDbDataReader["SpecialGuid"];
-				oSpecial.Title = Convert.ToString(oDbDataReader["Title"]);
+				Special special = new Special();
+				special.SpecialId = Convert.ToInt32(dataReader["SpecialId"]);
+				special.SpecialGuid = (Guid) dataReader["SpecialGuid"];
+				special.Title = Convert.ToString(dataReader["Title"]);
 
-				if(oDbDataReader["ContentHtml"] != DBNull.Value)
-					oSpecial.ContentHtml = Convert.ToString(oDbDataReader["ContentHtml"]);
-				oSpecial.TemplatePath = Convert.ToString(oDbDataReader["TemplatePath"]);
-				oSpecial.ReleasePath = Convert.ToString(oDbDataReader["ReleasePath"]);
+				if(dataReader["ContentHtml"] != DBNull.Value)
+					special.ContentHtml = Convert.ToString(dataReader["ContentHtml"]);
+				special.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+				special.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
 
-				if(oDbDataReader["ImagePath"] != DBNull.Value)
-					oSpecial.ImagePath = Convert.ToString(oDbDataReader["ImagePath"]);
+				if(dataReader["ImagePath"] != DBNull.Value)
+					special.ImagePath = Convert.ToString(dataReader["ImagePath"]);
 
-				if(oDbDataReader["ImageWidth"] != DBNull.Value)
-					oSpecial.ImageWidth = Convert.ToInt32(oDbDataReader["ImageWidth"]);
+				if(dataReader["ImageWidth"] != DBNull.Value)
+					special.ImageWidth = Convert.ToInt32(dataReader["ImageWidth"]);
 
-				if(oDbDataReader["ImageHeight"] != DBNull.Value)
-					oSpecial.ImageHeight = Convert.ToInt32(oDbDataReader["ImageHeight"]);
-				oSpecial.Hits = Convert.ToInt32(oDbDataReader["Hits"]);
-				oSpecial.Comments = Convert.ToInt32(oDbDataReader["Comments"]);
-				lstSpecials.Add(oSpecial);
+				if(dataReader["ImageHeight"] != DBNull.Value)
+					special.ImageHeight = Convert.ToInt32(dataReader["ImageHeight"]);
+				special.Hits = Convert.ToInt32(dataReader["Hits"]);
+				special.Comments = Convert.ToInt32(dataReader["Comments"]);
+				specials.Add(special);
 			}
-			oDbDataReader.Close();
-			return lstSpecials;
+			dataReader.Close();
+			return specials;
 		}
+
+
+        public List<Special> GetSpecialsByReleaseGuid(Guid releaseGuid)
+        {
+            List<Special> specials = new List<Special>();
+            DbCommand command = DbProviderHelper.CreateCommand("SelectSpecialsByReleaseGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            while (dataReader.Read())
+            {
+                Special special = new Special();
+                special.SpecialId = Convert.ToInt32(dataReader["SpecialId"]);
+                special.SpecialGuid = (Guid)dataReader["SpecialGuid"];
+                special.Title = Convert.ToString(dataReader["Title"]);
+
+                if (dataReader["ContentHtml"] != DBNull.Value)
+                    special.ContentHtml = Convert.ToString(dataReader["ContentHtml"]);
+                special.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+                special.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
+
+                if (dataReader["ImagePath"] != DBNull.Value)
+                    special.ImagePath = Convert.ToString(dataReader["ImagePath"]);
+
+                if (dataReader["ImageWidth"] != DBNull.Value)
+                    special.ImageWidth = Convert.ToInt32(dataReader["ImageWidth"]);
+
+                if (dataReader["ImageHeight"] != DBNull.Value)
+                    special.ImageHeight = Convert.ToInt32(dataReader["ImageHeight"]);
+                special.Hits = Convert.ToInt32(dataReader["Hits"]);
+                special.Comments = Convert.ToInt32(dataReader["Comments"]);
+                specials.Add(special);
+            }
+            dataReader.Close();
+            return specials;
+        }
+
 
 		public Special GetSpecial(int SpecialId)
 		{
-			Special oSpecial = new Special();
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("SELECTSpecial",CommandType.StoredProcedure);
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
-			DbDataReader oDbDataReader = DbProviderHelper.ExecuteReader(oDbCommand);
-			while (oDbDataReader.Read())
+			Special special = new Special();
+			DbCommand command = DbProviderHelper.CreateCommand("SELECTSpecial",CommandType.StoredProcedure);
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
+			DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+			while (dataReader.Read())
 			{
-				oSpecial.SpecialId = Convert.ToInt32(oDbDataReader["SpecialId"]);
-				oSpecial.SpecialGuid = (Guid) oDbDataReader["SpecialGuid"];
-				oSpecial.Title = Convert.ToString(oDbDataReader["Title"]);
+				special.SpecialId = Convert.ToInt32(dataReader["SpecialId"]);
+				special.SpecialGuid = (Guid) dataReader["SpecialGuid"];
+				special.Title = Convert.ToString(dataReader["Title"]);
 
-				if(oDbDataReader["ContentHtml"] != DBNull.Value)
-					oSpecial.ContentHtml = Convert.ToString(oDbDataReader["ContentHtml"]);
-				oSpecial.TemplatePath = Convert.ToString(oDbDataReader["TemplatePath"]);
-				oSpecial.ReleasePath = Convert.ToString(oDbDataReader["ReleasePath"]);
+				if(dataReader["ContentHtml"] != DBNull.Value)
+					special.ContentHtml = Convert.ToString(dataReader["ContentHtml"]);
+				special.TemplatePath = Convert.ToString(dataReader["TemplatePath"]);
+				special.ReleasePath = Convert.ToString(dataReader["ReleasePath"]);
 
-				if(oDbDataReader["ImagePath"] != DBNull.Value)
-					oSpecial.ImagePath = Convert.ToString(oDbDataReader["ImagePath"]);
+				if(dataReader["ImagePath"] != DBNull.Value)
+					special.ImagePath = Convert.ToString(dataReader["ImagePath"]);
 
-				if(oDbDataReader["ImageWidth"] != DBNull.Value)
-					oSpecial.ImageWidth = Convert.ToInt32(oDbDataReader["ImageWidth"]);
+				if(dataReader["ImageWidth"] != DBNull.Value)
+					special.ImageWidth = Convert.ToInt32(dataReader["ImageWidth"]);
 
-				if(oDbDataReader["ImageHeight"] != DBNull.Value)
-					oSpecial.ImageHeight = Convert.ToInt32(oDbDataReader["ImageHeight"]);
-				oSpecial.Hits = Convert.ToInt32(oDbDataReader["Hits"]);
-				oSpecial.Comments = Convert.ToInt32(oDbDataReader["Comments"]);
+				if(dataReader["ImageHeight"] != DBNull.Value)
+					special.ImageHeight = Convert.ToInt32(dataReader["ImageHeight"]);
+				special.Hits = Convert.ToInt32(dataReader["Hits"]);
+				special.Comments = Convert.ToInt32(dataReader["Comments"]);
 			}
-			oDbDataReader.Close();
-			return oSpecial;
+			dataReader.Close();
+			return special;
 		}
 
 		public int AddNew(int SpecialId, Guid SpecialGuid, string Title, string ContentHtml, string TemplatePath, string ReleasePath, string ImagePath, Nullable<int> ImageWidth, Nullable<int> ImageHeight, int Hits, int Comments)
 		{
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("INSERTSpecial",CommandType.StoredProcedure);
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid",DbType.Guid,SpecialGuid));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
+			DbCommand command = DbProviderHelper.CreateCommand("INSERTSpecial",CommandType.StoredProcedure);
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid",DbType.Guid,SpecialGuid));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
 			if (ContentHtml!=null)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,ContentHtml));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,ContentHtml));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,DBNull.Value));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath",DbType.String,ReleasePath));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,DBNull.Value));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath",DbType.String,ReleasePath));
 			if (ImagePath!=null)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,ImagePath));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,ImagePath));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,DBNull.Value));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,DBNull.Value));
 			if (ImageWidth.HasValue)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,ImageWidth));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,ImageWidth));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,DBNull.Value));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,DBNull.Value));
 			if (ImageHeight.HasValue)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,ImageHeight));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,ImageHeight));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,DBNull.Value));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Hits",DbType.Int32,Hits));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Comments",DbType.Int32,Comments));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,DBNull.Value));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Hits",DbType.Int32,Hits));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Comments",DbType.Int32,Comments));
 
-			return DbProviderHelper.ExecuteNonQuery(oDbCommand);
+			return DbProviderHelper.ExecuteNonQuery(command);
 		}
 
 		public int Update(int SpecialId, Guid SpecialGuid, string Title, string ContentHtml, string TemplatePath, string ReleasePath, string ImagePath, Nullable<int> ImageWidth, Nullable<int> ImageHeight, int Hits, int Comments)
 		{
 
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("UPDATESpecial",CommandType.StoredProcedure);
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid",DbType.Guid,SpecialGuid));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
+			DbCommand command = DbProviderHelper.CreateCommand("UPDATESpecial",CommandType.StoredProcedure);
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialGuid",DbType.Guid,SpecialGuid));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
 			if (ContentHtml!=null)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,ContentHtml));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,ContentHtml));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,DBNull.Value));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath",DbType.String,ReleasePath));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ContentHtml",DbType.String,DBNull.Value));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleasePath",DbType.String,ReleasePath));
 			if (ImagePath!=null)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,ImagePath));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,ImagePath));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,DBNull.Value));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImagePath",DbType.String,DBNull.Value));
 			if (ImageWidth.HasValue)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,ImageWidth));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,ImageWidth));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,DBNull.Value));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageWidth",DbType.Int32,DBNull.Value));
 			if (ImageHeight.HasValue)
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,ImageHeight));
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,ImageHeight));
 			else
-				oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,DBNull.Value));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Hits",DbType.Int32,Hits));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Comments",DbType.Int32,Comments));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
-			return DbProviderHelper.ExecuteNonQuery(oDbCommand);
+				command.Parameters.Add(DbProviderHelper.CreateParameter("@ImageHeight",DbType.Int32,DBNull.Value));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Hits",DbType.Int32,Hits));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@Comments",DbType.Int32,Comments));
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
+			return DbProviderHelper.ExecuteNonQuery(command);
 		}
 
 		public int Remove(int SpecialId)
 		{
-			DbCommand oDbCommand = DbProviderHelper.CreateCommand("DELETESpecial",CommandType.StoredProcedure);
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
-			return DbProviderHelper.ExecuteNonQuery(oDbCommand);
+			DbCommand command = DbProviderHelper.CreateCommand("DELETESpecial",CommandType.StoredProcedure);
+			command.Parameters.Add(DbProviderHelper.CreateParameter("@SpecialId",DbType.Int32,SpecialId));
+			return DbProviderHelper.ExecuteNonQuery(command);
 		}
 	}
 }

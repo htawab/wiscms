@@ -45,5 +45,9 @@ namespace Wis.Website.DataManager
         /// 缩略图高度
         /// </summary>
         public const string ThumbnailHeight = "ThumbnailHeight";
+        /// <summary>
+        /// 记录总数
+        /// </summary>
+        public const string RecordCount = "RecordCount";
     }
 }

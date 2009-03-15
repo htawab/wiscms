@@ -589,10 +589,22 @@ namespace Wis.Toolkit.WebControls.FileUploads
             items = new Dictionary<string, string>();
 
             headerLines = System.Text.RegularExpressions.Regex.Split(header, "\r\n");
-
-            foreach (string hl in headerLines)
+            // \r\nContent-Disposition: form-data; name=\"VideoFile$ctl03\"; filename=\"C:\\WebSite\\WebSite1\\&amp;quot;Just Us&amp;quot; Stacy &amp;amp; Robbie (Original).flv\"\r\nContent-Type: application/octet-stream
+            foreach (string headerLine in headerLines)
             {
-                string[] lineParts = hl.Split(';');
+                string arr = headerLine;
+                // Content-Disposition: form-data; name=\"VideoFile$ctl03\"; filename=\"C:\\WebSite\\WebSite1\\&amp;quot;Just Us&amp;quot; Stacy &amp;amp; Robbie (Original).flv\"
+                int filenameIndex = arr.IndexOf("filename");
+                if (filenameIndex > -1) // 存在文件名
+                {
+                    System.Text.RegularExpressions.Match m = System.Text.RegularExpressions.Regex.Match(arr, "filename=\"([^\"]+)\"");
+                    if (m.Success)
+                    {
+                        items.Add("filename", m.Groups[1].Value);
+                        arr = arr.Replace(string.Format("filename=\"{0}\"", m.Groups[1].Value), "");
+                    }
+                }
+                string[] lineParts = arr.Split(';');
 
                 for (int i = 0; i < lineParts.Length; i++)
                 {

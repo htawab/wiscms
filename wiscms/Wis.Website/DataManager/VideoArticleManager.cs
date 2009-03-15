@@ -13,7 +13,7 @@ using System.Data.Common;
 namespace Wis.Website.DataManager
 {
     /// <summary>
-    /// 图片新闻的操作类
+    /// 视频新闻的操作类
     /// </summary>
     public class VideoArticleManager
     {
@@ -74,6 +74,20 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@OrderList", DbType.String, "DateCreated DESC"));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageSize", DbType.Int32, pageSize));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@PageIndex", DbType.Int32, pageIndex));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetVideoArticles(dataReader);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="releaseGuid">发布编号</param>
+        /// <returns></returns>
+        public List<VideoArticle> GetVideoArticlesByReleaseGuid(Guid releaseGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectVideoArticlesByReleaseGuid", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
             DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
             return GetVideoArticles(dataReader);
         }
@@ -142,28 +156,10 @@ namespace Wis.Website.DataManager
                 videoArticle.VideoArticleGuid = (Guid)dataReader[ViewVideoArticleField.VideoArticleGuid];
                 //videoArticle.ArticleGuid = (Guid)dataReader[ViewVideoArticleField.ArticleGuid];
                 videoArticle.VideoPath = Convert.ToString(dataReader[ViewVideoArticleField.VideoPath]);
-                videoArticle.Size = Convert.ToInt64(dataReader[ViewVideoArticleField.Size]);
-
-                if (dataReader[ViewVideoArticleField.VideoArticleRank] != DBNull.Value)
-                    videoArticle.Rank = (byte)dataReader[ViewVideoArticleField.VideoArticleRank];
-                videoArticle.SourceImagePath = Convert.ToString(dataReader[ViewVideoArticleField.SourceImagePath]);
-                videoArticle.ThumbnailPath = Convert.ToString(dataReader[ViewVideoArticleField.ThumbnailPath]);
-
-                if (dataReader[ViewVideoArticleField.PointX] != DBNull.Value)
-                    videoArticle.PointX = Convert.ToInt32(dataReader[ViewVideoArticleField.PointX]);
-
-                if (dataReader[ViewVideoArticleField.PointY] != DBNull.Value)
-                    videoArticle.PointY = Convert.ToInt32(dataReader[ViewVideoArticleField.PointY]);
-
-                if (dataReader[ViewVideoArticleField.Stretch] != DBNull.Value)
-                    videoArticle.Stretch = Convert.ToBoolean(dataReader[ViewVideoArticleField.Stretch]);
-
-                if (dataReader[ViewVideoArticleField.Beveled] != DBNull.Value)
-                    videoArticle.Beveled = Convert.ToBoolean(dataReader[ViewVideoArticleField.Beveled]);
-
-                if (dataReader[ViewVideoArticleField.CreatedBy] != DBNull.Value)
-                    videoArticle.CreatedBy = Convert.ToString(dataReader[ViewVideoArticleField.CreatedBy]);
-                videoArticle.CreationDate = Convert.ToDateTime(dataReader[ViewVideoArticleField.CreationDate]);
+                videoArticle.FlvVideoPath = (string)dataReader[ViewVideoArticleField.FlvVideoPath];
+                videoArticle.PreviewFramePath = Convert.ToString(dataReader[ViewVideoArticleField.PreviewFramePath]);
+                if (dataReader[ViewVideoArticleField.Star] != DBNull.Value)
+                    videoArticle.Star = (byte)dataReader[ViewVideoArticleField.Star];
 
                 videoArticles.Add(videoArticle);
             }
@@ -232,32 +228,23 @@ namespace Wis.Website.DataManager
                 videoArticle.VideoArticleGuid = (Guid)dataReader[ViewVideoArticleField.VideoArticleGuid];
                 //videoArticle.ArticleGuid = (Guid)dataReader[ViewVideoArticleField.ArticleGuid"];
                 videoArticle.VideoPath = Convert.ToString(dataReader[ViewVideoArticleField.VideoPath]);
-                videoArticle.Size = Convert.ToInt64(dataReader[ViewVideoArticleField.Size]);
-
-                if (dataReader[ViewVideoArticleField.VideoArticleRank] != DBNull.Value)
-                    videoArticle.Rank = (byte)(dataReader[ViewVideoArticleField.VideoArticleRank]);
-                videoArticle.SourceImagePath = Convert.ToString(dataReader[ViewVideoArticleField.SourceImagePath]);
-                videoArticle.ThumbnailPath = Convert.ToString(dataReader[ViewVideoArticleField.ThumbnailPath]);
-
-                if (dataReader[ViewVideoArticleField.PointX] != DBNull.Value)
-                    videoArticle.PointX = Convert.ToInt32(dataReader[ViewVideoArticleField.PointX]);
-
-                if (dataReader[ViewVideoArticleField.PointY] != DBNull.Value)
-                    videoArticle.PointY = Convert.ToInt32(dataReader[ViewVideoArticleField.PointY]);
-
-                if (dataReader[ViewVideoArticleField.Stretch] != DBNull.Value)
-                    videoArticle.Stretch = Convert.ToBoolean(dataReader[ViewVideoArticleField.Stretch]);
-
-                if (dataReader[ViewVideoArticleField.Beveled] != DBNull.Value)
-                    videoArticle.Beveled = Convert.ToBoolean(dataReader[ViewVideoArticleField.Beveled]);
-
-                if (dataReader[ViewVideoArticleField.CreatedBy] != DBNull.Value)
-                    videoArticle.CreatedBy = Convert.ToString(dataReader[ViewVideoArticleField.CreatedBy]);
-                videoArticle.CreationDate = Convert.ToDateTime(dataReader[ViewVideoArticleField.CreationDate]);
+                videoArticle.FlvVideoPath = Convert.ToString(dataReader[ViewVideoArticleField.FlvVideoPath]);
+                videoArticle.PreviewFramePath = Convert.ToString(dataReader[ViewVideoArticleField.PreviewFramePath]);
+                if (dataReader[ViewVideoArticleField.Star] != DBNull.Value)
+                    videoArticle.Star = (byte)(dataReader[ViewVideoArticleField.Star]);
             }
             dataReader.Close();
             return videoArticle;
         }
+
+
+        public int Count(Guid articleGuid)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("CountVideoArticle", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            return Convert.ToInt32(DbProviderHelper.ExecuteScalar(command));
+        }
+
 
         public int AddNew(VideoArticle videoArticle)
         {
@@ -265,73 +252,28 @@ namespace Wis.Website.DataManager
             command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoArticleGuid", DbType.Guid, videoArticle.VideoArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, videoArticle.Article.ArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoPath", DbType.String, videoArticle.VideoPath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int64, videoArticle.Size));
-            if (videoArticle.Rank.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Byte, videoArticle.Rank));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@FlvVideoPath", DbType.String, videoArticle.FlvVideoPath));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PreviewFramePath", DbType.String, videoArticle.PreviewFramePath));
+            if (videoArticle.Star.HasValue)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@Star", DbType.Byte, videoArticle.Star));
             else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.Byte, DBNull.Value));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@SourceImagePath", DbType.String, videoArticle.SourceImagePath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, videoArticle.ThumbnailPath));
-            if (videoArticle.PointX.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointX", DbType.Int32, videoArticle.PointX));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointX", DbType.Int32, DBNull.Value));
-            if (videoArticle.PointY.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointY", DbType.Int32, videoArticle.PointY));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointY", DbType.Int32, DBNull.Value));
-            if (videoArticle.Stretch.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Stretch", DbType.Boolean, videoArticle.Stretch));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Stretch", DbType.Boolean, DBNull.Value));
-            if (videoArticle.Beveled.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Beveled", DbType.Boolean, videoArticle.Beveled));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Beveled", DbType.Boolean, DBNull.Value));
-            if (videoArticle.CreatedBy != null)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, videoArticle.CreatedBy));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, DBNull.Value));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@CreationDate", DbType.DateTime, videoArticle.CreationDate));
-
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@Star", DbType.Byte, DBNull.Value));
             return Convert.ToInt32(DbProviderHelper.ExecuteScalar(command));
         }
 
         public int Update(VideoArticle videoArticle)
         {
             DbCommand command = DbProviderHelper.CreateCommand("UPDATEVideoArticle", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoArticleId", DbType.Int32, videoArticle.VideoArticleId));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoArticleGuid", DbType.Guid, videoArticle.VideoArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, videoArticle.Article.ArticleGuid));
             command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoPath", DbType.String, videoArticle.VideoPath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@Size", DbType.Int64, videoArticle.Size));
-            if (videoArticle.Rank.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.SByte, videoArticle.Rank));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@FlvVideoPath", DbType.String, videoArticle.FlvVideoPath));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@PreviewFramePath", DbType.String, videoArticle.PreviewFramePath));
+            if (videoArticle.Star.HasValue)
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@Star", DbType.Byte, videoArticle.Star));
             else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Rank", DbType.SByte, DBNull.Value));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@SourceImagePath", DbType.String, videoArticle.SourceImagePath));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@ThumbnailPath", DbType.String, videoArticle.ThumbnailPath));
-            if (videoArticle.PointX.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointX", DbType.Int32, videoArticle.PointX));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointX", DbType.Int32, DBNull.Value));
-            if (videoArticle.PointY.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointY", DbType.Int32, videoArticle.PointY));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@PointY", DbType.Int32, DBNull.Value));
-            if (videoArticle.Stretch.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Stretch", DbType.Boolean, videoArticle.Stretch));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Stretch", DbType.Boolean, DBNull.Value));
-            if (videoArticle.Beveled.HasValue)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Beveled", DbType.Boolean, videoArticle.Beveled));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@Beveled", DbType.Boolean, DBNull.Value));
-            if (videoArticle.CreatedBy != null)
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, videoArticle.CreatedBy));
-            else
-                command.Parameters.Add(DbProviderHelper.CreateParameter("@CreatedBy", DbType.String, DBNull.Value));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@CreationDate", DbType.DateTime, videoArticle.CreationDate));
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@VideoArticleId", DbType.Int32, videoArticle.VideoArticleId));
+                command.Parameters.Add(DbProviderHelper.CreateParameter("@Star", DbType.Byte, DBNull.Value));
             return DbProviderHelper.ExecuteNonQuery(command);
         }
 

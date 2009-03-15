@@ -32,39 +32,6 @@ namespace Wis.Website.DataManager
             set { _CategoryGuid = value; }
         }
 
-        private byte _ArticleType;
-        /// <summary>
-        /// 文章类型
-        /// 1 普通新闻
-        /// 2 图片新闻
-        /// 3 视频新闻
-        /// 4 软件
-        /// </summary>
-        public byte ArticleType
-        {
-            get { return _ArticleType; }
-            set { _ArticleType = value; }
-        }
-
-        private Nullable<int> _ThumbnailWidth;
-        /// <summary>
-        /// 缩略图片宽
-        /// </summary>
-        public Nullable<int> ThumbnailWidth
-        {
-            get { return _ThumbnailWidth; }
-            set { _ThumbnailWidth = value; }
-        }
-
-        private Nullable<int> _ThumbnailHeight;
-        /// <summary>
-        /// 缩略图片高
-        /// </summary>
-        public Nullable<int> ThumbnailHeight
-        {
-            get { return _ThumbnailHeight; }
-            set { _ThumbnailHeight = value; }
-        }
 
         private string _CategoryName;
         /// <summary>
@@ -106,11 +73,58 @@ namespace Wis.Website.DataManager
             set { _Rank = value; }
         }
 
+
+        private byte _ArticleType;
+        /// <summary>
+        /// 文章类型
+        /// 1 普通新闻
+        /// 2 图片新闻
+        /// 3 视频新闻
+        /// 4 软件
+        /// </summary>
+        public byte ArticleType
+        {
+            get { return _ArticleType; }
+            set { _ArticleType = value; }
+        }
+
+
+        private Nullable<int> _ThumbnailWidth;
+        /// <summary>
+        /// 缩略图片宽
+        /// </summary>
+        public Nullable<int> ThumbnailWidth
+        {
+            get { return _ThumbnailWidth; }
+            set { _ThumbnailWidth = value; }
+        }
+
+        private Nullable<int> _ThumbnailHeight;
+        /// <summary>
+        /// 缩略图片高
+        /// </summary>
+        public Nullable<int> ThumbnailHeight
+        {
+            get { return _ThumbnailHeight; }
+            set { _ThumbnailHeight = value; }
+        }
+
+
+        private int _RecordCount;
+        /// <summary>
+        /// 记录总数
+        /// </summary>
+        public int RecordCount
+        {
+            get { return _RecordCount; }
+            set { _RecordCount = value; }
+        }
+
         public Category()
         { }
 
 
-        public Category(int categoryId, Guid categoryGuid, string categoryName, Guid parentGuid, string parentCategoryName, int rank, byte articleType, int thumbnailWidth, int thumbnailHeight)
+        public Category(int categoryId, Guid categoryGuid, string categoryName, Guid parentGuid, string parentCategoryName, int rank, byte articleType, int thumbnailWidth, int thumbnailHeight, int recordCount)
         {
             this.CategoryId = categoryId;
             this.CategoryGuid = categoryGuid;
@@ -121,11 +135,12 @@ namespace Wis.Website.DataManager
             this.ArticleType = articleType;
             this.ThumbnailWidth = thumbnailWidth;
             this.ThumbnailHeight = thumbnailHeight;
+            this.RecordCount = recordCount;
         }
 
         public override string ToString()
         {
-            return "CategoryId = " + CategoryId.ToString() + ",CategoryGuid = " + CategoryGuid.ToString() + ",CategoryName = " + CategoryName + ", ParentGuid = " + ParentGuid.ToString() + ", ParentCategoryName = " + this.ParentCategoryName.ToString() + ",Rank = " + Rank.ToString() + ",ArticleType = " + ArticleType.ToString() + ",thumbnailWidth = " + ThumbnailWidth + ",ThumbnailHeight = " + ThumbnailHeight;
+            return "CategoryId = " + CategoryId.ToString() + ",CategoryGuid = " + CategoryGuid.ToString() + ",CategoryName = " + CategoryName + ", ParentGuid = " + ParentGuid.ToString() + ", ParentCategoryName = " + this.ParentCategoryName.ToString() + ",Rank = " + Rank.ToString() + ",ArticleType = " + ArticleType.ToString() + ", ThumbnailWidth=" + ThumbnailWidth + ", ThumbnailHeight=" + ThumbnailHeight + ", RecordCount=" + this.RecordCount;
         }
 
         public class CategoryIdComparer : System.Collections.Generic.IComparer<Category>

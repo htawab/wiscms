@@ -88,8 +88,8 @@ namespace Wis.Website.DataManager
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateGuid",DbType.Guid,TemplateGuid));
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateType",DbType.SByte,TemplateType));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType",DbType.SByte,ArticleType));
+            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateType", DbType.Byte, TemplateType));
+            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType", DbType.Byte, ArticleType));
 
 			return Convert.ToInt32(DbProviderHelper.ExecuteScalar(oDbCommand));
 		}
@@ -101,8 +101,8 @@ namespace Wis.Website.DataManager
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateGuid",DbType.Guid,TemplateGuid));
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@Title",DbType.String,Title));
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplatePath",DbType.String,TemplatePath));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateType",DbType.SByte,TemplateType));
-			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType",DbType.SByte,ArticleType));
+            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateType", DbType.Byte, TemplateType));
+            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleType", DbType.Byte, ArticleType));
 			oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateId",DbType.Int32,TemplateId));
 			return DbProviderHelper.ExecuteNonQuery(oDbCommand);
 		}

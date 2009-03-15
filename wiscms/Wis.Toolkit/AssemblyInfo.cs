@@ -1,6 +1,8 @@
-/// <copyright>
-/// 版本所有 (C) 2006-2007 北京迈思威尔信息技术有限公司
-/// </copyright>
+//------------------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="Everwis">
+//     Copyright (C) Everwis Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
 
 using System.Reflection;
 

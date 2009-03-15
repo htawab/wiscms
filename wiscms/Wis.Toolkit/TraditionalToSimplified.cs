@@ -1,4 +1,8 @@
-﻿
+﻿//------------------------------------------------------------------------------
+// <copyright file="TraditionalToSimplified.cs" company="Everwis">
+//     Copyright (C) Everwis Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
 
 using System.Text;
 using System.Runtime.InteropServices;
@@ -6,7 +10,7 @@ using System.Runtime.InteropServices;
 namespace Wis.Toolkit
 {
     /// <summary>
-    /// 繁简体转换。
+    /// 繁简体转换。
     /// </summary>
     public sealed class TraditionalToSimplified
     {
@@ -16,7 +20,7 @@ namespace Wis.Toolkit
         public static extern int LCMapString(int Locale, int dwMapFlags, byte[] lpSrcStr, int cchSrc, byte[] lpDestStr, int cchDest);
 
         /// <summary>
-        /// 繁体转换简体
+        /// 繁体转换简体
         /// </summary>
         /// <param name="str">简体</param>
         /// <param name="c" >转换类型</param>
@@ -33,7 +37,7 @@ namespace Wis.Toolkit
 
 
         /// <summary>
-        /// 繁简体转换
+        /// 繁简体转换
         /// </summary>
         /// <param name="str">简体</param>
         /// <param name="c" >转换类型</param>

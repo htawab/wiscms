@@ -1,5 +1,5 @@
 ﻿//------------------------------------------------------------------------------
-// <copyright file="Formats.cs" company="Everwis">
+// <copyright file="ServerSessionManager.cs" company="Everwis">
 //     Copyright (C) Everwis Corporation.  All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ namespace Wis.Toolkit
         private static System.Collections.SortedList activeSessions = new System.Collections.SortedList();
 
         /// <summary>
-        /// 写 Session 值。
+        /// 写 Session 值。
         /// </summary>
         /// <param sessionName="sessionName">项</param>
         /// <param sessionName="sessionValue">值</param>
@@ -26,7 +26,7 @@ namespace Wis.Toolkit
         }
 
         /// <summary>
-        /// 获得 Session 值
+        /// 获得 Session 值
         /// </summary>
         /// <param sessionName="sessionName">项</param>
         /// <returns>值</returns>
@@ -38,6 +38,10 @@ namespace Wis.Toolkit
             }
         }
 
+        /// <summary>
+        /// 移除 Session
+        /// </summary>
+        /// <param name="sessionName"></param>
         public static void Remove(string sessionName)
         {
             lock (typeof(ServerSessionManager))

@@ -32,67 +32,13 @@ namespace Wis.Website.Web.Backend {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkCategory;
         
         /// <summary>
-        /// Video 控件。
+        /// VideoFile 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Wis.Toolkit.WebControls.FileUploads.DJFileUpload Video;
-        
-        /// <summary>
-        /// SourceImage 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.FileUploads.DJFileUpload SourceImage;
-        
-        /// <summary>
-        /// DJAccessibleProgrssBar1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wis.Toolkit.WebControls.FileUploads.DJAccessibleProgressBar DJAccessibleProgrssBar1;
-        
-        /// <summary>
-        /// PointX 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField PointX;
-        
-        /// <summary>
-        /// PointY 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField PointY;
-        
-        /// <summary>
-        /// CropperWidth 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField CropperWidth;
-        
-        /// <summary>
-        /// CropperHeight 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField CropperHeight;
+        protected global::Wis.Toolkit.WebControls.FileUploads.DJFileUpload VideoFile;
         
         /// <summary>
         /// DJUploadController1 控件。
@@ -102,6 +48,15 @@ namespace Wis.Website.Web.Backend {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::Wis.Toolkit.WebControls.FileUploads.DJUploadController DJUploadController1;
+        
+        /// <summary>
+        /// DJAccessibleProgrssBar1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Wis.Toolkit.WebControls.FileUploads.DJAccessibleProgressBar DJAccessibleProgrssBar1;
         
         /// <summary>
         /// Warning 控件。

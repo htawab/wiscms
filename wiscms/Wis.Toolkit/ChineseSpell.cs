@@ -1,4 +1,10 @@
-﻿using System;
+﻿//------------------------------------------------------------------------------
+// <copyright file="ChineseSpell.cs" company="Everwis">
+//     Copyright (C) Everwis Corporation.  All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
