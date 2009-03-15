@@ -32,6 +32,7 @@ namespace Wis.Website.Web.Backend
         {
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
+            //requestArticleGuid = "475bb37b-4f83-4eee-bdd0-0534797ddd47";
             if (string.IsNullOrEmpty(requestArticleGuid) || !Wis.Toolkit.Validator.IsGuid(requestArticleGuid))
             {
                 Warning.InnerHtml = "不正确的文章编号，请<a href='ArticleSelectCategory.aspx'>点击这里</a>重新操作";

@@ -42,6 +42,11 @@ namespace Wis.Website.DataManager
         /// </summary>
         public const string CategoryRank = "CategoryRank";
         /// <summary>
+        /// 分类下的记录数。
+        /// </summary>
+        public const string RecordCount = "RecordCount";
+        
+        /// <summary>
         /// 内容类型
         /// </summary>
         public const string ArticleType = "ArticleType";

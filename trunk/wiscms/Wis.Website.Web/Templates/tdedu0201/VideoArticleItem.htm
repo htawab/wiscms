@@ -23,7 +23,7 @@
             </div>
             <ul>
                 <li class="left"></li>
-                <li><a href="index.html" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/Default.htm" title="首页">首页</a></li><li class="sep">|</li>
                 <li><a href="jydtList.html" title="ss">教育动态</a></li><li class="sep">|</li>
                 <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
                 <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
@@ -39,7 +39,7 @@
     </div>
     <div class="main">
         <div class="left mgnBot" id="left">
-            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;$CategoryManager.GetSiteMapPath(ReleaseDirectory, VideoArticleCategory.CategoryGuid, " >> ")$</div>
+            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;$CategoryManager.GetSiteMapPath(ReleaseDirectory, VideoArticle.Article.Category.CategoryGuid, " >> ")$</div>
             <h1><tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$VideoArticle.Article.Title$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$VideoArticle.Article.Title$</font></tpl:if></h1>
             <tpl:if test="$IsNotEmpty(VideoArticle.Article.SubTitle)$"><h2>$VideoArticle.Article.SubTitle$</h2></tpl:if>
             <div class="h1bot">
@@ -149,7 +149,7 @@
                 <select name="">
                     <option>办事处名称1</option>
                 </select><span class="red">（填写说明1）</span><br />
-                <img src="images/areaschbtn.gif" width="56" height="21" class="btn" />
+                <img src="$TemplateDirectory$/images/areaschbtn.gif" width="56" height="21" class="btn" />
             </div>
             <div class="outbox height4">
                 <div class="cap">
@@ -170,7 +170,7 @@
                 </ul>
             </div>
             <div class="tdjy mgnBot">
-                <img src="images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+                <img src="$TemplateDirectory$/images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
                 <div class="line1">
                     <div>
                         《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
@@ -194,15 +194,15 @@
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                         </tr>
                         <tr>
@@ -219,67 +219,15 @@
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                        </tr>
-                    </table>
-                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                            <td>
-                                <a href="#">《豆儿》系列：泡妹妹</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
-                            </td>
-                            <td>
-                                <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                         </tr>
                         <tr>
@@ -298,15 +246,15 @@
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                         </tr>
                         <tr>
@@ -323,15 +271,67 @@
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                             <td>
                                 <a href="#">
-                                    <img src="images/picNews1.gif" height="74" width="93" /></a>
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="3">
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                            <td>
+                                <a href="#">《豆儿》系列：泡妹妹</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a>
                             </td>
                         </tr>
                         <tr>
@@ -372,7 +372,7 @@
             </div>
             <div class="recLink">
                 <a href="#" title="recommendLink">
-                    <img src="images/recommendLink.gif" width="322" height="62" /></a></div>
+                    <img src="$TemplateDirectory$/images/recommendLink.gif" width="322" height="62" /></a></div>
         </div>
 
         <script src="js/fixHeight.js" type="text/javascript" language="javascript"></script>
@@ -384,49 +384,49 @@
         <div class="cap">
             学校链接</div>
         <a href="#" title="#">
-            <img src="images/link.gif" /></a> <a href="#" title="#">
-                <img src="images/link.gif" /></a> <a href="#" title="#">
-                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <a href="#" title="#">
-            <img src="images/link.gif" /></a> <a href="#" title="#">
-                <img src="images/link.gif" /></a> <a href="#" title="#">
-                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <a href="#" title="#">
-            <img src="images/link.gif" /></a> <a href="#" title="#">
-                <img src="images/link.gif" /></a> <a href="#" title="#">
-                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                        <img src="images/link.gif" /></a> <a href="#" title="#">
-                                            <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                                                        <img src="images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <a href="#" title="#">
-            <img src="images/link.gif" /></a> <a href="#" title="#">
-                <img src="images/link.gif" /></a> <a href="#" title="#">
-                    <img src="images/link.gif" /></a> <a href="#" title="#">
-                        <img src="images/link.gif" /></a>
+            <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="$TemplateDirectory$/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="$TemplateDirectory$/images/link.gif" /></a>
         <div class="clear">
         </div>
     </div>

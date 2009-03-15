@@ -209,6 +209,7 @@ namespace Wis.Website.DataManager
                 article.Category.CategoryName = Convert.ToString(dataReader["CategoryName"]);
                 article.Category.ParentGuid = (Guid)dataReader["ParentGuid"];
                 article.Category.Rank = Convert.ToInt32(dataReader["Rank"]);
+                article.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
@@ -310,6 +311,7 @@ namespace Wis.Website.DataManager
                 article.Category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 article.Category.ParentCategoryName = (string)dataReader[CategoryField.ParentCategoryName];
                 article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                article.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
@@ -372,14 +374,14 @@ namespace Wis.Website.DataManager
                 article.Category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 article.Category.ParentCategoryName = (string)dataReader[CategoryField.ParentCategoryName];
                 article.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                article.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
+
                 article.Category.ArticleType = (byte)dataReader[CategoryField.ArticleType];
                 if (dataReader[CategoryField.ThumbnailWidth] != DBNull.Value)
                     article.Category.ThumbnailWidth = Convert.ToInt32(dataReader[CategoryField.ThumbnailWidth]);
                 if (dataReader[CategoryField.ThumbnailHeight] != DBNull.Value)
                     article.Category.ThumbnailHeight = Convert.ToInt32(dataReader[CategoryField.ThumbnailHeight]);
                 
-                article.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
-
                 if (dataReader["MetaKeywords"] != DBNull.Value)
                     article.MetaKeywords = Convert.ToString(dataReader["MetaKeywords"]);
 
