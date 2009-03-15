@@ -5,6 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+iframe {min-height:500px; height:500px;}
+</style>
 <script language=javascript>
 //    var menuid = "menuid1";
 //    function selectmenu(obj) {
@@ -32,66 +36,37 @@
  </div>
 </div>
 <div class="menu">
-  <ul>
-   <li class="nav_on" id ="menuid1"><a href="#" class="menu1" onclick="selectmenu('menuid1')">首页</a></li>
-   <li id="menuid3"><a href="Article/ArticleMenu.aspx" onclick="selectmenu('menuid3')" target="menu" class="menu2">内容管理</a></li>
-   <li id="menuid4"><a href="#" onclick="selectmenu('menuid4')" class="menu3">用户管理</a></li>
-   <li id="menuid5"><a href="SystemManage/SystemMenu.aspx"  target="menu"  onclick="selectmenu('menuid5')" class="menu3">系统配置</a></li>
-   <li id="menuid6"><a href="#" onclick="selectmenu('menuid6')" class="menu3">日志管理</a></li>
+  <ul id="topMenu">
+   <li id ="menuid1"class="nav_on"  onclick="thisOn(this);"><a href="leftMenu1.htm" target="menu" class="menu1">我的博客</a></li>
+   <li onclick="thisOn(this);" id="menuid3"><a href="leftMenu2.htm" target="menu" class="menu2">内容管理</a></li>
+   <li onclick="thisOn(this);" id="menuid4"><a href="#" onclick="selectmenu('menuid4')" class="menu3">系统管理</a></li>
+   <li onclick="thisOn(this);" id="menuid5"><a href="SystemManage/SystemMenu.aspx"  target="menu"  onclick="selectmenu('menuid5')" class="menu3">系统配置</a></li>
+   <li onclick="thisOn(this);" id="menuid6"><a href="#" onclick="selectmenu('menuid6')" class="menu3">日志管理</a></li>
   </ul>
 </div>
+<script>
+
+function thisOn (iObj) {
+var aaa = document.getElementById("topMenu").getElementsByTagName("li");
+for (var i=0; i<aaa.length; i++) {
+aaa[i].className="";
+}
+
+iObj.className="nav_on";
+}
+</script>
 <div class="main">
         <table cellpadding="0"  cellspacing="0" width="100%">
             <tr>
                 <td width="172px" valign="top"  >
-                    <iframe frameborder="0" width="172px"  src="Article/ArticleMenu.aspx" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight); height:660px;"  scrolling="no"></iframe>
+                    <iframe frameborder="0" width="172px"  src="leftMenu1.htm" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight); height:660px;"  scrolling="no"></iframe>
                 </td>
-                <td    valign="top">
-                    <iframe frameborder="0" width="100%"  src="ArticleList.aspx"  name="main"  style=" border:1px solid #9fb5d2; width:99%;" id="oIframe" scrolling="no"></iframe>
+                <td valign="top">
+                    <iframe frameborder="0" width="100%"  src="openBlog.htm"  name="main"  style=" border:1px solid #9fb5d2; width:99%;" id="oIframe" scrolling="no"></iframe>
                 </td>
             </tr>
-        </table> <div class="clear"></div>
+        </table><div class="clear"></div>
 </div>
 <div class="bottom">Copyright©2002-2008 EVERWIS Inc. All Rights Reserved <a href="http://www.everwis.com" title="北京东方常智科技有限公司" target="_blank">北京东方常智科技有限公司</a>版权所有 【本系统适用于1024*768及以上分辨率】</div>
 </body>
-
-<script type="text/javascript" language="javascript">
-function setIFrameHeight(_iframeId)
-{    
-    if (window.addEventListener) //firefox
-     {          
-        var _action=function()
-         {       
-            var _iframe=document.getElementById(_iframeId);
-            alert(_iframe);
-            if (!_iframe) return;
-             _iframe.height=_iframe.contentDocument.body.scrollHeight;
-             _iframe.onload=function()
-             {
-                this.height=this.contentDocument.body.offsetHeight+16;
-             }
-         }
-         window.addEventListener("load", _action, false);
-     }
-    else if (window.attachEvent) //IE
-     {
-        var _action=function()
-         {        
-            if (!document.getElementById(_iframeId)) return;
-             document.getElementById(_iframeId).height=document.frames[_iframeId].document.body.scrollHeight;
-             document.getElementById(_iframeId).onreadystatechange=function()
-             {
-                if (this.readyState=="complete")
-                 {
-                    this.height=document.frames[_iframeId].document.body.scrollHeight;
-                 }
-             }
-         }
-         window.attachEvent("onload", _action);
-     }
-}
-
-
-setIFrameHeight("oIframe");
-</script>
 </html>

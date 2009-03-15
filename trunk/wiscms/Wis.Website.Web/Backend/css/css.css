@@ -359,13 +359,11 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 .UserListBox ul {}
 .UserListBox ul li {}
-.UserListBox ul li.a {width:112px;}
+.UserListBox ul li.a {width:135px;}
 .UserListBox ul li.b {width:90px;}
-.UserListBox ul li.c {width:60px;}
+.UserListBox ul li.c {width:90px;}
 .UserListBox ul li.d {width:120px;}
-.UserListBox ul li.d1 {width:125px;}
-.UserListBox ul li.e {width:110px;}
-.UserListBox ul li.f {}
+.UserListBox ul li.e {}
 .UserListBox ul li span.online {padding-left:12px; display:inline-block; background:url(../images/online_icon.gif) left center no-repeat; *background:url(../images/online_icon.gif) left 3px no-repeat;}
 .UserListBox ul li span.offline {padding-left:12px; display:inline-block; background:url(../images/offline_icon.gif) left center no-repeat; *background:url(../images/offline_icon.gif) left 3px no-repeat;}
 
@@ -384,6 +382,12 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .userEdit span.moreInfo {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo2.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
 .userEdit span.moreInfo2 {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
 
+.userEdit ul {float:none; border:0;}
+.userEdit ul.top { border:0; }
+.userEdit ul.top li {border-bottom:solid 1px #ccc;}
+.userEdit ul li {float:none; border:0; height:26px; line-height:26px; padding-top:1px;}
+.userEdit ul li span {display:inline-block; width:120px; margin-left:12px;}
+
 
 /* 权限列表 */
 
@@ -398,10 +402,9 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .roleListBox ul li.d {width:100px;}
 
 /* 用户组管理 */
-.groupListBox ul li.a {width:103px;}
+.groupListBox ul li.a {width:140px;}
 .groupListBox ul li.b {width:290px;}
-.groupListBox ul li.c {width:80px;}
-.groupListBox ul li.d {width:110px;}
+.groupListBox ul li.c {width:120px;}
 
 
 /* 新闻列表 */
@@ -417,18 +420,18 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 
 /* 博客分类 */
-.blogList li.li1 {width:150px;}
-.blogList li.li2 {width:40px;}
+.blogList li.li1 {width:200px;}
+.blogList li.li2 {width:80px;}
 .blogList li.li3 {width:25px; border-left:0; text-indent:0;}
 
 /* 博客管理 */
 .blogManageList {}
-.blogManageList li.a {width:255px;}
-.blogManageList li.b {width:150px;}
+.blogManageList li.a {width:120px;}
+.blogManageList li.b {width:255px;}
 .blogManageList li.c {width:110px;}
-.blogManageList li.d {width:60px;}
-.blogManageList li.e {width:45px; border-left:0;}
-.blogManageList li.f {}
+.blogManageList li.d {width:80px;}
+.blogManageList li.e {width:45px;}
+
 
 /* 开通博客 */
 .openBlog {}
@@ -448,8 +451,9 @@ div.blgInfo div.clear {border:0; margin:0; padding:0; font-size:0;}
 
 /* 博客链接管理 */
 .blogLinkList li.li1 {width:190px;}
-.blogLinkList li.li2 {width:320px;}
-.blogLinkList li.li3 {}
+.blogLinkList li.li2 {width:340px;}
+.blogLinkList li.li3 {width:120px;}
+.blogLinkList li img {border:0;}
 
 /* 博客文章管理 */
 .blogArticleList li.a {width:345px;}
