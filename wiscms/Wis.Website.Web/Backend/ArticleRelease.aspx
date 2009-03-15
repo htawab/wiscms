@@ -9,10 +9,6 @@
     <script src="Article/wis.js" language="javascript" type="text/javascript"></script>
     <script type="text/javascript" language="javascript">
         function Check() {
-//            if ($("Photo$ctl03").value == "") {
-//                alert("请先浏览图片");
-//                return false;
-//            }
             $("Loading").style.display = "";
             return true;
         }
@@ -50,7 +46,7 @@
             <div class="clear"></div>
         </div>
         <div id="Warning" runat="server"></div>
-        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 上传中...</div>
+        <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 生成静态页中...</div>
         <div class="add_button">
             <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" onclick="ImageButtonNext_Click" OnClientClick="javascript:return Check();" />
         </div>

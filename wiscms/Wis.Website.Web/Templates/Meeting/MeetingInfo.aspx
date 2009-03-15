@@ -20,7 +20,7 @@
             </div>
             <ul>
                 <li class="left"></li>
-                <li><a href="index.html" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/Default.htm" title="首页">首页</a></li><li class="sep">|</li>
                 <li><a href="jydtList.html" >教育动态</a></li><li class="sep">|</li>
                 <li><a href="#" >教学研究</a></li><li class="sep">|</li>
                 <li><a href="#" >会议资源</a></li><li class="sep">|</li>

@@ -115,6 +115,7 @@ namespace Wis.Website.DataManager
                 videoArticle.Article.Category.CategoryName = Convert.ToString(dataReader[ViewVideoArticleField.CategoryName]);
                 videoArticle.Article.Category.ParentGuid = (Guid)dataReader[ViewVideoArticleField.ParentGuid];
                 videoArticle.Article.Category.Rank = Convert.ToInt32(dataReader[ViewVideoArticleField.CategoryRank]);
+                videoArticle.Article.Category.RecordCount = (int)dataReader[ViewVideoArticleField.RecordCount];
 
                 if (dataReader[ViewVideoArticleField.MetaKeywords] != DBNull.Value)
                     videoArticle.Article.MetaKeywords = Convert.ToString(dataReader[ViewVideoArticleField.MetaKeywords]);
@@ -187,6 +188,7 @@ namespace Wis.Website.DataManager
                 videoArticle.Article.Category.CategoryName = Convert.ToString(dataReader[ViewVideoArticleField.CategoryName]);
                 videoArticle.Article.Category.ParentGuid = (Guid)dataReader[ViewVideoArticleField.ParentGuid];
                 videoArticle.Article.Category.Rank = Convert.ToInt32(dataReader[ViewVideoArticleField.CategoryRank]);
+                videoArticle.Article.Category.RecordCount = (int)dataReader[ViewVideoArticleField.RecordCount];
 
                 if (dataReader[ViewVideoArticleField.MetaKeywords] != DBNull.Value)
                     videoArticle.Article.MetaKeywords = Convert.ToString(dataReader[ViewVideoArticleField.MetaKeywords]);

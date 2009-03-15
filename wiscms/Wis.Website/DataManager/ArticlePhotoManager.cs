@@ -95,6 +95,7 @@ namespace Wis.Website.DataManager
                 articlePhoto.Category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 articlePhoto.Category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 articlePhoto.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                articlePhoto.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 if (dataReader[ArticleField.MetaKeywords] != DBNull.Value)
                     articlePhoto.MetaKeywords = Convert.ToString(dataReader[ArticleField.MetaKeywords]);
@@ -180,6 +181,7 @@ namespace Wis.Website.DataManager
                 articlePhoto.Category.CategoryName = Convert.ToString(dataReader[CategoryField.CategoryName]);
                 articlePhoto.Category.ParentGuid = (Guid)dataReader[CategoryField.ParentGuid];
                 articlePhoto.Category.Rank = Convert.ToInt32(dataReader[CategoryField.Rank]);
+                articlePhoto.Category.RecordCount = (int)dataReader[CategoryField.RecordCount];
 
                 if (dataReader[ArticleField.MetaKeywords] != DBNull.Value)
                     articlePhoto.MetaKeywords = Convert.ToString(dataReader[ArticleField.MetaKeywords]);

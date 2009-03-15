@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>$CategoryManager.GetPageTitle(Category.CategoryGuid, " - ")$ - 鞍山市铁东区教育局</title>
+    <title>$CategoryManager.GetPageTitle(ArticleCategory.CategoryGuid, " - ")$ - 鞍山市铁东区教育局</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
 </head>
@@ -37,14 +37,14 @@
     </div>
     <div class="main">
         <div class="left listtab">
-            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
-            <tpl:if test="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid).Count IsNot 0$"><ul class="tab" id="myTabA">
-                <tpl:foreach collection="$CategoryManager.GetSubCategorysByParentGuid(Category.ParentGuid)$" var="SubCategory"><li<tpl:if test="$Equals(SubCategory.CategoryGuid, Category.CategoryGuid)$"> class="active"</tpl:if>><a href="$ReleaseDirectory$/$SubCategory.CategoryId$/1.htm">$SubCategory.CategoryName$</a></li>
+            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, ArticleCategory.CategoryGuid, " >> ")$</div>
+            <tpl:if test="$CategoryManager.GetSubCategorysByParentGuid(ArticleCategory.ParentGuid).Count IsNot 0$"><ul class="tab" id="myTabA">
+                <tpl:foreach collection="$CategoryManager.GetSubCategorysByParentGuid(ArticleCategory.ParentGuid)$" var="SubCategory"><li<tpl:if test="$Equals(SubCategory.CategoryGuid, ArticleCategory.CategoryGuid)$"> class="active"</tpl:if>><a href="$ReleaseDirectory$/$SubCategory.CategoryId$/1.htm">$SubCategory.CategoryName$</a></li>
             </tpl:foreach></ul>
             </tpl:if><div class="clear">
             </div>
             <ul class="list">
-                <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryGuid(Category.CategoryGuid, PageIndex, PageSize)$" var="Article">
+                <tpl:foreach collection="$ArticleManager.GetArticlesByCategoryGuid(ArticleCategory.CategoryGuid, PageIndex, PageSize)$" var="Article">
                 <li><span class="time">$Article.DateCreated$</span><a href="$ReleaseDirectory$/$Article.Category.CategoryId$/$Article.DateCreated.Year$-$Article.DateCreated.Month$-$Article.DateCreated.Day$/$Article.ArticleId$.htm" target="_blank" title="$Article.Title$(<strong>$Article.Hits$</strong>阅 <strong>$Article.Comments$</strong>评)">$Formats.TruncateString(Article.Title, 35)$</a></li></tpl:foreach>
             </ul>
             <div class="page">$Pager$</div>
