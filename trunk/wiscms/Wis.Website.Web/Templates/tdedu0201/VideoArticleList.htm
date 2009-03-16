@@ -9,6 +9,7 @@
     <title></title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
+    <script language="javascript" src="$TemplateDirectory$/js/w.js"></script>
 </head>
 <body>
     <div class="header">
@@ -36,7 +37,7 @@
         </div>
     </div>
     <div class="main">
-        <div class="left listtab">
+        <div class="left listtab videoList1_l" id="left">
             <div class="position">当前位置：<a href="$ReleaseDirectory$/Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, VideoArticleCategory.CategoryGuid, " >> ")$</div>
             <div class="clear">
             </div>
@@ -57,7 +58,7 @@
                 <div class="page">$Pager$</div>
             </div>
         </div>
-        <div class="right">
+        <div class="right videoList1_r" id="right">
             <div class="sysLink mgnBot">
                 <a href="#" title="信息化设备管理">信息化设备管理</a><a href="#" title="信息化教学备案">信息化教学备案</a><a
                     href="#" title="人事管理系统">人事管理系统</a><a href="#" title="学籍管理系统">学籍管理系统</a><a href="#"
