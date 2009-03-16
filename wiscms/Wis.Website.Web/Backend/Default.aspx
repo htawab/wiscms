@@ -37,11 +37,11 @@ iframe {min-height:500px; height:500px;}
 </div>
 <div class="menu">
   <ul id="topMenu">
-   <li id ="menuid1"class="nav_on"  onclick="thisOn(this);"><a href="leftMenu1.htm" target="menu" class="menu1">我的博客</a></li>
+   <li class="nav_on"  onclick="thisOn(this);"><a href="leftMenu1.htm" target="menu" class="menu1">我的博客</a></li>
    <li onclick="thisOn(this);" id="menuid3"><a href="leftMenu2.htm" target="menu" class="menu2">内容管理</a></li>
-   <li onclick="thisOn(this);" id="menuid4"><a href="#" onclick="selectmenu('menuid4')" class="menu3">系统管理</a></li>
-   <li onclick="thisOn(this);" id="menuid5"><a href="SystemManage/SystemMenu.aspx"  target="menu"  onclick="selectmenu('menuid5')" class="menu3">系统配置</a></li>
-   <li onclick="thisOn(this);" id="menuid6"><a href="#" onclick="selectmenu('menuid6')" class="menu3">日志管理</a></li>
+   <li onclick="thisOn(this);" id="menuid4"><a href="leftMenu3.htm" target="menu" class="menu3">系统管理</a></li>
+   
+   
   </ul>
 </div>
 <script>
