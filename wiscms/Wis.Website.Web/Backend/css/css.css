@@ -603,7 +603,7 @@ a.addFiles {border:solid 1px #a3b5cd; font-family:宋体; height:22px; padding:3
 .add_main ul {float:left; border-left:0; background:#f5f5fe;}
 .add_main ul.top {border-top:solid 1px #ccc; margin-top:4px;}
 .add_main ul li {float:left; text-indent:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:22px; line-height:22px; border:solid 1px #ccc; border-top:0; border-left:0;}
-.add_main ul li.step4_li1 {width:210px;}
+.add_main ul li.step4_li1 {width:190px;}
 .add_main ul li.step4_li2 {width:220px;}
 .add_main ul li.step4_li3 {width:300px;}
 .add_main ul li.step4_li4 {width:32px; border-left:solid 1px #ccc;}
