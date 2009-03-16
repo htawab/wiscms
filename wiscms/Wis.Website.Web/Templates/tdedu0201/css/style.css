@@ -135,6 +135,9 @@ div.lineIn a:hover {color:#f11;}
 span.gdh {color:#8c7373; font-weight:bold; letter-spacing:0; margin:0 0 0 10px;}
 input.inputTxt { border:1px solid #c4dbfa; margin:8px 0 1px 5px;}
 input.tsBtn {width:56px; height:21px; background:url(../images/subBtn.gif) no-repeat; border:0; margin:8px 0 0 5px;}
+input.tsBtn2 {height:21px; line-height:21px; border:solid 1px #ccc; background:#f44; padding:0 3px; margin:8px 0 0 5px; color:#fff; cursor:pointer;}
+
+
 
 /* 软件下载 */
 .softdown ul li {width:133px; height:18px;  float:left; padding-left:24px; padding-top:6px; background:url(../images/down1.gif) 3px 3px no-repeat;}
