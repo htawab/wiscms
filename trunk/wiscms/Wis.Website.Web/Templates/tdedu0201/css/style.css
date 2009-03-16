@@ -377,6 +377,8 @@ a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; backgr
 .videoSummary {margin:6px 14px; border-top:1px solid #dce1e5; border-bottom:1px solid #dce1e5; background:#f7fcff; line-height:1.8em; font-size:14px; text-indent:1.5em; padding:3px;}
 /* 视频新闻列表 */
 .videoList1 {}
+div.main div.videoList1_l {height:auto; margin-bottom:3px;}
+div.main div.videoList1_r {background-position:0 -848px;}
 .videoList1 dl {padding-left:20px;}
 .videoList1 dl dt {float:left; height:80px; margin-top:5px; padding-right:5px; line-height:80px; border-bottom:solid 1px #ddd;}
 .videoList1 dl dd {float:left; height:80px; width:525px; margin-top:5px; border-bottom:solid 1px #ddd; position:relative;}
