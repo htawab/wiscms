@@ -576,11 +576,16 @@ namespace Wis.Website.DataManager
             return DbProviderHelper.ExecuteNonQuery(command);
         }
 
-        public int Remove(int ArticleId)
+        /// <summary>
+        /// 移除文章以及文章的附属信息。
+        /// </summary>
+        /// <param name="articleGuid">文章编号</param>
+        /// <returns>返回受影响的记录数</returns>
+        public int Remove(Guid articleGuid)
         {
-            DbCommand oDbCommand = DbProviderHelper.CreateCommand("DELETEArticle", CommandType.StoredProcedure);
-            oDbCommand.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleId", DbType.Int32, ArticleId));
-            return DbProviderHelper.ExecuteNonQuery(oDbCommand);
+            DbCommand command = DbProviderHelper.CreateCommand("DeleteArticle", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@ArticleGuid", DbType.Guid, articleGuid));
+            return DbProviderHelper.ExecuteNonQuery(command);
         }
     }
 }

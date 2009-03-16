@@ -29,6 +29,7 @@
             <HeaderTemplate>
                 <ul class="top">
                     <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li4">编号</li>
                     <li class="step4_li1">标题</li>
                     <li class="step4_li2">模板路径</li>
                     <li class="step4_li3">发布路径</li>
@@ -37,6 +38,7 @@
             <ItemTemplate>
                 <ul>
                     <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li4"><%# DataBinder.Eval(Container.DataItem, "ReleaseId")%></li>
                     <li class="step4_li1" title="<%# DataBinder.Eval(Container.DataItem, "Title")%>"><%# DataBinder.Eval(Container.DataItem, "Title")%></li>
                     <li class="step4_li2" title="<%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%>"><%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%></li>
                     <li class="step4_li3" title="<%# DataBinder.Eval(Container.DataItem, "ReleasePath")%>"><%# DataBinder.Eval(Container.DataItem, "ReleasePath")%></li>

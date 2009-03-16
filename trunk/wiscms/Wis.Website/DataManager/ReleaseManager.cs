@@ -218,6 +218,15 @@ namespace Wis.Website.DataManager
             return GetReleases(dataReader);
         }
 
+        public List<Release> GetReleasesByCategoryGuid(Guid categoryGuid, TemplateType templateType)
+        {
+            DbCommand command = DbProviderHelper.CreateCommand("SelectReleasesByCategoryGuidAndTemplateType", CommandType.StoredProcedure);
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, categoryGuid));
+            command.Parameters.Add(DbProviderHelper.CreateParameter("@TemplateType", DbType.String, templateType.ToString()));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetReleases(dataReader);
+        }
+
         /// <summary>
         /// 获取发布对象集合。
         /// </summary>
@@ -290,6 +299,106 @@ namespace Wis.Website.DataManager
 
 #warning 发布文章，完善功能
         #region 发布普通文章
+        public void ReleasingArticle(Article article)
+        {
+            // 1 发布 Article 页面，根据分类编号找 Item 的模版
+            // 2 发布 Category 页面，根据分类编号找List或Index的模版
+            List<Release> releases = GetReleasesByCategoryGuid(article.Category.CategoryGuid);
+            foreach (Release release in releases)
+            {
+                switch (release.Template.TemplateType)
+                {
+                    case TemplateType.ArticleIndex: // 视频文章索引页
+                        ReleasingArticleIndex(article.Category, release);
+                        break;
+                    case TemplateType.ArticleList: // 视频文章列表页，带分页
+                        ReleasingArticleList(article.Category, release);
+                        break;
+                    case TemplateType.ArticleItem:// 视频文章详细页
+                        ReleasingArticleItem(article, release);
+                        break;
+                    default:
+                        throw new System.ArgumentException("TemplateType");
+                }
+            }
+
+            // 3 发布被引用的页面
+            ReleasingRelatedReleases(article.Category.CategoryGuid);
+        }
+
+        public void ReleasingRemovedArticle(Article article)
+        {
+            // 1 发布 Article 页面，根据分类编号找 Item 的模版
+            // 2 发布 Category 页面，根据分类编号找List或Index的模版
+            List<Release> releases = GetReleasesByCategoryGuid(article.Category.CategoryGuid);
+            foreach (Release release in releases)
+            {
+                switch (release.Template.TemplateType)
+                {
+                    case TemplateType.ArticleIndex: // 视频文章索引页
+                        ReleasingArticleIndex(article.Category, release);
+                        break;
+                    case TemplateType.ArticleList: // 视频文章列表页，带分页
+                        ReleasingArticleList(article.Category, release);
+                        break;
+                    case TemplateType.ArticleItem:// 移除文章详细页
+                        // 处理 Release
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ReleaseDirectory\}", this.ReleaseDirectory, RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{CategoryId\}", article.Category.CategoryId.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Year\}", article.DateCreated.Year.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Month\}", article.DateCreated.Month.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Day\}", article.DateCreated.Day.ToString(), RegexOptions.IgnoreCase);
+
+                        // 生成静态页
+#warning 按照 ContentHtml 长度，删除多页，需要测试
+                        string pagerSeparator = "<!--Article.ContentHtml.Pager-->";
+                        if (article.ContentHtml.IndexOf(pagerSeparator) > -1) // 含有分页
+                        {
+                            string[] contentHtmls = article.ContentHtml.Split(pagerSeparator.ToCharArray());
+                            for (int index = 0; index < contentHtmls.Length; index++)
+                            {
+                                string replacedArticleId = string.Format("{0}/{1}", article.ArticleId, (index + 1));
+                                release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+
+                                // 删除文章静态页
+                                release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                                if (System.IO.File.Exists(release.ReleasePath))
+                                    System.IO.File.Delete(release.ReleasePath);
+                            }
+                        }
+                        else
+                        {
+                            release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", article.ArticleId.ToString(), RegexOptions.IgnoreCase);
+
+                            // 删除文章静态页
+                            release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                            if (System.IO.File.Exists(release.ReleasePath))
+                                System.IO.File.Delete(release.ReleasePath);
+                        }
+                        
+                        break;
+                    default:
+                        throw new System.ArgumentException("TemplateType");
+                }
+            }
+
+            // 3 发布被引用的页面
+            ReleasingRelatedReleases(article.Category.CategoryGuid);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="article"></param>
+        public void ReleasingArticleItem(Article article)
+        {
+            List<Release> releases = GetReleasesByCategoryGuid(article.Category.CategoryGuid, TemplateType.ArticleItem);
+            foreach (Release release in releases)
+            {
+                ReleasingArticleItem(article, release);
+            }
+        }
+
         public void ReleasingArticleItem(Article article, Release articleRelease)
         {
             // 详细页：{ReleaseDirectory}/{CategoryId}/{Year}-{Month}-{Day}/{ArticleId}.htm
@@ -322,7 +431,11 @@ namespace Wis.Website.DataManager
                     article.ContentHtml = contentHtmls[index] + ReleaseTinyPager((index + 1), contentHtmls.Length);
                     templateManager.SetVariable("Article", article); // 最近更新的文章
                     string replacedArticleId = string.Format("{0}/{1}", article.ArticleId, (index + 1));
-                    articleRelease.ReleasePath = Regex.Replace(articleRelease.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+
+                    string rawReleasePath = articleRelease.ReleasePath; // 记录{ArticleId}
+                    articleRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    ReleasingStaticPage(articleRelease, templateManager);
+                    articleRelease.ReleasePath = rawReleasePath;
 
                     ReleasingStaticPage(articleRelease, templateManager);
                 }
@@ -383,8 +496,10 @@ namespace Wis.Website.DataManager
                     else
                         throw new System.ArgumentException("PagerStyle");
 
-                    articleCategoryRelease.ReleasePath = Regex.Replace(articleCategoryRelease.ReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
+                    string rawReleasePath = articleCategoryRelease.ReleasePath; // 记录{PageIndex}
+                    articleCategoryRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
                     ReleasingStaticPage(articleCategoryRelease, templateManager);
+                    articleCategoryRelease.ReleasePath = rawReleasePath;
                 }
             }
         }
@@ -414,6 +529,10 @@ namespace Wis.Website.DataManager
 #warning 发布图片文章，完善功能
         #region 发布图片文章
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="photoArticle"></param>
         public void ReleasingPhotoArticle(ArticlePhoto photoArticle)
         {
             // 1 发布 VideoArticle 页面，根据分类编号找Item的模版
@@ -441,7 +560,85 @@ namespace Wis.Website.DataManager
             ReleasingRelatedReleases(photoArticle.Category.CategoryGuid);
         }
 
-        public void ReleasingPhotoArticleItem(Article photoArticle, Release photoArticleRelease)
+        public void ReleasingRemovedPhotoArticle(ArticlePhoto photoArticle)
+        {
+            // 1 发布 PhotoArticle 页面，根据分类编号找 Item 的模版
+            // 2 发布 Category 页面，根据分类编号找List或Index的模版
+            List<Release> releases = GetReleasesByCategoryGuid(photoArticle.Category.CategoryGuid);
+            foreach (Release release in releases)
+            {
+                switch (release.Template.TemplateType)
+                {
+                    case TemplateType.PhotoArticleIndex: // 视频文章索引页
+                        ReleasingPhotoArticleIndex(photoArticle.Category, release);
+                        break;
+                    case TemplateType.PhotoArticleList: // 视频文章列表页，带分页
+                        ReleasingPhotoArticleList(photoArticle.Category, release);
+                        break;
+                    case TemplateType.PhotoArticleItem:// 移除文章详细页
+                        // 处理 Release
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ReleaseDirectory\}", this.ReleaseDirectory, RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{CategoryId\}", photoArticle.Category.CategoryId.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Year\}", photoArticle.DateCreated.Year.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Month\}", photoArticle.DateCreated.Month.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Day\}", photoArticle.DateCreated.Day.ToString(), RegexOptions.IgnoreCase);
+
+                        // 生成静态页
+#warning 按照 ContentHtml 长度，删除多页，需要测试
+                        string pagerSeparator = "<!--Article.ContentHtml.Pager-->";
+                        if (photoArticle.ContentHtml.IndexOf(pagerSeparator) > -1) // 含有分页
+                        {
+                            string[] contentHtmls = photoArticle.ContentHtml.Split(pagerSeparator.ToCharArray());
+                            for (int index = 0; index < contentHtmls.Length; index++)
+                            {
+                                string replacedArticleId = string.Format("{0}/{1}", photoArticle.ArticleId, (index + 1));
+                                release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+
+                                // 删除文章静态页
+                                release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                                if (System.IO.File.Exists(release.ReleasePath))
+                                    System.IO.File.Delete(release.ReleasePath);
+                            }
+                        }
+                        else
+                        {
+                            release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", photoArticle.ArticleId.ToString(), RegexOptions.IgnoreCase);
+
+                            // 删除文章静态页
+                            release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                            if (System.IO.File.Exists(release.ReleasePath))
+                                System.IO.File.Delete(release.ReleasePath);
+                        }
+
+                        break;
+                    default:
+                        throw new System.ArgumentException("TemplateType");
+                }
+            }
+
+            // 3 发布被引用的页面
+            ReleasingRelatedReleases(photoArticle.Category.CategoryGuid);
+        }
+
+        /// <summary>
+        /// 发布图片文章内容页。
+        /// </summary>
+        /// <param name="photoArticle">图片文章</param>
+        public void ReleasingPhotoArticleItem(ArticlePhoto photoArticle)
+        {
+            List<Release> releases = GetReleasesByCategoryGuid(photoArticle.Category.CategoryGuid, TemplateType.PhotoArticleItem);
+            foreach (Release release in releases)
+            {
+                ReleasingPhotoArticleItem(photoArticle, release);
+            }
+        }
+
+        /// <summary>
+        /// 发布图片文章内容页。
+        /// </summary>
+        /// <param name="photoArticle">图片文章</param>
+        /// <param name="photoArticleRelease">图片文章发布类</param>
+        public void ReleasingPhotoArticleItem(ArticlePhoto photoArticle, Release photoArticleRelease)
         {
             // 详细页：{ReleaseDirectory}/{CategoryId}/{Year}-{Month}-{Day}/{ArticleId}.htm
             if (photoArticleRelease.Template.TemplateType != TemplateType.PhotoArticleItem) return;
@@ -473,7 +670,11 @@ namespace Wis.Website.DataManager
                     photoArticle.ContentHtml = contentHtmls[index] + ReleaseTinyPager((index + 1), contentHtmls.Length);
                     templateManager.SetVariable("PhotoArticle", photoArticle); // 最近更新的文章
                     string replacedArticleId = string.Format("{0}/{1}", photoArticle.ArticleId, (index + 1));
-                    photoArticleRelease.ReleasePath = Regex.Replace(photoArticleRelease.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    //photoArticleRelease.ReleasePath = Regex.Replace(photoArticleRelease.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    string rawReleasePath = photoArticleRelease.ReleasePath; // 记录{ArticleId}
+                    photoArticleRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    ReleasingStaticPage(photoArticleRelease, templateManager);
+                    photoArticleRelease.ReleasePath = rawReleasePath;
 
                     ReleasingStaticPage(photoArticleRelease, templateManager);
                 }
@@ -487,6 +688,11 @@ namespace Wis.Website.DataManager
             }
         }
 
+        /// <summary>
+        /// 发布图片文章列表页。
+        /// </summary>
+        /// <param name="photoArticleCategory">图片文章的分类</param>
+        /// <param name="photoArticleCategoryRelease">图片文章的分类对应的发布对象</param>
         public void ReleasingPhotoArticleList(Category photoArticleCategory, Release photoArticleCategoryRelease)
         {
             // 列表页：{ReleaseDirectory}/{CategoryId}/{PageIndex}.htm
@@ -534,12 +740,19 @@ namespace Wis.Website.DataManager
                     else
                         throw new System.ArgumentException("PagerStyle");
 
-                    photoArticleCategoryRelease.ReleasePath = Regex.Replace(photoArticleCategoryRelease.ReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
+                    string rawReleasePath = photoArticleCategoryRelease.ReleasePath; // 记录{PageIndex}
+                    photoArticleCategoryRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
                     ReleasingStaticPage(photoArticleCategoryRelease, templateManager);
+                    photoArticleCategoryRelease.ReleasePath = rawReleasePath;
                 }
             }
         }
 
+        /// <summary>
+        /// 发布图片文章索引页。
+        /// </summary>
+        /// <param name="photoArticleCategory">图片文章的分类</param>
+        /// <param name="photoArticleCategoryRelease">图片文章的分类对应的发布对象</param>
         public void ReleasingPhotoArticleIndex(Category photoArticleCategory, Release photoArticleCategoryRelease)
         {
             // 图片文章索引页：{ReleaseDirectory}/{CategoryId}/1.htm
@@ -595,6 +808,80 @@ namespace Wis.Website.DataManager
             ReleasingRelatedReleases(videoArticle.Article.Category.CategoryGuid);
         }
 
+        public void ReleasingRemovedVideoArticle(VideoArticle videoArticle)
+        {
+            // 1 发布 VideoArticle 页面，根据分类编号找 Item 的模版
+            // 2 发布 Category 页面，根据分类编号找List或Index的模版
+            List<Release> releases = GetReleasesByCategoryGuid(videoArticle.Article.Category.CategoryGuid);
+            foreach (Release release in releases)
+            {
+                switch (release.Template.TemplateType)
+                {
+                    case TemplateType.VideoArticleIndex: // 视频文章索引页
+                        ReleasingVideoArticleIndex(videoArticle.Article.Category, release);
+                        break;
+                    case TemplateType.VideoArticleList: // 视频文章列表页，带分页
+                        ReleasingVideoArticleList(videoArticle.Article.Category, release);
+                        break;
+                    case TemplateType.VideoArticleItem:// 移除文章详细页
+                        // 处理 Release
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ReleaseDirectory\}", this.ReleaseDirectory, RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{CategoryId\}", videoArticle.Article.Category.CategoryId.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Year\}", videoArticle.Article.DateCreated.Year.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Month\}", videoArticle.Article.DateCreated.Month.ToString(), RegexOptions.IgnoreCase);
+                        release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{Day\}", videoArticle.Article.DateCreated.Day.ToString(), RegexOptions.IgnoreCase);
+
+                        // 生成静态页
+#warning 按照 ContentHtml 长度，删除多页，需要测试
+                        string pagerSeparator = "<!--Article.ContentHtml.Pager-->";
+                        if (videoArticle.Article.ContentHtml.IndexOf(pagerSeparator) > -1) // 含有分页
+                        {
+                            string[] contentHtmls = videoArticle.Article.ContentHtml.Split(pagerSeparator.ToCharArray());
+                            for (int index = 0; index < contentHtmls.Length; index++)
+                            {
+                                string replacedArticleId = string.Format("{0}/{1}", videoArticle.Article.ArticleId, (index + 1));
+                                release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+
+                                // 删除文章静态页
+                                release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                                if (System.IO.File.Exists(release.ReleasePath))
+                                    System.IO.File.Delete(release.ReleasePath);
+                            }
+                        }
+                        else
+                        {
+                            release.ReleasePath = Regex.Replace(release.ReleasePath, @"\{ArticleId\}", videoArticle.Article.ArticleId.ToString(), RegexOptions.IgnoreCase);
+
+                            // 删除文章静态页
+                            release.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(release.ReleasePath);
+                            if (System.IO.File.Exists(release.ReleasePath))
+                                System.IO.File.Delete(release.ReleasePath);
+                        }
+
+                        break;
+                    default:
+                        throw new System.ArgumentException("TemplateType");
+                }
+            }
+
+            // 3 发布被引用的页面
+            ReleasingRelatedReleases(videoArticle.Article.Category.CategoryGuid);
+        }
+
+
+        /// <summary>
+        /// 发布视频文章内容页。
+        /// </summary>
+        /// <param name="videoArticle">视频文章</param>
+        public void ReleasingVideoArticleItem(VideoArticle videoArticle)
+        {
+            List<Release> releases = GetReleasesByCategoryGuid(videoArticle.Article.Category.CategoryGuid, TemplateType.VideoArticleItem);
+            foreach (Release release in releases)
+            {
+                ReleasingVideoArticleItem(videoArticle, release);
+            }
+        }
+
         /// <summary>
         /// 发布视频文章内容页。
         /// </summary>
@@ -632,7 +919,11 @@ namespace Wis.Website.DataManager
                     videoArticle.Article.ContentHtml = contentHtmls[index] + ReleaseTinyPager((index + 1), contentHtmls.Length);
                     templateManager.SetVariable("VideoArticle", videoArticle); // 最近更新的文章
                     string replacedArticleId = string.Format("{0}/{1}", videoArticle.Article.ArticleId, (index + 1));
-                    videoArticleRelease.ReleasePath = Regex.Replace(videoArticleRelease.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    //videoArticleRelease.ReleasePath = Regex.Replace(videoArticleRelease.ReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    string rawReleasePath = videoArticleRelease.ReleasePath; // 记录{ArticleId}
+                    videoArticleRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{ArticleId\}", replacedArticleId, RegexOptions.IgnoreCase);
+                    ReleasingStaticPage(videoArticleRelease, templateManager);
+                    videoArticleRelease.ReleasePath = rawReleasePath;
 
                     ReleasingStaticPage(videoArticleRelease, templateManager);
                 }
@@ -698,8 +989,10 @@ namespace Wis.Website.DataManager
                     else
                         throw new System.ArgumentException("PagerStyle");
 
-                    videoArticleCategoryRelease.ReleasePath = Regex.Replace(videoArticleCategoryRelease.ReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
+                    string rawReleasePath = videoArticleCategoryRelease.ReleasePath; // 记录{PageIndex}
+                    videoArticleCategoryRelease.ReleasePath = Regex.Replace(rawReleasePath, @"\{PageIndex\}", pageIndex.ToString(), RegexOptions.IgnoreCase);
                     ReleasingStaticPage(videoArticleCategoryRelease, templateManager);
+                    videoArticleCategoryRelease.ReleasePath = rawReleasePath;
                 }
             }
         }
@@ -854,255 +1147,7 @@ namespace Wis.Website.DataManager
 
 #warning 发布博客，如何自定义文件名，获取完整拼音？
 
-        /// <summary>
-        /// 发布图片新闻的关联页面。
-        /// </summary>
-        /// <param name="articlePhoto"></param>
-        public void ReleasingRelatedReleasesByArticlePhoto(ArticlePhoto articlePhoto)
-        {
-            List<Release> releases = GetRelatedReleases(articlePhoto.Category.CategoryGuid);
-            if (releases.Count == 0) return;
-
-            foreach (Release release in releases)
-            {
-                // 装载模版
-                release.Template.TemplatePath = release.Template.TemplatePath.Replace("{RootPath}", this.TemplateDirectory);
-                string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.Template.TemplatePath);
-                Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
-                templateManager.SetVariable("ApplicationPath", this.ApplicationPath);
-                templateManager.SetVariable("TemplateDirectory", this.TemplateDirectory);
-                templateManager.SetVariable("ReleaseDirectory", this.ReleaseDirectory);
-
-                // 生成静态页，支持索引页比如首页、列表页、详细页、专题页
-                // 首页：  "{RootPath}/default.htm"
-                // 单页：  "{RootPath}/{PageId}.htm" 这个{PageId}是已知的
-                // 列表页："{RootPath}/{CategoryId}/{PageIndex}.htm"
-                // 图片新闻-详细页："{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
-                // 专题页："{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
-                release.ReleasePath = release.ReleasePath.Replace("{RootPath}", this.ReleaseDirectory);
-                release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", articlePhoto.Category.CategoryId.ToString());
-
-                // 分类页
-                // 处理 {PageIndex:20}
-                string pattern = @"\{PageIndex\:(?<PageSize>\d+)\}";
-                Regex reg = new Regex(pattern, RegexOptions.IgnoreCase);
-                Match match = reg.Match(release.ReleasePath);
-                if (match.Success)
-                {
-                    // 哪个分类
-                    templateManager.SetVariable("Category", articlePhoto.Category);
-
-                    // 计算一共有多少页，然后逐页生成
-                    int pageSize = 20;
-                    string groupPageSize = match.Groups[1].Value;
-                    int.TryParse(groupPageSize, out pageSize);
-                    templateManager.SetVariable("PageSize", pageSize);
-
-                    // 计算总数
-                    ArticleManager articleManager = new ArticleManager();
-                    int recordCount = (int)articleManager.CountArticlesByCategoryGuid(articlePhoto.Category.CategoryGuid);
-                    templateManager.SetVariable("RecordCount", recordCount);
-
-                    // 求页总数 pageCount
-                    int pageCount;
-                    pageCount = recordCount / pageSize;
-                    if (recordCount % pageSize != 0)
-                        pageCount += 1;
-                    templateManager.SetVariable("PageCount", pageCount);
-
-                    // 逐页生成
-                    for (int pageIndex = 1; pageIndex <= pageCount; pageIndex++)
-                    {
-                        // {RootPath}/{CategoryId}/{PageIndex}.htm
-                        templateManager.SetVariable("PageIndex", pageIndex);
-                        // 分页
-#warning ReleaseTinyPager 可以配置使用那种分页，PagerMode?
-
-                        templateManager.SetVariable("Pager", ReleaseTinyPager(pageIndex, pageCount));
-                        release.ReleasePath = Regex.Replace(release.ReleasePath, pattern, pageIndex.ToString(), RegexOptions.IgnoreCase);
-
-                        ReleasingStaticPage(release, templateManager);
-                    }
-                }
-                else
-                {
-                    if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                    {
-                        release.ReleasePath = release.ReleasePath.Replace("{Year}", articlePhoto.DateCreated.Year.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{Month}", articlePhoto.DateCreated.Month.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{Day}", articlePhoto.DateCreated.Day.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", articlePhoto.ArticleId.ToString());
-                        templateManager.SetVariable("ArticlePhoto", articlePhoto);
-                    }
-
-                    // TODO:按照 ContentHtml 长度，生成多页
-                    //if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                    //{
-                    //}
-
-                    ReleasingStaticPage(release, templateManager);
-                }
-            }
-        }
-
-
 #warning ReleaseRelation 表反映了前台网站的站点结构，可以根据Release表生成站点地图Google Sitemap和Baidu Sitemap
-
-        /// <summary>
-        /// 内容与模板没有耦合，一篇文章的详细页可以用多套模板生成，同时生成受影响的关联页面。
-        /// 1、读取分类关联的Release对象集合；
-        /// 2、是否有分页即列表页，有分页则逐页生成，没有分页即索引页、详细页、专题页，逐个生成；
-        /// </summary>
-        /// <param name="article"></param>
-        public void ReleasingRelatedReleasesByArticle(Article article)
-        {
-            // 根据分类编号获取发布编号 
-            List<Release> releases = GetRelatedReleases(article.Category.CategoryGuid);
-            if (releases.Count == 0) return;
-
-            foreach (Release release in releases)
-            {
-                // 装载模版
-                release.Template.TemplatePath = release.Template.TemplatePath.Replace("{RootPath}", this.TemplateDirectory);
-                string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.Template.TemplatePath);
-                Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
-                templateManager.SetVariable("ApplicationPath", this.ApplicationPath);
-                templateManager.SetVariable("TemplateDirectory", this.TemplateDirectory);
-                templateManager.SetVariable("ReleaseDirectory", this.ReleaseDirectory);
-
-                // 生成静态页，支持索引页比如首页、列表页、详细页、专题页
-                // 首页：  "{RootPath}/default.htm"
-                // 单页：  "{RootPath}/{PageId}.htm" 这个{PageId}是已知的
-                // 列表页："{RootPath}/{CategoryId}/{PageIndex}.htm"
-                // 详细页："{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
-                // 专题页："{RootPath}/{SpecialId}.htm" 这个{SpecialId}是已知的
-                release.ReleasePath = release.ReleasePath.Replace("{RootPath}", this.ReleaseDirectory);
-                release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
-
-                // 分类页
-                // 处理 {PageIndex:20}
-                string pattern = @"\{PageIndex\:(?<PageSize>\d+)\}";
-                Regex reg = new Regex(pattern, RegexOptions.IgnoreCase);
-                Match match = reg.Match(release.ReleasePath);
-                if (match.Success)
-                {
-                    // 哪个分类
-                    templateManager.SetVariable("Category", article.Category);
-
-                    // 计算一共有多少页，然后逐页生成
-                    int pageSize = 20;
-                    string groupPageSize = match.Groups[1].Value;
-                    int.TryParse(groupPageSize, out pageSize);
-                    templateManager.SetVariable("PageSize", pageSize);
-
-                    // 计算总数
-                    ArticleManager articleManager = new ArticleManager();
-                    int recordCount = (int)articleManager.CountArticlesByCategoryGuid(article.Category.CategoryGuid);
-                    templateManager.SetVariable("RecordCount", recordCount);
-
-                    // 求页总数 pageCount
-                    int pageCount;
-                    pageCount = recordCount / pageSize;
-                    if (recordCount % pageSize != 0)
-                        pageCount += 1;
-                    templateManager.SetVariable("PageCount", pageCount);
-
-                    // 逐页生成
-                    for (int pageIndex = 1; pageIndex <= pageCount; pageIndex++)
-                    {
-                        // {RootPath}/{CategoryId}/{PageIndex}.htm
-                        templateManager.SetVariable("PageIndex", pageIndex);
-                        // 分页
-                        templateManager.SetVariable("Pager", ReleasePager(pageIndex, recordCount, pageCount));
-                        release.ReleasePath = Regex.Replace(release.ReleasePath, pattern, pageIndex.ToString(), RegexOptions.IgnoreCase);
-
-                        ReleasingStaticPage(release, templateManager);
-                    }
-                }
-                else
-                {
-                    if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                    {
-                        release.ReleasePath = release.ReleasePath.Replace("{Year}", article.DateCreated.Year.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
-                        release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
-                        templateManager.SetVariable("Article", article);
-                    }
-
-                    // TODO:按照 ContentHtml 长度，生成多页
-                    //if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                    //{
-                    //}
-
-                    ReleasingStaticPage(release, templateManager);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 发布详细页，比如评论后需要重新生成页面。
-        /// </summary>
-        /// <param name="article">文章实体类</param>
-        public void ReleaseArticle(Article article)
-        {
-            // {RootPath}/{CategoryId}/{Year}-{Month}-{Day}/{ArticleId}.htm
-            // 1、读取发布分类关联表 RelatedRelease，读取本篇新闻对应的发布编号ReleaseGuid；
-            // 2、根据发布编号ReleaseGuid读取需要生成静态页的模板，Article实体类作为参数传入；
-            // 3、根据 {ArticleId} 读取详细页；
-
-            // 根据分类编号获取发布编号 
-            List<Release> releases = new List<Release>();
-            DbCommand command = DbProviderHelper.CreateCommand("SelectReleaseArticles", CommandType.StoredProcedure);
-            command.Parameters.Add(DbProviderHelper.CreateParameter("@CategoryGuid", DbType.Guid, article.Category.CategoryGuid));
-            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
-            while (dataReader.Read())
-            {
-                if (dataReader["ReleasePath"].ToString().IndexOf("{ArticleId}") > -1)
-                {
-                    Release release = new Release();
-                    release.ReleaseId = Convert.ToInt32(dataReader["ReleaseId"]);
-                    release.ReleaseGuid = (Guid)dataReader["ReleaseGuid"];
-                    release.Title = (string)dataReader["Title"];
-                    release.Template.TemplatePath = (string)dataReader[ViewReleaseTemplateField.TemplatePath];
-                    release.ReleasePath = (string)dataReader["ReleasePath"];
-                    release.DateReleased = (DateTime)dataReader["DateReleased"];
-                    release.ParentGuid = (Guid)dataReader["ParentGuid"];
-                    releases.Add(release);
-                }
-            }
-            dataReader.Close();
-
-            if (releases.Count == 0) return;
-            foreach (Release release in releases)
-            {
-                // 装载模版
-                release.Template.TemplatePath = release.Template.TemplatePath.Replace("{RootPath}", this.TemplateDirectory);
-                string templatePath = System.Web.HttpContext.Current.Server.MapPath(release.Template.TemplatePath);
-                Wis.Toolkit.Templates.TemplateManager templateManager = Wis.Toolkit.Templates.TemplateManager.LoadFile(templatePath, Encoding.UTF8);
-                templateManager.SetVariable("ApplicationPath", this.ApplicationPath);
-                templateManager.SetVariable("TemplateDirectory", this.TemplateDirectory);
-                templateManager.SetVariable("ReleaseDirectory", this.ReleaseDirectory);
-                templateManager.SetVariable("Article", article);
-
-                // 预处理发布路径
-                // "{RootPath}/{CategoryId}/{Month}-{Day}/{ArticleId}.htm"
-                release.ReleasePath = release.ReleasePath.Replace("{RootPath}", this.ReleaseDirectory);
-                release.ReleasePath = release.ReleasePath.Replace("{CategoryId}", article.Category.CategoryId.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Year}", article.DateCreated.Year.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Month}", article.DateCreated.Month.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{Day}", article.DateCreated.Day.ToString());
-                release.ReleasePath = release.ReleasePath.Replace("{ArticleId}", article.ArticleId.ToString());
-
-                // TODO:按照 ContentHtml 长度，生成多页
-                //if (release.ReleasePath.IndexOf("{ArticleId}") > -1) // 详细页
-                //{
-                //}
-
-                // 生成详细页的静态页
-                ReleasingStaticPage(release, templateManager);
-            }
-        }
 
         /// <summary>
         /// 发布静态页
@@ -1114,21 +1159,21 @@ namespace Wis.Website.DataManager
             lock (this)
             {
                 // 绝对路径
-                ripeRelease.ReleasePath = System.Web.HttpContext.Current.Server.MapPath(ripeRelease.ReleasePath);
+                string releasePath = System.Web.HttpContext.Current.Server.MapPath(ripeRelease.ReleasePath);
 
                 // TODO:失败了如何回滚? 将已经删除的网页恢复
-                if (System.IO.File.Exists(ripeRelease.ReleasePath))
+                if (System.IO.File.Exists(releasePath))
                 {
-                    System.IO.File.Delete(ripeRelease.ReleasePath);
+                    System.IO.File.Delete(releasePath);
                     System.Threading.Thread.Sleep(100);
                 }
 
                 // 如果目录不存在，则创建目录
-                System.IO.FileInfo fileInfo = new System.IO.FileInfo(ripeRelease.ReleasePath);
+                System.IO.FileInfo fileInfo = new System.IO.FileInfo(releasePath);
                 if (!fileInfo.Directory.Exists) fileInfo.Directory.Create();
 
                 // 生成发布
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(ripeRelease.ReleasePath, false, Encoding.UTF8))
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(releasePath, false, Encoding.UTF8))
                 {
                     sw.Write(ripeTemplateManager.Process());
                 }
