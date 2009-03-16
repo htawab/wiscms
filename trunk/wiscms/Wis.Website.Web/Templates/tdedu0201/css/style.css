@@ -394,10 +394,10 @@ div.main div.videoList1_r {background-position:0 -848px;}
 
 /* 视频新闻分类列表 */
 
-ul.video_list {padding:0; margin:0; padding-left:5px; background:#fff;}
+ul.video_list {padding:0; margin:0; padding-left:5px; background:#fff; min-height:125px; _height:125px; _overflow-x:hidden; _width:638px;}
 ul.video_list li {width:100px; height:120px; float:left; overflow:hidden; padding:0; margin:0; margin-top:5px; margin-right:6px; }
 ul.video_list li a {width:100px; display:block; float:left; white-space:normal; text-align:center;  padding:0; margin:0; margin-top:5px; padding-left:2px;}
-ul.video_list li a img {border:3px solid #dbd0d0; padding:1px; background:#eee;}
+ul.video_list li a img {border:3px solid #dbd0d0; padding:1px; background:#eee; height:66px; width:88px;}
 ul.video_list li a:hover img {border:3px solid #473b3b; padding:1px; background:#fff;}
 ul.video_list li a:hover {color:#5f1b2e;}
 
