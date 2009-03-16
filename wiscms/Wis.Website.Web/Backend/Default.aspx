@@ -7,18 +7,8 @@
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 
-iframe {min-height:500px; height:500px;}
+iframe {min-height:500px; height:100%;}
 </style>
-<script language=javascript>
-//    var menuid = "menuid1";
-//    function selectmenu(obj) {
-//        if (document.getElementById(menuid))
-//            document.getElementById(menuid).className = "";
-//        document.getElementById(obj).className = "nav_on";
-//        menuid = obj;
-//    }
-</script>
-
 </head>
 
 <body>
@@ -39,7 +29,14 @@ iframe {min-height:500px; height:500px;}
   <ul id="topMenu">
    <li class="nav_on"  onclick="thisOn(this);"><a href="leftMenu1.htm" target="menu" class="menu1">我的博客</a></li>
    <li onclick="thisOn(this);" id="menuid3"><a href="leftMenu2.htm" target="menu" class="menu2">内容管理</a></li>
-   <li onclick="thisOn(this);" id="menuid4"><a href="leftMenu3.htm" target="menu" class="menu3">系统管理</a></li>
+   <li onclick="thisOn(this);" id="menuid4"><a href="leftMenu3.htm" target="menu" class="menu3">全局管理</a></li>
+   <li onclick="thisOn(this);" id="Li1"><a href="leftMenu3.htm" target="menu" class="menu3">会议预订</a></li>
+   <li onclick="thisOn(this);" id="Li2"><a href="leftMenu3.htm" target="menu" class="menu3">学籍管理</a></li>
+   <li onclick="thisOn(this);" id="Li3"><a href="leftMenu3.htm" target="menu" class="menu3">人事管理</a></li>
+   <li onclick="thisOn(this);" id="Li4"><a href="leftMenu3.htm" target="menu" class="menu3">教学备案</a></li>
+   <li onclick="thisOn(this);" id="Li5"><a href="leftMenu3.htm" target="menu" class="menu3">设备管理</a></li>
+   <li onclick="thisOn(this);" id="Li6"><a href="leftMenu3.htm" target="menu" class="menu3">自助建站</a></li>
+   <li onclick="thisOn(this);" id="Li7"><a href="leftMenu3.htm" target="menu" class="menu3">电子期刊</a></li>
    
    
   </ul>
@@ -61,8 +58,8 @@ iObj.className="nav_on";
                 <td width="172px" valign="top"  >
                     <iframe frameborder="0" width="172px"  src="leftMenu1.htm" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight); height:660px;"  scrolling="no"></iframe>
                 </td>
-                <td valign="top">
-                    <iframe frameborder="0" width="100%"  src="openBlog.htm"  name="main"  style=" border:1px solid #9fb5d2; width:99%;" id="oIframe" scrolling="no"></iframe>
+                <td valign="top" style=" border:1px solid #9fb5d2;">
+                    <iframe frameborder="0" width="100%"  src="openBlog.htm"  name="main"  style=" border:1px solid #9fb5d2; border:0; height: expression(main.document.body.scrollHeight); width:99%;" id="oIframe" scrolling="no"></iframe>
                 </td>
             </tr>
         </table><div class="clear"></div>
