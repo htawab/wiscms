@@ -27,8 +27,8 @@
             <ul>
                 <li class="left"></li>
                 <li><a href="$ReleaseDirectory$/Default.htm" title="首页">首页</a></li><li class="sep">|</li>
-                <li><a href="jydtList.html" title="ss">教育动态</a></li><li class="sep">|</li>
-                <li><a href="jxyjList.html" title="教学研究">教学研究</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/2/1.htm" title="ss">教育动态</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/35/1.htm" title="教学研究">教学研究</a></li><li class="sep">|</li>
                 <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">东师资源</a></li><li class="sep">|</li>
@@ -328,12 +328,8 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf", "eduFlashID
     <div class="scrollBox"><tpl:set name="VideoArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.VideoArticleManager")$" />
       <ul><tpl:foreach collection="$VideoArticleManager.GetVideoArticles("工作会议", "视频新闻", 1, 6)$" var="VideoArticle">
 		  <li>
-		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)">
-		        <img src="$VideoArticle.PreviewFramePath$" height="66" width="88" />
-		    </a>    
-		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)">
-		        <tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$Formats.TruncateString(VideoArticle.Article.Title, 14)$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$Formats.TruncateString(VideoArticle.Article.Title, 14)$</font></tpl:if>
-		    </a>
+		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><img src="$VideoArticle.PreviewFramePath$" height="66" width="88" /></a>    
+		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$</font></tpl:if></a>
 		   </li></tpl:foreach>  
        </ul>
     </div>

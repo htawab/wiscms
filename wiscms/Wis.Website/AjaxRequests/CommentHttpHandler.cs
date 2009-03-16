@@ -122,7 +122,28 @@ namespace Wis.Website.AjaxRequests
             //context.Response.Write((articlePhoto.Comments + 1).ToString());
             // 重新生成 Article
             ReleaseManager releaseManager = new ReleaseManager();
-            releaseManager.ReleaseArticle(article);
+            switch (article.Category.ArticleType)
+            {
+                case 1://ArticleType.Normal:
+                    releaseManager.ReleasingArticleItem(article);
+                    break;
+                case 2://ArticleType.Photo:
+                    ArticlePhotoManager articlePhotoManager = new ArticlePhotoManager();
+                    ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(article.ArticleGuid);
+                    releaseManager.ReleasingPhotoArticleItem(articlePhoto);
+                    break;
+                case 3://ArticleType.Video:
+                    VideoArticleManager videoArticleManager = new VideoArticleManager();
+                    VideoArticle videoArticle = videoArticleManager.GetVideoArticle(article.ArticleGuid);
+                    releaseManager.ReleasingVideoArticleItem(videoArticle);
+                    break;
+                //case ArticleType.Soft:
+                //    releaseManager.ReleasingSoftArticleItem(article);
+                //    break;
+                //case ArticleType.Link:
+                //    releaseManager.ReleasingLinkArticleItem(article);
+                //    break;
+            }            
         }
 
         #endregion

@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Wis.Website.DataManager;
 
 
 namespace Wis.Website.Web.Backend
@@ -121,6 +122,7 @@ namespace Wis.Website.Web.Backend
         /// <param name="e"></param>
         protected void LinkButtonDelete_Click(object sender, CommandEventArgs e)
         {
+#warning 使用 ArticleGuid
             int articleId;
             if(int.TryParse(e.CommandName, out articleId) == false)
             {
@@ -129,8 +131,35 @@ namespace Wis.Website.Web.Backend
             }
             Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
             Wis.Website.DataManager.Article article = articleManager.GetArticle(articleId);
-            int iExecuteNonQuery = articleManager.Remove(articleId);
-            if (iExecuteNonQuery == 1)
+
+            // 重新生成静态页面和关联页面
+            DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
+            switch (article.Category.ArticleType)
+            {
+                case 1://ArticleType.Normal:
+                    releaseManager.ReleasingRemovedArticle(article);
+                    break;
+                case 2://ArticleType.Photo:
+                    ArticlePhotoManager articlePhotoManager = new ArticlePhotoManager();
+                    ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(article.ArticleGuid);
+                    releaseManager.ReleasingRemovedPhotoArticle(articlePhoto);
+                    break;
+                case 3://ArticleType.Video:
+                    VideoArticleManager videoArticleManager = new VideoArticleManager();
+                    VideoArticle videoArticle = videoArticleManager.GetVideoArticle(article.ArticleGuid);
+                    releaseManager.ReleasingRemovedVideoArticle(videoArticle);
+                    break;
+                //case ArticleType.Soft:
+                //    releaseManager.ReleasingRemovedSoftArticle(article);
+                //    break;
+                //case ArticleType.Link:
+                //    releaseManager.ReleasingRemovedLinkArticle(article);
+                //    break;
+            }
+
+#warning 删除与该文章相关的图片信息、视频信息、软件信息、
+            int iExecuteNonQuery = articleManager.Remove(article.ArticleGuid);
+            if (iExecuteNonQuery > 0)
             {
                 MessageBox("操作提示", "删除成功！");
             }
@@ -139,16 +168,12 @@ namespace Wis.Website.Web.Backend
                 MessageBox("操作提示", "删除失败！");
             }
 
-            // 重新绑定新闻列表
-            BindRepeater();
-
-            // 重新生成静态页面和关联页面
-            DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
-            releaseManager.ReleasingRelatedReleasesByArticle(article);
-
             // 添加操作日志
             DataManager.LogManager logManager = new DataManager.LogManager();
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
+
+            // 重新绑定新闻列表
+            BindRepeater();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Wis.Website.Web.Backend
         {
             // 获取文章信息
             string requestArticleGuid = Request.QueryString["ArticleGuid"];
-            //requestArticleGuid = "475bb37b-4f83-4eee-bdd0-0534797ddd47";
+            //requestArticleGuid = "ceb3f055-a529-468b-a073-c21e542527d5";
             if (string.IsNullOrEmpty(requestArticleGuid) || !Wis.Toolkit.Validator.IsGuid(requestArticleGuid))
             {
                 Warning.InnerHtml = "不正确的文章编号，请<a href='ArticleSelectCategory.aspx'>点击这里</a>重新操作";
@@ -49,7 +49,13 @@ namespace Wis.Website.Web.Backend
             if (releaseManager == null)
             {
                 releaseManager = new DataManager.ReleaseManager();
-                List<Release> releases = releaseManager.GetRelatedReleases(article.Category.CategoryGuid);
+                List<Release> releases = releaseManager.GetReleasesByCategoryGuid(article.Category.CategoryGuid);
+                List<Release> relatedReleases = releaseManager.GetRelatedReleases(article.Category.CategoryGuid);
+                foreach(Release release in relatedReleases)
+                {
+                    releases.Add(release);
+                }
+                
                 RepeaterReleaseList.DataSource = releases;
                 RepeaterReleaseList.DataBind();
             }
@@ -61,12 +67,12 @@ namespace Wis.Website.Web.Backend
             switch (article.Category.ArticleType)
             {
                 case 1: // 普通新闻
-                    releaseManager.ReleasingRelatedReleasesByArticle(article);
+                    releaseManager.ReleasingArticle(article);
                     break;
                 case 2:// 图片新闻
                     Wis.Website.DataManager.ArticlePhotoManager articlePhotoManager = new Wis.Website.DataManager.ArticlePhotoManager();
                     Wis.Website.DataManager.ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(this.ArticleGuid);
-                    releaseManager.ReleasingRelatedReleasesByArticlePhoto(articlePhoto);
+                    releaseManager.ReleasingPhotoArticle(articlePhoto);
                     break;
                 case 3:// 视频新闻
                     Wis.Website.DataManager.VideoArticleManager videoArticleManager = new Wis.Website.DataManager.VideoArticleManager();
@@ -74,10 +80,10 @@ namespace Wis.Website.Web.Backend
                     releaseManager.ReleasingVideoArticle(videoArticle);
                     break;
                 case 4:// 软件
-                    releaseManager.ReleasingRelatedReleasesByArticle(article);
+                    //releaseManager.ReleasingRelatedReleasesByArticle(article);
                     break;
                 default:
-                    releaseManager.ReleasingRelatedReleasesByArticle(article);
+                    //releaseManager.ReleasingRelatedReleasesByArticle(article);
                     break;
             }
 
