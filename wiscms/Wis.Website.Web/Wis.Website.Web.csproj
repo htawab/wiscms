@@ -172,6 +172,41 @@
     <Compile Include="Backend\Article\ThumbnailPreview.aspx.designer.cs">
       <DependentUpon>ThumbnailPreview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\BlogArticalList.aspx.cs">
+      <DependentUpon>BlogArticalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogArticalList.aspx.designer.cs">
+      <DependentUpon>BlogArticalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogCategoryList.aspx.cs">
+      <DependentUpon>BlogCategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogCategoryList.aspx.designer.cs">
+      <DependentUpon>BlogCategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogLinkList.aspx.cs">
+      <DependentUpon>BlogLinkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogLinkList.aspx.designer.cs">
+      <DependentUpon>BlogLinkList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogList.aspx.cs">
+      <DependentUpon>BlogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogList.aspx.designer.cs">
+      <DependentUpon>BlogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogSkinList.aspx.cs">
+      <DependentUpon>BlogSkinList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogSkinList.aspx.designer.cs">
+      <DependentUpon>BlogSkinList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\CategoryAddNew.aspx.cs">
       <DependentUpon>CategoryAddNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +227,13 @@
     </Compile>
     <Compile Include="Backend\CategoryUpdate.aspx.designer.cs">
       <DependentUpon>CategoryUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\GroupList.aspx.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\GroupList.aspx.designer.cs">
+      <DependentUpon>GroupList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\images\HtmlEditor\Dialogs\AttachFile.aspx.cs">
       <DependentUpon>AttachFile.aspx</DependentUpon>
@@ -227,6 +269,27 @@
     </Compile>
     <Compile Include="Backend\images\HtmlEditor\Pager.ascx.designer.cs">
       <DependentUpon>Pager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\PageList.aspx.cs">
+      <DependentUpon>PageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\PageList.aspx.designer.cs">
+      <DependentUpon>PageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\PermissionList.aspx.cs">
+      <DependentUpon>PermissionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\PermissionList.aspx.designer.cs">
+      <DependentUpon>PermissionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\SystemManage\CategoryAdd.aspx.cs">
       <DependentUpon>CategoryAdd.aspx</DependentUpon>
@@ -374,6 +437,13 @@
     </Compile>
     <Compile Include="Backend\SystemManage\TemplatesList.aspx.designer.cs">
       <DependentUpon>TemplatesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -659,9 +729,15 @@
     <Content Include="Backend\Article\wis.js" />
     <Content Include="Backend\Article\LinkList.htm" />
     <Content Include="Backend\Article\picList.htm" />
+    <Content Include="Backend\BlogArticalList.aspx" />
+    <Content Include="Backend\BlogCategoryList.aspx" />
+    <Content Include="Backend\BlogLinkList.aspx" />
+    <Content Include="Backend\BlogList.aspx" />
+    <Content Include="Backend\BlogSkinList.aspx" />
     <Content Include="Backend\CategoryAddNew.aspx" />
     <Content Include="Backend\CategoryList.aspx" />
     <Content Include="Backend\CategoryUpdate.aspx" />
+    <Content Include="Backend\GroupList.aspx" />
     <Content Include="Backend\images\18-18.gif" />
     <Content Include="Backend\images\466-190.gif" />
     <Content Include="Backend\images\466-190.gif" />
@@ -747,13 +823,17 @@
     <Content Include="Backend\images\upLoadImg2.gif" />
     <Content Include="Backend\images\warning.gif" />
     <Content Include="Backend\images\win.png" />
+    <Content Include="Backend\PageList.aspx" />
+    <Content Include="Backend\PermissionList.aspx" />
     <Content Include="Backend\Progressbar.htm" />
+    <Content Include="Backend\RoleList.aspx" />
     <Content Include="Backend\Tools\ffmpeg.exe" />
     <Content Include="Backend\Tools\ffmpeg.txt" />
     <Content Include="Backend\Tools\ffplay.exe" />
     <Content Include="Backend\Tools\flvtool2.exe" />
     <Content Include="Backend\Tools\formats.txt" />
     <Content Include="Backend\Tools\pthreadGC2.dll" />
+    <Content Include="Backend\UserList.aspx" />
     <Content Include="Backend\wis.js" />
     <Content Include="Backend\文件存储规则.txt" />
     <Content Include="images\bodybg.gif" />
