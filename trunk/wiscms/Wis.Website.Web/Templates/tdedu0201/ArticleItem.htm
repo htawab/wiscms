@@ -23,7 +23,7 @@
                 <li class="left"></li>
                 <li><a href="$ReleaseDirectory$/Default.htm" title="首页">首页</a></li><li class="sep">|</li>
                 <li><a href="$ReleaseDirectory$/2/1.htm" title="教育动态">教育动态</a></li><li class="sep">|</li>
-                <li><a href="$ReleaseDirectory$/35/1.htm" title="教学研究">教学研究</a></li><li class="sep">|</li>
+                <li><a href="$ReleaseDirectory$/36/1.htm" title="教学研究">教学研究</a></li><li class="sep">|</li>
                 <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
                 <li><a href="#" title="ss">东师资源</a></li><li class="sep">|</li>
@@ -62,14 +62,14 @@
                     <dt>发表评论</dt>
                     <dd><label><a name="review" id="review"></a>标&nbsp;&nbsp;题：</label><input type="text" name="Title" /></dd>
                     <dd><label>内&nbsp;&nbsp;容：</label><textarea cols="6" rows="4" name="ContentHtml"></textarea></dd>
-                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onfocus="G('CommentVerify').src=G('CommentVerify').src+'?';G('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
+                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onFocus="G('CommentVerify').src=G('CommentVerify').src+'?';G('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
                     <dd>
                         <dl style="display:none" id="divCommentVerify">
-                            <dd><img id="CommentVerify" src="/A/CommentVerify.aspx" alt="看不清？点击更换" onclick="this.src=this.src+'?'" /></dd>
-                            <dd onclick="G('CommentVerify').src=G('CommentVerify').src+'?'"><a>看不清？点击更换</a></dd>
+                            <dd><img id="CommentVerify" src="/A/CommentVerify.aspx" alt="看不清？点击更换" onClick="this.src=this.src+'?'" /></dd>
+                            <dd onClick="G('CommentVerify').src=G('CommentVerify').src+'?'"><a>看不清？点击更换</a></dd>
                         </dl>
                     </dd>
-                    <dd>&nbsp;<input type="button" value="提交评论" class="plbtn1" onclick="G('Comment').submit();" /></dd>
+                    <dd>&nbsp;<input type="button" value="提交评论" class="plbtn1" onClick="G('Comment').submit();" /></dd>
                 </dl></form>
             </div>
             <tpl:if test="$TagArticles.Count IsNot 0$"><div class="relateArticles">
@@ -153,74 +153,18 @@
             <div class="clear">
             </div>
             <div class="outbox height3">
-                <div class="cap"><a href="#" title="查看更多">更多</a>视频新闻</div>
+                <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("视频新闻", "")$/1.htm" title="查看更多">更多</a>视频新闻</div>
                 <div id="scrollOut">
-    <div class="scrollBox">
-      <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">0《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">1《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">2《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">3《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">4《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">5《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-       
-       <ul>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">6《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-		  <li><a href="#"><img src="$TemplateDirectory$/images/picNews1.gif" height="74" width="93" /></a><a href="#">《豆儿》系列：泡妹妹</a></li>
-       </ul>
-     
-     
-    </div>
+                 
+                 <div class="scrollBox">
+                  <tpl:set name="VideoArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.VideoArticleManager")$" />
+                   <ul>
+                   <tpl:foreach collection="$VideoArticleManager.GetVideoArticles("工作会议", "视频新闻", 1, 6)$" var="VideoArticle">
+		             <li><a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><img src="$VideoArticle.PreviewFramePath$" height="66" width="88" /></a><a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$</font></tpl:if></a></li>
+		           </tpl:foreach>  
+                  </ul>
+                 </div>
+    
    </div>
    
    
