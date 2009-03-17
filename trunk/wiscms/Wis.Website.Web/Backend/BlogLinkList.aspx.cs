@@ -15,7 +15,9 @@ namespace Wis.Website.Web.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            MiniPager1.RecordCount = 1000;
+            MiniPager1.PageIndex = 1;
+            MiniPager1.PageSize = 18;
         }
     }
 }

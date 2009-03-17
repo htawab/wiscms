@@ -26,7 +26,7 @@ body {background:#d6e7f7}
     
     
     <div class="listBox PermissionList">
-    <div class="rightBox_in"><label>链接名称：</label><input type="text" /><input type="button" class="button" value="搜索" /><a href="blogLinkAdd.htm">添加链接</a><div class="clear"></div></div>
+    <div class="rightBox_in"><label>链接名称：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><a href="blogLinkAdd.htm">添加链接</a><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterBlogLinkList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">
