@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>博客管理</title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="background:#d6e7f7">
+ <div>
+  <div id="Position">当前位置：博客管理</div>
+  
+  <div class="listBox BlogList" id="LinkListBox">
+   
+   <div class="rightBox_in"><label>博客名称：</label><input type="text" /><input type="button" value="搜索" class="button" /><div class="clear"></div></div>
+   
+   
+    <ul class="top">
+     <li class="a">用户名称</li><li class="b">博客名称</li><li class="c">最后更新时间</li><li class="d">博客状态</li><li class="f">操作</li>
+    </ul>
+    
+    <ul>
+     <li class="a">用户名称</li><li class="b">博客名称</li><li class="c">2008-12-23 22:44</li><li class="d">己停用</li><li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+    </ul>
+    <ul>
+     <li class="a">博客标题</li><li class="b">用户名称</li><li class="c">2008-12-23 22:44</li><li class="d">己停用</li><li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+    </ul>
+    <ul>
+     <li class="a">博客标题</li><li class="b">用户名称</li><li class="c">2008-12-23 22:44</li><li class="d">己停用</li><li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+    </ul>
+    <ul>
+     <li class="a">博客标题</li><li class="b">用户名称</li><li class="c">2008-12-23 22:44</li><li class="d">己停用</li><li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+    </ul>
+    
+   
+<script type="text/javascript">
+var LinkListBox = document.getElementById("LinkListBox");
+var LinkListBox_ul = LinkListBox.getElementsByTagName("ul");
+for (var i=0;i<LinkListBox_ul.length;i++){
+if (i%2==0){
+LinkListBox_ul[i].style.background="#e0e9f5";
+}
+else {
+LinkListBox_ul[i].style.background="#f1f6fc";
+}
+LinkListBox_ul[0].style.background="#c6daed";
+}
+</script>
+   
+   
+   <div class="clear"></div>
+   <div class="page" style="width:800px;"><a href="####" class="noLink">共 8 页 当前第 2 页</a> <a href="#">首页</a> <a href="#">上一页</a> <a href="">下一页</a> <a href="#">尾页</a></div>
+
+  </div>
+  
+ </div>
+</body>
+</html>
