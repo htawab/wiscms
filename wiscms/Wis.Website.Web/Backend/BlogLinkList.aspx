@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BlogLinkList.aspx.cs" Inherits="Wis.Website.Web.Backend.BlogLinkList" %>
+<%@ Register assembly="Wis.Toolkit" namespace="Wis.Toolkit.WebControls" tagprefix="Wis" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -28,7 +29,7 @@ body {background:#d6e7f7}
     
     
     <div class="listBox blogLinkList">
-    <div class="rightBox_in"><label>链接名称：</label><input type="text" /><input type="button" class="button" value="搜索" /><a href="blogLinkAdd.htm">添加链接</a><div class="clear"></div></div>
+    <div class="rightBox_in"><label>链接名称：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><a href="blogLinkAdd.htm">添加链接</a><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterBlogLinkList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">
@@ -55,8 +56,9 @@ body {background:#d6e7f7}
                 </ul>
             </AlternatingItemTemplate>
             </asp:Repeater>
-            
-            <div class="page" style="width:800px;"><a href="####" class="noLink">共 8 页 当前第 2 页</a> <a href="#">首页</a> <a href="#">上一页</a> <a href="">下一页</a> <a href="#">尾页</a></div>
+            <div class="page" style="width:800px;">
+                <Wis:MiniPager ID="MiniPager1" runat="server"></Wis:MiniPager>
+            </div>
     
     </div>
     </form>
