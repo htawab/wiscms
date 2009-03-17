@@ -58,7 +58,7 @@ iObj.className="nav_on";
                 <td width="172px" valign="top"  >
                     <iframe frameborder="0" width="172px"  src="leftMenu1.htm" id="menu"  name="menu"   style="height: expression(menu.document.body.scrollHeight); height:660px;"  scrolling="no"></iframe>
                 </td>
-                <td valign="top" style=" border:1px solid #9fb5d2;">
+                <td valign="top" style=" border:1px solid #9fb5d2; background: #d6e7f7">
                     <iframe frameborder="0" width="100%"  src="openBlog.htm"  name="main"  style=" border:1px solid #9fb5d2; border:0; height: expression(main.document.body.scrollHeight); width:99%;" id="oIframe" scrolling="no"></iframe>
                 </td>
             </tr>
