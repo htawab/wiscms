@@ -356,31 +356,17 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 
 /* 权限列表 */
-.limitListBox ul li.a {width:112px;}
-.limitListBox ul li.b {width:490px;}
+
 
 
 /* 角色管理 */
-.roleListBox ul li.a {width:112px;}
-.roleListBox ul li.b {width:290px;}
-.roleListBox ul li.c {width:100px;}
-.roleListBox ul li.d {width:100px;}
+
 
 
 /* 用户组管理 */
-.groupListBox ul li.a {width:140px;}
-.groupListBox ul li.b {width:290px;}
-.groupListBox ul li.c {width:120px;}
 
 
 /* 用户管理 */
-.UserListBox ul li.a {width:135px;}
-.UserListBox ul li.b {width:90px;}
-.UserListBox ul li.c {width:90px;}
-.UserListBox ul li.d {width:120px;}
-.UserListBox ul li.e {}
-.UserListBox ul li span.online {padding-left:12px; display:inline-block; background:url(../images/online_icon.gif) left center no-repeat; *background:url(../images/online_icon.gif) left 3px no-repeat;}
-.UserListBox ul li span.offline {padding-left:12px; display:inline-block; background:url(../images/offline_icon.gif) left center no-repeat; *background:url(../images/offline_icon.gif) left 3px no-repeat;}
 
 .userEdit {border:solid 1px #a3b5cd; background:#f7fbfe; padding:8px; margin:5px 0; position:relative;}
 .userEdit div {margin:0 0; padding:10px 0; border:solid 1px #c6d4e3; border-bottom:0; background:#fcfcfc; width:600px;}
@@ -419,25 +405,13 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 
 /* 博客管理 */
-.blogManageList {}
-.blogManageList li.a {width:120px;}
-.blogManageList li.b {width:255px;}
-.blogManageList li.c {width:110px;}
-.blogManageList li.d {width:80px;}
-.blogManageList li.e {width:45px;}
+
 
 
 /* 博客皮肤管理 */
-.skinList {}
-.skinList ul li {height:78px; padding-top:4px; white-space:normal; line-height:18px;}
-.skinList ul.top li {height:24px; line-height:24px;}
-.skinList ul li img {border:solid 1px #aaa; background:#fff; padding:2px; }
-.skinList li.a {width:85px;}
-.skinList li.b {width:150px;}
-.skinList li.c {width:110px;}
-.skinList li.d {width:130px;}
-.skinList li.e {width:205px;}
-.skinList li.f {}
+.BlogSkinList {}
+
+.BlogSkinList li.f {}
 
 
 /* 开通博客 */
@@ -464,16 +438,11 @@ div.blgInfo div.clear {border:0; margin:0; padding:0; font-size:0;}
 
 
 /* 博客链接管理 */
-.blogLinkList li.li1 {width:190px;}
-.blogLinkList li.li2 {width:340px;}
-.blogLinkList li.li3 {width:120px;}
-.blogLinkList li img {border:0;}
+
 
 
 /* 博客文章管理 */
-.blogArticleList li.a {width:345px;}
-.blogArticleList li.b {width:98px;}
-.blogArticleList li.c {width:70px;}
+
 
 
 /* 发表博客 */
