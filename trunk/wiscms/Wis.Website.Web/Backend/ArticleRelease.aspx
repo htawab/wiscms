@@ -29,7 +29,7 @@
             <HeaderTemplate>
                 <ul class="top">
                     <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
-                    <li class="step4_li4">编号</li>
+                    <li class="step4_li5">编号</li>
                     <li class="step4_li1">标题</li>
                     <li class="step4_li2">模板路径</li>
                     <li class="step4_li3">发布路径</li>
@@ -38,7 +38,50 @@
             <ItemTemplate>
                 <ul>
                     <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
-                    <li class="step4_li4"><%# DataBinder.Eval(Container.DataItem, "ReleaseId")%></li>
+                    <li class="step4_li5"><%# DataBinder.Eval(Container.DataItem, "ReleaseId")%></li>
+                    <li class="step4_li1" title="<%# DataBinder.Eval(Container.DataItem, "Title")%>"><%# DataBinder.Eval(Container.DataItem, "Title")%></li>
+                    <li class="step4_li2" title="<%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%>"><%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%></li>
+                    <li class="step4_li3" title="<%# DataBinder.Eval(Container.DataItem, "ReleasePath")%>"><%# DataBinder.Eval(Container.DataItem, "ReleasePath")%></li>
+                </ul>
+            </ItemTemplate>
+            </asp:Repeater>
+            
+            
+            
+                <ul class="top" style="background:#eaeafe;">
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li5">编号</li>
+                    <li class="step4_li1">标题</li>
+                    <li class="step4_li2">模板路径</li>
+                    <li class="step4_li3">发布路径</li>
+                </ul>
+            
+            
+                <ul style="background:#eaeafe;">
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li5">SDFD</li>
+                    <li class="step4_li1">DFSD</li>
+                    <li class="step4_li2">HHH</li>
+                    <li class="step4_li3" >1111</li>
+                </ul>
+            
+            
+            
+            
+            <asp:Repeater ID="Repeater1" runat="server">
+            <HeaderTemplate>
+                <ul class="top">
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li5">编号</li>
+                    <li class="step4_li1">标题</li>
+                    <li class="step4_li2">模板路径</li>
+                    <li class="step4_li3">发布路径</li>
+                </ul>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <ul>
+                    <li class="step4_li4"><input type="checkbox" checked="checked" disabled="disabled" /></li>
+                    <li class="step4_li5"><%# DataBinder.Eval(Container.DataItem, "ReleaseId")%></li>
                     <li class="step4_li1" title="<%# DataBinder.Eval(Container.DataItem, "Title")%>"><%# DataBinder.Eval(Container.DataItem, "Title")%></li>
                     <li class="step4_li2" title="<%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%>"><%# DataBinder.Eval(Container.DataItem, "Template.TemplatePath")%></li>
                     <li class="step4_li3" title="<%# DataBinder.Eval(Container.DataItem, "ReleasePath")%>"><%# DataBinder.Eval(Container.DataItem, "ReleasePath")%></li>

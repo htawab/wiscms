@@ -20,6 +20,7 @@
             </asp:SiteMapPath>
     </div>
     <div class="listBox blogList">
+    <div class="rightBox_in"><label>博客标题：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><a href="BlogCategoryAddNew.aspx">添加分类</a><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterBlogCategoryList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">

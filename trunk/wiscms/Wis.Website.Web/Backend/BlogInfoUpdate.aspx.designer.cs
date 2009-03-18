@@ -11,16 +11,16 @@
 namespace Wis.Website.Web.Backend {
     
     
-    public partial class BlogArticalList {
+    public partial class BlogInfoUpdate {
         
         /// <summary>
-        /// BlogArticalListForm 控件。
+        /// BlogInfoUpdateForm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm BlogArticalListForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm BlogInfoUpdateForm;
         
         /// <summary>
         /// MySiteMapPath 控件。
@@ -30,14 +30,5 @@ namespace Wis.Website.Web.Backend {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapPath MySiteMapPath;
-        
-        /// <summary>
-        /// RepeaterBlogArticalList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterBlogArticalList;
     }
 }

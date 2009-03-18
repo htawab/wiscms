@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace Wis.Website.Web.Backend
 {
-    public partial class BlogArticalList : System.Web.UI.Page
+    public partial class BlogInfoUpdate : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
