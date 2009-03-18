@@ -152,8 +152,8 @@ div.right .schBox label.editor {width:320px; display:inline-block; text-align:le
 div.right  label.video {width:65px; display:inline-block; text-align:left; margin-left:5px;}
 div.right .schBox input { height:14px; line-height:14px; margin:1px auto;}
 div.right .schBox input.keyText {width:475px;}
-div.right .schBox input.schbtn {width:57px; height:22px; border:0; margin:0 0 0 6px;cursor:hand; background:url(../images/schbtn.gif) no-repeat;}
-div.right .schBox input.saveBtn {width:64px; height:22px; border:0; margin:6px 0 6px 350px; cursor:hand; background:url(../images/saveBtn.gif) no-repeat;}
+div.right .schBox input.schbtn {width:57px; height:22px; border:0; margin:0 0 0 6px;cursor:pointer; background:url(../images/schbtn.gif) no-repeat;}
+div.right .schBox input.saveBtn {width:64px; height:22px; border:0; margin:6px 0 6px 350px; cursor:pointer; background:url(../images/saveBtn.gif) no-repeat;}
 div.right .schBox input.fujian { height:22px; line-height:22px; margin:1px auto;}
 
 table.schTable {border-collapse:collapse; width:99%; margin:0 auto; margin-bottom:4px;}
@@ -178,8 +178,8 @@ div.addBox input.code {width:70px;}
 div.addBox label.city {width:50px;}
 div.addBox input.city {width:100px;}
 div.addBox label.select {width:50px;}
-div.addBox input.saveBtn {width:64px; height:22px; border:0; margin:6px 0 6px 280px;cursor:hand; background:url(../images/saveBtn.gif) no-repeat;}
-input.saveBtn {width:141px; height:38px; border:0; margin:0px 0 6px 280px;cursor:hand; background:url(../images/btnBig.gif) no-repeat;}
+div.addBox input.saveBtn {width:64px; height:22px; border:0; margin:6px 0 6px 280px;cursor:pointer; background:url(../images/saveBtn.gif) no-repeat;}
+input.saveBtn {width:141px; height:38px; border:0; margin:0px 0 6px 280px;cursor:pointer; background:url(../images/btnBig.gif) no-repeat;}
 
 div.importBox label {margin-left:6px;}
 div.importBox input {width:300px; height:18px; line-height:14px; font-size:12px;}
@@ -242,7 +242,7 @@ div.update {width:57px; height:22px; border:0; margin:0 0 0 6px; background:url(
 	text-align:center;
 }
 iframe {
-	/*height:425px;*/
+	
 	overflow:visible;
 }
 .page {text-align:right; height:26px; line-height:26px; padding-right:15px;}
@@ -260,7 +260,7 @@ FLOAT: left;
 MARGIN: 0px 4px; BORDER-LEFT: #2A5991 1px solid; 
 COLOR: #9f6536; BORDER-BOTTOM: #2A5991 1px solid;
  TEXT-ALIGN: center; TEXT-DECORATION: none;
-  cursor:hand; 
+  cursor:pointer; 
 	  onmouseover:expression(onmouseover=function(){this.style.color='#FF0000';this.style.color='#FB7A31';this.style.color ='#FF0000';});
     onmouseout:expression(onmouseout=function(){this.style.color='';this.style.color='';this.style.color =''}); 
 }
