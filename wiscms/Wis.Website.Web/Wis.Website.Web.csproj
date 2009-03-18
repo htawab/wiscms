@@ -172,12 +172,19 @@
     <Compile Include="Backend\Article\ThumbnailPreview.aspx.designer.cs">
       <DependentUpon>ThumbnailPreview.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Backend\BlogArticalList.aspx.cs">
-      <DependentUpon>BlogArticalList.aspx</DependentUpon>
+    <Compile Include="Backend\BlogArticleList.aspx.cs">
+      <DependentUpon>BlogArticleList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backend\BlogArticalList.aspx.designer.cs">
-      <DependentUpon>BlogArticalList.aspx</DependentUpon>
+    <Compile Include="Backend\BlogArticleList.aspx.designer.cs">
+      <DependentUpon>BlogArticleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogArticleAddNew.aspx.cs">
+      <DependentUpon>BlogArticleAddNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogArticleAddNew.aspx.designer.cs">
+      <DependentUpon>BlogArticleAddNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\BlogCategoryList.aspx.cs">
       <DependentUpon>BlogCategoryList.aspx</DependentUpon>
@@ -185,6 +192,13 @@
     </Compile>
     <Compile Include="Backend\BlogCategoryList.aspx.designer.cs">
       <DependentUpon>BlogCategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\BlogInfoUpdate.aspx.cs">
+      <DependentUpon>BlogInfoUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\BlogInfoUpdate.aspx.designer.cs">
+      <DependentUpon>BlogInfoUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backend\BlogLinkList.aspx.cs">
       <DependentUpon>BlogLinkList.aspx</DependentUpon>
@@ -444,6 +458,13 @@
     </Compile>
     <Compile Include="Backend\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backend\VideoArticleList.aspx.cs">
+      <DependentUpon>VideoArticleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\VideoArticleList.aspx.designer.cs">
+      <DependentUpon>VideoArticleList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -729,8 +750,10 @@
     <Content Include="Backend\Article\wis.js" />
     <Content Include="Backend\Article\LinkList.htm" />
     <Content Include="Backend\Article\picList.htm" />
-    <Content Include="Backend\BlogArticalList.aspx" />
+    <Content Include="Backend\BlogArticleList.aspx" />
+    <Content Include="Backend\BlogArticleAddNew.aspx" />
     <Content Include="Backend\BlogCategoryList.aspx" />
+    <Content Include="Backend\BlogInfoUpdate.aspx" />
     <Content Include="Backend\BlogLinkList.aspx" />
     <Content Include="Backend\BlogList.aspx" />
     <Content Include="Backend\BlogSkinList.aspx" />
@@ -834,6 +857,7 @@
     <Content Include="Backend\Tools\formats.txt" />
     <Content Include="Backend\Tools\pthreadGC2.dll" />
     <Content Include="Backend\UserList.aspx" />
+    <Content Include="Backend\VideoArticleList.aspx" />
     <Content Include="Backend\wis.js" />
     <Content Include="Backend\文件存储规则.txt" />
     <Content Include="images\bodybg.gif" />
