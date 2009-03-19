@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BlogInfoUpdate.aspx.cs" Inherits="Wis.Website.Web.Backend.BlogInfoUpdate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OpenBlog.aspx.cs" Inherits="Wis.Website.Web.Backend.OpenBlog" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>修改博客信息</title>
+    <title>开通</title>
     <link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background:#d6e7f7">
-    <form id="BlogInfoUpdateForm" runat="server">
+    <form id="OpenBlogForm" runat="server">
     <div id="Position">
         所在位置：
         <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
@@ -23,8 +23,8 @@
     
     <div class="listBox">
    <div class="userEdit">
-    <div><label>博客名称：</label><asp:TextBox ID="TextBoxBlogName" runat="server" onfocus="cb(this)" onblur="cb2(this)" ></asp:TextBox><span>4-12位（英文或数字）</span></div>
-    <div><label>博客描述：</label><asp:TextBox ID="TextBoxBlogDescription" runat="server" TextMode="MultiLine" Rows="3" Width="260" onfocus="cb(this)" onblur="cb2(this)" ></asp:TextBox><span>4-12位（英文或数字）</span></div>
+    <div><label>博客名称：</label><asp:TextBox ID="TextBoxBlogName" runat="server"></asp:TextBox><span>4-12位（英文或数字）</span></div>
+    <div><label>博客描述：</label><asp:TextBox ID="TextBoxBlogDescription" runat="server" TextMode="MultiLine" Rows="3" Width="260"></asp:TextBox><span>4-12位（英文或数字）</span></div>
     
     
     <div class="borBot openBlog"><label>选择皮肤：</label>
