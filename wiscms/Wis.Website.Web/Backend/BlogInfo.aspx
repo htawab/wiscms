@@ -1,14 +1,25 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BlogInfo.aspx.cs" Inherits="Wis.Website.Web.Backend.BlogInfo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
+<head runat="server">
     <title>查看博客信息</title>
-    <link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="background:#d6e7f7">
- <div>
-  <div id="Position">当前位置：查看博客信息</div>
-  
-  <div class="listBox">
+    <div id="Position">
+        所在位置：
+        <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
+            <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            <CurrentNodeStyle ForeColor="#333333" />
+            <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+            <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+        </asp:SiteMapPath>
+    </div>
+
+    
+    <div class="listBox">
    <div class="userEdit">
     <div><label>博客名称：</label><a href="#">明教张无忌的博客</a></div>
     <div><label>博客描述：</label>博客描述博客描述博客描述博客描述博客描述博客描述博客描述博客描述</div>
@@ -51,10 +62,5 @@ iDiv.style.background="#fafafa";
 
    
   </div>
-
-  
-  <div class="add_button"><a href="#"><img src="images/StepDone.gif" /></a></div>
-  
- </div>
 </body>
 </html>

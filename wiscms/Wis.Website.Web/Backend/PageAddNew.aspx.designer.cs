@@ -11,16 +11,16 @@
 namespace Wis.Website.Web.Backend {
     
     
-    public partial class CategoryAddNew {
+    public partial class PageAddNew {
         
         /// <summary>
-        /// BlogCategoryAddNewForm 控件。
+        /// PageAddNewForm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm BlogCategoryAddNewForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm PageAddNewForm;
         
         /// <summary>
         /// MySiteMapPath 控件。
@@ -41,12 +41,39 @@ namespace Wis.Website.Web.Backend {
         protected global::System.Web.UI.WebControls.TextBox TextBoxCategoryName;
         
         /// <summary>
-        /// TextBoxCategoryOrder 控件。
+        /// TextBox1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCategoryOrder;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// TextBox2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        
+        /// <summary>
+        /// TextBox3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        
+        /// <summary>
+        /// TextBox4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
     }
 }

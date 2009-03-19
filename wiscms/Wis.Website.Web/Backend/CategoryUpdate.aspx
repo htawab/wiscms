@@ -4,13 +4,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>更新分类信息 - 分类管理 - 内容管理 - 常智内容管理系统</title>
+    <title>修改分类</title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+<body  style="background:#d6e7f7">
+    <form runat="server" id="BlogCategoryAddNewForm">
     
+    <div id="Position">
+            所在位置：
+            <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
+                <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                <CurrentNodeStyle ForeColor="#333333" />
+                <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+                <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            </asp:SiteMapPath>
     </div>
+    <div class="listBox">
+   <div class="userEdit">
+    <div><label>分类名称：</label><asp:TextBox ID="TextBoxCategoryName" runat="server"></asp:TextBox><span>分类名称</span></div>
+    <div class="borBot"><label>分类序号：</label><asp:TextBox ID="TextBoxCategoryOrder" runat="server"></asp:TextBox><span>分类排充号（阿拉伯数字）</span></div>
+    
+  
+   </div>
+ 
+  </div>
+    
+ 
+
+<div class="add_button"><a href="#"><img src="images/StepDone.gif" /></a></div>
+    
+    
     </form>
 </body>
 </html>

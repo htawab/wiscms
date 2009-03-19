@@ -42,7 +42,7 @@ body {background:#d6e7f7}
                     <li class="b">博客名称</li>
                     <li class="c">2008-12-23 22:44</li>
                     <li class="d">己停用</li>
-                    <li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+                    <li class="f Operate"><a href="#">激活</a><a href="BlogInfo.aspx">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
                 </ul>
             </ItemTemplate>
             <AlternatingItemTemplate>
@@ -51,7 +51,7 @@ body {background:#d6e7f7}
                     <li class="b">博客名称</li>
                     <li class="c">2008-12-23 22:44</li>
                     <li class="d">己停用</li>
-                    <li class="f Operate"><a href="#">激活</a><a href="blogInfo.htm">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
+                    <li class="f Operate"><a href="#">激活</a><a href="BlogInfo.aspx">查看详细信息</a><a href="#">修改</a><a href="#">删除</a></li>
                 </ul>
             </AlternatingItemTemplate>
             </asp:Repeater>
