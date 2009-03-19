@@ -26,7 +26,7 @@ body {background:#d6e7f7}
     </div>
     
     <div class="listBox GroupList">
-    <div class="rightBox_in"><label>用户组名称：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><a href="groupAdd1.htm">新增用户组</a><div class="clear"></div></div>
+    <div class="rightBox_in"><label>用户组名称：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><a href="GroupAddNew1.aspx">新增用户组</a><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterGroupList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">

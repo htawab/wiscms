@@ -371,8 +371,9 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 .userEdit div {margin:0 0; padding:10px 0; border:solid 1px #c6d4e3; border-bottom:0; background:#fcfcfc; width:600px;}
 .userEdit div.borBot {border:solid 1px #c6d4e3;}
 .userEdit div label {width:90px; display:inline-block; padding-top:3px; text-align:right;}
-.userEdit span.moreInfo {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo2.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
-.userEdit span.moreInfo2 {position:absolute; padding:4px 0 4px 14px; background:url(../images/moreInfo.gif) left center no-repeat; *background-position:left 4px; left:620px; bottom:2px; cursor:pointer;}
+.userEdit span.moreInfo {padding:4px 0 4px 24px; background:url(../images/moreInfo2.gif) 10px center no-repeat; *background-position:10px 3px; cursor:pointer;}
+.userEdit span.moreInfo2 {padding:4px 0 4px 24px; background:url(../images/moreInfo.gif) 10px center no-repeat; *background-position:10px 3px; cursor:pointer;}
+
 
 .userEdit ul {float:none; border:0;}
 .userEdit ul.top { border:0; }

@@ -31,7 +31,7 @@ body {background:#d6e7f7}
     
     
     <div class="listBox UserListBox">
-    <div class="rightBox_in"><label>用户名称：</label><input type="text" /><input type="button" value="搜索" class="button" /><a href="userAdd.htm">新增用户</a><div class="clear"></div></div>
+    <div class="rightBox_in"><label>用户名称：</label><input type="text" /><input type="button" value="搜索" class="button" /><a href="UserAddNew.aspx">新增用户</a><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterUserList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">

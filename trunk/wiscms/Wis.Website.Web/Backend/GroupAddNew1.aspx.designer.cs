@@ -11,16 +11,16 @@
 namespace Wis.Website.Web.Backend {
     
     
-    public partial class CategoryAddNew {
+    public partial class GroupAddNew1 {
         
         /// <summary>
-        /// BlogCategoryAddNewForm 控件。
+        /// GroupAddNew1Form 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm BlogCategoryAddNewForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm GroupAddNew1Form;
         
         /// <summary>
         /// MySiteMapPath 控件。
@@ -32,21 +32,21 @@ namespace Wis.Website.Web.Backend {
         protected global::System.Web.UI.WebControls.SiteMapPath MySiteMapPath;
         
         /// <summary>
-        /// TextBoxCategoryName 控件。
+        /// TextBoxGroupName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCategoryName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxGroupName;
         
         /// <summary>
-        /// TextBoxCategoryOrder 控件。
+        /// TextBoxGrounpDes 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCategoryOrder;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxGrounpDes;
     }
 }
