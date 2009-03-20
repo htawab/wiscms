@@ -159,7 +159,9 @@ input.tsBtn2 {height:21px; line-height:21px; border:solid 1px #ccc; background:#
 /* 列表页 */
 .main {width:987px; margin:0 auto;}
 .main .left{width:662px; float:left; background:#fff url(../images/mainbg.gif) top repeat-x;}
-.position {padding:13px 0 2px 4px; _padding-left:24px;  margin:0 4px 6px 4px; color:#e87c51; font-size:13px; font-weight:bold; border-bottom:1px solid red; position:relative; font-family:"宋体";}
+.position {padding:13px 0 4px 0px;  margin:0 4px 6px 4px; color:#666; font-size:12px;  border-bottom:1px solid red; position:relative; font-family:"宋体";}
+.position a {color:#a00;}
+.position a:hover {color:#f22;}
 .position div {width:32px; height:31px; background:url(../images/positionbg.gif); position:absolute; _margin-left:-12px; left:-8px; top:0px;}
 .main .listtab {height:530px; *height:529px; _height:532px; overflow:hidden;}
 .main .listtab ul.tab {float:left; width:652px; background:url(../images/tabLine.gif) bottom repeat-x; padding-left:4px; margin-left:2px; margin-bottom:6px;}
