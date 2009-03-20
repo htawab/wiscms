@@ -50,6 +50,7 @@ aaa[i].className="";
 }
 
 iObj.className="nav_on";
+iObj.getElementsByTagName("a")[0].blur();
 }
 </script>
 <div class="main">
