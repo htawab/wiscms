@@ -66,39 +66,66 @@ namespace Wis.Toolkit.Drawings
         public static void Thumbnail(string srcFilename, string destFilename, int thumbWidth, int thumbHeight, bool stretch, bool beveled)
         {
             float fx, fy, f;
-            int widthTh, heightTh; float widthOrig, heightOrig;
+            int destWidth, destHeight; float widthOrig, heightOrig;
 
             // create thumbnail using .net function GetThumbnailImage
-            Bitmap bitmapNew = new Bitmap(srcFilename); // load original image
+            Bitmap srcBitmap = new Bitmap(srcFilename); // load original image
             if (!stretch)
             {   // retain aspect ratio
-                widthOrig = bitmapNew.Width;
-                heightOrig = bitmapNew.Height;
+                widthOrig = srcBitmap.Width;
+                heightOrig = srcBitmap.Height;
                 fx = widthOrig / thumbWidth;
                 fy = heightOrig / thumbHeight; // subsample factors
                 // must fit in thumbnail size
                 f = Math.Max(fx, fy); if (f < 1) f = 1;
-                widthTh = (int)(widthOrig / f);
-                heightTh = (int)(heightOrig / f);
+                destWidth = (int)(widthOrig / f);
+                destHeight = (int)(heightOrig / f);
             }
             else
             {
-                widthTh = thumbWidth;
-                heightTh = thumbHeight;
+                destWidth = thumbWidth;
+                destHeight = thumbHeight;
             }
-            bitmapNew = (Bitmap)bitmapNew.GetThumbnailImage(widthTh, heightTh, new Image.GetThumbnailImageAbort(ThumbnailCallback), IntPtr.Zero);
+
+            // create the new bitmap with the specified size
+            Bitmap destBitmap = new Bitmap(srcBitmap, destWidth, destHeight);
+            Graphics g = Graphics.FromImage(destBitmap);
+            g.Clear(Color.White);
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+            g.DrawImage(srcBitmap, 0, 0, destWidth, destHeight);
+            g.Save();
+
+            // according to type of the file we will save the new image
+            ImageFormat imageFormat = ImageFormat.Jpeg;
             System.IO.FileInfo destFileInfo = new System.IO.FileInfo(destFilename);
+            switch (destFileInfo.Extension.ToLower())
+            {
+                case ".bmp":
+                    imageFormat = ImageFormat.Bmp;
+                    break;
+                case ".png":
+                    imageFormat = ImageFormat.Png;
+                    break;
+                case ".gif":
+                    imageFormat = ImageFormat.Gif;
+                    break;
+            }
+
             if (!destFileInfo.Directory.Exists) destFileInfo.Directory.Create();
             if (!beveled)
             {
-                bitmapNew.Save(destFilename, ImageFormat.Jpeg);
-                bitmapNew.Dispose();
+                destBitmap.Save(destFilename, imageFormat); // ImageFormat.Jpeg
+                destBitmap.Dispose();
+                srcBitmap.Dispose();
+                g.Dispose();
                 return;
             }
             // ---- apply bevel
             int widTh, heTh;
-            widTh = bitmapNew.Width;
-            heTh = bitmapNew.Height;
+            widTh = srcBitmap.Width;
+            heTh = srcBitmap.Height;
             int BevW = 10, LowA = 0, HighA = 180, Dark = 80, Light = 255;
             // hilight color, low and high
             Color clrHi1 = Color.FromArgb(LowA, Light, Light, Light);
@@ -106,7 +133,7 @@ namespace Wis.Toolkit.Drawings
             Color clrDark1 = Color.FromArgb(LowA, Dark, Dark, Dark);
             Color clrDark2 = Color.FromArgb(HighA, Dark, Dark, Dark);
             LinearGradientBrush br; Rectangle rectSide;
-            Graphics newG = Graphics.FromImage(bitmapNew);
+            Graphics newG = Graphics.FromImage(srcBitmap);
             Size szHorz = new Size(widTh, BevW);
             Size szVert = new Size(BevW, heTh);
             // ---- draw dark (shadow) sides first
@@ -135,8 +162,10 @@ namespace Wis.Toolkit.Drawings
             br.Dispose();
             newG.Dispose();
 
-            bitmapNew.Save(destFilename, ImageFormat.Jpeg);
-            bitmapNew.Dispose();
+            destBitmap.Save(destFilename, imageFormat); // ImageFormat.Jpeg
+            destBitmap.Dispose();
+            srcBitmap.Dispose();
+            g.Dispose();
         }
         private static bool ThumbnailCallback() { return false; }
     }
