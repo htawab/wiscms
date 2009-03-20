@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>无标题页</title>
+    <title>权限列表</title>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 body {background:#d6e7f7}
