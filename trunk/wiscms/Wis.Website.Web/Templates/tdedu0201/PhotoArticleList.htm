@@ -40,7 +40,7 @@
     </div>
     <div class="main">
         <div class="left mgnBot">
-            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Category.CategoryGuid, " >> ")$</div>
+            <div class="position">当前位置：<a href="../Default.htm">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, PhotoArticleCategory.CategoryGuid, " >> ")$</div>
             <div class="picNewsBox">
 
                 <script language="javascript">
@@ -82,15 +82,15 @@
                         <tbody>
                             <tr>
                                 <td id="HotSearchList" style="filter: progid:DXImageTransform.Microsoft.GradientWipe(GradientSize=0.25,wipestyle=0,motion=forward)">
-                                    <tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(Category.CategoryGuid, PageIndex, PageSize)$" var="ArticlePhoto" index="Index"><div id="switch_$Index$">
-                                        <a onclick="setClick();" href="$ReleaseDirectory$/$ArticlePhoto.Category.CategoryId$/$ArticlePhoto.DateCreated.Year$-$ArticlePhoto.DateCreated.Month$-$ArticlePhoto.DateCreated.Day$/$ArticlePhoto.ArticleId$.htm" blockid="931" target="_blank"><img alt="$Index$" src="$ArticlePhoto.ThumbnailPath$" /></a></div></tpl:foreach>
+                                    <tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(PhotoArticleCategory.CategoryGuid, PageIndex, PageSize)$" var="PhotoArticle" index="Index"><div id="switch_$Index$">
+                                        <a onclick="setClick();" href="$ReleaseDirectory$/$PhotoArticle.Category.CategoryId$/$PhotoArticle.DateCreated.Year$-$PhotoArticle.DateCreated.Month$-$PhotoArticle.DateCreated.Day$/$PhotoArticle.ArticleId$.htm" blockid="931" target="_blank"><img alt="$Index$" src="$PhotoArticle.ThumbnailPath$" /></a></div></tpl:foreach>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="newsList">
-                        <ul><tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(Category.CategoryGuid, PageIndex, PageSize)$" var="ArticlePhoto" index="Index">
-                            <li><a class="up" id="focus_$Index$" onmouseover="show_focus_image($Index$);" title="a" onclick="setClick();" href="$ReleaseDirectory$/$ArticlePhoto.Category.CategoryId$/$ArticlePhoto.DateCreated.Year$-$ArticlePhoto.DateCreated.Month$-$ArticlePhoto.DateCreated.Day$/$ArticlePhoto.ArticleId$.htm" target="_blank" blockid="931" title="$ArticlePhoto.Title$(<strong>$ArticlePhoto.Hits$</strong>阅 <strong>$ArticlePhoto.Comments$</strong>评)">$Formats.TruncateString(ArticlePhoto.Title, 17)$</a></li></tpl:foreach>
+                        <ul><tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles(PhotoArticleCategory.CategoryGuid, PageIndex, PageSize)$" var="PhotoArticle" index="Index">
+                            <li><a class="up" id="focus_$Index$" onmouseover="show_focus_image($Index$);" title="a" onclick="setClick();" href="$ReleaseDirectory$/$PhotoArticle.Category.CategoryId$/$PhotoArticle.DateCreated.Year$-$PhotoArticle.DateCreated.Month$-$PhotoArticle.DateCreated.Day$/$PhotoArticle.ArticleId$.htm" target="_blank" blockid="931" title="$PhotoArticle.Title$(<strong>$PhotoArticle.Hits$</strong>阅 <strong>$PhotoArticle.Comments$</strong>评)">$Formats.TruncateString(PhotoArticle.Title, 17)$</a></li></tpl:foreach>
                         </ul>
                         <div class="fenye">$Pager$</div>
                     </div>

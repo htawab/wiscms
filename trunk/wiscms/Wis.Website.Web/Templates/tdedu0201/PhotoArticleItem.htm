@@ -1,12 +1,12 @@
-﻿<tpl:set name="Files" value="$CreateTypeReference("Wis.Website.DataManager.FileManager").GetFilesBySubmissionGuid(ArticlePhoto.ArticleGuid)$" />
-<tpl:set name="Comments" value="$CreateTypeReference("Wis.Website.DataManager.CommentManager").GetCommentsBySubmissionGuid(ArticlePhoto.ArticleGuid)$" />
-<tpl:set name="TagArticles" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager").GetArticlesByTag(ArticlePhoto.ArticleGuid, 8)$" />
+﻿<tpl:set name="Files" value="$CreateTypeReference("Wis.Website.DataManager.FileManager").GetFilesBySubmissionGuid(PhotoArticle.ArticleGuid)$" />
+<tpl:set name="Comments" value="$CreateTypeReference("Wis.Website.DataManager.CommentManager").GetCommentsBySubmissionGuid(PhotoArticle.ArticleGuid)$" />
+<tpl:set name="TagArticles" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager").GetArticlesByTag(PhotoArticle.ArticleGuid, 8)$" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <title>$ArticlePhoto.Title$ - 鞍山市铁东区教育局</title>
+    <title>$PhotoArticle.Title$ - 鞍山市铁东区教育局</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
     <script src="$TemplateDirectory$/js/w.js" type="text/javascript"></script>
 </head>
@@ -37,22 +37,22 @@
     </div>
     <div class="main">
         <div class="left mgnBot" id="left">
-            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;<a href="$ReleaseDirectory$/$ArticlePhoto.Category.CategoryId$/1.htm">$ArticlePhoto.Category.CategoryName$</a></div>
-            <h1><tpl:if test="$IsNullOrEmpty(ArticlePhoto.TitleColor)$">$ArticlePhoto.Title$<tpl:else><font color="$ArticlePhoto.TitleColor$">$ArticlePhoto.Title$</font></tpl:if></h1>
-            <tpl:if test="$IsNotEmpty(ArticlePhoto.SubTitle)$"><h2>$ArticlePhoto.SubTitle$</h2></tpl:if>
+            <div class="position"><a href="$ApplicationPath$">首页</a>&nbsp;&gt;&gt;&nbsp;<a href="$ReleaseDirectory$/$PhotoArticle.Category.CategoryId$/1.htm">$PhotoArticle.Category.CategoryName$</a></div>
+            <h1><tpl:if test="$IsNullOrEmpty(PhotoArticle.TitleColor)$">$PhotoArticle.Title$<tpl:else><font color="$PhotoArticle.TitleColor$">$PhotoArticle.Title$</font></tpl:if></h1>
+            <tpl:if test="$IsNotEmpty(PhotoArticle.SubTitle)$"><h2>$PhotoArticle.SubTitle$</h2></tpl:if>
             <div class="h1bot">
-                <span>浏览人数：$ArticlePhoto.Hits$&nbsp;&nbsp;</span>
-                $ArticlePhoto.DateCreated$&nbsp;&nbsp;
-                <tpl:if test="$IsNotEmpty(ArticlePhoto.Author)$">作者：$ArticlePhoto.Author$&nbsp;&nbsp;</tpl:if>
-                <tpl:if test="$IsNotEmpty(ArticlePhoto.Original)$">来源：$ArticlePhoto.Original$</tpl:if>
+                <span>浏览人数：$PhotoArticle.Hits$&nbsp;&nbsp;</span>
+                $PhotoArticle.DateCreated$&nbsp;&nbsp;
+                <tpl:if test="$IsNotEmpty(PhotoArticle.Author)$">作者：$PhotoArticle.Author$&nbsp;&nbsp;</tpl:if>
+                <tpl:if test="$IsNotEmpty(PhotoArticle.Original)$">来源：$PhotoArticle.Original$</tpl:if>
             </div>
-            <tpl:if test="$IsNotEmpty(ArticlePhoto.Summary)$"><div class="summary">$ArticlePhoto.Summary$</div></tpl:if>
+            <tpl:if test="$IsNotEmpty(PhotoArticle.Summary)$"><div class="summary">$PhotoArticle.Summary$</div></tpl:if>
             <div class="contentHtml">
-                <img src="$ArticlePhoto.ThumbnailPath$" /><br />
-                $ArticlePhoto.ContentHtml$<tpl:if test="$Files.Count IsNot 0$">
+                <img src="$PhotoArticle.ThumbnailPath$" /><br />
+                $PhotoArticle.ContentHtml$<tpl:if test="$Files.Count IsNot 0$">
                 <div class="annexDown">附件下载：<tpl:foreach collection="$Files$" var="File"><a href="$File.SaveAsFileName$" target="_blank">$File.OriginalFileName$($File.Size$字节)</a></tpl:foreach></div>
             </tpl:if></div>
-            <div class="review1"><a href="#review" title="我要评论" class="flright">我要评论</a>当前共有 $ArticlePhoto.Comments$ 条评论</div>
+            <div class="review1"><a href="#review" title="我要评论" class="flright">我要评论</a>当前共有 $PhotoArticle.Comments$ 条评论</div>
             <tpl:if test="$Comments.Count IsNot 0$"><div class="review2">
                 <dl><tpl:foreach collection="$Comments$" var="Comment" index="Index">
                     <dt><span style="color: #999">&nbsp;[$Index$楼]</span><span><a href="#">$Comment.Commentator$</a>&nbsp;&nbsp;$Comment.DateCreated$</span><span>$Comment.Title$</span></dt>

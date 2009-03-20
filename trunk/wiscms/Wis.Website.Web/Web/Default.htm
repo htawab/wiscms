@@ -1,0 +1,535 @@
+﻿
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>首页</title>
+    <link href="/Templates/tdedu0201/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/Templates/tdedu0201/css/lightbox.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="/Templates/tdedu0201/js/indexTab.js"></script>
+    <script language="javascript" src="/Templates/tdedu0201/js/picNews.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="headerBox">
+            <img src="/Templates/tdedu0201/images/logo.gif" width="173px" height="53px" />
+            <div class="loginBox">
+                用户名：
+                <input type="text" size="12" />
+                密码：
+                <input type="text" size="12" />
+                <input type="button" class="btn" />
+            </div>
+            <ul>
+                <li class="left"></li>
+                <li><a href="/Web/Default.htm" title="首页">首页</a></li><li class="sep">|</li>
+                <li><a href="/Web/2/1.htm" title="ss">教育动态</a></li><li class="sep">|</li>
+                <li><a href="/Web/35/1.htm" title="教学研究">教学研究</a></li><li class="sep">|</li>
+                <li><a href="meetingList.html" title="会议资源">会议资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">专题信息</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">东师资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">铁东资源</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">铁东教育</a></li><li class="sep">|</li>
+                <li><a href="msfc.html" title="名师风采">名师风采</a></li><li class="sep">|</li>
+                <li><a href="#" title="ss">教育博客</a></li>
+                <li class="right"></li>
+            </ul>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <div class="picNews">
+            <div id="flashcontent01"></div>
+            <script type="text/javascript">
+// <![CDATA[
+//var pics='/Templates/tdedu0201/images/01.jpg|/Templates/tdedu0201/images/02.jpg|/Templates/tdedu0201/images/03.jpg|/Templates/tdedu0201/images/04.jpg|/Templates/tdedu0201/images/05.jpg';		
+//var mylinks='http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/|http://www.tdedu.cn/';
+//var texts='<b>图片新闻描述1</b>|<b>图片新闻描述2</b>|<b>图片新闻描述3</b>|<b>图片新闻描述4</b>|<b>图片新闻描述5</b>';
+//var texts2="图片新闻标题1|图片新闻标题2|图片新闻标题3|图片新闻标题4|图片新闻标题5";
+
+var PhotoArticles = {"Articles": [
+        {"ThumbnailPath": "/Uploads/Photos/2009-3-21/9c8da800-937a-425c-bfa1-a43c368a33ea.jpg", "LinkUrl": "/Web/55/2009-3-21/151.htm", "Title": "找工作的时候要照顾好自己", "Summary": ""},
+        {"ThumbnailPath": "/Uploads/Photos/2009-3-9/8db895f4-2689-4216-be81-1c3a2d7c6704.jpg", "LinkUrl": "/Web/55/2009-3-9/146.htm", "Title": "3招让你上网赚外快（不用…", "Summary": "本文写于2008年9月16日，作者Monika Munde…"},
+        {"ThumbnailPath": "/Uploads/Photos/2009-3-8/01ba0fa8-79c6-4b14-bf4f-583cc92de616.jpg", "LinkUrl": "/Web/55/2009-3-8/145.htm", "Title": "献给网络创业者--101个实…", "Summary": ""},
+        {"ThumbnailPath": "/Uploads/Photos/2009-3-8/83782192-f14c-4c6b-a093-844115d201b3.jpg", "LinkUrl": "/Web/55/2009-3-8/144.htm", "Title": "2009: 中国经济不会迅速反弹", "Summary": ""},
+        {"ThumbnailPath": "/Uploads/Photos/2009-3-7/3e62ade0-6462-47da-82cd-58bd6fab9493.jpg", "LinkUrl": "/Web/55/2009-3-7/143.htm", "Title": "如何善待自己", "Summary": ""}
+    ]
+}; // {"ThumbnailPath": "", "LinkUrl": "", "Title": "", "Summary": ""},
+                    
+var ThumbnailPaths = '';
+var LinkUrls       = '';
+var Titles         = '';
+var Summarys       = '';
+for(var index = 0; index < 5; index++)
+{
+    if(typeof PhotoArticles.Articles[index] != "undefined")
+        ThumbnailPaths += PhotoArticles.Articles[index].ThumbnailPath;
+    if(index != 4) ThumbnailPaths += '|';
+
+    if(typeof PhotoArticles.Articles[index] != "undefined")
+        LinkUrls += PhotoArticles.Articles[index].LinkUrl;
+    if(index != 4) LinkUrls += '|';
+
+    if(typeof PhotoArticles.Articles[index] != "undefined")
+        Titles += PhotoArticles.Articles[index].Title;
+    if(index != 4) Titles += '|';
+
+    if(typeof PhotoArticles.Articles[index] != "undefined")
+        Summarys += PhotoArticles.Articles[index].Summary;
+    if(index != 4) Summarys += '|';    
+}
+
+var eduFlash2 = new eduFlash("/Templates/tdedu0201/flash/vv_new.swf", "eduFlashID01", "662", "180", "7", "#ffffff");
+	eduFlash2.addParam("quality", "high");
+    eduFlash2.addParam("wmode", "opaque");
+	eduFlash2.addParam("salign", "t");	
+	eduFlash2.addVariable("p", ThumbnailPaths);
+	eduFlash2.addVariable("l", LinkUrls);
+	eduFlash2.addVariable("icon", Summarys);
+	eduFlash2.addVariable("icon_2", Titles);
+	eduFlash2.write("flashcontent01");
+// ]]>
+            </script>
+        </div>
+        <div class="meeting outbox">
+            <div class="cap">
+                <a href="#" title="查看更多">更多</a>会议信息</div>
+            <ul class="indexList">
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+                <li><a href="#" title="#">2008-10-13 | 会议信息</a></li>
+            </ul>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="center">
+        <div class="left">
+            <div class="indexleft outbox tabBox height1">
+                <div class="cap">教育动态</div>
+                
+                    <ul class="tab" id="myTabA">
+                        <li class="active" onmouseover="tabsShow(this,0)"><a href="/Web/2/1.htm" target="_blank">党&nbsp;&nbsp;&nbsp;&nbsp;群</a></li>
+                        <li onmouseover="tabsShow(this,1)"><a href="/Web/5/1.htm" target="_blank">纪&nbsp;&nbsp;&nbsp;&nbsp;检</a></li>
+                        <li onmouseover="tabsShow(this,2)"><a href="/Web/6/1.htm" target="_blank">督&nbsp;&nbsp;&nbsp;&nbsp;导</a></li>
+                        <li onmouseover="tabsShow(this,3)"><a href="/Web/7/1.htm" target="_blank">社区办</a></li>
+                        <li onmouseover="tabsShow(this,4)"><a href="/Web/8/1.htm" target="_blank">办公室</a></li>
+                        <li onmouseover="tabsShow(this,5)"><a href="/Web/9/1.htm" target="_blank">中教科</a></li>
+                        <li onmouseover="tabsShow(this,6)"><a href="/Web/10/1.htm" target="_blank">小教科</a></li>
+                        <li onmouseover="tabsShow(this,7)"><a href="/Web/11/1.htm" target="_blank">人事科</a></li>
+                        <li onmouseover="tabsShow(this,8)"><a href="/Web/12/1.htm" target="_blank">计财科</a></li>
+                        <li onmouseover="tabsShow(this,9)"><a href="/Web/13/1.htm" target="_blank">安全科</a></li>
+                        <li onmouseover="tabsShow(this,10)"><a href="/Web/14/1.htm" target="_blank">工&nbsp;&nbsp;&nbsp;&nbsp;会</a></li>
+                        <li onmouseover="tabsShow(this,11)"><a href="/Web/15/1.htm" target="_blank">基建办</a></li>
+                        <li onmouseover="tabsShow(this,12)"><a href="/Web/16/1.htm" target="_blank">信息中心</a></li>
+                    </ul>
+                    <ul class="indexList tabList floatList" id="myTabAconList0">
+                        <li><span class="date">03-16 04:50</span><a href="/Web/2/2009-3-16/150.htm" target="_blank" title="1(0阅 0评)">1</a></li>
+                    
+                        <li><span class="date">02-16 06:51</span><a href="/Web/2/2009-2-16/52.htm" target="_blank" title="向反网络低俗风的勇士们致敬(0阅 0评)">向反网络低俗风的勇士们致敬</a></li>
+                    
+                        <li><span class="date">02-16 06:49</span><a href="/Web/2/2009-2-16/51.htm" target="_blank" title="整治网络低俗之风也要"两手硬"(0阅 0评)">整治网络低俗之风也要"两…</a></li>
+                    
+                        <li><span class="date">02-16 06:43</span><a href="/Web/2/2009-2-16/50.htm" target="_blank" title="整治网络低俗之风功在当代利在千秋(0阅 0评)">整治网络低俗之风功在当代…</a></li>
+                    
+                        <li><span class="date">02-16 06:41</span><a href="/Web/2/2009-2-16/49.htm" target="_blank" title="男子兼7家黄色网站版主 上传大量淫秽信息被擒(0阅 0评)">男子兼7家黄色网站版主 上…</a></li>
+                    
+                        <li><span class="date">02-16 06:39</span><a href="/Web/2/2009-2-16/48.htm" target="_blank" title="首都网络搜索引擎整治低俗见成效(0阅 0评)">首都网络搜索引擎整治低俗…</a></li>
+                    
+                        <li><span class="date">02-16 06:33</span><a href="/Web/2/2009-2-16/47.htm" target="_blank" title="整治网络低俗 严审上传信息(0阅 0评)">整治网络低俗 严审上传信息</a></li>
+                    
+                        <li><span class="date">02-16 05:30</span><a href="/Web/2/2009-2-16/23.htm" target="_blank" title="向网络低俗之风亮剑(0阅 0评)">向网络低俗之风亮剑</a></li>
+                    
+                        <li><span class="date">02-16 05:29</span><a href="/Web/2/2009-2-16/22.htm" target="_blank" title="全国整治互联网低俗之风第七批曝光网站名单(0阅 0评)">全国整治互联网低俗之风第…</a></li>
+                    
+                        <li><span class="date">02-16 05:29</span><a href="/Web/2/2009-2-16/21.htm" target="_blank" title="关于全国整治互联网低俗之风专项行动第二批曝光网站整治情况的通报(0阅 0评)">关于全国整治互联网低俗之…</a></li>
+                    
+                        <li><span class="date">02-16 05:28</span><a href="/Web/2/2009-2-16/20.htm" target="_blank" title="每日博文:整治互联网低俗之风，击中了谁的软肋？(0阅 0评)">每日博文:整治互联网低俗…</a></li>
+                    <li class="more">【<a href="/Web/2/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList1">
+                        <li><span class="date">02-16 06:53</span><a href="/Web/5/2009-2-16/53.htm" target="_blank" title="博客（Web2.0）新时代里程碑(0阅 0评)">博客（Web2.0）新时代里程碑</a></li>
+                    
+                        <li><span class="date">02-16 06:30</span><a href="/Web/5/2009-2-16/46.htm" target="_blank" title="2009年对企业化Web 2.0的八大预测(0阅 0评)">2009年对企业化Web 2.0的…</a></li>
+                    
+                        <li><span class="date">02-16 06:28</span><a href="/Web/5/2009-2-16/45.htm" target="_blank" title="国际：五个最流行的Web 2.0术语的来源(0阅 0评)">国际：五个最流行的Web 2…</a></li>
+                    
+                        <li><span class="date">02-16 06:26</span><a href="/Web/5/2009-2-16/44.htm" target="_blank" title="Websense收购创新技术平台 Web2.0防护增强(0阅 0评)">Websense收购创新技术平台…</a></li>
+                    
+                        <li><span class="date">02-16 06:24</span><a href="/Web/5/2009-2-16/43.htm" target="_blank" title="真正的 Web 2.0: 会战 Web 垃圾信息 第 1 部分(0阅 0评)">真正的 Web 2.0: 会战 We…</a></li>
+                    
+                        <li><span class="date">02-16 06:24</span><a href="/Web/5/2009-2-16/42.htm" target="_blank" title="真正的 Web 2.0: 会战 Web 垃圾信息 第 2 部分(0阅 0评)">真正的 Web 2.0: 会战 We…</a></li>
+                    
+                        <li><span class="date">02-16 06:22</span><a href="/Web/5/2009-2-16/41.htm" target="_blank" title="一呼百应：产品升级 web2.0技术成亮点(0阅 0评)">一呼百应：产品升级 web2…</a></li>
+                    
+                        <li><span class="date">02-16 06:21</span><a href="/Web/5/2009-2-16/40.htm" target="_blank" title="09职场升级WEB2.0时代的职场战争(0阅 0评)">09职场升级WEB2.0时代的职…</a></li>
+                    
+                        <li><span class="date">02-16 06:19</span><a href="/Web/5/2009-2-16/39.htm" target="_blank" title="Web2.0的房地产中介营销(0阅 0评)">Web2.0的房地产中介营销</a></li>
+                    
+                        <li><span class="date">02-16 06:18</span><a href="/Web/5/2009-2-16/38.htm" target="_blank" title="基于开源软件的档案Web2.0网站建设研究(0阅 0评)">基于开源软件的档案Web2.…</a></li>
+                    
+                        <li><span class="date">02-16 06:17</span><a href="/Web/5/2009-2-16/37.htm" target="_blank" title="web2.0时代的内容长尾(0阅 0评)">web2.0时代的内容长尾</a></li>
+                    <li class="more">【<a href="/Web/5/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList2"><li class="more">【<a href="/Web/6/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList3"><li class="more">【<a href="/Web/7/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList4">
+                        <li><span class="date">02-17 11:25</span><a href="/Web/8/2009-2-17/123.htm" target="_blank" title="SEMPO调查揭示搜索引擎新变化(0阅 0评)">SEMPO调查揭示搜索引擎新…</a></li>
+                    <li class="more">【<a href="/Web/8/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList5"><li class="more">【<a href="/Web/9/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList6">
+                        <li><span class="date">02-17 11:40</span><a href="/Web/10/2009-2-17/124.htm" target="_blank" title="付费点击搜索关键词契合度还有待提高(0阅 0评)">付费点击搜索关键词契合度…</a></li>
+                    <li class="more">【<a href="/Web/10/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList7"><li class="more">【<a href="/Web/11/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList8">
+                        <li><span class="date">02-17 11:54</span><a href="/Web/12/2009-2-17/125.htm" target="_blank" title="焦虑白领沉溺搜索引擎 “网搜族”查询自己获取自信(0阅 0评)">焦虑白领沉溺搜索引擎 “…</a></li>
+                    <li class="more">【<a href="/Web/12/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList9"><li class="more">【<a href="/Web/13/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList10"><li class="more">【<a href="/Web/14/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList11"><li class="more">【<a href="/Web/15/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                    <ul class="indexList tabList floatList disnone" id="myTabAconList12">
+                        <li><span class="date">02-17 10:32</span><a href="/Web/16/2009-2-17/122.htm" target="_blank" title="SEMPO调查揭示搜索引擎新变化（2）(0阅 0评)">SEMPO调查揭示搜索引擎新…</a></li>
+                    <li class="more">【<a href="/Web/16/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                   
+            </div>
+            <div class="indexleft2 outbox height1">
+                <div class="cap postion">政策法规
+                    <ul id="laws">
+                        <li class="active" onmouseover="tabsShow(this,0)"><a href="/Web/18/1.htm" target="_blank">法律法规</a></li>
+                        <li onmouseover="tabsShow(this,1)"><a href="/Web/19/1.htm" target="_blank">政策文件</a></li>
+                        <li onmouseover="tabsShow(this,2)"><a href="/Web/20/1.htm" target="_blank">规章制度</a></li>
+                    </ul>
+                </div>
+                <ul class="indexList lowList" id="lawsconList0">
+                    <li><span class="date">02-17 09:57</span><a href="/Web/21/2009-2-17/121.htm" target="_blank" title="对于搜索引擎未来发展的一些想法(0阅 0评)">对于搜索引擎未来发展的一些想法</a></li>
+                
+                    <li><span class="date">02-17 08:04</span><a href="/Web/25/2009-2-17/120.htm" target="_blank" title="对于搜索引擎未来发展的一些想法（2）(0阅 0评)">对于搜索引擎未来发展的一些想法…</a></li>
+                
+                    <li><span class="date">02-17 08:04</span><a href="/Web/24/2009-2-17/119.htm" target="_blank" title="Google的按效果付费（CPA）业务真的适合你吗？(0阅 0评)">Google的按效果付费（CPA）业务…</a></li>
+                
+                    <li><span class="date">02-17 08:03</span><a href="/Web/23/2009-2-17/118.htm" target="_blank" title="广告主：你是否了解站长们的想法？(0阅 0评)">广告主：你是否了解站长们的想法？</a></li>
+                
+                    <li><span class="date">02-17 08:02</span><a href="/Web/22/2009-2-17/117.htm" target="_blank" title="Google收购DoubleClick（1）：背后的动机(0阅 0评)">Google收购DoubleClick（1）：背…</a></li>
+                
+                    <li><span class="date">02-17 07:54</span><a href="/Web/22/2009-2-17/116.htm" target="_blank" title="Google收购DoubleClick（2）：梦想照进现实(0阅 0评)">Google收购DoubleClick（2）：梦…</a></li>
+                
+                    <li><span class="date">02-17 07:53</span><a href="/Web/21/2009-2-17/115.htm" target="_blank" title="微软和Yahoo：携手or 对手?(0阅 0评)">微软和Yahoo：携手or 对手?</a></li>
+                
+                    <li><span class="date">02-17 05:55</span><a href="/Web/25/2009-2-17/92.htm" target="_blank" title="PPC，向前走，向后走？(0阅 0评)">PPC，向前走，向后走？</a></li>
+                
+                    <li><span class="date">02-17 05:54</span><a href="/Web/25/2009-2-17/91.htm" target="_blank" title="2007年PPC搜索市场 令人欢喜令人忧(0阅 0评)">2007年PPC搜索市场 令人欢喜令人忧</a></li>
+                
+                    <li><span class="date">02-17 05:53</span><a href="/Web/24/2009-2-17/90.htm" target="_blank" title="搜索和关联内容中的行销机会（一）(0阅 0评)">搜索和关联内容中的行销机会（一）</a></li>
+                
+                    <li><span class="date">02-17 05:53</span><a href="/Web/23/2009-2-17/89.htm" target="_blank" title="搜索和上下文关联中的行销机会（二）(0阅 0评)">搜索和上下文关联中的行销机会（…</a></li>
+                <li class="more">【<a href="/Web/21/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                <ul class="indexList lowList disnone" id="lawsconList1">
+                    <li><span class="date">02-17 05:00</span><a href="/Web/44/2009-2-17/86.htm" target="_blank" title="SEMPO组织董事会选举，影响搜索业未来(0阅 0评)">SEMPO组织董事会选举，影响搜索…</a></li>
+                
+                    <li><span class="date">02-17 04:59</span><a href="/Web/30/2009-2-17/85.htm" target="_blank" title="关于Affiliate PPC品牌竞购的若干问题(0阅 0评)">关于Affiliate PPC品牌竞购的若…</a></li>
+                
+                    <li><span class="date">02-17 04:58</span><a href="/Web/29/2009-2-17/84.htm" target="_blank" title="搜索对品牌衡量的影响(0阅 0评)">搜索对品牌衡量的影响</a></li>
+                
+                    <li><span class="date">02-17 04:56</span><a href="/Web/28/2009-2-17/83.htm" target="_blank" title="谷歌收购双击，第三方Ad Server的死亡？(0阅 0评)">谷歌收购双击，第三方Ad Server…</a></li>
+                
+                    <li><span class="date">02-17 04:55</span><a href="/Web/27/2009-2-17/82.htm" target="_blank" title="经济衰退：PPC面临挑战还是机遇？(0阅 0评)">经济衰退：PPC面临挑战还是机遇？</a></li>
+                
+                    <li><span class="date">02-17 04:39</span><a href="/Web/27/2009-2-17/81.htm" target="_blank" title="观察：有机搜索目前远远没有饱和(0阅 0评)">观察：有机搜索目前远远没有饱和</a></li>
+                
+                    <li><span class="date">02-17 04:19</span><a href="/Web/27/2009-2-17/80.htm" target="_blank" title="搜索引擎结果页面：神秘VS现实(0阅 0评)">搜索引擎结果页面：神秘VS现实</a></li>
+                
+                    <li><span class="date">02-17 04:17</span><a href="/Web/27/2009-2-17/79.htm" target="_blank" title="关于对微软收购雅虎传奇的一些思考(0阅 0评)">关于对微软收购雅虎传奇的一些思考</a></li>
+                
+                    <li><span class="date">02-17 04:11</span><a href="/Web/27/2009-2-17/78.htm" target="_blank" title="市场对行为型搜索定向广告需求旺盛(0阅 0评)">市场对行为型搜索定向广告需求旺盛</a></li>
+                
+                    <li><span class="date">02-17 04:07</span><a href="/Web/27/2009-2-17/77.htm" target="_blank" title="谷歌内容平台：新战略，新选择(0阅 0评)">谷歌内容平台：新战略，新选择</a></li>
+                
+                    <li><span class="date">02-17 04:05</span><a href="/Web/27/2009-2-17/76.htm" target="_blank" title="谷歌AdSense，成功小贴士(0阅 0评)">谷歌AdSense，成功小贴士</a></li>
+                <li class="more">【<a href="/Web/44/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+                </ul>
+                <ul class="indexList lowList disnone" id="lawsconList2">
+                    <li><span class="date">02-18 12:34</span><a href="/Web/45/2009-2-18/132.htm" target="_blank" title="谷歌密谋MP3语音搜索 “哼歌”也可找到歌曲(0阅 0评)">谷歌密谋MP3语音搜索 “哼歌”也…</a></li>
+                
+                    <li><span class="date">02-18 12:33</span><a href="/Web/34/2009-2-18/131.htm" target="_blank" title="雅虎：Gmail不可能超越我们(0阅 0评)">雅虎：Gmail不可能超越我们</a></li>
+                
+                    <li><span class="date">02-18 12:32</span><a href="/Web/33/2009-2-18/130.htm" target="_blank" title="微软挖角追赶Google 雅虎前高管加盟搜索队伍(0阅 0评)">微软挖角追赶Google 雅虎前高管…</a></li>
+                
+                    <li><span class="date">02-18 12:32</span><a href="/Web/32/2009-2-18/129.htm" target="_blank" title="谷歌雅虎微软联手清理互联网重复网页(0阅 0评)">谷歌雅虎微软联手清理互联网重复…</a></li>
+                
+                    <li><span class="date">02-18 12:31</span><a href="/Web/31/2009-2-18/128.htm" target="_blank" title="谷歌：关闭不佳业务无统一标准(0阅 0评)">谷歌：关闭不佳业务无统一标准</a></li>
+                
+                    <li><span class="date">02-18 12:26</span><a href="/Web/31/2009-2-18/127.htm" target="_blank" title="谷歌欲停售广播广告 40名员工将因此离职(0阅 0评)">谷歌欲停售广播广告 40名员工将…</a></li>
+                
+                    <li><span class="date">02-18 12:23</span><a href="/Web/45/2009-2-18/126.htm" target="_blank" title="外媒评全球最受尊敬企业100强 谷歌暴跌20位(0阅 0评)">外媒评全球最受尊敬企业100强 谷…</a></li>
+                
+                    <li><span class="date">02-17 06:00</span><a href="/Web/45/2009-2-17/97.htm" target="_blank" title="移动浏览器：紧急浏览器还是杀手级应用？(0阅 0评)">移动浏览器：紧急浏览器还是杀手…</a></li>
+                
+                    <li><span class="date">02-17 05:59</span><a href="/Web/34/2009-2-17/96.htm" target="_blank" title="你是否为“渴望搜索者”制定明确计划？(0阅 0评)">你是否为“渴望搜索者”制定明确…</a></li>
+                
+                    <li><span class="date">02-17 05:58</span><a href="/Web/33/2009-2-17/95.htm" target="_blank" title="研究表明：搜索推动产品和电子商务销售(0阅 0评)">研究表明：搜索推动产品和电子商…</a></li>
+                
+                    <li><span class="date">02-17 05:57</span><a href="/Web/32/2009-2-17/94.htm" target="_blank" title="品牌广告买主如何消除对图像广告的偏见？(0阅 0评)">品牌广告买主如何消除对图像广告…</a></li>
+                <li class="more">【<a href="/Web/45/1.htm" target="_blank" title="查看更多">查看更多</a>】</li></ul>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="indexleft outbox tabBox height1">
+                <div class="cap"><a href="#" title="查看更多">更多</a>教学研究</div>
+                <ul class="tab tab2" id="myTabB">
+                    <li class="active" onmouseover="tabsShow(this,0)"><a href="/Web/36/1.htm" target="_blank">师干训</a></li>
+                    <li onmouseover="tabsShow(this,1)"><a href="/Web/37/1.htm" target="_blank">中&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+                    <li onmouseover="tabsShow(this,2)"><a href="/Web/38/1.htm" target="_blank">艺&nbsp;&nbsp;&nbsp;&nbsp;体</a></li>
+                    <li onmouseover="tabsShow(this,3)"><a href="/Web/39/1.htm" target="_blank">幼&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+                    <li onmouseover="tabsShow(this,4)"><a href="/Web/40/1.htm" target="_blank">科&nbsp;&nbsp;&nbsp;&nbsp;研</a></li>
+                    <li onmouseover="tabsShow(this,5)"><a href="/Web/41/1.htm" target="_blank">电&nbsp;&nbsp;&nbsp;&nbsp;教</a></li>
+                    <li onmouseover="tabsShow(this,6)"><a href="/Web/43/1.htm" target="_blank">办公室</a></li>
+                </ul>
+                <ul class="indexList tabList2 floatList" id="myTabBconList0">
+                    <li><span class="date">02-25 01:55</span><a href="/Web/36/2009-2-25/135.htm" target="_blank" title="雅虎整合移动服务 拟支持谷歌Android平台(0阅 0评)">雅虎整合移动服务 拟支持…</a></li>
+                
+                    <li><span class="date">02-17 06:01</span><a href="/Web/36/2009-2-17/98.htm" target="_blank" title="对于可口可乐Google品牌行销和直销的一些认识(0阅 0评)">对于可口可乐Google品牌行…</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList1">
+                    <li><span class="date">02-17 06:01</span><a href="/Web/37/2009-2-17/99.htm" target="_blank" title="假期预算敏感症：给搜索预算制造麻烦？(0阅 0评)">假期预算敏感症：给搜索预…</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList2">
+                    <li><span class="date">02-17 06:02</span><a href="/Web/38/2009-2-17/100.htm" target="_blank" title="企业自行管理VS外包SEM：CMO的行动指南(0阅 0评)">企业自行管理VS外包SEM：…</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList3">
+                    <li><span class="date">02-17 06:03</span><a href="/Web/39/2009-2-17/101.htm" target="_blank" title="竞价广告管理是否已成昨日黄花？(0阅 0评)">竞价广告管理是否已成昨日…</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList4">
+                    <li><span class="date">02-17 06:13</span><a href="/Web/40/2009-2-17/103.htm" target="_blank" title="Google与微软在PPC之外的较量(0阅 0评)">Google与微软在PPC之外的…</a></li>
+                
+                    <li><span class="date">02-17 06:06</span><a href="/Web/40/2009-2-17/102.htm" target="_blank" title="网络行销：对竞争活动的困惑(0阅 0评)">网络行销：对竞争活动的困惑</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList5">
+                    <li><span class="date">02-17 06:15</span><a href="/Web/41/2009-2-17/104.htm" target="_blank" title="搜索中的广告声音占有率(0阅 0评)">搜索中的广告声音占有率</a></li>
+                </ul>
+                <ul class="indexList tabList floatList disnone" id="myTabBconList6">
+                    <li><span class="date">02-17 06:15</span><a href="/Web/43/2009-2-17/105.htm" target="_blank" title="谷歌对决微软：关键字广告之外的竞争(0阅 0评)">谷歌对决微软：关键字广告…</a></li>
+                </ul>
+            </div>
+            <div class="indexleft2 outbox height1">
+                <div class="cap"><a href="/Web/46/1.htm" target="_blank">更多</a>名师风采</div>
+                <div class="msBox">
+                    <div class="msBg"><img src="/Templates/tdedu0201/images/msms.gif" alt="s" /></div>
+                    <h2><a href="/Web/46/2009-2-17/106.htm" target="_blank" title="指定搜索者可能会防碍个性化搜索(0阅 0评)">指定搜索者可能会防碍个性化搜索</a></h2>
+                    <p><span>『<a href="/Web/46/1.htm" target="_blank">查看详细</a>』</span></p>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="right">
+            <div class="sysLink mgnBot">
+                <a href="#" title="会议预订系统">会议预订系统</a><a href="#" title="学籍管理系统">学籍管理系统</a><a href="#" title="人事管理系统">人事管理系统</a><a href="#" title="信息化教学备案">信息化教学备案</a><a href="#" title="信息化设备管理">信息化设备管理</a><a href="#" title="统计报表">统计报表</a><a href="#" title="自助建站管理">自助建站管理</a><a href="#" title="电子期刊管理">电子期刊管理</a><a href="#" title="部门职能">部门职能</a>
+            </div>
+            <div class="areasch outbox height5">
+                <div class="cap mgnBot">学区查询</div>
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <select name="">
+                    <option>办事处名称1</option>
+                </select><span class="red">（填写说明1）</span><br />
+                <img src="/Templates/tdedu0201/images/areaschbtn.gif" width="56" height="21" class="btn" />
+            </div>
+            <div class="outbox height4">
+                <div class="cap">投诉中心</div>
+                <span class="gdh">工单号查询</span><input type="text" class="inputTxt" /><input type="button"
+                    class="tsBtn" /><br />
+                    <input type="button" class="tsBtn2" value="我要投诉" />
+                <ul class="indexList">
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right tdjy">
+            <img src="/Templates/tdedu0201/images/tdjyPic.gif" width="65" height="75" alt="电子杂志" />
+            <div class="line1">
+                <div>《<span class="red">铁东教育</span>》第<span>13</span> 期</div>
+                <select>
+                    <option>铁东教育第13期</option>
+                </select></div>
+            <div class="line2">
+                <div class="lineIn">
+                    <a href="#" title="#">第12期 2008.12</a><br />
+                    <a href="#" title="#">第12期 2008.12</a></div>
+                <input type="button" class="readBtn" /></div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="center">
+        <div class="left">
+            <div class="left mgnBot"><a href="#" title="#"><img src="/Templates/tdedu0201/images/object.gif" width="662" height="84" alt="专题" /></a></div>
+            <div class="indexleft outbox height7">
+                <div class="cap"><a href="/Web/47/1.htm" title="查看更多">更多</a>教学资源</div>
+                <ul class="indexList">
+                    <li><span class="date">03-06 12:44</span><a href="/Web/47/2009-3-6/137.htm" target="_blank" title="电子商务软件 交易及电子事务处理(0阅 0评)">电子商务软件 交易及电子事务处理</a></li>
+                    <li><span class="date">02-17 06:20</span><a href="/Web/47/2009-2-17/107.htm" target="_blank" title="搜索引擎广告新指数：媒体比重占有率(0阅 0评)">搜索引擎广告新指数：媒体比重占…</a></li>
+                </ul>
+            </div>
+            <div class="indexleft2 outbox height7">
+                <div class="cap"><a href="/Web/48/1.htm" title="查看更多">更多</a>空中课堂</div>
+                <ul class="indexList">
+                    <li><span class="date">02-17 06:21</span><a href="/Web/48/2009-2-17/108.htm" target="_blank" title="关键字广告，切莫短视(0阅 0评)">关键字广告，切莫短视</a></li>
+                </ul>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="indexleft outbox height8">
+                <div class="cap"><a href="/Web/49/1.htm" title="查看更多">更多</a>视频资源</div>
+                <ul class="indexList">
+                    <li><span class="date">02-17 06:21</span><a href="/Web/49/2009-2-17/109.htm" target="_blank" title="给雅虎新任CEO杨致远的建议(0阅 0评)">给雅虎新任CEO杨致远的建议</a></li>
+                </ul>
+            </div>
+            <div class="indexleft2 outbox height8">
+                <div class="cap"><a href="#" title="查看更多">更多</a>教育博客</div>
+                <ul class="indexList">
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文标文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文章截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取标题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                    <li><span class="date">2008-10-13</span><a href="#" title="#">文章标题截取文题截取文章标题截取...</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="outbox height3">
+                <div class="cap"><a href="/Web/51/1.htm" title="查看更多">更多</a>视频新闻</div>
+                <div>
+    <div class="scrollBox">
+      <ul>
+		  <li>
+		    <a href="/Web/52/2009-3-16/149.htm" target="_blank" title="为何伤人——只怪伤痛(0阅 0评)"><img src="/Uploads/Videos/2009-3-16/354e1365-c2a5-425d-97f4-a42a4b782f3c.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-3-16/149.htm" target="_blank" title="为何伤人——只怪伤痛(0阅 0评)">为何伤人——只怪伤痛</a>
+		   </li>
+		  <li>
+		    <a href="/Web/52/2009-3-14/148.htm" target="_blank" title="七项可以改变你的生活的小习惯与如何养成它们(0阅 0评)"><img src="/Uploads/Videos/2009-3-14/313ef52f-7ce5-4c3a-8b48-01068a461297.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-3-14/148.htm" target="_blank" title="七项可以改变你的生活的小习惯与如何养成它们(0阅 0评)">七项可以改变你的生活的小习…</a>
+		   </li>
+		  <li>
+		    <a href="/Web/52/2009-3-12/147.htm" target="_blank" title="如何发挥你的潜能——只需拆除你内心的围墙(0阅 0评)"><img src="/Uploads/Videos/2009-3-12/ed7ae86d-778e-4650-94d9-1d50a345b919.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-3-12/147.htm" target="_blank" title="如何发挥你的潜能——只需拆除你内心的围墙(0阅 0评)">如何发挥你的潜能——只需拆…</a>
+		   </li>
+		  <li>
+		    <a href="/Web/52/2009-2-17/114.htm" target="_blank" title="微软的角色：代理商、网站还是广告联盟？(0阅 0评)"><img src="/Uploads/Videos/2009-2-17/7d5fb9de-a666-46b7-915b-70534882f742.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-2-17/114.htm" target="_blank" title="微软的角色：代理商、网站还是广告联盟？(0阅 0评)">微软的角色：代理商、网站还…</a>
+		   </li>
+		  <li>
+		    <a href="/Web/52/2009-2-17/111.htm" target="_blank" title="搜索引擎营销的提案申请准则(0阅 0评)"><img src="/Uploads/Videos/2009-2-17/9d59aab6-74d6-4342-b90b-0bde6dbed26d.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-2-17/111.htm" target="_blank" title="搜索引擎营销的提案申请准则(0阅 0评)">搜索引擎营销的提案申请准则</a>
+		   </li>
+		  <li>
+		    <a href="/Web/52/2009-2-16/2.htm" target="_blank" title="提高从业人员素质 杜绝网络低俗行为(0阅 0评)"><img src="/Uploads/Videos/2009-2-16/5e12d0f6-ab30-492b-8c27-1db46e7359cc.jpg" height="66" width="88" /></a>    
+		    <a href="/Web/52/2009-2-16/2.htm" target="_blank" title="提高从业人员素质 杜绝网络低俗行为(0阅 0评)">提高从业人员素质 杜绝网络…</a>
+		   </li>  
+       </ul>
+    </div>
+   </div>
+  </div>
+            <div class="softdown outbox height6">
+                <div class="cap"><a href="/Web/50/1.htm" title="查看更多">更多</a>软件下载</div>
+                <ul>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯球球</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                    <li><a href="#" title="#">腾讯</a></li>
+                </ul>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="recLink"><a href="#" title="recommendLink"><img src="/Templates/tdedu0201/images/recommendLink.gif" width="322" height="62" /></a></div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="link outbox">
+        <div class="cap">学校链接</div>
+        <a href="#" title="#"><img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="/Templates/tdedu0201/images/link.gif" /></a>
+        <a href="#" title="#">
+            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="/Templates/tdedu0201/images/link.gif" /></a>
+        <a href="#" title="#">
+            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                        <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                                                        <img src="/Templates/tdedu0201/images/link.gif" /></a>
+        <a href="#" title="#">
+            <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                    <img src="/Templates/tdedu0201/images/link.gif" /></a> <a href="#" title="#">
+                        <img src="/Templates/tdedu0201/images/link.gif" /></a>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="bottom">
+        <a href="#">设置首页</a>－<a href="#">加入收藏</a>－<a href="#">版权声明</a>－<a href="#">联系方式</a>－<a
+            href="#">网站地图</a><br />
+        山市铁东区教育局版权所有<br />
+        辽ICP备000000号<div>
+        </div>
+    </div>
+</body>
+</html>
