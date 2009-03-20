@@ -368,6 +368,13 @@
     <Compile Include="Backend\RoleList.aspx.designer.cs">
       <DependentUpon>RoleList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backend\SysConfig.aspx.cs">
+      <DependentUpon>SysConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backend\SysConfig.aspx.designer.cs">
+      <DependentUpon>SysConfig.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backend\SystemManage\CategoryAdd.aspx.cs">
       <DependentUpon>CategoryAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -812,6 +819,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="flash\~vv_new.fla" />
+    <Content Include="Backend\a.html" />
     <Content Include="Backend\ArticleAddLink.htm" />
     <Content Include="Backend\ArticleAddPhoto.aspx" />
     <Content Include="Backend\ArticleAddSoft.aspx" />
@@ -841,6 +849,7 @@
     <Content Include="Backend\CategoryAddNew.aspx" />
     <Content Include="Backend\CategoryList.aspx" />
     <Content Include="Backend\CategoryUpdate.aspx" />
+    <Content Include="Backend\css\leftMenu.css" />
     <Content Include="Backend\GroupAddNew1.aspx" />
     <Content Include="Backend\GroupAddNew2.aspx" />
     <Content Include="Backend\GroupAddNew3.aspx" />
@@ -942,6 +951,7 @@
     <Content Include="Backend\RoleAddNew.aspx" />
     <Content Include="Backend\RoleAddNew2.aspx" />
     <Content Include="Backend\RoleList.aspx" />
+    <Content Include="Backend\SysConfig.aspx" />
     <Content Include="Backend\TemplateList.aspx" />
     <Content Include="Backend\Tools\ffmpeg.exe" />
     <Content Include="Backend\Tools\ffmpeg.txt" />

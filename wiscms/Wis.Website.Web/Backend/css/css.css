@@ -444,13 +444,7 @@ div.blgInfo div.clear {border:0; margin:0; padding:0; font-size:0;}
 
 
 /* 系统配置 */
-.sysconfig {}
-.sysconfig div label {float:left; width:105px;}
-.sysconfig div.clear {clear:both; border:0; font-size:0; padding:0;}
-.sysconfig dl {float:left; margin:0; padding:0; width:510px;}
-.sysconfig dl dd {float:left; width:76px; margin-right:8px; overflow:hidden; margin-bottom:8px;}
-.sysconfig dl dd a img {padding:1px; border:solid 3px #c0c0c0; background:#fff; width:68px; height:68px;}
-.sysconfig dl dd a:hover img {padding:1px; border:solid 3px #ca8c34; background:#fff; width:68px; height:68px;}
+
 
 
 
