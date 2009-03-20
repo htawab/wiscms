@@ -29,7 +29,7 @@ body {background:#d6e7f7}
 
     
     <div class="listBox BlogList">
-    <div class="rightBox_in"><label>博客名称：</label><input type="text" /><input type="button" value="搜索" class="button" /><div class="clear"></div></div>
+    <div class="rightBox_in"><label>博客名称：</label><input type="text" /><input type="image" style="height:auto;" src="images/schbtn.gif" /><div class="clear"></div></div>
     <asp:Repeater ID="RepeaterBlogList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">
