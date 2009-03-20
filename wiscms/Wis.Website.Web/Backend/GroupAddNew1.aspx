@@ -19,13 +19,11 @@
             </asp:SiteMapPath>
     </div>
     
-    
     <div class="listBox">
    <div class="userEdit">
     <div><label>用户组名称：</label><asp:TextBox ID="TextBoxGroupName" runat="server" onfocus="cb(this)" onblur="cb2(this)" Width="240"></asp:TextBox><span>4-12位（英文或数字）</span></div>
     <div class="borBot"><label>用户组描述：</label><asp:TextBox ID="TextBoxGrounpDes" runat="server" onfocus="cb(this)" onblur="cb2(this)" TextMode="MultiLine" Rows="3" Width="280"></asp:TextBox><span>4-12位（英文或数字）</span></div>
-   </div>
-   
+   </div>  
 <script>
 //改变背景色
 function cb(iobj) {
@@ -41,8 +39,6 @@ iDiv.style.background="#fafafa";
   </div>
     
   <div class="add_button"><a href="GroupAddNew2.aspx"><img src="images/nextStep.gif" /></a></div>
-    
-    
-    </form>
+</form>
 </body>
 </html>
