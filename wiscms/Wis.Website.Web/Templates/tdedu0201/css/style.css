@@ -377,8 +377,8 @@ a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; backgr
 
 
 /* 视频新闻 */
-.videoBox {margin:0 auto; background:#000;}/* 可以在这里设置视频宽度 */
-.videoBox OBJECT {}/* 可以在这里设置视频高度 */
+.videoBox {margin:12px auto; margin-top:12px; background:#000; width:480px;}/* 可以在这里设置视频宽度 */
+.videoBox OBJECT { height:360px;  width:480px;}/* 可以在这里设置视频高度 */
 .videoSummary {margin:6px 14px; border-top:1px solid #dce1e5; border-bottom:1px solid #dce1e5; background:#f7fcff; line-height:1.8em; font-size:14px; text-indent:1.5em; padding:3px;}
 /* 视频新闻列表 */
 .videoList1 {}
