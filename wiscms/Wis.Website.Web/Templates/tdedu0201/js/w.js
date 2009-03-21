@@ -17,11 +17,23 @@
      else{return i;}
 }
 
-LRH = window.onload = function() {
+window.onload = function() {
     var left = G('left');
     var right = G('right');
     if(!left || !right) return;
     
+    var leftHeight = left.offsetHeight;
+    var rightHeight = right.offsetHeight;
+    if (leftHeight > rightHeight)
+        right.style.height = leftHeight+"px";
+    else
+        left.style.height = rightHeight+"px";
+}
+LRH = function() {
+    var left = G('left');
+    var right = G('right');
+    if(!left || !right) return;
+    left.style.height = "auto";
     var leftHeight = left.offsetHeight;
     var rightHeight = right.offsetHeight;
     if (leftHeight > rightHeight)

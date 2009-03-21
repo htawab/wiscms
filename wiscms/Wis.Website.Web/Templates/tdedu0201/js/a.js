@@ -1,3 +1,4 @@
+//Ê×Ò³Í¼Æ¬ÂÖ»»
 if(typeof sas == "undefined") var sas = new Object();
 if(typeof sas.ued == "undefined") sas.ued = new Object();
 if(typeof sas.ued.util == "undefined") sas.ued.util = new Object();
@@ -262,3 +263,20 @@ Cookie.prototype.remove = function(){
     
     this.$document.cookie = cookie;
 };
+
+//Index Tab
+function tabsShow(myObj,Num) {
+if (myObj.className == "active") return;
+var tabObj = myObj.parentNode.id;
+var tabLi = document.getElementById(tabObj).getElementsByTagName("li");
+for (i=0; i<tabLi.length; i++) {
+if (i==Num) {
+myObj.className="active";
+document.getElementById(tabObj+"conList"+i).style.display="block";
+}
+else {
+tabLi[i].className="";
+document.getElementById(tabObj+"conList"+i).style.display="none";
+}
+}
+}
