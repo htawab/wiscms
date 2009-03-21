@@ -62,7 +62,7 @@
                     <dt>发表评论</dt>
                     <dd><label><a name="review" id="review"></a>标&nbsp;&nbsp;题：</label><input type="text" name="Title" /></dd>
                     <dd><label>内&nbsp;&nbsp;容：</label><textarea cols="6" rows="4" name="ContentHtml"></textarea></dd>
-                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onFocus="G('CommentVerify').src=G('CommentVerify').src+'?';G('divCommentVerify').style.display='';" /> 请输入验证码，字母不区分大小写</dd>
+                    <dd><label>验证码：</label><input name="Verify" type="text" class="code" onFocus="G('CommentVerify').src=G('CommentVerify').src+'?';G('divCommentVerify').style.display=''; LRH();" /> 请输入验证码，字母不区分大小写</dd>
                     <dd>
                         <dl style="display:none" id="divCommentVerify">
                             <dd><img id="CommentVerify" src="/A/CommentVerify.aspx" alt="看不清？点击更换" onClick="this.src=this.src+'?'" /></dd>

@@ -17,7 +17,7 @@
      else{return i;}
 }
 
-window.onload = function() {
+LRH = window.onload = function() {
     var left = G('left');
     var right = G('right');
     if(!left || !right) return;
