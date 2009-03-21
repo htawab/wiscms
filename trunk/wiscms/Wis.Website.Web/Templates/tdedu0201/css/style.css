@@ -373,9 +373,6 @@ a.downBtn {display:block; width:127px; height:41px; margin:8px 0 0 142px; backgr
 .main .right_2 {width:322px; float:right; background:#fff url(../images/rightBG.gif) 0 -848px repeat-x; _background:#fff url(../images/rightBG.gif) 0 -845px repeat-x;}
 
 
-
-
-
 /* 视频新闻 */
 .videoBox {margin:12px auto; margin-top:12px; background:#000; width:480px;}/* 可以在这里设置视频宽度 */
 .videoBox OBJECT { height:360px;  width:480px;}/* 可以在这里设置视频高度 */

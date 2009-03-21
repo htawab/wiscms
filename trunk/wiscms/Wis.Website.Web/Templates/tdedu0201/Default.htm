@@ -9,9 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>首页</title>
     <link href="$TemplateDirectory$/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="$TemplateDirectory$/css/lightbox.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" src="$TemplateDirectory$/js/indexTab.js"></script>
-    <script language="javascript" src="$TemplateDirectory$/js/picNews.js"></script>
+    <script language="javascript" src="$TemplateDirectory$/js/w.js"></script>
 </head>
 <body>
     <div class="header">
@@ -327,13 +325,58 @@ var eduFlash2 = new eduFlash("$TemplateDirectory$/flash/vv_new.swf", "eduFlashID
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("视频新闻", "")$/1.htm" title="查看更多">更多</a>视频新闻</div>
                 
     <div class="scrollBox"><tpl:set name="VideoArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.VideoArticleManager")$" />
-      <ul><tpl:foreach collection="$VideoArticleManager.GetVideoArticles("工作会议", "视频新闻", 1, 6)$" var="VideoArticle">
-		  <li>
-		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><img src="$VideoArticle.PreviewFramePath$" height="66" width="88" /></a>    
-		    <a href="$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm" target="_blank" title="$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)"><tpl:if test="$IsNullOrEmpty(VideoArticle.Article.TitleColor)$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$<tpl:else><font color="$VideoArticle.Article.TitleColor$">$Formats.TruncateString(VideoArticle.Article.Title, 13)$</font></tpl:if></a>
-		   </li></tpl:foreach>  
-       </ul>
+      <ul id="vUL">
+      
+      </ul>
     </div>
+    
+   
+    
+    <script type="text/javascript">
+       
+       
+       
+       var i=0;
+       function videoScoll() {
+       
+       var videoNews = {"VideoArtical":[<tpl:foreach collection="$VideoArticleManager.GetVideoArticles("工作会议", "视频新闻", 1, 6)$" var="VideoArticle" index="i">
+            {"Caption":"$Formats.TruncateString(VideoArticle.Article.Title, 13)$","Title":"$VideoArticle.Article.Title$($VideoArticle.Article.Hits$阅 $VideoArticle.Article.Comments$评)","Url":"$ReleaseDirectory$/$VideoArticle.Article.Category.CategoryId$/$VideoArticle.Article.DateCreated.Year$-$VideoArticle.Article.DateCreated.Month$-$VideoArticle.Article.DateCreated.Day$/$VideoArticle.Article.ArticleId$.htm","PreviewFramePath":"$VideoArticle.PreviewFramePath$"}<tpl:if test="$NotEquals(i, 6)$">,</tpl:if></tpl:foreach>
+       ]}
+       
+       i<5?i++:i=0;
+
+       var vUL=G("vUL");
+       if (videoNews.VideoArtical[5].Url==null) {
+       vUL.innerHTML="数据读取中";
+       }
+       else {
+       var uHTML="";
+       for (ii=0;ii<=5;ii++){
+           uHTML+='<li><a href="';
+           uHTML+=videoNews.VideoArtical[ii].Url;
+           uHTML+='" target="_blank" title="';
+           uHTML+=videoNews.VideoArtical[ii].Title;
+           uHTML+='"><img src="';
+           uHTML+=videoNews.VideoArtical[ii].PreviewFramePath;
+           uHTML+='" height="66" width="88" /></a>';
+           uHTML+='<a href="';
+           uHTML+=videoNews.VideoArtical[ii].Url;
+           uHTML+='" target="_blank" title="';
+           uHTML+=videoNews.VideoArtical[ii].Title;
+           uHTML+='" target="_blank">';
+           uHTML+=videoNews.VideoArtical[ii].Caption;
+           uHTML+='</a></li>';
+       }
+       vUL.innerHTML=uHTML;
+       }
+    
+       }
+       
+       setInterval("videoScoll()",5000);
+       </script>
+    
+    
+ 
   </div>
             <div class="softdown outbox height6">
                 <div class="cap"><a href="$ReleaseDirectory$/$CategoryManager.GetCategoryIdByCategoryName("软件下载", "")$/1.htm" title="查看更多">更多</a>软件下载</div>
