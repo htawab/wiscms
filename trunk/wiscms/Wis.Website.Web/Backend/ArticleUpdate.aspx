@@ -107,7 +107,10 @@
     <div id="Warning" runat="server"></div>
     <div id="Loading" style="display: none;"><img src='images/loading.gif' align='absmiddle' /> 上传中...</div>
     <div class="add_button">
-      <asp:ImageButton ID="ImageButtonNext" runat="server" ImageUrl="images/nextStep.gif" OnClientClick="javascript:return CheckArticle();" />
+      <asp:ImageButton ID="ImageButtonNext" runat="server" 
+            ImageUrl="images/nextStep.gif" 
+            OnClientClick="javascript:return CheckArticle();" 
+            onclick="ImageButtonNext_Click" />
     </div>
     </form>
 </body>
