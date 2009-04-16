@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<tpl:set name="ArticleManager" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager")$" />
+<tpl:set name="CategoryManager" value="$CreateTypeReference("Wis.Website.DataManager.CategoryManager")$" />
+<tpl:set name="Formats" value="$CreateTypeReference("Wis.Toolkit.Formats")$" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$Article.Title$-北京鑫源隆建材有限公司</title>
+<link href="$TemplateDirectory$/css/css.css" rel="stylesheet" type="text/css" />
+<link href="$TemplateDirectory$/css/nav.css" rel="stylesheet" type="text/css" />
+<script src="$TemplateDirectory$/js/AC_RunActiveContent.js" type="text/javascript"></script>
+
+
+<style>
+p {text-indent:22px; line-height:22px; text-align:left;}
+</style>
+</head>
+
+<body>
+<div id="container_1">
+<!--网站头部 -->
+  <div id="header">
+    <div class="top">
+	 <script type="text/javascript">
+AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','940','height','175','src','$TemplateDirectory$/header','quality','high','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','$TemplateDirectory$/header' ); //end AC code
+</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="940" height="175">
+  <param name="movie" value="$TemplateDirectory$/header.swf" />
+  <param name="quality" value="high" />
+  <embed src="css/header.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="940" height="175"></embed>
+</object></noscript>
+    </div>
+  </div>
+<!--网站导航 -->
+<div id="pointermenu">
+<ul>
+<li><a href="$ReleaseDirectory$/default.htm">&nbsp;&nbsp;首页&nbsp;&nbsp;</a></li>
+<li><a href="$ReleaseDirectory$/1/1.htm">防水系列</a></li>
+<li><a href="$ReleaseDirectory$/2/1.htm">干粉系列</a></li>
+<li><a href="$ReleaseDirectory$/15/1.htm">工程典例</a></li>
+<li><a href="$ReleaseDirectory$/about.htm" id="selected" title="公司简介">公司简介</a></li>
+<li><a href="$ReleaseDirectory$/honor.htm">荣誉证书</a></li>
+<li><a href="$ReleaseDirectory$/contact.htm" >联系我们</a></li>
+<li><a href="$ReleaseDirectory$/msg.htm" >在线留言</a></li>
+</ul>
+
+</div>
+
+ <!--网站中部 -->
+ <div id="content">
+    <div id="left_1">
+	<div class="left_title">网站信息</div>
+	<ul class="menu">
+	<li><span class="menu"><a href="contact.htm">联系我们</a></span></li>
+	<li><span class="menu"><a href="#">免责声明</a></span></li>
+	<li><span class="menu"><a href="#">版权声明</a></span></li>
+	<li><span class="menu"><a href="#">隐私保护</a></span></li>
+	<li><span class="menu"><a href="#">使用条款</a></span></li>
+	</ul>
+	<div  class="left_bg"></div> 
+    </div>
+	<div id="n_middle">
+	   <div class="NewsPaperTitle"><h4>$Article.Title$</h4></div>
+       <img src="$TemplateDirectory$/images/about.jpg" style="margin-top:6px;" />
+            
+	       $Article.ContentHtml$
+	       
+	     
+
+    </div>
+	<div id="right_1">
+	  <div class="right_1title">我们如何可以帮助您？</div>
+	  <ul>
+	    <li><a href="$ReleaseDirectory$/about.htm">查看公司简介</a></li><li><a href="$ReleaseDirectory$/contact.htm">联系我们</a></li><li><a href="$ReleaseDirectory$/15/1.htm">工程典例</a></li>
+	  </ul>
+
+    </div>
+ </div>
+  <div id="bottom"> <span class="Arial">Copyright &copy; 2008 bjxyl.com All Rights Reserved</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 版权所有：北京鑫源隆建材有限公司 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;技术支持：<a href="http://www.everwis.com" target="_blank">北京东方常智科技有限公司</a></div>
+</div>
+</body>
+</html>
