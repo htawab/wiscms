@@ -1,0 +1,53 @@
+#pointermenu{ /*optional border across top*/
+padding-left:9px;width:948px;padding-right:9px;
+}
+
+#pointermenu ul{ /*menu offset from left edge of window*/
+float: left;
+margin: 0px;
+padding-left:20px;
+font: 12px ËÎÌå;
+background-image:url(../images/navbg.gif);
+height:42px; /*optional left round corner*/
+width:920px;
+}
+
+* html #pointermenu ul{ /*IE6 only rule. Decrease ul left margin and add 1em bottom margin*/
+float: left;
+ /*menu offset from left edge of window in IE*/
+}
+
+#pointermenu ul li{
+display: inline;
+}
+
+
+#pointermenu ul li a{
+float: left;
+color: #666666;
+padding: 8px 8px 0px 7px;
+text-decoration: none;
+}
+
+#pointermenu ul li a:visited{
+color: #666666;padding-top:9px;
+}
+
+#pointermenu ul li a:hover{ /*hover and selected link*/
+color: #666666;
+background: url(../images/otherbg_1.gif) no-repeat;
+height:34px;
+}
+
+
+#pointermenu ul li a#selected{ /*hover and selected link*/
+color: white;
+background: url(../images/otherbg.gif) no-repeat;
+height:34px;
+}
+
+/*ËÑË÷*/
+.Search{float:right;margin-top:-45px;width:240px;text-align:left;}
+.SearchText{float:left;width:60px;padding-top:12px;}
+.textbox{float:left;height:18px; border:1px solid #B4C9C2;margin-top:6px; }
+.SearchButton{float:left;margin-top:6px;}
