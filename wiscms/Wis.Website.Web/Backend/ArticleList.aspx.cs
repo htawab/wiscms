@@ -128,18 +128,13 @@ namespace Wis.Website.Web.Backend
                 MessageBox("错误提示", "文章编号必须为整数");
                 return;
             }
+            
+            // 添加操作日志
+            DataManager.LogManager logManager = new DataManager.LogManager();
+            int iExecuteNonQuery = 0;
+
             Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
             Wis.Website.DataManager.Article article = articleManager.GetArticle(articleId);
-            int iExecuteNonQuery = articleManager.Remove(article.ArticleGuid);
-            if (iExecuteNonQuery > 0)
-            {
-                Warning.InnerHtml = "删除成功！";
-            }
-            else
-            {
-                Warning.InnerHtml = "删除失败！";
-            }
-
 #warning 删除与该文章相关的图片、视频、软件
 
             // 重新生成静态页面和关联页面
@@ -147,16 +142,22 @@ namespace Wis.Website.Web.Backend
             switch (article.Category.ArticleType)
             {
                 case 1://ArticleType.Normal:
+                    iExecuteNonQuery = articleManager.Remove(article.ArticleGuid);
+                    logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
                     releaseManager.ReleasingRemovedArticle(article);
                     break;
                 case 2://ArticleType.Photo:
                     ArticlePhotoManager articlePhotoManager = new ArticlePhotoManager();
                     ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(article.ArticleGuid);
+                    iExecuteNonQuery = articleManager.Remove(articlePhoto.ArticleGuid);
+                    logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", articlePhoto.ArticleGuid, articlePhoto.Title, System.DateTime.Now);
                     releaseManager.ReleasingRemovedPhotoArticle(articlePhoto);
                     break;
                 case 3://ArticleType.Video:
                     VideoArticleManager videoArticleManager = new VideoArticleManager();
                     VideoArticle videoArticle = videoArticleManager.GetVideoArticle(article.ArticleGuid);
+                    iExecuteNonQuery = articleManager.Remove(videoArticle.Article.ArticleGuid);
+                    logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", videoArticle.Article.ArticleGuid, videoArticle.Article.Title, System.DateTime.Now);
                     releaseManager.ReleasingRemovedVideoArticle(videoArticle);
                     break;
                 //case ArticleType.Soft:
@@ -167,9 +168,14 @@ namespace Wis.Website.Web.Backend
                 //    break;
             }
 
-            // 添加操作日志
-            DataManager.LogManager logManager = new DataManager.LogManager();
-            logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
+            if (iExecuteNonQuery > 0)
+            {
+                Warning.InnerHtml = "删除成功！";
+            }
+            else
+            {
+                Warning.InnerHtml = "删除失败！";
+            }
 
             // 重新绑定新闻列表
             BindRepeater();
