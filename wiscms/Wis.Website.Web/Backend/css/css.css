@@ -384,10 +384,10 @@ li.Operate a:hover {background:#f6f6f6;  background:#f00; color:#5281ab; color:#
 
 /* 普通新闻管理 */
 .artcleList ul li.listSort {width:88px; border-left:solid 1px #a3b5cd;}
-.artcleList ul li.listTitle {width:328px;}
+.artcleList ul li.listTitle {width:318px;}
 .artcleList ul li.listTime {width:128px;}
-.artcleList ul li.listUser { width:110px;}
-.artcleList ul li.listOperate {width:132px;}
+.artcleList ul li.listUser { width:89px;}
+.artcleList ul li.listOperate {width:170px;}
 .artcleList ul.top li {}
 
 
