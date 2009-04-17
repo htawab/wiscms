@@ -51,8 +51,9 @@
             <div class="AticleSch">
                 <label>搜索内容：</label><input id="SearchKeywords" type="text" value="<%=Request["Keywords"] %>" onkeydown="if(event.keyCode==13){Search_ClientClick(true);return false;}"/><A id="linkSearch" href="#" target="_blank"><IMG id="imgSearchButton" onclick="Search_ClientClick(false);return false;" alt="搜索" src="images/schbtn.gif" /></A>
                 <a href='ArticleAddNew.aspx?CategoryGuid=<% =Request["CategoryGuid"] %>' class="addNews">添加新闻</a>
-             <div class="clear"></div>
+                <div class="clear"></div>
             </div>
+            <div id="Warning" runat="server"></div>
             <asp:Repeater ID="RepeaterArticleList" runat="server">
             <HeaderTemplate>
                 <ul class="top" style="background-color:#c6daed">
@@ -69,7 +70,7 @@
                     <li class="listTitle"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'><%# DataBinder.Eval(Container.DataItem, "Title")%></a></li>
                     <li class="listTime"><%# DataBinder.Eval(Container.DataItem, "DateCreated")%></li>
                     <li class="listUser"><%# DataBinder.Eval(Container.DataItem, "Author")%></li>
-                    <li class="listOperate Operate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton></li>
+                    <li class="listOperate Operate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton>&nbsp;<asp:LinkButton ID="LinkButtonRelease" runat="server" OnClientClick="return confirm('确认发布吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonRelease_Click">发布</asp:LinkButton></li>
                 </ul>
             </ItemTemplate>
             <AlternatingItemTemplate>
@@ -78,12 +79,11 @@
                     <li class="listTitle"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'><%# DataBinder.Eval(Container.DataItem, "Title")%></a></li>
                     <li class="listTime"><%# DataBinder.Eval(Container.DataItem, "DateCreated")%></li>
                     <li class="listUser"><%# DataBinder.Eval(Container.DataItem, "Author")%></li>
-                    <li class="listOperate Operate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton></li>
+                    <li class="listOperate Operate"><a href='<%=ReleaseDirectory %>/<%# DataBinder.Eval(Container.DataItem, "Category.CategoryId")%>/<%# DataBinder.Eval(Container.DataItem, "DateCreated.Year")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Month")%>-<%# DataBinder.Eval(Container.DataItem, "DateCreated.Day")%>/<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>.htm' target='_blank'>预览</a>&nbsp;<a href="ArticleUpdate.aspx?ArticleId=<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>">修改</a>&nbsp;<asp:LinkButton ID="LinkButtonDelete" runat="server" OnClientClick="return confirm('确认删除吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonDelete_Click">删除</asp:LinkButton>&nbsp;<asp:LinkButton ID="LinkButtonRelease" runat="server" OnClientClick="return confirm('确认发布吗?');" CommandName='<%# DataBinder.Eval(Container.DataItem, "ArticleId")%>'  OnCommand="LinkButtonRelease_Click">发布</asp:LinkButton></li>
                 </ul>
             </AlternatingItemTemplate>
             </asp:Repeater>
-            <div class="clear">
-            </div>
+            <div class="clear"></div>
             <div class="page" style="width: 786px;">
                 <Wis:MiniPager ID="MiniPager1" runat="server"></Wis:MiniPager>
             </div>
