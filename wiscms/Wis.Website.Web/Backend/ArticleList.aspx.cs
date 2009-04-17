@@ -122,7 +122,6 @@ namespace Wis.Website.Web.Backend
         /// <param name="e"></param>
         protected void LinkButtonDelete_Click(object sender, CommandEventArgs e)
         {
-#warning 使用 ArticleGuid
             int articleId;
             if(int.TryParse(e.CommandName, out articleId) == false)
             {
@@ -131,6 +130,17 @@ namespace Wis.Website.Web.Backend
             }
             Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
             Wis.Website.DataManager.Article article = articleManager.GetArticle(articleId);
+            int iExecuteNonQuery = articleManager.Remove(article.ArticleGuid);
+            if (iExecuteNonQuery > 0)
+            {
+                Warning.InnerHtml = "删除成功！";
+            }
+            else
+            {
+                Warning.InnerHtml = "删除失败！";
+            }
+
+#warning 删除与该文章相关的图片、视频、软件
 
             // 重新生成静态页面和关联页面
             DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
@@ -157,17 +167,6 @@ namespace Wis.Website.Web.Backend
                 //    break;
             }
 
-#warning 删除与该文章相关的图片信息、视频信息、软件信息、
-            int iExecuteNonQuery = articleManager.Remove(article.ArticleGuid);
-            if (iExecuteNonQuery > 0)
-            {
-                MessageBox("操作提示", "删除成功！");
-            }
-            else
-            {
-                MessageBox("操作提示", "删除失败！");
-            }
-
             // 添加操作日志
             DataManager.LogManager logManager = new DataManager.LogManager();
             logManager.AddNew(Guid.NewGuid(), Guid.Empty, "删除新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
@@ -175,5 +174,54 @@ namespace Wis.Website.Web.Backend
             // 重新绑定新闻列表
             BindRepeater();
         }
+
+        /// <summary>
+        /// 发布文章。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void LinkButtonRelease_Click(object sender, CommandEventArgs e)
+        {
+            int articleId;
+            if (int.TryParse(e.CommandName, out articleId) == false)
+            {
+                MessageBox("错误提示", "文章编号必须为整数");
+                return;
+            }
+            Wis.Website.DataManager.ArticleManager articleManager = new Wis.Website.DataManager.ArticleManager();
+            Wis.Website.DataManager.Article article = articleManager.GetArticle(articleId);
+
+            // 重新生成静态页面和关联页面
+            DataManager.ReleaseManager releaseManager = new DataManager.ReleaseManager();
+            switch (article.Category.ArticleType)
+            {
+                case 1://ArticleType.Normal:
+                    releaseManager.ReleasingArticle(article);
+                    break;
+                case 2://ArticleType.Photo:
+                    ArticlePhotoManager articlePhotoManager = new ArticlePhotoManager();
+                    ArticlePhoto articlePhoto = articlePhotoManager.GetArticlePhoto(article.ArticleGuid);
+                    releaseManager.ReleasingPhotoArticle(articlePhoto);
+                    break;
+                case 3://ArticleType.Video:
+                    VideoArticleManager videoArticleManager = new VideoArticleManager();
+                    VideoArticle videoArticle = videoArticleManager.GetVideoArticle(article.ArticleGuid);
+                    releaseManager.ReleasingVideoArticle(videoArticle);
+                    break;
+                //case ArticleType.Soft:
+                //    releaseManager.ReleasingRemovedSoftArticle(article);
+                //    break;
+                //case ArticleType.Link:
+                //    releaseManager.ReleasingRemovedLinkArticle(article);
+                //    break;
+            }
+
+            MessageBox("操作提示", "发布成功！");
+            //MessageBox("操作提示", "发布失败！");
+
+            // 添加操作日志
+            DataManager.LogManager logManager = new DataManager.LogManager();
+            logManager.AddNew(Guid.NewGuid(), Guid.Empty, "发布新闻", article.ArticleGuid, article.Title, System.DateTime.Now);
+        }        
     }
 }

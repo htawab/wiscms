@@ -1,6 +1,7 @@
 ﻿<tpl:set name="Files" value="$CreateTypeReference("Wis.Website.DataManager.FileManager").GetFilesBySubmissionGuid(Article.ArticleGuid)$" />
 <tpl:set name="Comments" value="$CreateTypeReference("Wis.Website.DataManager.CommentManager").GetCommentsBySubmissionGuid(Article.ArticleGuid)$" />
 <tpl:set name="TagArticles" value="$CreateTypeReference("Wis.Website.DataManager.ArticleManager").GetArticlesByTag(Article.ArticleGuid, 8)$" />
+<tpl:set name="CategoryManager" value="$CreateTypeReference("Wis.Website.DataManager.CategoryManager")$" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,7 +38,7 @@
     </div>
     <div class="main">
         <div class="left mgnBot" id="left">
-            <div class="position">当前位置：<a href="$ApplicationPath$">首页</a>&gt;&gt;$Article.Category.CategoryName$</div>
+            <div class="position">当前位置：<a href="$ApplicationPath$">首页</a> >> $CategoryManager.GetSiteMapPath(ReleaseDirectory, Article.Category.CategoryGuid, " >> ")$</div>
             <h1><tpl:if test="$IsNullOrEmpty(Article.TitleColor)$">$Article.Title$<tpl:else><font color="$Article.TitleColor$">$Article.Title$</font></tpl:if></h1>
             <tpl:if test="$IsNotEmpty(Article.SubTitle)$"><h2>$Article.SubTitle$</h2></tpl:if>
             <div class="h1bot">
