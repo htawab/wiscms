@@ -33,7 +33,7 @@ namespace Wis.Toolkit.WebControls
 }}
 #{0} a 	
 {{
-	border:1px solid #ddd;
+	border:1px solid #b6d0e9;
 	text-decoration:none;
 	padding:0 6px;
 	color:#886db4;
@@ -44,14 +44,14 @@ namespace Wis.Toolkit.WebControls
 }}
 #{0} a:hover	
 {{
-	border:1px solid #999;
+	border:1px solid #b6d0e9;
 	text-decoration:underline;
 	color:#fff;
 	background:#c48c4b;
 }}
 #{0} a.pageLeft:hover	
 {{
-	border:1px solid #ddd;
+	border:1px solid #9aafe5;
 	text-decoration:none;
 	padding:0 6px;
 	color:#886db4;
@@ -63,11 +63,12 @@ namespace Wis.Toolkit.WebControls
 
 #{0} a.currentPager
 {{
-	border:1px solid #fcc;
+	border:1px solid #5999d4;
 	text-decoration:none;
-	background:#f0f0f0;
-    color:#f00;
+	background:#7eb8ee;
+    color:#fff;
     cursor:default;
+font-weight:bold;
 }}
 #{0} a:hover.currentPager
 {{
@@ -79,17 +80,17 @@ namespace Wis.Toolkit.WebControls
 }}
 #{0} a.noLink
 {{
-	border:1px solid #fcc;
+	border:1px solid #c2c2c2;
 	text-decoration:none;
-    background:#fafafa;
+    background:#fff;
     color:#999;
     cursor:default;
 }}
 #{0} a.noLink:hover
 {{
-	border:1px solid #fcc;
+	border:1px solid #c2c2c2;
 	text-decoration:none;
-    background:#fafafa;
+    background:#fff;
     color:#999;
     cursor:default;
 	
@@ -148,7 +149,7 @@ namespace Wis.Toolkit.WebControls
 
             if (prevPage < 1)
             {
-                sb.Append("<a class='noLink' href='javascript:()'>首页</a>");
+                sb.Append("<a class='noLink'>首页</a>");
                 sb.Append("<a class='noLink'>上一页</a>");
             }
             else
@@ -197,8 +198,8 @@ namespace Wis.Toolkit.WebControls
             }
             if (nextPage > pageCount)
             {
-                sb.Append("<span>下一页</span>");
-                sb.Append("<span>尾页</span>");
+                sb.Append("<a class='noLink'>下一页0</a>");
+                sb.Append("<a class='noLink'>尾页</a>");
             }
             else
             {
