@@ -38,8 +38,7 @@
 <body style="background: #d6e7f7">
 <form runat="server" id="ArticleListForm">
     <div class="right">
-        <div id="Position">
-            所在位置：
+        <div id="Position">所在位置：
             <asp:SiteMapPath ID="MySiteMapPath" runat="server" PathSeparator=" » ">
                 <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
                 <CurrentNodeStyle ForeColor="#333333" />
