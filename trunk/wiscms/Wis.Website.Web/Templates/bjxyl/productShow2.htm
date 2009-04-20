@@ -47,7 +47,6 @@
 <li><a href="$ReleaseDirectory$/about.htm" title="公司简介">公司简介</a></li>
 <li><a href="$ReleaseDirectory$/honor.htm">荣誉证书</a></li>
 <li><a href="$ReleaseDirectory$/contact.htm" >联系我们</a></li>
-<li><a href="$ReleaseDirectory$/msg.htm" >在线留言</a></li>
 </ul>
 
 </div>
@@ -57,8 +56,13 @@
     <div id="left_1">
 	<div class="left_title" style="over-flow:hidden;">$Formats.TruncateString(PhotoArticle.Category.CategoryName, 10)$</div>
 	<ul class="menu">
-	<tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles("$PhotoArticle.Category.CategoryName$", "")$"  var="PhotoArticle" index="Index">
-    <li><a href="$ReleaseDirectory$/$PhotoArticle.Category.CategoryId$/$PhotoArticle.DateCreated.Year$-$PhotoArticle.DateCreated.Month$-$PhotoArticle.DateCreated.Day$/$PhotoArticle.ArticleId$.htm" title="$PhotoArticle.Title$">$Formats.TruncateString(PhotoArticle.Title, 11)$</a></li>
+	<tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles("$PhotoArticle.Category.CategoryName$", "")$"  var="PhotoArticleItem" index="Index">
+    <li><a href="$ReleaseDirectory$/$PhotoArticleItem.Category.CategoryId$/$PhotoArticleItem.DateCreated.Year$-$PhotoArticleItem.DateCreated.Month$-$PhotoArticleItem.DateCreated.Day$/$PhotoArticleItem.ArticleId$.htm" title="$PhotoArticleItem.Title$">$Formats.TruncateString(PhotoArticleItem.Title, 11)$</a></li>
+    </tpl:foreach>
+    
+    
+    <tpl:foreach collection="$ArticlePhotoManager.GetPhotoArticles("$PhotoArticle.Category.CategoryName$", "")$"  var="PhotoArticleItem" index="Index">
+    <li><a href="$ReleaseDirectory$/$PhotoArticleItem.Category.CategoryId$/$PhotoArticleItem.DateCreated.Year$-$PhotoArticleItem.DateCreated.Month$-$PhotoArticleItem.DateCreated.Day$/$PhotoArticleItem.ArticleId$.htm" title="$PhotoArticleItem.Title$">$Formats.TruncateString(PhotoArticleItem.Title, 11)$</a></li>
     </tpl:foreach>
     
 	</ul>
@@ -86,7 +90,7 @@
 
     </div>
  </div>
-  <div id="bottom"> <span class="Arial">Copyright &copy; 2008 bjxyl.com All Rights Reserved</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 版权所有：北京鑫源隆建材有限公司 &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;技术支持：<a href="http://www.everwis.com" target="_blank">北京东方常智科技有限公司</a></div>
+  <div id="bottom"><span class="Arial">Copyright &copy; 2008 bjxyl.com All Rights Reserved</span>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; 版权所有：北京鑫源隆建材有限公司 &nbsp; &nbsp;（诚召四川总代理） &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;技术支持：<a href="http://www.everwis.com" target="_blank">北京东方常智科技有限公司</a></div>
 </div>
 </body>
 </html>
