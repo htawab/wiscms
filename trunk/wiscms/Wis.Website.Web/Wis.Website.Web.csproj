@@ -52,7 +52,6 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="JavaScript\Ajax.js" />
     <Content Include="JavaScript\Website.js" />
     <Content Include="JavaScript\Pager.js" />
     <Content Include="Web.config" />
@@ -798,10 +797,8 @@
     <Content Include="Templates\tdedu0201\js\cycle.js" />
     <Content Include="Templates\tdedu0201\js\indexTab.js" />
     <Content Include="Templates\tdedu0201\js\picNews.js" />
-    <Content Include="Templates\tdedu0201\jxyjList.html" />
     <Content Include="Templates\tdedu0201\ArticleItem.htm" />
     <Content Include="Templates\tdedu0201\ArticleList.htm" />
-    <Content Include="Templates\tdedu0201\laws1.html" />
     <Content Include="Templates\tdedu0201\meetingList.html" />
     <Content Include="Templates\tdedu0201\msfc.html" />
     <Content Include="Templates\tdedu0201\uploads\picnews001.jpg" />
