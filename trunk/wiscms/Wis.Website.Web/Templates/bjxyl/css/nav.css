@@ -1,4 +1,4 @@
-#pointermenu{ /*optional border across top*/
+ï»¿#pointermenu{ /*optional border across top*/
 padding-left:9px;width:948px;padding-right:9px;
 }
 
@@ -6,7 +6,7 @@ padding-left:9px;width:948px;padding-right:9px;
 float: left;
 margin: 0px;
 padding-left:20px;
-font: 12px ËÎÌå;
+font: 12px å®‹ä½“;
 background-image:url(../images/navbg.gif);
 height:42px; /*optional left round corner*/
 width:920px;
@@ -46,7 +46,7 @@ background: url(../images/otherbg.gif) no-repeat;
 height:34px;
 }
 
-/*ËÑË÷*/
+/*æœç´¢*/
 .Search{float:right;margin-top:-45px;width:240px;text-align:left;}
 .SearchText{float:left;width:60px;padding-top:12px;}
 .textbox{float:left;height:18px; border:1px solid #B4C9C2;margin-top:6px; }
