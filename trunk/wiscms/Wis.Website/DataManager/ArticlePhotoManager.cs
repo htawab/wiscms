@@ -22,6 +22,26 @@ namespace Wis.Website.DataManager
             DbProviderHelper.GetConnection();
         }
 
+        public static List<ArticlePhoto> GetPhotoArticles(string categoryName, string parentCategoryName)
+        {
+            DbProviderHelper.GetConnection();
+
+#warning TODO:对 categoryName 进行注入式攻击防范
+            if (string.IsNullOrEmpty(categoryName))
+                throw new System.ArgumentNullException("categoryName");
+            if (string.IsNullOrEmpty(parentCategoryName))
+                parentCategoryName = string.Empty;
+
+#warning TODO:修改为StoredProcedure
+            string commandText = string.Format("select * from View_PhotoArticle where CategoryName='{0}' and ParentCategoryName='{1}'", categoryName, parentCategoryName);
+            //string commandText = string.Format("select * from View_PhotoArticle where ArticleGuid='{1}'", categoryName, parentCategoryName);
+            DbCommand command = DbProviderHelper.CreateCommand(commandText, CommandType.Text);
+            //command.Parameters.Add(DbProviderHelper.CreateParameter("@ReleaseGuid", DbType.Guid, releaseGuid));
+            DbDataReader dataReader = DbProviderHelper.ExecuteReader(command);
+            return GetArticlePhotos(dataReader);
+        }
+
+
         public static List<ArticlePhoto> GetPhotoArticles(string categoryName, string parentCategoryName, int pageIndex, int pageSize)
         {
             DbProviderHelper.GetConnection();
